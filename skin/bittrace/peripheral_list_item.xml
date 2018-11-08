@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+  <Font name="宋体" size="10" bold="false" italic="false" />
+  <Font name="MS Sans Serif" size="22" bold="true" italic="false" />
+
+  <PeriperaInfolListElement>
+      <VerticalLayout name="main_layout" height="18" width="900">
+        <HorizontalLayout name="event_info_layout" >
+          <Option name="filtering" text="" float="true" pos="2,2,16,16" textpadding="2,0,0,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="left" normalimage="file=&apos;check_box.png&apos; dest=&apos;1,1,14,14&apos; source=&apos;13,0,26,13&apos;" hotimage="file=&apos;check_box.png&apos; dest=&apos;0,0,15,15&apos; source=&apos;41,0,56,15&apos;" pushedimage="file=&apos;check_box.png&apos; dest=&apos;0,0,15,15&apos; source=&apos;26,0,41,15&apos;" hottextcolor="#FFD3215F" selectedimage="file=&apos;check_box.png&apos; dest=&apos;1,1,14,14&apos; source=&apos;0,0,13,13&apos;" selectedhotimage="file=&apos;check_box.png&apos; dest=&apos;1,1,14,14&apos; source=&apos;0,0,13,13&apos;" />
+          <ListSubElementEx name="name" width="16" height="16" font="1" align="left" />
+        </HorizontalLayout>
+      </VerticalLayout>
+      <!--<VerticalLayout name="all_stack_layout" height="32" visible="false">
+        <HorizontalLayout width="900" padding="0, 0, 0, 0">
+          <ListSubElementEx name="all_call_stack" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" align="center" />
+        </HorizontalLayout>
+      </VerticalLayout >-->
+  </PeriperaInfolListElement>
+</Window>

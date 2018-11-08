@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window bktrans="true" size="160,220">
+ <Font name="宋体" size="13" bold="false"/>
+ <Font name="宋体" size="12"/>
+<VerticalLayout bkimage="file='menu_bk.png' corner='30,3,3,3'" hole="false">
+	<List header="hidden" inset="30,8,8,8" itemhotimage="file='menu_hot_bk.png' corner='0,0,0,0'" itemdisabledbkcolor="#20000000">
+    <ListContainerElement name="menu_jump_to" height="22" inset="2,0,0,0">
+      <Label name="menu_item_jump_to" text="跳转至" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_search" height="22" inset="2,0,0,0">
+      <Label name="menu_item_search" text="在线查找" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_include_it" height="22" inset="2,0,0,0">
+      <Label name="menu_item_include_it" text="" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_exclude_it" height="22" inset="2,0,0,0">
+      <Label name="menu_item_exclude_it" text="" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_begin_time" height="22" inset="2,0,0,0">
+      <Label name="menu_item_begin_time" text="" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_end_time" height="22" inset="2,0,0,0">
+      <Label name="menu_item_end_time" text="" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_hilight_it" height="22" inset="2,0,0,0">
+      <Label name="menu_item_hilight_it" text="" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_copy" height="22" inset="2,0,0,0">
+      <Label name="menu_item_copy" text="拷贝" mouse="false"/>
+    </ListContainerElement>
+    <!--<ListContainerElement name="menu_include" height="22" inset="2,0,0,0">
+      <Label name="menu_item_include" text="包含..." mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_exclude" height="22" inset="2,0,0,0">
+      <Label name="menu_item_exclude" text="排除..." mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_hilight" height="22" inset="2,0,0,0">
+      <Label name="menu_item_hilight" text="高亮显示..." mouse="false"/>
+    </ListContainerElement>-->
+    <!--<ListContainerElement name="menu_properties" height="22" inset="2,0,0,0">
+      <Label name="menu_item_properties" text="属性" mouse="false"/>
+    </ListContainerElement>
+    <ListContainerElement name="menu_stack" height="22" inset="2,0,0,0">
+      <Label name="menu_item_stack" text="堆栈" mouse="false"/>
+    </ListContainerElement>-->
+    <ListContainerElement name="menu_data_size" height="32" inset="2,0,0,0">
+      <VerticalLayout>
+      <Label name="menu_item_data_size"  tooltip="!:数据量大会影响系统工作性能" text="数据记录量:" mouse="false"/>
+      <Slider name="slider_data_size" tooltip="!:数据量大会影响系统工作性能" pos="0,0,0,12" height="12" bkimage="file=&apos;bg.bmp&apos; corner=&apos;6,0,6,0&apos; mask=&apos;#FFFF00FF&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" fgimage="file=&apos;fg.bmp&apos; corner=&apos;6,0,6,0&apos; mask=&apos;#FFFF00FF&apos;" min="0" max="360" value="180" hor="true" thumbimage="file=&apos;thumb.bmp&apos; source=&apos;30,0,40,10&apos; mask=&apos;#FFDAEBF9&apos;" thumbhotimage="file=&apos;thumb.bmp&apos; source=&apos;10,0,20,10&apos; mask=&apos;#FFDAEBF9&apos;" thumbsize="10,10" />
+      </VerticalLayout>
+    </ListContainerElement>
+  </List>
+</VerticalLayout>
+</Window>

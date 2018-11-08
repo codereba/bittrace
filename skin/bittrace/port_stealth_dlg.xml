@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="600,350" sizebox="4,4,6,6" caption="0,0,0,30">
+    <VerticalLayout name="VerticalLayoutUI1" pos="388,166,448,196" width="60" height="30">
+        <VerticalLayout name="VerticalLayoutUI2" pos="321,33,921,58" width="600" height="25" />
+        <HorizontalLayout name="HorizontalLayoutUI1" pos="375,157,975,477" width="600" height="320">
+            <VerticalLayout name="VerticalLayoutUI3" pos="120,165,125,485" width="5" height="320" />
+            <VerticalLayout name="VerticalLayoutUI4" pos="154,137,744,457" width="590" height="320">
+                <Button name="ButtonUI1" float="true" pos="24,22,574,87" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI2" float="true" pos="25,104,575,169" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI3" float="true" pos="24,187,574,252" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+            </VerticalLayout>
+            <VerticalLayout name="VerticalLayoutUI5" pos="597,108,602,428" width="5" height="320" />
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI2" pos="510,349,1110,354" width="600" height="5" />
+    </VerticalLayout>
+</Window>

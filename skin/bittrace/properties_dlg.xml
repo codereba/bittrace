@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window>
+  <VerticalLayout name="form_layout" width="400" height="400" bkcolor="#FFF0FBFF">
+    <HorizontalLayout width="403" height="43">
+      <Option name="event_prop" text="Event" float="true" pos="21,12,0,0" width="60" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" group="properies" align="center" />
+      <Option name="process_prop" text="Process" float="true" pos="81,12,0,0" width="60" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" group="properies" align="center" />
+      <Option name="stack_prop" text="Stack" float="true" pos="140,12,0,0" width="60" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" group="properies" align="center" />
+    </HorizontalLayout>
+
+    <HorizontalLayout width="403" height="309" bkcolor="#FFF0FBFF" />
+    <Option float="true" pos="32,370,0,0" width="137" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+    <Button name="copy_all_btn" text="Copy All" float="true" pos="236,362,0,0" width="60" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+    <Button name="close_btn" text="Close" float="true" pos="330,362,0,0" width="60" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+    <Button float="true" pos="11,380,0,0" width="15" height="13" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+    <Button float="true" pos="12,355,0,0" width="14" height="14" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+    </HorizontalLayout>
+  </VerticalLayout>
+</Window>

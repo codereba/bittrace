@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="500,250" sizebox="4,4,6,6" caption="0,0,0,30">
+    <VerticalLayout name="VerticalLayoutUI1" pos="407,185,467,215" width="60" height="30" bkcolor="#FF35393D">
+        <VerticalLayout name="VerticalLayoutUI2" pos="0,0,500,25" width="500" height="25" />
+        <HorizontalLayout name="HorizontalLayoutUI1" pos="350,155,850,375" width="500" height="220">
+            <VerticalLayout name="VerticalLayoutUI3" pos="242,137,247,357" width="5" height="220" />
+            <VerticalLayout name="VerticalLayoutUI4" pos="115,151,605,371" width="490" height="220" bkcolor="#FFFFFBF0">
+                <Button name="ButtonUI1" float="true" pos="23,7,88,29" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI2" float="true" pos="89,7,154,29" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <HorizontalLayout name="HorizontalLayoutUI3" pos="0,0,490,30" width="490" height="30" />
+                <HorizontalLayout name="HorizontalLayoutUI4" pos="0,30,490,220" width="490" height="190">
+                    <Combo name="ComboUI1" float="true" pos="211,38,430,68" dropboxsize="0,150" itemtextcolor="#FF000000" itemselectedtextcolor="#FF000000" itemselectedbkcolor="#FFC1E3FF" itemhottextcolor="#FF000000" itemhotbkcolor="#FFE9F5FF" itemdisabledtextcolor="#FFCCCCCC" itemdisabledbkcolor="#FFFFFFFF" />
+                    <Button name="ButtonUI3" float="true" pos="303,153,378,175" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                    <Button name="ButtonUI4" float="true" pos="387,153,462,175" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                    <Text name="TextUI1" float="true" pos="29,38,190,68" textpadding="2,0,2,0" align="wrap" />
+                </HorizontalLayout>
+            </VerticalLayout>
+            <VerticalLayout name="VerticalLayoutUI5" pos="497,145,502,365" width="5" height="220" />
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI2" pos="322,248,822,253" width="500" height="5" />
+    </VerticalLayout>
+</Window>

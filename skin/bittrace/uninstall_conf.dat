@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<installation>
+<file name="sevenfw.exe" service="secu_mon" version="2,0,0,292" compare="4" true_install_action="7" false_install_action="7" true_prepare_action="1" false_prepare_action="0" />
+</installation>

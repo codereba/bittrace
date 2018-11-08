@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="600,467" sizebox="4,4,6,6" caption="0,0,0,30">
+    <HorizontalLayout name="form_layout" pos="0,0,600,480" width="600" height="480">
+        <VerticalLayout name="left_boder_layout" pos="87,148,92,428" width="5" height="280" />
+        <VerticalLayout name="middle_layout" pos="5,0,593,459" width="588" height="459">
+            <HorizontalLayout name="top_layout" pos="0,0,586,21" width="586" height="21" />
+            <HorizontalLayout name="title_layout" pos="0,20,583,97" width="583" height="77" bkimage="file=&apos;msg_tip_title.png&apos; dest=&apos;0,0,383,77&apos; source=&apos;0,0,383,77&apos;">
+                <Text name="title_txt" float="true" pos="171,23,369,54" textpadding="2,0,2,0" align="wrap" />
+            </HorizontalLayout>
+            <HorizontalLayout name="text_layout" pos="0,97,587,455" width="587" height="358" bkcolor="#FFFFFBF0">
+                <Text name="msg_txt" float="true" pos="51,40,576,305" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Button name="yes_btn" text="是" float="true" pos="397,323,472,346" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Button name="no_btn" text="否" float="true" pos="488,321,563,344" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Button name="ButtonUI1" float="true" pos="13,31,33,51" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI2" float="true" pos="13,58,33,78" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI3" float="true" pos="11,79,31,99" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI4" float="true" pos="11,109,31,129" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI5" float="true" pos="15,130,35,150" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI6" float="true" pos="8,156,28,176" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI7" float="true" pos="10,187,30,207" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI8" float="true" pos="10,223,30,243" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI9" float="true" pos="10,254,30,274" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI10" float="true" pos="10,280,30,300" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI11" float="true" pos="9,310,29,330" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI12" float="true" pos="14,336,34,356" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI13" float="true" pos="38,328,58,348" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button name="ButtonUI14" float="true" pos="13,7,33,27" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+            </HorizontalLayout>
+        </VerticalLayout>
+        <VerticalLayout name="right_border_layout" pos="388,0,396,270" width="8" height="270" />
+    </HorizontalLayout>
+</Window>

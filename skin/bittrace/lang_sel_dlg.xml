@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="300,115" sizebox="4,4,6,6" caption="0,0,0,36" roundcorner="4,4">
+    <Font name="宋体" size="12" bold="false" italic="false" default="true" />
+    <VerticalLayout name="form_layout" pos="0,0,300,135" width="300" height="135" bkimage="file=&apos;winbk.bmp&apos; corner=&apos;4,48,4,4&apos; mask=&apos;#FFFF00FF&apos;" inset="4,0,4,4">
+        <HorizontalLayout name="caption_layout" pos="0,0,300,25" width="300" height="25">
+            <Button name="close_btn" float="true" pos="269,7,294,18" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" hotimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" pushedimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" hotbkclr="#0F8FC42E" pushedbkclr="#0F749A2E" bkfade="130" bkstyle="2" />            
+            <Label name="title_label" text="选择语言" float="true" pos="17,4,178,21" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" />
+        </HorizontalLayout>
+        <HorizontalLayout name="lower_layout" pos="4,25,304,115" width="300" height="90">
+            <Container name="ContainerUI1" pos="0,0,292,87" width="292" height="87" bkcolor="#FFFFFFFF">
+                <Button name="ok_btn" text="设置" tooltip="设置语言" float="true" pos="14,51,89,74" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" />
+                <Label name="lang_tip_label" text="语言:" float="true" pos="24,20,79,37" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="right" />
+                <Combo name="lang_combo"  tooltip="请点击这里选择语言" float="true" pos="86,17,266,39" normalimage="file=&apos;Combo_nor.png&apos; corner=&apos;2,2,24,2&apos;" hotimage="file=&apos;Combo_over.png&apos; corner=&apos;2,2,24,2&apos;" pushedimage="file=&apos;Combo_over.png&apos; corner=&apos;2,2,24,2&apos;" dropboxsize="0,150" itemtextcolor="#FF000000" itemselectedtextcolor="#FF000000" itemselectedbkcolor="#FFC1E3FF" itemhottextcolor="#FF000000" itemhotbkcolor="#FFE9F5FF" itemdisabledtextcolor="#FFCCCCCC" itemdisabledbkcolor="#FFFFFFFF" >
+				<ListLabelElement text="中文" selected="true" />
+				<ListLabelElement text="English" />
+				</Combo>
+                <Button name="cancel_btn" text="取消" float="true" pos="205,51,280,74" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" />
+            </Container>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

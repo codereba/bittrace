@@ -1,0 +1,49 @@
+PAINTING PROCESS:
+1.CALCULATE THE REGION TO PAINING.
+2.SET THE CONTROLS OF THE REGIONS TO NEED REPAINT
+3.SEND INVALID REGION NOTIFY THE WIN32 SUBSYSTEM.
+4.RECEIVE PAINT MESSAGE,PROCESS: 
+	(1) CALCULATE THE CONTROLS IN THE PAINT REGION.
+	(2) REDRAW THE CONTROLS.
+	
+REDRAW DETAIL,HARD PROBLEM:
+1.THE CONTAINED REGION MAYBE SCROLLED.
+2.THE SUB CONTROLS IN ONE CONTROL MAYBE ADJUST SIZE AND POSITION.
+3.THE CONTANT IN THE CONTROL MAYBE CHANGED.
+
+TRAVERSE ALL CONTROL TO PAINTING WHOLE UI AND HAVE TOO MORE CONTROLS IS BAD PERFORMANCE REASON.
+
+PAINTING METHOD:
+1.EVERY CONTROL HAVE ITS OWN BITMAP.BUT MORE COMPLEX.
+2.ONE SAVED BACK IMAGE,REUSED IT WHEN NOTHING CHANGED.
+
+paining process design:
+
+1 one control's content changed:
+need paint controls:
+1.this control
+
+2.sub controls changed size or position:
+1.all sub controls which is changed size or position.
+2.container control
+
+3.scrolled 
+1.container control that's the owner of the scrollbar.
+2.all sub control which have fixed location, becase all sub controls will changed they position when scrolled.
+
+correct painting order:
+1.first draw container control.
+2.draw sub controls by its nature order later.
+
+painting content:
+the pixel matrix of this control.
+
+painting content change mode:
+1.containt changed, some pixel color changed.(and some special change:sizing etc.)
+2.position changed, the position of the pixel matrix changed.
+
+painting precisely:
+1.locate the region exactly and which is must the smallest region which paint containt changed.
+2.locate the controls directly.
+3.draw the controls smallest, only draw the smallest region that painting containt changed.
+

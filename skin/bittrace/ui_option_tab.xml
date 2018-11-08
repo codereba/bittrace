@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="590,340" sizebox="4,4,6,6" caption="0,0,0,30">
+    <VerticalLayout name="form_layout" width="300" height="135" bkimage="file=&apos;winbk.bmp&apos; corner=&apos;4,48,4,4&apos; mask=&apos;#FFFF00FF&apos;" inset="4,0,4,4">
+        <HorizontalLayout name="caption_layout" width="583" height="25">
+            <Label name="title_label" text="选择语言" float="true" pos="17,4,0,0" width="161" height="17" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" />
+        </HorizontalLayout>
+        <HorizontalLayout name="lower_layout" width="583" height="90">
+            <Container width="453" height="87" bkcolor="#FFFFFFFF">
+                <!--<Button name="ui_ok_btn" text="设置" tooltip="设置符号路径" float="true" pos="357,51,0,0" width="75" height="23" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" />
+                <Label name="lang_tip_label" text="符号路径:" float="true" pos="14,20,0,0" width="55" height="17" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="right" />
+                <Edit name="symbol_path" tooltip="符号路径" float="true" pos="75,19,0,0" width="297" height="18" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Button text="..." tooltip="浏览" float="true" pos="377,18,0,0" width="55" height="19" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" />-->
+              <Button name="ui_ok_btn" text="设置" tooltip="设置语言" float="true" pos="14,51,89,74" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,23&apos; source=&apos;0,0,75,23&apos;" />
+              <Label name="lang_tip_label" text="语言:" float="true" pos="24,20,79,37" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="right" />
+              <Combo name="lang_combo"  tooltip="请点击这里选择语言" float="true" pos="86,17,266,39" normalimage="file=&apos;Combo_nor.png&apos; corner=&apos;2,2,24,2&apos;" hotimage="file=&apos;Combo_over.png&apos; corner=&apos;2,2,24,2&apos;" pushedimage="file=&apos;Combo_over.png&apos; corner=&apos;2,2,24,2&apos;" dropboxsize="0,150" itemtextcolor="#FF000000" itemselectedtextcolor="#FF000000" itemselectedbkcolor="#FFC1E3FF" itemhottextcolor="#FF000000" itemhotbkcolor="#FFE9F5FF" itemdisabledtextcolor="#FFCCCCCC" itemdisabledbkcolor="#FFFFFFFF" >
+                <ListLabelElement text="中文" selected="true" />
+                <ListLabelElement text="English" />
+              </Combo>
+            </Container>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

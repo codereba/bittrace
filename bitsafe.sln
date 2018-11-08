@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crashrpt", "CrashRpt\reporting\crashrpt\crashrpt.vcproj", "{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bittrace", "bittrace\bittrace.vcproj", "{75F14B40-B35D-42A7-8321-133A0BC33BBF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DuiLib", "DuiLib\DuiLib2003.vcproj", "{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		UnicodeDebug|Win32 = UnicodeDebug|Win32
+		UnicodeDebug|x64 = UnicodeDebug|x64
+		UnicodeRelease|Win32 = UnicodeRelease|Win32
+		UnicodeRelease|x64 = UnicodeRelease|x64
+		UnicodeReleaseEn|Win32 = UnicodeReleaseEn|Win32
+		UnicodeReleaseEn|x64 = UnicodeReleaseEn|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeDebug|Win32.ActiveCfg = UnicodeDebug|Win32
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeDebug|Win32.Build.0 = UnicodeDebug|Win32
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeDebug|x64.ActiveCfg = UnicodeDebug|x64
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeDebug|x64.Build.0 = UnicodeDebug|x64
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeRelease|Win32.ActiveCfg = Release|Win32
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeRelease|Win32.Build.0 = Release|Win32
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeRelease|x64.ActiveCfg = Release|x64
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeRelease|x64.Build.0 = Release|x64
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeReleaseEn|Win32.ActiveCfg = UnicodeReleaseEn|Win32
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeReleaseEn|Win32.Build.0 = UnicodeReleaseEn|Win32
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeReleaseEn|x64.ActiveCfg = UnicodeReleaseEn|x64
+		{F7B9F07E-50E2-49AC-AB7A-B865F485BE81}.UnicodeReleaseEn|x64.Build.0 = UnicodeReleaseEn|x64
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeDebug|Win32.ActiveCfg = UnicodeDebug|Win32
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeDebug|Win32.Build.0 = UnicodeDebug|Win32
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeDebug|x64.ActiveCfg = UnicodeDebug|x64
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeDebug|x64.Build.0 = UnicodeDebug|x64
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeRelease|x64.ActiveCfg = UnicodeRelease|x64
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeRelease|x64.Build.0 = UnicodeRelease|x64
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeReleaseEn|Win32.ActiveCfg = UnicodeReleaseEn|Win32
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeReleaseEn|Win32.Build.0 = UnicodeReleaseEn|Win32
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeReleaseEn|x64.ActiveCfg = UnicodeReleaseEn|x64
+		{75F14B40-B35D-42A7-8321-133A0BC33BBF}.UnicodeReleaseEn|x64.Build.0 = UnicodeReleaseEn|x64
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeDebug|Win32.ActiveCfg = UnicodeDebug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeDebug|Win32.Build.0 = UnicodeDebug|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeDebug|x64.ActiveCfg = UnicodeDebug|x64
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeDebug|x64.Build.0 = UnicodeDebug|x64
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeRelease|Win32.ActiveCfg = UnicodeRelease|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeRelease|Win32.Build.0 = UnicodeRelease|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeRelease|x64.ActiveCfg = UnicodeRelease|x64
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeRelease|x64.Build.0 = UnicodeRelease|x64
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeReleaseEn|Win32.ActiveCfg = UnicodeReleaseEn|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeReleaseEn|Win32.Build.0 = UnicodeReleaseEn|Win32
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeReleaseEn|x64.ActiveCfg = UnicodeReleaseEn|x64
+		{E106ACD7-4E53-4AEE-942B-D0DD426DB34E}.UnicodeReleaseEn|x64.Build.0 = UnicodeReleaseEn|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

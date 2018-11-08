@@ -1,0 +1,94 @@
+; -- NETSF_M.INF --
+;
+; SevenFw Miniport INF file
+;
+; Copyright (c) 2007-2011, BalanceSoft Corporation
+
+; ----------------------------------------------------------------------
+; Notes:
+; 0. The term "filter" is used here to refer to an NDIS IM driver that
+;    implements a 1:1 relationship between upper and lower bindings.
+; 1. Items specifically required for a filter have been marked with
+;    "!!--Filter Specific--!!" keyword
+; 2. A filter DOES NOT require a notify object for proper installation.
+;    A notify object is only required if one wants to have better control
+;    over binding operations or if one wants to receive notifications
+;    when other components get installed/removed/bound/unbound.
+;    This sample uses a notify object as an example only. If you do not
+;    want to use a notify object, please comment out the lines that add
+;    ClsId and ComponentDll registry keys.
+; ----------------------------------------------------------------------
+
+[Version]
+signature  = "$Windows NT$"
+Class      = Net
+ClassGUID  = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider   = %Bsft%
+CatalogFile=sevenfw_m.cat
+DriverVer  =03/20/2011,1.0.0.1
+
+[ControlFlags]
+ExcludeFromSelect = ms_sevenfwmp
+
+[DestinationDirs]
+DefaultDestDir=12
+; No files to copy 
+
+[Manufacturer]
+%Bsft% = MSFT,NTx86,NTia64,NTamd64
+
+;For Win2K
+
+[MSFT]
+%SevenFWMP_Desc% = SevenFWMP.ndi, ms_sevenfwmp
+
+;For WinXP and later
+
+[MSFT.NTx86]
+%SevenFWMP_Desc% = SevenFWMP.ndi, ms_sevenfwmp
+
+[MSFT.NTia64]
+%SevenFWMP_Desc% = SevenFWMP.ndi, ms_sevenfwmp
+
+[MSFT.NTamd64]
+%SevenFWMP_Desc% = SevenFWMP.ndi, ms_sevenfwmp
+
+
+[SevenFWMP.ndi]
+AddReg  = SevenFWMP.ndi.AddReg
+Characteristics = 0x29 ;NCF_NOT_USER_REMOVABLE | NCF_VIRTUAL | NCF_HIDDEN
+
+[SevenFWMP.ndi.AddReg]
+HKR, Ndi, Service,  0,  SevenFWMP
+
+[SevenFWMP.ndi.Services]
+AddService = SevenFWMP,0x2, SevenFWMP.AddService
+
+
+[SevenFWMP.AddService]
+ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
+StartType      = 3 ;SERVICE_DEMAND_START
+ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\sevenfw.sys
+AddReg         = SevenFWMP.AddService.AddReg
+
+
+[SevenFWMP.AddService.AddReg]
+; ----------------------------------------------------------------------
+; Add any miniport-specific parameters here.  These are params that your
+; filter device is going to use.
+;
+;HKR, Parameters, ParameterName,  0x10000, "MultiSz", "Parameter", "Value"
+;HKR, Parameters, ParameterName2, 0x10001, 4
+
+[Strings]
+Bsft = "Microsoft"
+SevenFWMP_Desc = "SevenFW Miniport"
+
+[SourceDisksNames]
+;None 
+
+[SourceDisksFiles]
+;None
+
+

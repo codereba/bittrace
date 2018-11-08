@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="393,467" sizebox="4,4,6,6" caption="0,0,0,30">
+    <HorizontalLayout name="form_layout" pos="142,114,202,144" width="60" height="30">
+        <VerticalLayout name="left_boder_layout" pos="87,148,92,428" width="5" height="280" />
+        <VerticalLayout name="middle_layout" pos="5,0,388,459" width="383" height="459">
+            <HorizontalLayout name="top_layout" pos="204,53,587,73" width="383" height="20" />
+            <HorizontalLayout name="title_layout" pos="204,53,587,130" width="383" height="77" bkimage="file=&apos;msg_tip_title.png&apos; dest=&apos;0,0,383,77&apos; source=&apos;0,0,383,77&apos;">
+                <Text name="title_txt" float="true" pos="171,23,369,54" textpadding="2,0,2,0" align="wrap" />
+            </HorizontalLayout>
+            <HorizontalLayout name="text_layout" pos="0,97,383,455" width="383" height="358" bkcolor="#FFFFFBF0">
+                <Text name="msg_txt" float="true" pos="88,31,339,51" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Button name="yes_btn" text="是" float="true" pos="208,317,283,340" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Button name="no_btn" text="否" float="true" pos="303,317,378,340" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Label name="LabelUI1" text="事件源信息:" float="true" pos="23,10,98,24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI2" text="会话ID:" float="true" pos="35,204,92,219" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI3" text="行为类型:" float="true" pos="37,317,94,332" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI4" text="名称:" float="true" pos="25,81,82,96" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI5" text="版本:" float="true" pos="24,101,81,116" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI6" text="路径:" float="true" pos="26,125,83,140" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI7" text="命令行:" float="true" pos="24,145,81,160" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI8" text="父进程:" float="true" pos="30,179,116,197" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI9" text="进程ID:" float="true" pos="26,159,86,179" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI10" text="平台:" float="true" pos="127,163,269,182" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI11" float="true" pos="108,232,362,251" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI12" text="用户:" float="true" pos="37,232,97,252" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI13" float="true" pos="107,258,201,278" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI14" text="开始时间:" float="true" pos="35,261,95,281" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI15" float="true" pos="117,289,371,308" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI16" float="true" pos="43,288,103,308" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI17" float="true" pos="26,27,74,73" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Text name="TextUI1" float="true" pos="89,57,340,77" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Label name="LabelUI18" text="虚拟化:" float="true" pos="124,187,266,206" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI19" text="完整度:" float="true" pos="123,207,265,226" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI20" text="开始时间:" float="true" pos="45,271,105,291" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI21" float="true" pos="117,268,211,288" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+            </HorizontalLayout>
+        </VerticalLayout>
+        <VerticalLayout name="right_border_layout" pos="389,194,394,474" width="5" height="280" />
+    </HorizontalLayout>
+</Window>

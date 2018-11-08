@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+  <ListContainerElement>
+    <HorizontalLayout name="tree_item" >
+	
+      <VerticalLayout name="icon_container" width="20">
+        <Button name="icon" width="16" height="16" />
+      </VerticalLayout>
+	  
+      <VerticalLayout >
+        <HorizontalLayout>
+          <Label name="desc_text" width="500" bordersize="0" textcolor="#FF808080" />
+        </HorizontalLayout>
+      </VerticalLayout>
+	  
+    </HorizontalLayout>
+  </ListContainerElement>
+</Window>

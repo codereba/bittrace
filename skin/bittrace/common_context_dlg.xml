@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="393,467" sizebox="4,4,6,6" caption="0,0,0,30">
+    <HorizontalLayout name="form_layout" width="60" height="30">
+        <VerticalLayout name="middle_layout" width="383" height="459">
+            <HorizontalLayout name="text_layout" width="383" height="454" bkcolor="#FFFFFBF0">
+                <Text name="msg_txt" float="true" pos="120,13,0,0" width="251" height="20" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Button name="yes_btn" text="是" float="true" pos="208,317,0,0" width="75" height="23" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Button name="no_btn" text="否" float="true" pos="303,317,0,0" width="75" height="23" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Label text="时间:" float="true" pos="23,15,0,0" width="57" height="16" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="线程:" float="true" pos="25,37,0,0" width="57" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="行为类型:" float="true" pos="25,60,0,0" width="57" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="行为名称:" float="true" pos="25,81,0,0" width="57" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="行为源:" float="true" pos="24,101,0,0" width="57" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="行为目标:" float="true" pos="26,125,0,0" width="57" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="耗时:" float="true" pos="26,145,0,0" width="57" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="行为属性:" float="true" pos="26,170,0,0" width="86" height="18" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="40,198,0,0" width="60" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="114,199,0,0" width="254" height="19" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="111,228,0,0" width="254" height="19" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="37,229,0,0" width="60" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="111,256,0,0" width="254" height="19" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="37,255,0,0" width="60" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="117,289,0,0" width="254" height="19" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label float="true" pos="43,288,0,0" width="60" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+            </HorizontalLayout>
+        </VerticalLayout>
+    </HorizontalLayout>
+</Window>

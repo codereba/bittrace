@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="600,400" sizebox="4,4,6,6" caption="0,0,0,30">
+    <VerticalLayout name="form_layout" pos="422,214,482,244" width="60" height="30" bkcolor="#FF35393D">
+        <HorizontalLayout name="HorizontalLayoutUI1" pos="0,0,600,25" width="600" height="25" />
+        <HorizontalLayout name="HorizontalLayoutUI2" pos="444,160,1044,535" width="600" height="375">
+            <VerticalLayout name="VerticalLayoutUI1" pos="98,164,103,534" width="5" height="370" />
+            <HorizontalLayout name="HorizontalLayoutUI3" pos="356,148,946,518" width="590" height="370">
+                <VerticalLayout name="VerticalLayoutUI2" pos="0,0,470,370" width="470" height="370" />
+                <VerticalLayout name="VerticalLayoutUI3" pos="508,168,628,538" width="120" height="370">
+                    <Button name="ButtonUI1" float="true" pos="27,11,102,34" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                    <Button name="ButtonUI2" float="true" pos="27,52,102,75" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                    <Button name="ButtonUI3" float="true" pos="27,93,102,116" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                    <Button name="ButtonUI4" float="true" pos="27,132,102,155" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                    <Button name="ButtonUI5" float="true" pos="27,169,102,192" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                    <Button name="ButtonUI6" float="true" pos="27,213,102,236" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                </VerticalLayout>
+            </HorizontalLayout>
+            <HorizontalLayout name="HorizontalLayoutUI4" pos="597,162,602,532" width="5" height="370" />
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window bktrans="true" size="150,106">
+ <Font name="宋体" size="13" bold="false"/>
+ <Font name="宋体" size="12"/>
+<VerticalLayout name="menu_layout" bkimage="file='menu_bk.png' corner='30,3,3,3'" hole="false">
+	<List name="icon_menu" header="hidden" inset="30,8,8,8" itemhotimage="file='menu_hot_bk.png' corner='0,0,0,0'" itemdisabledbkcolor="#20000000">
+		<ListContainerElement name="menu_open" height="22" inset="2,0,0,0">
+			<Label name="open_lbl" text="打开" mouse="false"/>
+		</ListContainerElement>
+		<ListContainerElement name="menu_login" height="22" inset="2,0,0,0">
+			<Label name="login_lbl" text="登陆" mouse="false"/>
+		</ListContainerElement>
+		<ListContainerElement name="menu_work_mode" height="22" inset="2,0,0,0">
+			<Label name="work_mode_lbl" text="设置工作模式" mouse="false"/>
+		</ListContainerElement>
+		<ListContainerElement name="menu_exit" height="22" inset="2,0,0,0">
+			<Label name="exit_lbl" text="退出" mouse="false"/>
+		</ListContainerElement>
+	</List>
+</VerticalLayout>
+</Window>

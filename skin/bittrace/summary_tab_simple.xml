@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="630,400" sizebox="4,4,6,6" caption="0,0,0,30">
+    <Font name="MS Sans Serif" size="11" bold="true" italic="false" />
+    <VerticalLayout name="form_layout" pos="1,0,61,30" width="60" height="30" bkcolor="#FFFFFFFF">
+        <HorizontalLayout name="upper_space" pos="0,0,628,30" width="628" height="30" />
+        <HorizontalLayout name="fw_panel" pos="0,30,627,170" width="627" height="140">
+            <VerticalLayout name="fw_panel_left_space" pos="0,0,5,140" width="5" height="140" />
+            <VerticalLayout name="fw_panel_left" pos="5,0,12,140" width="7" height="140" bkimage="file=&apos;summary_bar_left.png&apos; dest=&apos;0,0,7,139&apos; source=&apos;0,0,7,139&apos; corner=&apos;4,4,0,0&apos;" />
+            <VerticalLayout name="fw_panel_mid" pos="12,0,620,140" width="608" height="140" bkimage="file=&apos;summary_bar_mid.png&apos; dest=&apos;0,0,608,139&apos; source=&apos;0,0,1,139&apos;">
+                <Label name="fw_icon" float="true" pos="15,18,66,69" bkimage="file=&apos;fw_icon_summ.png&apos; dest=&apos;0,0,43,51&apos; source=&apos;0,0,43,51&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Text name="fw_active_txt" float="true" pos="161,17,561,31" bkimage="file=&apos;active.png&apos; dest=&apos;0,0,10,10&apos; source=&apos;0,0,10,10&apos;" textpadding="2,0,2,0" align="wrap" />
+                <Text name="fw_upload_left" text="共上传" float="true" pos="164,51,219,76" bkimage="file=&apos;upload.png&apos; dest=&apos;0,0,13,24&apos; source=&apos;0,0,13,24&apos;" textpadding="16,6,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Text name="fw_download_left" text="共下载" float="true" pos="164,78,219,106" bkimage="file=&apos;download.png&apos; dest=&apos;0,0,12,24&apos; source=&apos;0,0,12,24&apos;" textpadding="16,6,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Text name="fw_blk_tip_left" text="防火墙共阻止" float="true" pos="91,35,170,49" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Text name="fw_title" text="防火墙" float="true" pos="72,16,133,33" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                <Text name="fw_blk_tip" text="0" float="true" pos="172,35,220,49" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="wrap" />
+                <Text name="fw_blk_tip_right" text="次网络动作" float="true" pos="220,35,290,49" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Text name="fw_upload" text="0" float="true" pos="220,56,274,71" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="wrap" />
+                <Text name="fw_upload_right" text="字节网络流量" float="true" pos="277,56,363,71" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Text name="fw_download" text="0" float="true" pos="221,83,274,98" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="2" align="wrap" />
+                <Text name="fw_download_right" text="字节网络流量" float="true" pos="277,83,362,98" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+            </VerticalLayout>
+            <VerticalLayout name="fw_panel_right" pos="620,0,625,140" width="5" height="140" bkimage="file=&apos;summary_bar_right.png&apos; dest=&apos;0,0,5,139&apos; source=&apos;0,0,5,139&apos; corner=&apos;0,0,4,4&apos;" />
+        </HorizontalLayout>
+        <HorizontalLayout name="mid_space" pos="0,170,628,185" width="628" height="15" />
+        <HorizontalLayout name="denfense_panel" pos="0,185,627,325" width="627" height="140">
+            <VerticalLayout name="denfense_panel_left_space" pos="0,0,5,140" width="5" height="140" />
+            <VerticalLayout name="denfense_panel_left" pos="5,0,12,140" width="7" height="140" bkimage="file=&apos;summary_bar_left.png&apos; dest=&apos;0,0,7,139&apos; source=&apos;0,0,7,139&apos; corner=&apos;4,4,0,0&apos;" />
+            <VerticalLayout name="denfense_panel_mid" pos="12,0,620,140" width="608" height="140" bkimage="file=&apos;summary_bar_mid.png&apos; dest=&apos;0,0,608,139&apos; source=&apos;0,0,1,139&apos;">
+            </VerticalLayout>
+            <VerticalLayout name="denfense_panel_right" pos="620,0,625,140" width="5" height="140" bkimage="file=&apos;summary_bar_right.png&apos; dest=&apos;0,0,5,139&apos; source=&apos;0,0,5,139&apos; corner=&apos;0,0,4,4&apos;" />
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

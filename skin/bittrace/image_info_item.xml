@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+  <Font name="宋体" size="10" bold="false" italic="false" />
+  <Font name="MS Sans Serif" size="13" bold="true" italic="false" />
+
+  <ListContainerElementEx height="25" >
+    <VerticalLayout>
+      <HorizontalLayout name="event_info_layout" >
+        <ListSubElementEx name="image" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+        <ListSubElementEx name="base_addr" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+        <ListSubElementEx name="size" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+        <ListSubElementEx name="path" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+      </HorizontalLayout>
+    </VerticalLayout>
+  </ListContainerElementEx>
+</Window>

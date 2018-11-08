@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="393,280" sizebox="4,4,6,6" caption="0,0,0,30">
+    <HorizontalLayout name="form_layout" pos="142,114,202,144" width="60" height="30">
+        <VerticalLayout name="left_boder_layout" pos="87,148,92,428" width="5" height="280" />
+        <VerticalLayout name="middle_layout" pos="111,120,494,400" width="383" height="280">
+            <HorizontalLayout name="top_layout" pos="204,53,587,73" width="383" height="20" />
+            <HorizontalLayout name="title_layout" pos="204,53,587,130" width="383" height="77" bkimage="file=&apos;msg_tip_title.png&apos; dest=&apos;0,0,383,77&apos; source=&apos;0,0,383,77&apos;">
+                <Text name="title_txt" text="轻点一下,支持我们" float="true" pos="171,23,369,54" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+            </HorizontalLayout>
+            <HorizontalLayout name="text_layout" pos="0,102,383,280" width="383" height="178" bkcolor="#FFFFFBF0">
+                <Text name="msg_txt" text="    这次点击会将你电脑的IE主页设置为导航网站。这样会对我们有所帮助。非常感谢。" float="true" pos="13,14,371,141" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Button name="yes_btn" text="是" float="true" pos="213,147,288,170" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Button name="no_btn" text="否" float="true" pos="296,147,371,170" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+            </HorizontalLayout>
+        </VerticalLayout>
+        <VerticalLayout name="right_border_layout" pos="389,194,394,474" width="5" height="280" />
+    </HorizontalLayout>
+</Window>

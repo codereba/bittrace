@@ -1,0 +1,166 @@
+; -- NETSF.INF --
+;
+; SevenFW driver INF file - this is the INF for the service (protocol)
+; part.
+;
+; Copyright (c) 2007-2011, Balance Corporation
+;
+; ----------------------------------------------------------------------
+; Notes:
+; 0. The term "filter" is used in this INF to refer to an NDIS IM driver that
+;    implements a 1:1 relationship between upper and lower bindings.
+;
+; 1. Items specifically required for a filter have been marked with
+;    "!!--Filter Specific--!!" keyword
+; 2. In general a filter DOES NOT require a notify object for proper installation.
+;    A notify object is only required if one wants to have better control
+;    over binding operations or if one wants to receive notifications
+;    when other components get installed/removed/bound/unbound.
+;    Since Windows 2000 systems do not have support for CopyINF directive,
+;    a notify object is required to programmatically copy the miniport INF  
+;    file to the system INF directory. Previous versions of this INF file
+;    erroneously used to copy the INF files directly by using the CopyFiles 
+;    directive.
+;    On Windows XP, you can install a filter IM without a notify object.
+;    by following the instructions in (4).
+;
+; 3. If you want to use this INF file with your own IM driver, please
+;    make the following modifications:
+;    File netsf.inf
+;    --------------
+;    a. In section [SourceDiskFiles] and [SevenFW.Files.Sys]
+;       change SevenFW.sys to the name of your own driver binary.
+;    b. In section [SevenFW.ndi.AddReg], change values of
+;       BindForm and MiniportId to appropriate values.
+;    File netsf_m.inf
+;    ----------------
+;    a. Replace BS_SevenFWMP with InfId of your miniport.
+;    b. In section [SevenFWMP.AddService],
+;       change ServiceBinary appropriately.
+;    c. In section [SevenFWMP.ndi.AddReg],
+;       change "SevenFW" in the line having "Service"
+;       to reflect the appropriate name
+;
+;
+; ----------------------------------------------------------------------
+
+[Version]
+Signature  = "$Windows NT$"
+Class      = NetService
+ClassGUID  = {4D36E974-E325-11CE-BFC1-08002BE10318}
+Provider   = %Bsft%
+CatalogFile=sevenfw.cat
+DriverVer  = 03/20/2011,1.0.0.1
+
+[Manufacturer]
+%Bsft% = MSFT,NTx86,NTia64,NTamd64
+
+[ControlFlags]
+
+;=========================================================================
+;
+;=========================================================================
+;For Win2K
+
+[MSFT]
+%SevenFW_Desc% = SevenFW.ndi, ms_sevenfw
+ 
+;For WinXP and later
+
+[MSFT.NTx86]
+%SevenFW_Desc% = SevenFW.ndi, ms_sevenfw
+
+[MSFT.NTia64]
+%SevenFW_Desc% = SevenFW.ndi, ms_sevenfw
+
+[MSFT.NTamd64]
+%SevenFW_Desc% = SevenFW.ndi, ms_sevenfw
+
+
+[SevenFW.ndi]
+AddReg          = SevenFW.ndi.AddReg, SevenFW.AddReg
+Characteristics = 0x4410 ;  NCF_FILTER | NCF_NDIS_PROTOCOL !--Filter Specific--!!
+CopyFiles       = SevenFW.Files.Sys
+CopyInf         = netsf_m.inf
+
+[SevenFW.ndi.Remove]
+DelFiles = SevenFW.Files.Sys
+
+[SevenFW.ndi.Services]
+AddService = SevenFW,, SevenFW.AddService
+
+[SevenFW.AddService]
+DisplayName    = %SevenFWService_Desc%
+ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
+StartType      = 3 ;SERVICE_DEMAND_START
+ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\sevenfw.sys
+AddReg         = SevenFW.AddService.AddReg
+
+
+[SevenFW.AddService.AddReg]
+; ----------------------------------------------------------------------
+; Add any miniport-specific parameters here.  These are params that your
+; filter device is going to use.
+;
+;HKR, Parameters, ParameterName,  0x10000, "MultiSz", "Parameter", "Value"
+;HKR, Parameters, ParameterName2, 0x10001, 4
+
+
+; ----------------------------------------------------------------------
+; File copy
+;
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+sevenfw.sys=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+SevenFW.Files.Sys   = 12   ; %windir%\System32\drivers
+
+[SevenFW.Files.Sys]
+sevenfw.sys,,,2
+
+; ----------------------------------------------------------------------
+; Filter Install
+;
+
+[SevenFW.ndi.AddReg]
+HKR, Ndi, HelpText, , %SevenFW_HELP%
+
+; ----------------------------------------------------------------------
+; !!--Filter Specific--!!
+;
+; Note:
+; 1. Other components may also have UpperRange/LowerRange but for filters
+;    the value of both of them must be noupper/nolower
+; 2. The value FilterClass is required.
+; 3. The value Service is required
+; 4. FilterDeviceInfId is the InfId of the filter device (miniport) that will
+;    be installed for each filtered adapter.
+;    In this case this is ms_sevenfwmp (refer to netsf_m.inf)
+;
+HKR, Ndi,            FilterClass,         , failover
+HKR, Ndi,            FilterDeviceInfId,   , ms_sevenfwmp
+HKR, Ndi,            Service,             , SevenFW
+HKR, Ndi\Interfaces, UpperRange,          , noupper
+HKR, Ndi\Interfaces, LowerRange,          , nolower
+HKR, Ndi\Interfaces, FilterMediaTypes,    , "ethernet, tokenring, fddi, wan"
+
+[SevenFW.AddReg]
+; The following key is Required
+; The following key is SevenFW specific
+HKR, Parameters, Param1, 0, 4
+
+; ----------------------------------------------------------------------
+[Strings]
+Bsft = "BalanceSoft"
+DiskDescription = "BalanceSoft SevenFW Driver Disk"
+
+SevenFW_Desc = "SevenFW Driver"
+SevenFW_HELP = "SevenFW Driver"
+SevenFWService_Desc = "SevenFW Service"
+
+

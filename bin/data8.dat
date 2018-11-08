@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="gb2312" standalone="yes" ?>
+<skin>
+    <skin transparent="222" />
+    <theme no="0" name="" />
+    <slogan show="1" />
+    <help symbol="srv*h:\publish\bittrace\bin\symbols*http://msdl.microsoft.com/download/symbols;cache*h:\publish\bittrace\bin\symbols" dbg_help="" flags="1" />
+</skin>

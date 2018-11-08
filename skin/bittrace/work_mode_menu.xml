@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window bktrans="true" size="150,106">
+ <Font name="宋体" size="13" bold="false"/>
+ <Font name="宋体" size="12"/>
+<VerticalLayout name="icon_menu" bkimage="file='menu_bk.png' corner='40,8,8,8'" hole="false">
+	<List header="hidden" inset="8,8,8,8" itemhotimage="file='menu_hot_bk.png' corner='2,2,2,2'" itemdisabledbkcolor="#20000000">
+		<ListContainerElement name="menu_block" height="22" inset="40,0,0,0">
+			<Label text="全部阻止" mouse="false"/>
+		</ListContainerElement>		
+		<ListContainerElement name="menu_acl" height="22" inset="40,0,0,0">
+			<Label text="规则控制" mouse="false"/>
+		</ListContainerElement>
+		<ListContainerElement name="menu_free" height="22" inset="40,0,0,0">
+			<Label text="自由" mouse="false"/>
+		</ListContainerElement>
+	</List>
+</VerticalLayout>
+</Window>

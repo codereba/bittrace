@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<VerticalLayout name="form_layout" bkcolor="#FFFFFFFF">
+<VerticalLayout>
+  <HorizontalLayout name="event_list_layout" height="0" >
+        <ListEx name="action_log_list" bkcolor="#FFFFFFFF" inset="0,0,0,0" itemshowhtml="true" vscrollbar="true" hscrollbar="true" headerbkimage="file='list_header_bg.png'" itemalign="left" itemtextpadding="5,0,0,0" itembkcolor="#FFE2DDDF" itemaltbk="true" menu="true">
+          <ListHeader height="24" menu="true">
+            <ListHeaderItem name="header_action_icon" text=""  font="10" width="32" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_action_name" text="事件类型"  font="10" width="32" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_time" text="时间"  font="10" width="220" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_id" text="序号"  font="10" width="32" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_icon" text=""  font="10" width="32" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_proc_id" text="进程ID" font="10" width="80" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_thread_id" text="线程ID" font="10" width="80" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_exe_file_path" text="主体程序" font="10" width="220" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_object" text="客体对象" font="10" width="100" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_desc" text="细节" font="10" width="100" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_data" text="数据" font="10" width="180" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_result" text="行为结果" font="10" width="100" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+            <ListHeaderItem name="header_call_stack" text="调用堆栈(鼠标浮动显示)" font="10" width="180" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+
+            <!--<ListHeaderItem text="源端口" font="1" width="100" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+				<ListHeaderItem text="响应" font="1" width="80" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+				<ListHeaderItem text="描述" font="1" width="240" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+				<ListHeaderItem text="日期/时间" font="1" width="165" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>-->
+          </ListHeader>
+        </ListEx>
+  </HorizontalLayout>
+  <HorizontalLayout name="status_bar" height="24">
+    <Label name="tracing_status" font="9" align="left" text=":" float="true" pos="5,0,460,25" tooltip=""  textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" hotbkclr="#0F8FC42E" bkfade="130" bkstyle="2" />
+  </HorizontalLayout>
+</VerticalLayout>
+    </VerticalLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="550,200" sizebox="4,4,6,6" caption="0,0,0,36" roundcorner="4,4">
+    <Font name="宋体" size="12" bold="false" italic="false" default="true" />
+    <VerticalLayout name="form_layout" pos="476,129,536,159" width="60" height="30">
+        <HorizontalLayout name="caption_layout" pos="260,70,810,95" width="550" height="25">
+            <Text name="title_txt" float="true" pos="26,4,198,21" textpadding="4,3,4,3" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" align="wrap" />
+            <Button name="close_btn" float="true" pos="520,7,545,18" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" hotimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" pushedimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" hotbkclr="#0F8FC42E" pushedbkclr="#0F749A2E" bkfade="130" bkstyle="2" />            
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI2" pos="222,112,772,287" width="550" height="175">
+            <VerticalLayout name="left_brd_layout" pos="84,73,89,248" width="5" height="175" />
+            <VerticalLayout name="middle_contianer_layout" pos="148,70,688,245" width="540" height="175">
+                <HorizontalLayout name="middle_layout" pos="330,60,870,230" width="540" height="170" bkcolor="#FFFFFBF0">
+                    <Combo name="action_combo" tooltip="点击这里选择此规则对应的操作" float="true" pos="122,11,247,29" normalimage="file=&apos;Combo_nor.png&apos; corner=&apos;2,2,24,2&apos;" hotimage="file=&apos;Combo_over.png&apos; corner=&apos;2,2,24,2&apos;" pushedimage="file=&apos;Combo_over.png&apos; corner=&apos;2,2,24,2&apos;" dropboxsize="0,150" itemtextcolor="#FF000000" itemselectedtextcolor="#FF000000" itemselectedbkcolor="#FFC1E3FF" itemhottextcolor="#FF000000" itemhotbkcolor="#FFE9F5FF" itemdisabledtextcolor="#FFCCCCCC" itemdisabledbkcolor="#FFFFFFFF" >
+					<ListLabelElement text="阻止" />
+					<ListLabelElement text="允许" />
+					<ListLabelElement text="询问" selected="true" />
+					</Combo>
+                    <Edit name="name_edit" float="true" pos="121,38,516,56" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                    <Edit name="app_name_edit" float="true" pos="120,64,516,82" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                    <Edit name="desc_edit" float="true" pos="120,92,516,137" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                    <Button name="apply_btn" text="确定" float="true" pos="441,142,516,165" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                    <Text name="name_txt" text="路径或名称:" float="true" pos="21,42,116,55" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="app_name_txt" text="程序路径或名称:" float="true" pos="22,66,117,80" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="desc_txt" text="描述信息:" float="true" pos="22,93,117,108" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="opera_txt" text="操作:" float="true" pos="22,17,117,30" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                </HorizontalLayout>
+                <HorizontalLayout name="bottom_brd_layout" pos="436,171,976,176" width="540" height="5" />
+            </VerticalLayout>
+            <VerticalLayout name="right_brd_layout" pos="546,126,551,301" width="5" height="175" />
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

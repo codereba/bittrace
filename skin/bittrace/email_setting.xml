@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="385,400" sizebox="4,4,6,6" caption="0,0,0,36" roundcorner="4,4">
+    <Font name="宋体" size="12" bold="false" italic="false" default="true" />
+    <VerticalLayout name="form_layout" pos="0,0,385,342" width="385" height="342">
+        <HorizontalLayout name="caption_layout" pos="260,70,645,95" width="385" height="25">
+            <Text name="title_txt" text="SMTP邮件通信设置:" float="true" pos="26,4,137,21" textpadding="4,3,4,3" textcolor="#00FFFBF0" disabledtextcolor="#FFA7A6AA" align="wrap" />
+            <Button name="close_btn" float="true" pos="353,7,378,18" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" hotimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" pushedimage="file=&apos;close_btn.png&apos; source=&apos;0,0,25,11&apos; mask=&apos;0xffff00ff&apos;" hotbkclr="#0F8FC42E" pushedbkclr="#0F749A2E" bkfade="130" bkstyle="2" />
+        </HorizontalLayout>
+        <HorizontalLayout name="container_layout" pos="0,25,385,400" width="385" height="375">
+            <VerticalLayout name="left_brd_layout" pos="84,73,89,443" width="5" height="370" />
+            <VerticalLayout name="middle_contianer_layout" pos="5,0,380,370" width="375" height="370">
+                <HorizontalLayout name="middle_layout" pos="0,0,375,370" width="375" height="370" bkcolor="#FFFFFBF0">
+                    <Edit name="name_edit" float="true" pos="22,49,202,67" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                    <Edit name="email_edit" float="true" pos="21,92,201,110" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                    <Edit name="pwd_edit" float="true" pos="21,133,201,151" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" password="true" />
+					<Edit name="smtp_svr_edit" float="true" pos="21,174,201,192" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                    <Edit name="smtp_port_edit" text="25" float="true" pos="21,215,201,233" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					 <Edit name="pop_svr_edit" float="true" pos="21,257,201,275" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					 <Edit name="pop_port_edit" text="110" float="true" pos="21,297,201,315" bkcolor="#FFFFFFFF" bordercolor="#0000D1A0" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                    <Button name="apply_btn" text="确定" float="true" pos="287,329,362,352" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+					<Button name="test_btn" text="测试" float="true" pos="198,329,273,352" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />   
+                    <Text name="name_txt" text="显示名称:" float="true" pos="22,31,82,45" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+					<Text name="email_txt" text="邮件帐号:" float="true" pos="21,74,79,88" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="pwd_txt" text="邮件帐号密码: " float="true" pos="21,116,104,129" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+				    <Text name="smtp_svr_txt" text="SMTP邮件服务器:" float="true" pos="21,157,118,170" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="smtp_port_txt" text="SMTP服务器端口:" float="true" pos="21,198,116,211" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+					<Text name="pop_svr_txt" text="POP3邮件服务器名: 如:pop.sohu.com" float="true" pos="21,240,224,253" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="pop_svr_port" text="POP3服务器端口: 默认为110,请确认" float="true" pos="21,281,219,294" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+
+					<Text name="name_tip_txt" text="不是邮件帐号,用来显示的名称(如:john)" float="true" pos="85,31,309,44" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />                  
+					<Text name="email_tip_txt" text="邮件帐号(如:john@sohu.com)" float="true" pos="83,74,247,88" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+					<Text name="smtp_tip_txt" text="如:smtp.sohu.com" float="true" pos="121,157,231,170" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="port_tip_txt" text="默认为25,请确认" float="true" pos="119,198,214,210" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                    <Text name="notation_txt" text="sohu邮件服务器实际测试可以使用,推荐使用.同时请注意:邮箱中用来进行远程控制的邮件将自动删除,所以注意不要将邮件内容文本中的起始文本设置为与命令相同:&quot;REMOTE COMMAND&quot;." float="true" pos="243,112,358,323" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                </HorizontalLayout>
+                <HorizontalLayout name="bottom_brd_layout" pos="436,171,821,176" width="385" height="5" />
+            </VerticalLayout>
+            <VerticalLayout name="right_brd_layout" pos="546,126,551,496" width="5" height="370" />
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

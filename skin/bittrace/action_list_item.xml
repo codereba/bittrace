@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+  <Font name="宋体" size="10" bold="false" italic="false" />
+  <Font name="MS Sans Serif" size="13" bold="true" italic="false" />
+  
+  <EventListElement>
+      <VerticalLayout name="main_layout" height="32" width="900">
+        <HorizontalLayout name="event_info_layout" >
+          <ListSubElementEx name="event_icon" width="16" height="16" font="12" />
+          <ListSubElementEx name="event_name" width="50" height="16" font="12" />
+          <ListSubElementEx name="time" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="action_id" width="50" height="16" font="12" />
+          <ListSubElementEx name="proc_icon" width="16" height="16" font="12" />
+          <ListSubElementEx name="proc_id" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="thread_id" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="exe_file" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="event_obj" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="event_desc" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="data" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="result" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+          <ListSubElementEx name="call_stack" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" />
+        </HorizontalLayout>
+      </VerticalLayout>
+      <!--<VerticalLayout name="all_stack_layout" height="32" visible="false">
+        <HorizontalLayout width="900" padding="0, 0, 0, 0">
+          <ListSubElementEx name="all_call_stack" bordersize="0" width="120" font="12" textcolor="#FF000000" disabledtextcolor="#FF808080" align="center" />
+        </HorizontalLayout>
+      </VerticalLayout >-->
+  </EventListElement>
+</Window>

@@ -1,0 +1,20 @@
+1.protect my file io:
+  1.only these programs can access this file.
+  2.if other program access this file,block it and record it.
+  
+  bittrace can do these.
+  
+2.record(collect) all io data,then make them togather to take a file.(be data on wire commonly).
+
+so bittrace can do a lot of work to solve some problem i have,and i think other have too.
+need to exam it.
+
+problem have two layer.
+layer 1,basically:
+1.log all system event detail.
+
+layer 2,advanced:
+1.protection
+2.record key log.
+3.record,process data on io.
+

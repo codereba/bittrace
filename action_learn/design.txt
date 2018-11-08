@@ -1,0 +1,2 @@
+给system action加入新的成员，记录每一个action所对应的自动机状态。
+或每个action集合有一个状态机状态的数组。

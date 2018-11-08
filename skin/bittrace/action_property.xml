@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="393,467" sizebox="4,4,6,6" caption="0,0,0,30">
+    <HorizontalLayout name="form_layout" pos="142,114,202,144" width="60" height="30">
+        <VerticalLayout name="left_boder_layout" pos="87,148,92,428" width="5" height="280" />
+        <VerticalLayout name="middle_layout" pos="5,0,388,459" width="383" height="459">
+            <HorizontalLayout name="top_layout" pos="204,53,587,73" width="383" height="20" />
+            <HorizontalLayout name="title_layout" pos="204,53,587,130" width="383" height="77" bkimage="file=&apos;msg_tip_title.png&apos; dest=&apos;0,0,383,77&apos; source=&apos;0,0,383,77&apos;">
+                <Text name="title_txt" float="true" pos="171,23,369,54" textpadding="2,0,2,0" align="wrap" />
+            </HorizontalLayout>
+            <HorizontalLayout name="text_layout" pos="0,97,383,455" width="383" height="358" bkcolor="#FFFFFBF0">
+                <Text name="msg_txt" float="true" pos="120,13,371,33" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="wrap" />
+                <Button name="yes_btn" text="是" float="true" pos="208,317,283,340" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Button name="no_btn" text="否" float="true" pos="303,317,378,340" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;button_nor.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" hotimage="file=&apos;button_over.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" pushedimage="file=&apos;button_down.png&apos; dest=&apos;0,0,75,24&apos; source=&apos;0,0,75,24&apos;" />
+                <Label name="LabelUI1" text="时间:" float="true" pos="23,15,80,31" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI2" text="线程:" float="true" pos="25,37,82,52" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI3" text="行为类型:" float="true" pos="25,60,82,75" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI4" text="行为名称:" float="true" pos="25,81,82,96" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI5" text="行为源:" float="true" pos="24,101,81,116" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI6" text="行为目标:" float="true" pos="26,125,83,140" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI7" text="耗时:" float="true" pos="26,145,83,160" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI8" text="行为属性:" float="true" pos="26,170,112,188" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI9" float="true" pos="40,198,100,218" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI10" float="true" pos="114,199,368,218" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI11" float="true" pos="111,228,365,247" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI12" float="true" pos="37,229,97,249" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI13" float="true" pos="111,256,365,275" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI14" float="true" pos="37,255,97,275" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI15" float="true" pos="117,289,371,308" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label name="LabelUI16" float="true" pos="43,288,103,308" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+            </HorizontalLayout>
+        </VerticalLayout>
+        <VerticalLayout name="right_border_layout" pos="389,194,394,474" width="5" height="280" />
+    </HorizontalLayout>
+</Window>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+    <VerticalLayout name="form_layout" pos="0,0,760,400" width="760" height="400" bkcolor="#FFFFFFFF">
+      <HorizontalLayout>
+        <HorizontalLayout name="lower_layout" pos="0,0,760,28" width="760" height="28" />
+        <Button name="filter_btn" text="过滤" tooltip="日志过滤,也可以跟踪面板右键点击打开" visible="true" float="true" align="left" pos="46,28,346,98" bkimage="file=&apos;filter.png&apos; mask=&apos;0xff000000&apos; dest=&apos;5,20,25,46&apos; source=&apos;0,0,20,26&apos;" textpadding="36,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" showhtml="true" hottextcolor="#FF0000DF" />
+      </HorizontalLayout>
+   </VerticalLayout>
