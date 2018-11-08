@@ -79,9 +79,12 @@ Contact:
 	QQ group:    601169305
     QQ:          2146651351
 	
-Notice: 
-1.bittrace will get all process status in system,  is in conflict with visual studio, when you debug bittrace, visual studio may hang.
-2.internal function draw system events to ui (the hot path code) is developing advanced feature, not open now.
+ Notice: 
+
+ 1.bittrace will get all process status in system,  is in conflict with visual studio, when you debug bittrace, visual studio may hang.
+ 
+ 2.internal function draw system events to ui (the hot path code) is developing advanced feature, not open now.
+
 
 I have not earning when I develope the open source software suit, it's hard to continue, if you think this software is good,
 you can support us, join us, let the development continuous. alipay:dante.1265@hotmail.com
