@@ -1,1 +1,0 @@
-copy /y ..\bin\bitsafe_u.exe .\
