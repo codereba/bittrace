@@ -2,11 +2,18 @@
  trace system internal activities by high perfermonce aio(include multiple implementations windows support, aio,completion port, wmi etc).
  and all file size is very small(include kernel driver, application).
  
+ ------------------------------------------------------------------------
  Source code license is The GNU General Public License v3.0 
+ ===========================================================
  
- And:
+ And every file include copyright notation “Copyright 2010 JiJie Shi(weixin:AIChangeLife)”: 
+ ================================
+ 
  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ 
  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the  documentation and/or other materials provided with the distribution.
+ 
+ ---------------------------------------------------------------------- 
  
  If use the code to commercial software, that need to get bittrace team permission.
 
