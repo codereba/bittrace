@@ -18,10 +18,11 @@
  publish on software site huajun(chinese version), download.cnet(english version) and other software download site:
  
   http://www.onlinedown.net/soft/256910.htm
+  ![ui](https://github.com/codereba/bittrace/blob/master/images/download.png)
  
   https://download.cnet.com/Bittrace/3000-2094_4-76472582.html?part=dl-&subj=dl&tag=button
  
-  ![ui](https://github.com/codereba/bittrace/blob/master/images/ui.jpg)
+  ![ui](https://github.com/codereba/bittrace/blob/master/images/ui.png)
  video lesson:
  
   http://v.youku.com/v_show/id_XMTQwMDU0NTYzNg==.html?from=y1.7-1.2
