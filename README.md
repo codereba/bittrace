@@ -21,6 +21,7 @@
  
   https://download.cnet.com/Bittrace/3000-2094_4-76472582.html?part=dl-&subj=dl&tag=button
  
+  ![ui](https://github.com/codereba/bittrace/blob/master/images/ui.jpg)
  video lesson:
  
   http://v.youku.com/v_show/id_XMTQwMDU0NTYzNg==.html?from=y1.7-1.2
