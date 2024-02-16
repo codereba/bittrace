@@ -1,23 +1,15 @@
 /*
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
- * This file is part of NetMonitor.
+ * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * NetMonitor is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * NetMonitor is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with NetMonitor.  If not, see <http://www.gnu.org/licenses/>.
- *
- *
- *  2007.6.10	Ji Jie Shi modified it for this ui lib. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
  #include "common_func.h"
@@ -33,7 +25,7 @@ typedef struct _LAST_ACQUIRE_TYPE
 
 typedef struct _RW_LOCK
 {
-	INT iNowReaderCount; //¶ÁÕß¼ÆÊý
+	INT iNowReaderCount; //ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½
 
 	PLAST_ACQUIRE_TYPE pLastAcquireType;
 
@@ -41,16 +33,16 @@ typedef struct _RW_LOCK
 
 	ULONG ulTlsForReadIndex;
 
-	CRITICAL_SECTION ExclusiveLock; //Ð´Ëø
+	CRITICAL_SECTION ExclusiveLock; //Ð´ï¿½ï¿½
 
-	HANDLE hShareLock; //¶ÁËø
+	HANDLE hShareLock; //ï¿½ï¿½ï¿½ï¿½
 
-	CRITICAL_SECTION ShareReaderCountLock; //¶ÁÕß¼ÆÊý·ÃÎÊ»¥³âËø
+	CRITICAL_SECTION ShareReaderCountLock; //ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	LONG volatile lNowIsRelease;
 
 }RW_LOCK,*PRW_LOCK;
-´úÂë:
+ï¿½ï¿½ï¿½ï¿½:
 #ifndef _RWLOCK_H_
 #define _RWLOCK_H_
 
@@ -160,17 +152,17 @@ private:
 
 }RLock,*PRLock;
 
-//C++ÓÃ·¨
+//C++ï¿½Ã·ï¿½
 /*
-RW_LOCK_TYPE RwLock;//¶¨ÒåËø±äÁ¿
+RW_LOCK_TYPE RwLock;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-RLock ReadLock(RwLock);//¶¨Òå¶ÁËø±äÁ¿¶øÇÒÍ¬Ê±¼Ó¶ÁËø£¨Îö¹¹Ê±»á½âËø£©,¶ÔÓÚ¶ÁËø£¬²»ÒªÇónewºÍdeleteÔÚÍ¬Ò»Ïß³Ì
+RLock ReadLock(RwLock);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½newï¿½ï¿½deleteï¿½ï¿½Í¬Ò»ï¿½ß³ï¿½
 
-WLock WriteLock(RwLock);//¶¨ÒåÐ´Ëø±äÁ¿¶øÇÒÍ¬Ê±¼ÓÐ´Ëø£¨Îö¹¹Ê±»á½âËø£©,Ð´ËøÖ§³ÖÖØÈë£¬¶ÔÓÚÐ´Ëø£¬ÒªÇónewºÍdelete±ØÐëÔÚÍ¬Ò»Ïß³Ì
+WLock WriteLock(RwLock);//ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ð´ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½newï¿½ï¿½deleteï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ß³ï¿½
 
-¶ÁËøºÍÐ´ËøÍ¬Ò»Ïß³Ì»ìºÏµ÷ÓÃÊ±£¬ÔÊÐíÏÈ»ñÈ¡Ð´Ëø£¬½Ó×Å»ñÈ¡¶ÁËø£¬·´¹ýÀ´µÄ¾Í²»ÐÐ£¬»áËÀËø£¬Ò²¾ÍÊÇ£¬
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Í¬Ò»ï¿½ß³Ì»ï¿½Ïµï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾Í²ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ç£ï¿½
 
-ÔÊÐíÕâÑùµÄË³Ðò:
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½:
 
 WLock WriteLock(RwLock);
 
@@ -178,7 +170,7 @@ RLock ReadLock(RwLock);
 
 WLock WriteLock0(RwLock);
 
-½ûÖ¹ÕâÑùµÄË³Ðò:
+ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½:
 
 RLock ReadLock(RwLock);
 
@@ -187,13 +179,13 @@ WLock WriteLock(RwLock);
 WLock WriteLock0(RwLock);
 
 
-Ò²¾ÍÊÇ£¬ÔÚÒ»¸öÏß³ÌÄÚ£¬Ö»Òª×î¿ªÊ¼µÄµ÷ÓÃµÄÊÇÐ´Ëø£¬ÄÇÃ´Õâ¸öÏß³ÌÄÚ£¬ºóÐøµÄ¶ÁÐ´ËøË³Ðò¾Í¿ÉÒÔËæÒâ£¬²»ÊÜÏÞÖÆ
+Ò²ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ú£ï¿½Ö»Òªï¿½î¿ªÊ¼ï¿½Äµï¿½ï¿½Ãµï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½Ð´ï¿½ï¿½Ë³ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 #endif
 
 #endif
-´úÂë:
+ï¿½ï¿½ï¿½ï¿½:
 PVOID __stdcall CreateRWLock()
 {
 	PRW_LOCK pLock=NULL;
@@ -360,10 +352,10 @@ VOID __stdcall AcquireShareLock(PVOID pLock)
 		ulExclusiveFlag=(ULONG_PTR)TlsGetValue(pRwLock->ulTlsForWriteIndex);
 
 
-		//ÅÐ¶Ïµ±Ç°Ïß³ÌµÄ¶ÁÐ´Ëø×´Ì¬
+		//ï¿½Ð¶Ïµï¿½Ç°ï¿½ß³ÌµÄ¶ï¿½Ð´ï¿½ï¿½×´Ì¬
 
 		if (ulSharedFlag!=1 &&
-			ulSharedFlag!=0)//µ±Ç°Ïß³ÌÔÚ¶ÁËø×´Ì¬,Ôö¼Ó¼ÆÊý¾Í¹»ÁË
+			ulSharedFlag!=0)//ï¿½ï¿½Ç°ï¿½ß³ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½×´Ì¬,ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½
 		{
 			EnterCriticalSection(&pRwLock->ShareReaderCountLock);
 
@@ -386,7 +378,7 @@ VOID __stdcall AcquireShareLock(PVOID pLock)
 		}
 
 		if (ulExclusiveFlag!=1 &&
-			ulExclusiveFlag!=0)//µ±Ç°Ïß³ÌÕ¼ÓÐÐ´Ëø£¬ËùÒÔÖ»Òª¼ÇÂ¼ÏÂµ±Ç°²Ù×÷¾Í¹»ÁË
+			ulExclusiveFlag!=0)//ï¿½ï¿½Ç°ï¿½ß³ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»Òªï¿½ï¿½Â¼ï¿½Âµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½
 		{
 			pLastType->bIsAcquireRead=TRUE;
 
@@ -398,13 +390,13 @@ VOID __stdcall AcquireShareLock(PVOID pLock)
 		}
 
 
-		//ÅÐ¶ÏÆäËüÏß³ÌµÄ¶ÁÐ´Ëø×´Ì¬
+		//ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ÌµÄ¶ï¿½Ð´ï¿½ï¿½×´Ì¬
 
-		EnterCriticalSection(&pRwLock->ExclusiveLock);//µ±Ç°Èç¹ûÓÐÆäËüÏß³ÌÆóÍ¼»ñÈ¡Ð´Ëø£¬ÏÈ°ÑÕâ¸ö¶ÁËøÇëÇó×èÈû£¬Ê¹µÃÐ´ÓÅÏÈ;Í¬Ê±£¬Õâ¸öÂß¼­»¹ÓÐ¸ö×÷ÓÃ¾ÍÊÇÅÐ¶ÏÆäËüÏß³ÌÊÇ·ñÔÚÐ´×´Ì¬,Èç¹ûÊÇ£¬ÕâÀï»á×èÈû
+		EnterCriticalSection(&pRwLock->ExclusiveLock);//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½Í¼ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½;Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð´×´Ì¬,ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		EnterCriticalSection(&pRwLock->ShareReaderCountLock);
 
-		if (pRwLock->iNowReaderCount>0)//ÓÐÆäËüÏß³ÌÔÚ¶ÁËø×´Ì¬
+		if (pRwLock->iNowReaderCount>0)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½×´Ì¬
 		{
 			pRwLock->iNowReaderCount++;
 
@@ -428,9 +420,9 @@ VOID __stdcall AcquireShareLock(PVOID pLock)
 			break;
 		}
 
-		//Ã»ÓÐÈÎºÎÏß³ÌÕ¼ÓÐÈÎºÎ¶ÁÐ´Ëø
+		//Ã»ï¿½ï¿½ï¿½Îºï¿½ï¿½ß³ï¿½Õ¼ï¿½ï¿½ï¿½ÎºÎ¶ï¿½Ð´ï¿½ï¿½
 
-		WaitForSingleObject(pRwLock->hShareLock,INFINITE);//»ñÈ¡¶ÁËø£¬Ê¹µÃÆóÍ¼»ñÈ¡Ð´ËøµÄÏß³Ì£¬×èÈûÔÚÕâÀï
+		WaitForSingleObject(pRwLock->hShareLock,INFINITE);//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		pLastType->bIsAcquireRead=TRUE;
 
@@ -475,14 +467,14 @@ BOOL __stdcall TryAcquireShareLock(PVOID pLock)
 			break;
 		}
 
-		//Ê×ÏÈÅÐ¶Ïµ±Ç°Ïß³ÌµÄ¶ÁÐ´Ëø×´Ì¬
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ïµï¿½Ç°ï¿½ß³ÌµÄ¶ï¿½Ð´ï¿½ï¿½×´Ì¬
 
 		ulSharedFlag=(ULONG_PTR)TlsGetValue(pRwLock->ulTlsForReadIndex);
 
 		ulExclusiveFlag=(ULONG_PTR)TlsGetValue(pRwLock->ulTlsForWriteIndex);
 
 		if (ulSharedFlag!=1 &&
-			ulSharedFlag!=0)//µ±Ç°Ïß³ÌÔÚ¶ÁËø×´Ì¬¡£Ö»Òª¼ÆÊýÔö¼Ó£¬²»ÐèÒªÐÂ»ñÈ¡¶ÁËø×´Ì¬
+			ulSharedFlag!=0)//ï¿½ï¿½Ç°ï¿½ß³ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Ö»Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Â»ï¿½È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬
 		{
 			if (!TlsSetValue(pRwLock->ulTlsForReadIndex,(PVOID)(ulSharedFlag+1)))
 			{
@@ -514,7 +506,7 @@ BOOL __stdcall TryAcquireShareLock(PVOID pLock)
 		}
 
 
-		//µ±Ç°Ïß³Ì²»Õ¼ÓÐ¶ÁËøµ«ÊÇÕ¼ÓÐÐ´Ëø£¬Ö»Òª¼ÇÂ¼ÏÂµ±Ç°²Ù×÷¾Í¹»ÁË
+		//ï¿½ï¿½Ç°ï¿½ß³Ì²ï¿½Õ¼ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Ö»Òªï¿½ï¿½Â¼ï¿½Âµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½
 		if (ulExclusiveFlag!=1 &&
 			ulExclusiveFlag!=0)
 		{
@@ -528,11 +520,11 @@ BOOL __stdcall TryAcquireShareLock(PVOID pLock)
 		}
 
 
-		//µ½ÕâÀïËµÃ÷µ±Ç°Ïß³Ì²»Õ¼ÓÐÈÎºÍËø£¬¼ÌÐøÅÐ¶ÏÆäËüÏß³ÌµÄ¶ÁÐ´Ëø×´Ì¬
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½Ç°ï¿½ß³Ì²ï¿½Õ¼ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ÌµÄ¶ï¿½Ð´ï¿½ï¿½×´Ì¬
 
 		bIsAcquired=TryEnterCriticalSection(&pRwLock->ExclusiveLock);
 
-		if (!bIsAcquired)//ËµÃ÷ÆäËüÏß³ÌÕ¼ÓÐÐ´Ëø£¬Ê§°Ü·µ»Ø,·ñÔò»á×èÈû
+		if (!bIsAcquired)//Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü·ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			break;
 		}
@@ -577,9 +569,9 @@ BOOL __stdcall TryAcquireShareLock(PVOID pLock)
 		}
 
 
-		//µ½ÕâÀïËµÃ÷Ã»ÓÐÏß³ÌÕ¼ÓÐÈÎºÎËø
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ã»ï¿½ï¿½ï¿½ß³ï¿½Õ¼ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½
 
-		WaitForSingleObject(pRwLock->hShareLock,INFINITE);//»ñÈ¡¶ÁËø£¬Ê¹µÃÆóÍ¼»ñÈ¡Ð´ËøµÄÏß³Ì£¬×èÈûÔÚÕâÀï
+		WaitForSingleObject(pRwLock->hShareLock,INFINITE);//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		ulSharedFlag=1;
 
@@ -635,7 +627,7 @@ VOID __stdcall ReleaseShareLock(PVOID pLock)
 		ulSharedFlag=(ULONG_PTR)TlsGetValue(pRwLock->ulTlsForReadIndex);
 
 		if (ulSharedFlag!=0 &&
-			ulSharedFlag!=1)//µ±Ç°Ïß³ÌÔÚ¶ÁËø×´Ì¬
+			ulSharedFlag!=1)//ï¿½ï¿½Ç°ï¿½ß³ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½×´Ì¬
 		{
 			EnterCriticalSection(&pRwLock->ShareReaderCountLock);
 
@@ -685,16 +677,16 @@ VOID __stdcall AcquireExclusiveLock(PVOID pLock)
 
 		ulExclusiveFlag=(ULONG_PTR)TlsGetValue(pRwLock->ulTlsForWriteIndex);
 
-		//ÏÈÅÐ¶Ïµ±Ç°Ïß³ÌµÄ¶ÁÐ´Ëø×´Ì¬
+		//ï¿½ï¿½ï¿½Ð¶Ïµï¿½Ç°ï¿½ß³ÌµÄ¶ï¿½Ð´ï¿½ï¿½×´Ì¬
 
-		////µ±Ç°Ïß³Ì´¦ÓÚ¶ÁËø×´Ì¬£¬Èô»ñÈ¡Ð´Ëø£¬»áËÀËøÔÚWaitForSingleObjectÀï£¬ËùÒÔÖ±½ÓÈÃ³ÌÐò±ÀÀ££¬±ãÓÚÕÒ³öbugÎ»ÖÃ
+		////ï¿½ï¿½Ç°ï¿½ß³Ì´ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WaitForSingleObjectï¿½ï£¬ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½bugÎ»ï¿½ï¿½
 		if (ulShareFlag!=1 &&
 			ulShareFlag!=0)
 		{
 			__debugbreak();
 		}
 
-		//µ±Ç°Ïß³ÌÕ¼ÓÐÐ´Ëø,Ð´Ëø¼ÆÊý+1
+		//ï¿½ï¿½Ç°ï¿½ß³ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½,Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+1
 		if(ulExclusiveFlag!=1 &&
 			ulExclusiveFlag!=0)
 		{
@@ -715,23 +707,23 @@ VOID __stdcall AcquireExclusiveLock(PVOID pLock)
 
 		}
 
-		//µ±Ç°Ïß³Ì²»Õ¼ÓÐ¶ÁÐ´Ëø
+		//ï¿½ï¿½Ç°ï¿½ß³Ì²ï¿½Õ¼ï¿½Ð¶ï¿½Ð´ï¿½ï¿½
 
-		ulExclusiveFlag=1;//³õÊ¼»¯µ±Ç°Ïß³ÌÕ¼ÓÐÐ´ËøµÄ±ê¼ÇÎªÊ×´ÎÕ¼ÓÃ
+		ulExclusiveFlag=1;//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ß³ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Îªï¿½×´ï¿½Õ¼ï¿½ï¿½
 
-		//ÒÔÏÂÒ»ÐÐ´úÂëÖ÷ÒªÕâÑù¼¸¸öÄ¿µÄ:
+		//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½:
 
-		//1¡¢ÈôÆäËüÏß³ÌÕ¼ÓÐÐ´Ëø£¬»á×èÈûÔÚÕâ¸öËøÀï
-		//2¡¢ÈôÆäËüÏß³Ì²»Õ¼ÓÐÐ´Ëø£¬ÄÇÕâÐÐ´úÂëÊ¹µÃºóÐøÆóÍ¼»ñÈ¡Ð´ËøµÄÏß³Ì×èÈûÔÚÕâ¸öËøÀï
-		//3¡¢Ê¹µÃÄÇÐ©²»Õ¼ÓÐ¶ÁËøµÄÏß³Ì£¬ÆóÍ¼»ñÈ¡¶ÁËøÊ±£¬×èÈûÔÚÕâ¸öËøÀï£¬´ïµ½Ð´ÓÅÏÈµÄÄ¿µÄ
-		//4¡¢Õ¼ÓÐÐ´Ëø
+		//1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì²ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ê¹ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//3ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½Õ¼ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½ï¿½Í¼ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï£¬ï¿½ïµ½Ð´ï¿½ï¿½ï¿½Èµï¿½Ä¿ï¿½ï¿½
+		//4ï¿½ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½
 		EnterCriticalSection(&pRwLock->ExclusiveLock);
 
 
-		//±¾Ïß³Ì»ñÈ¡µ½Ð´ËøµÄ»ù±¾Ìõ¼þ£¬µ«»¹ÐèÒªµÈ´ýÆäËüÕ¼ÓÐ¶ÁËøµÄÏß³ÌÊÍ·Å¶ÁËø
-		//ÈÎºÎÊ±ºò£¬Ö»»áÓÐÒ»¸öÏß³Ìµ½´ïÕâÀï
+		//ï¿½ï¿½ï¿½ß³Ì»ï¿½È¡ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½Í·Å¶ï¿½ï¿½ï¿½
+		//ï¿½Îºï¿½Ê±ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		WaitForSingleObject(pRwLock->hShareLock,INFINITE);//µÈ´ýËùÓÐÒÑ¾­»ñÈ¡¶ÁËøµÄÏß³ÌÍê³É²Ù×÷(Ò»¶¨Ö»ÓÐÒ»¸öÏë»ñÈ¡Ð´ËøµÄÏß³ÌÔÚÕâÀïµÈ´ý£¬ÒòÎªÆäËüÏë»ñÈ¡Ð´ËøµÄÏß³Ì»á¿¨ÔÚÉÏÃæÒ»ÐÐ£©
+		WaitForSingleObject(pRwLock->hShareLock,INFINITE);//ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½É²ï¿½ï¿½ï¿½(Ò»ï¿½ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì»á¿¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ð£ï¿½
 
 		SetEvent(pRwLock->hShareLock);
 
@@ -776,10 +768,10 @@ BOOL __stdcall TryAcquireExclusiveLock(PVOID pLock)
 
 		ulExclusiveFlag=(ULONG_PTR)TlsGetValue(pRwLock->ulTlsForWriteIndex);
 
-		//ÏÈÅÐ¶Ïµ±Ç°Ïß³ÌµÄ¶ÁÐ´Ëø×´Ì¬
+		//ï¿½ï¿½ï¿½Ð¶Ïµï¿½Ç°ï¿½ß³ÌµÄ¶ï¿½Ð´ï¿½ï¿½×´Ì¬
 
 		if (ulSharedFlag!=0 &&
-			ulSharedFlag!=1)//±¾Ïß³ÌÖ®Ç°Õ¼ÓÃÁË¶ÁËø£¬Ê§°Ü·µ»Ø
+			ulSharedFlag!=1)//ï¿½ï¿½ï¿½ß³ï¿½Ö®Ç°Õ¼ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü·ï¿½ï¿½ï¿½
 		{
 			bIsAcquired=FALSE;
 
@@ -787,7 +779,7 @@ BOOL __stdcall TryAcquireExclusiveLock(PVOID pLock)
 		}
 
 		if (ulExclusiveFlag!=0 &&
-			ulExclusiveFlag!=1)//±¾Ïß³ÌÖ®Ç°Õ¼ÓÃÐ´Ëø
+			ulExclusiveFlag!=1)//ï¿½ï¿½ï¿½ß³ï¿½Ö®Ç°Õ¼ï¿½ï¿½Ð´ï¿½ï¿½
 		{
 			if(!TlsSetValue(pRwLock->ulTlsForWriteIndex,(PVOID)(ulExclusiveFlag+1)))
 			{
@@ -796,7 +788,7 @@ BOOL __stdcall TryAcquireExclusiveLock(PVOID pLock)
 				break;
 			}
 
-			EnterCriticalSection(&pRwLock->ExclusiveLock);//Ôö¼ÓÐ´ËøÒýÓÃ
+			EnterCriticalSection(&pRwLock->ExclusiveLock);//ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			pLastType->bIsAcquireRead=FALSE;
 
@@ -811,18 +803,18 @@ BOOL __stdcall TryAcquireExclusiveLock(PVOID pLock)
 
 
 
-		//½ÓÏÂÀ´ÅÐ¶ÏÆäËüÏß³ÌÕ¼ÓÐ¶ÁÐ´ËøµÄ×´Ì¬
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½Õ¼ï¿½Ð¶ï¿½Ð´ï¿½ï¿½ï¿½ï¿½×´Ì¬
 
 
-		//ÒÔÏÂÒ»ÐÐ´úÂëÖ÷ÒªÕâÑù¼¸¸öÄ¿µÄ:
+		//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½:
 
-		//1¡¢ÈôÆäËüÏß³Ì²»Õ¼ÓÐÐ´Ëø£¬ÄÇÕâÐÐ´úÂëÊ¹µÃºóÐøÆóÍ¼»ñÈ¡Ð´ËøµÄÏß³Ì×èÈûÔÚÕâ¸öËøÀï
-		//2¡¢Ê¹µÃÄÇÐ©²»Õ¼ÓÐ¶ÁËøµÄÏß³Ì£¬ÆóÍ¼»ñÈ¡¶ÁËøÊ±£¬×èÈûÔÚÕâ¸öËøÀï£¬´ïµ½Ð´ÓÅÏÈµÄÄ¿µÄ
-		//3¡¢Õ¼ÓÐÐ´Ëø
-		//4¡¢ÒòÎªTryÀàÐÍ£¬ËùÒÔÈç¹ûÊ§°Ü¾Í·µ»Ø£¬²»×èÈû
+		//1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì²ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ê¹ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½È¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//2ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½Õ¼ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½ï¿½Í¼ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï£¬ï¿½ïµ½Ð´ï¿½ï¿½ï¿½Èµï¿½Ä¿ï¿½ï¿½
+		//3ï¿½ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½
+		//4ï¿½ï¿½ï¿½ï¿½ÎªTryï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü¾Í·ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		bIsAcquired=TryEnterCriticalSection(&pRwLock->ExclusiveLock);
 
-		if (!bIsAcquired)//ÆäËüÏß³ÌÕ¼ÓÃÐ´Ëø,Ê§°Ü·µ»Ø
+		if (!bIsAcquired)//ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½,Ê§ï¿½Ü·ï¿½ï¿½ï¿½
 		{
 			break;
 		}
@@ -836,7 +828,7 @@ BOOL __stdcall TryAcquireExclusiveLock(PVOID pLock)
 			break;
 		}
 
-		if (pRwLock->iNowReaderCount>0)//ÆäËüÏß³ÌÕ¼ÓÐ¶ÁËø£¬Ê§°Ü·µ»Ø
+		if (pRwLock->iNowReaderCount>0)//ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½Õ¼ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü·ï¿½ï¿½ï¿½
 		{
 			LeaveCriticalSection(&pRwLock->ShareReaderCountLock);
 
@@ -847,17 +839,17 @@ BOOL __stdcall TryAcquireExclusiveLock(PVOID pLock)
 			break;
 		}else
 		{
-			LeaveCriticalSection(&pRwLock->ShareReaderCountLock);//ÊÍ·Åµô¸¨ÖúËø£¬±£ÁôÐ´Ëø
+			LeaveCriticalSection(&pRwLock->ShareReaderCountLock);//ï¿½Í·Åµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½
 		}
 
 
-		//Ã»ÓÐÈÎºÎÏß³ÌÕ¼ÓÃ¶ÁËø»òÕßÐ´Ëø
+		//Ã»ï¿½ï¿½ï¿½Îºï¿½ï¿½ß³ï¿½Õ¼ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½
 
-		ulExclusiveFlag=1;//³õÊ¼»¯µ±Ç°Ïß³ÌÕ¼ÓÐÐ´ËøµÄ±ê¼ÇÎªÊ×´ÎÕ¼ÓÃ
+		ulExclusiveFlag=1;//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ß³ï¿½Õ¼ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Îªï¿½×´ï¿½Õ¼ï¿½ï¿½
 
 		if(!TlsSetValue(pRwLock->ulTlsForWriteIndex,(PVOID)(ulExclusiveFlag+1)))
 		{
-			LeaveCriticalSection(&pRwLock->ExclusiveLock);//Ê§°Ü£¬ÊÍ·ÅµôÐ´Ëø
+			LeaveCriticalSection(&pRwLock->ExclusiveLock);//Ê§ï¿½Ü£ï¿½ï¿½Í·Åµï¿½Ð´ï¿½ï¿½
 
 			bIsAcquired=FALSE;
 

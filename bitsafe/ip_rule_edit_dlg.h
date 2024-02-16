@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #pragma once
@@ -335,7 +328,7 @@ _return:
 		if( desc_edit->GetText().GetLength() > _MAX_DESC_LEN )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_DESC_LENGTH_ERROR, 
-				_T( "ÃèÊöÐÅÏ¢³¤¶È²»µÃ´óÓÚ512" ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½512" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -344,7 +337,7 @@ _return:
 		if( app_name_edit->GetText().GetLength() > _MAX_FILE_NAME_LEN )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_APP_PATH_LENGTH_ERROR, 
-				_T( "Ä¿±ê³ÌÐòÂ·¾¶²»µÃ´óÓÚ260" ) ); 
+				_T( "Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -356,7 +349,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_BEGIN_SOURCE_IP_FMT_ERROR, 
-				_T( "Ô´ÆðÊ¼IPµØÖ·¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ô´ï¿½ï¿½Ê¼IPï¿½ï¿½Ö·ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
 		}
@@ -368,7 +361,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_END_SOURCE_IP_FMT_ERROR, 
-				_T( "Ô´½áÊøIPµØÖ·¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ô´ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½Ö·ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 			
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -381,7 +374,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_BEGIN_DESTINATION_IP_FMT_ERROR, 
-				_T( "Ä¿±êÆðÊ¼IPµØÖ·¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ä¿ï¿½ï¿½ï¿½ï¿½Ê¼IPï¿½ï¿½Ö·ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -394,7 +387,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_END_DESTINATION_IP_FMT_ERROR, 
-				_T( "Ä¿±ê½áÊøIPµØÖ·¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½Ö·ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -406,7 +399,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_BEGIN_SOURCE_PORT_FMT_ERROR, 
-				_T( "Ô´ÆðÊ¼¶Ë¿Ú¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ô´ï¿½ï¿½Ê¼ï¿½Ë¿Ú¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
 		}
@@ -416,7 +409,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_END_SOURCE_PORT_FMT_ERROR, 
-				_T( "Ô´½áÊø¶Ë¿Ú¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿Ú¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -427,7 +420,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_BEGIN_DESTINATION_PORT_FMT_ERROR, 
-				_T( "Ä¿±êÆðÊ¼¶Ë¿Ú¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ä¿ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ë¿Ú¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -438,7 +431,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_END_DESTINATION_PORT_FMT_ERROR, 
-				_T( "Ä¿±ê½áÊø¶Ë¿Ú¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿Ú¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -488,10 +481,10 @@ _return:
 		if( desc_edit->GetText().GetLength() > _MAX_DESC_LEN )
 		{	
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_DESC_LENGTH_ERROR, 
-				_T( "ÃèÊö³¤¶È²»µÃ´óÓÚ512" ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½512" ) ); 
 
 			show_msg( GetHWND(), tmp_text , NULL, _get_string_by_id( TEXT_ACL_EDIT_INPUT_ERROR, 
-				_T( "ÊäÈë´íÎó" ) ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ) ); 
 			goto _return; 
 		}
 
@@ -509,7 +502,7 @@ _return:
 			&& output_param->desc.socket.dest_ip.ip.ip_end == 0 )
 		{
 			tmp_text = _get_string_by_id( TEXT_ACL_EDIT_SOURCE_IP_AND_DEST_IP_ALL_IS_NULL_ERROR, 
-				_T( "Ô´IPµØÖ·ËûÄ¿±êIP²»¿ÉÍ¬Ê±²»Éè¶¨" ) ); 
+				_T( "Ô´IPï¿½ï¿½Ö·ï¿½ï¿½Ä¿ï¿½ï¿½IPï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½è¶¨" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -520,13 +513,13 @@ _return:
 		//	&&output_param->desc.socket.dest_port.port.port_begin == 0 
 		//	&& output_param->desc.socket.dest_port.port.port_end == 0 )
 		//{
-		//	show_msg( GetHWND(), _T( "Ô´¶Ë¿ÚºÍÄ¿±ê¶Ë¿Ú²»¿ÉÒÔÍ¬Ê±²»Éè¶¨" ) ); 
+		//	show_msg( GetHWND(), _T( "Ô´ï¿½Ë¿Úºï¿½Ä¿ï¿½ï¿½Ë¿Ú²ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½è¶¨" ) ); 
 		//	goto _return; 
 		//}
 
 		success = TRUE; 
 
-		//show_msg( GetHWND(), _T( "Ìí¼ÓÌ×½Ó×Ö¹æÔò³É¹¦" ) ); 
+		//show_msg( GetHWND(), _T( "ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½É¹ï¿½" ) ); 
 
 		//app_name_edit->SetText( _T( "" ) ); 
 		//sip_begin_edit->SetText( _T( "" ) );  
@@ -706,7 +699,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             bHandled = TRUE;
             return 0;

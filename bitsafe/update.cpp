@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "StdAfx.h"
@@ -40,12 +33,12 @@
 #define ERROR_TIP_UPDATE_FILE_ERROR __t( "Update service configure error, please report to: ( email:" ) BITSAFE_EMAIL __t( " bbs:codereba.com/bbs ),thanks very much." )
 #define DONT_NEED_UPDATE_TEXT L"You are using newest version, don't need to update."
 #else
-#define ERROR_TIP_CANT_DOWNLOAD_UPDATE_FILE L"»ñÈ¡¸üÐÂÐÅÏ¢Ê§°Ü,Çë¼ì²éÍøÂçÁ¬½Ó.Èç¹ûÍøÂçÁ¬½ÓÃ»ÓÐÎÊÌâ,ÇëÊÖ¶¯´ÓÁ´½Ó\"http://www.simpai.net/bittrace.zip\"ÏÂÔØ»òµÈ´ý·þÎñÆ÷Î¬»¤Íê±Ï."
-#define BITTRACE_BIN_FILE_CORRUPT_TEXT L"±ÈÌØ°²È«ÉèÖÃÊÜµ½ÆÆ»µ,Çë¼ì²é²¢±£Ö¤ÎÄ¼þµÄÕýÈ·ÐÔ."
-#define UPDATE_ERROR_TEXT L"¸üÐÂÊ§°Ü" 
-#define ERROR_TIP_SERVICE_MAINTAIN L"¸üÐÂ·þÎñÆ÷ÕýÔÚÎ¬»¤,ÏÖÔÚÎÞ·¨½øÐÐ¸üÐÂ."
-#define ERROR_TIP_UPDATE_FILE_ERROR L"¸üÐÂ·þÎñÅäÖÃÓÐÎÊÌâ,ÇëÏò¹ÜÀíÔ±±¨¸æ´ËÇé¿ö( email:" BITSAFE_EMAIL L" bbs:codereba.com/bbs ),Ð»Ð»."
-#define DONT_NEED_UPDATE_TEXT L"ÄãÕýÔÚÊ¹ÓÃ×îÐÂ°æµÄ±ÈÌØ°²È«,²»ÐèÒª¸üÐÂ."
+#define ERROR_TIP_CANT_DOWNLOAD_UPDATE_FILE L"ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\"http://www.simpai.net/bittrace.zip\"ï¿½ï¿½ï¿½Ø»ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½."
+#define BITTRACE_BIN_FILE_CORRUPT_TEXT L"ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½Æ»ï¿½,ï¿½ï¿½ï¿½é²¢ï¿½ï¿½Ö¤ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½."
+#define UPDATE_ERROR_TEXT L"ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" 
+#define ERROR_TIP_SERVICE_MAINTAIN L"ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½."
+#define ERROR_TIP_UPDATE_FILE_ERROR L"ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½( email:" BITSAFE_EMAIL L" bbs:codereba.com/bbs ),Ð»Ð»."
+#define DONT_NEED_UPDATE_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½Ä±ï¿½ï¿½Ø°ï¿½È«,ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½."
 #endif //LANG_EN
 
 LRESULT InternetGetFile( LPCSTR url, LPCSTR file_name, file_download_callback download_tip_func, PVOID context )
@@ -886,7 +879,7 @@ DWORD WINAPI thread_update( LPVOID param )
 			ret = update->notify_func( &report, update->param ); 
 			if( ret != ERROR_SUCCESS )
 			{
-				//tip_info.err_msg = L"ÓÃ»§È¡Ïû¸üÐÂ"; 
+				//tip_info.err_msg = L"ï¿½Ã»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"; 
 				goto _return; 
 			}
 		}

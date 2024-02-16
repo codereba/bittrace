@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #include "StdAfx.h"
+#include "StdAfx.h"
 #include "tls_supp.h"
 
 // The DLL code
@@ -218,94 +211,3 @@ VOID ErrorExit (LPSTR lpszMessage)
 	fprintf(stderr, "%s\n", lpszMessage); 
 	ExitProcess(0); 
 }
-
-//#include <windows.h> 
-//#include <stdio.h> 
-//
-//#define THREADCOUNT 4 
-//DWORD dwTlsIndex; 
-//
-//VOID ErrorExit(LPSTR); 
-//
-//VOID CommonFunc(VOID) 
-//{ 
-//	LPVOID lpvData; 
-//
-//	// Retrieve a data pointer for the current thread. 
-//
-//	lpvData = TlsGetValue(dwTlsIndex); 
-//	if ((lpvData == 0) && (GetLastError() != ERROR_SUCCESS)) 
-//		ErrorExit("TlsGetValue error"); 
-//
-//	// Use the data stored for the current thread. 
-//
-//	printf("common: thread %d: lpvData=%lx\n", 
-//		GetCurrentThreadId(), lpvData); 
-//
-//	Sleep(5000); 
-//} 
-//
-//DWORD WINAPI ThreadFunc(VOID) 
-//{ 
-//	LPVOID lpvData; 
-//
-//	// Initialize the TLS index for this thread. 
-//
-//	lpvData = (LPVOID) LocalAlloc(LPTR, 256); 
-//	if (! TlsSetValue(dwTlsIndex, lpvData)) 
-//		ErrorExit("TlsSetValue error"); 
-//
-//	printf("thread %d: lpvData=%lx\n", GetCurrentThreadId(), lpvData); 
-//
-//	CommonFunc(); 
-//
-//	// Release the dynamic memory before the thread returns. 
-//
-//	lpvData = TlsGetValue(dwTlsIndex); 
-//	if (lpvData != 0) 
-//		LocalFree((HLOCAL) lpvData); 
-//
-//	return 0; 
-//} 
-//
-//int main(VOID) 
-//{ 
-//	DWORD IDThread; 
-//	HANDLE hThread[THREADCOUNT]; 
-//	int i; 
-//
-//	// Allocate a TLS index. 
-//
-//	if ((dwTlsIndex = TlsAlloc()) == TLS_OUT_OF_INDEXES) 
-//		ErrorExit("TlsAlloc failed"); 
-//
-//	// Create multiple threads. 
-//
-//	for (i = 0; i < THREADCOUNT; i++) 
-//	{ 
-//		hThread[i] = CreateThread(NULL, // default security attributes 
-//			0,                           // use default stack size 
-//			(LPTHREAD_START_ROUTINE) ThreadFunc, // thread function 
-//			NULL,                    // no thread function argument 
-//			0,                       // use default creation flags 
-//			&IDThread);              // returns thread identifier 
-//
-//		// Check the return value for success. 
-//		if (hThread[i] == NULL) 
-//			ErrorExit("CreateThread error\n"); 
-//	} 
-//
-//	for (i = 0; i < THREADCOUNT; i++) 
-//		WaitForSingleObject(hThread[i], INFINITE); 
-//
-//	TlsFree(dwTlsIndex);
-//
-//	return 0; 
-//} 
-//
-//VOID ErrorExit (LPSTR lpszMessage) 
-//{ 
-//	fprintf(stderr, "%s\n", lpszMessage); 
-//	ExitProcess(0); 
-//}
-

@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "stdafx.h"
@@ -135,7 +128,7 @@ LRESULT WINAPI set_analyze_help_conf( LPCWSTR symbol_path, LPCWSTR dbg_help_path
 		{
 			dlg_ret_state ret_state = CANCEL_STATE; 
 
-			ret = show_msg( NULL, _T( "µ±Ç°Ã»ÓÐÉèÖÃWINDOWS¹¤×÷ÐÅÏ¢·ûºÅ,Í¨¹ýËüµÄ°ïÖú,½«¿ÉÒÔÏÔÊ¾¸üÈ«ÃæµÄÏµÍ³ÊÂ¼þÏ¸½Ú,ÊÇ·ñ½«ÆäÉèÖÃÔÚ³ÌÐòËùÓÐÄ¿Â¼ÏÂµÄ\"SYMBOLS\"×ÓÄ¿Â¼ÏÂ? ÏÂ´ÎÇëÔÚÑ¡ÏîÃæ°åÖÐ½øÐÐÉèÖÃ." ), &ret_state ); 
+			ret = show_msg( NULL, _T( "ï¿½ï¿½Ç°Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WINDOWSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½,Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½È«ï¿½ï¿½ï¿½ÏµÍ³ï¿½Â¼ï¿½Ï¸ï¿½ï¿½,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½Âµï¿½\"SYMBOLS\"ï¿½ï¿½Ä¿Â¼ï¿½ï¿½? ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½." ), &ret_state ); 
 			if( ret != ERROR_SUCCESS )
 			{
 				ASSERT( FALSE ); 

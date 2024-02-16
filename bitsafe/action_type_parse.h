@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __ACTION_TYPE_PARSE_H__
@@ -88,12 +81,12 @@ typedef PSTRING PCANSI_STRING;
 #endif //DRIVER
 
 /*************************************************************************
-PVOIDÀàÐÍÓëULONG£¬ULONGLONGÀàÐÍ¹ØÏµ£º
-1.PVOIDÀàÐÍµÄ³¤¶ÈÊÇÓÉÓÚ±àÒëÆ÷±àÒëÊ±¶¨µÄ£¬µ«ÔËÐÐÊ±±ØÐëÓÐÏàÓ¦
-WINDOWSÏµÍ³Î»ÊýÓëÓ²¼þÆ½Ì¨µÄÖ§³Ö¡£
-2.ËùÒÔµ±Çý¶¯ÓëÓ¦ÓÃ±àÒëµÄÎ»ÊýÊÇÒ»ÑùµÄ£¬ÕâÊ±¶ÔÄÚ´æºÍULONGLONGµÄ´¦Àí×î¸ßÐ§µÄ¡£
-3.¶øµ±Çý¶¯ÓëÓ¦ÓÃµÄ±àÒëµÄÎ»ÊýÊÇ²»Ò»ÑùµÄ£¬¾ÍÐèÒªÒ»ÖÖÏàÓ¦µÄÔ¼¶¨ºÃµÄ×ª»»·½Ê½£¬
-»òÕß¶¼¶¨ÒåÎª¼æÈÝÐÔ×îºÃµÄULONGLONGÐÍ¡£
+PVOIDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ULONGï¿½ï¿½ULONGLONGï¿½ï¿½ï¿½Í¹ï¿½Ïµï¿½ï¿½
+1.PVOIDï¿½ï¿½ï¿½ÍµÄ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦
+WINDOWSÏµÍ³Î»ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½Æ½Ì¨ï¿½ï¿½Ö§ï¿½Ö¡ï¿½
+2.ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã±ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ULONGLONGï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½Ä¡ï¿½
+3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ÃµÄ±ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ç²ï¿½Ò»ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÒ»ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ãµï¿½×ªï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
+ï¿½ï¿½ï¿½ß¶ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ULONGLONGï¿½Í¡ï¿½
 *************************************************************************/
 
 typedef union _param_data

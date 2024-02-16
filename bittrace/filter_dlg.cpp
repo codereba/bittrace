@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifdef _DEBUG_MEM_LEAKS
@@ -42,25 +35,25 @@
 CDialogBuilder builder; 
 
 /*********************************************************************
-¹ýÂËµãÀàÐÍ£º
-1.Ç°¹ýÂË£º
-	¿ÉÒÔÔÚÐÐÎª·¢ÉúÇ°µÃµ½ÐÐÎªµÄÐÅÏ¢£¬¿ÉÒÔÖ¸¶¨ÐÐÎªµÄ½á¹û¡£
-2.ºó¹ýÂË£º
-	ÔÚÐÐÎª·¢ÉúºóµÃÐÐÎªµÄÐÅÏ¢Óë½á¹û£¬¿ÉÒÔµÃµ½ÐÐÎªµÄ½á¹û¡£
+ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½Í£ï¿½
+1.Ç°ï¿½ï¿½ï¿½Ë£ï¿½
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ãµï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Îªï¿½Ä½ï¿½ï¿½ï¿½ï¿½
+2.ï¿½ï¿½ï¿½ï¿½Ë£ï¿½
+	ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔµÃµï¿½ï¿½ï¿½Îªï¿½Ä½ï¿½ï¿½ï¿½ï¿½
 
-¸ú×ÙÆ÷¹ýÂËµãÉè¼Æ£º
-1.¸ú×ÙÆ÷ÐèÒªµÃµ½ÐÐÎªµÄ½á¹û£¬ËùÒÔÒª½øÐÐºó¹ýÂË¡£
-2.¸ú×ÙÆ÷¿ÉÄÜÐèÒª¶ÔÒ»Ð©ÐÐ½øÐÐ¿ØÖÆ£¬ËùÒª½øÐÐÇ°¹ýÂË¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Æ£ï¿½
+1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ãµï¿½ï¿½ï¿½Îªï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ðºï¿½ï¿½ï¿½Ë¡ï¿½
+2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò»Ð©ï¿½Ð½ï¿½ï¿½Ð¿ï¿½ï¿½Æ£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ë¡ï¿½
 
-ÈçºÎ½«Ç°ºó¹ýÂË½áºÏÆðÀ´£¬Í¬Ê±¾ßÓÐºÜºÃµÄÐÔÄÜ£¿
+ï¿½ï¿½Î½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ÐºÜºÃµï¿½ï¿½ï¿½ï¿½Ü£ï¿½
 
-1.·½°¸1£º
-Ç°¹ýÂËÌá½»ÐÐÎªÐÅÏ¢ÓëIDºÅ
-ºó¹ýÂËÌá½»ÐÐÎªµÄIDºÅÓë½á¹û
+1.ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½
+Ç°ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½Îªï¿½ï¿½Ï¢ï¿½ï¿½IDï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½Îªï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-ÏÂÒ»²½£¬¿ÉÄÜÐèÒªÊµÏÖÇ°¹ýÂËµ½ºó¹ýÂËµÄ×ª»»¡£
+ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÊµï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½×ªï¿½ï¿½ï¿½ï¿½
 
-2.·½°¸2£º
+2.ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½
 
 *********************************************************************/
 
@@ -92,27 +85,27 @@ FILTER_CONDITION_CPU_ARCH };
 
 LPCWSTR all_filter_cond_colume[] = { L"proc_name", 
 L"proc_name", 
-L"", //ÃüÁîÐÐ
+L"", //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 L"proc_id", 
-L"", //¸¸½ø³ÌID
+L"", //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID
 L"thread_id", 
-L"", //Ö÷ÀàÐÍ
+L"", //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 L"type", 
-L"", //¶Á/Ð´
-L"", //ÊÂ¼þÃèÊö
-L"", //ÊÂ¼þÏ¸½Ú
-L"", //½á¹û
-L"", //Ê±¼äÇø¼ä
-L"time", //ÈÕÆÚ Ê±¼ä
-L"", //Ïà¶ÔÊ±¼ä
-L"", //»á»°
-L"", //ÓÃ»§
-L"", //Éí·ÝIDºÅ
-L"id", //ÐòÁÐºÅ
-L"", //¹«Ë¾
-L"", //°æ±¾
-L"", //ÐéÄâ»¯
-L"" //CPU¼Ü¹¹ 
+L"", //ï¿½ï¿½/Ð´
+L"", //ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+L"", //ï¿½Â¼ï¿½Ï¸ï¿½ï¿½
+L"", //ï¿½ï¿½ï¿½
+L"", //Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+L"time", //ï¿½ï¿½ï¿½ï¿½ Ê±ï¿½ï¿½
+L"", //ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+L"", //ï¿½á»°
+L"", //ï¿½Ã»ï¿½
+L"", //ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½
+L"id", //ï¿½ï¿½ï¿½Ðºï¿½
+L"", //ï¿½ï¿½Ë¾
+L"", //ï¿½æ±¾
+L"", //ï¿½ï¿½ï¿½â»¯
+L"" //CPUï¿½Ü¹ï¿½ 
 }; 
 
 LRESULT get_filter_cond_colume_name( action_filter_cond cond, LPCWSTR *colume_name )
@@ -209,18 +202,18 @@ LPCWSTR get_filter_cond_desc( action_filter_cond cond )
 		//switch( cond )
 		//{
 		//case FLT_PATH: 
-		//	desc = "¿ÉÖ´ÐÐÎÄ¼þÂ·¾¶"; 
+		//	desc = "ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½"; 
 		//	break; 
 		//case FLT_PROCESS_NAME: 
-		//	desc = "½ø³ÌÃû"; 
+		//	desc = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"; 
 		//case FLT_COMMAND: 
-		//	desc = "ÃüÁîÐÐ"; 
+		//	desc = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"; 
 		//case FLT_PID: 
-		//	desc = "½ø³ÌID"; 
+		//	desc = "ï¿½ï¿½ï¿½ï¿½ID"; 
 		//		case FLT_PARENT_PID: 
-		//			desc = "¸¸½ø³ÌID"; 
+		//			desc = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID"; 
 		//case FLT_TID: 
-		//	desc = "Ïß³ÌID"; 
+		//	desc = "ï¿½ß³ï¿½ID"; 
 		//case FLT_MAIN_TYPE: 
 		//	desc = 
 		//case FLT_ACTION_TYPE: 
@@ -1329,17 +1322,17 @@ LRESULT filter_dlg::set_flt_cond( BOOLEAN remove_item )
 }
 
 /******************************************************************************************
-ÊÂ¼þÐÅÏ¢¹ýÂË·½·¨:
-1.½«ËùÓÐµÄÐÅÏ¢Ö±½ÓÊä³öµ½ÄÚ´æÖÐ¡£
-ÓÅµãÊÇ¼òµ¥£¬È±µãÊÇÈç¹ûÊä³öµÄÊÂ¼þÐÅÏ¢Ì«¶à£¬ÄÇÃ´¶ÔÄÚ´æµÄÕ¼ÓÃÂÊ¾Í»á¹ý¸ß¡£
-2.½«ËùÓÐµÄÊÂ¼þÐÅÏ¢Ö±½ÓÊä³öµ½Ò»¸öÊý¾Ý¿â£¬»ò¶¼Æä¸ñÊ½µÄÖÐ¼äÎÄ¼þÖÐ¡£
-ÓÅµãÊÇ²»Õ¼ÓÃÄÚ´æ£¬Èç¹ûÎÄ¼þ¸ñÊ½¼òµ¥£¬ÊµÏÖÒ²±È½Ï¼òµ¥¡£È±µãÊÇÈç¹ûÊä³öµÄÊÂ¼þÌ«¶à£¬ËÙ¶È»áÂý¡£
-3.ÄÚ´æÊä³öÓëÎÄ¼þÊä³öÁ½ÖÖ·½Ê½²¢ÓÃ£¬µ±ÊýÁ¿½ÏÐ¡Ê±£¬Ê¹ÓÃÄÚ´æ·½Ê½£¬µ±ÊýÁ¿½Ï´óÊ±£¬Ê¹ÓÃÎÄ¼þ·½Ê½¡£
+ï¿½Â¼ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Ë·ï¿½ï¿½ï¿½:
+1.ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ï¢Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ð¡ï¿½
+ï¿½Åµï¿½ï¿½Ç¼òµ¥£ï¿½È±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ï¢Ì«ï¿½à£¬ï¿½ï¿½Ã´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½Ê¾Í»ï¿½ï¿½ï¿½ß¡ï¿½
+2.ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ï¢Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿â£¬ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½Ä¼ï¿½ï¿½Ð¡ï¿½
+ï¿½Åµï¿½ï¿½Ç²ï¿½Õ¼ï¿½ï¿½ï¿½Ú´æ£¬ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê½ï¿½òµ¥£ï¿½Êµï¿½ï¿½Ò²ï¿½È½Ï¼òµ¥¡ï¿½È±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ì«ï¿½à£¬ï¿½Ù¶È»ï¿½ï¿½ï¿½ï¿½ï¿½
+3.ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½Ê½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡Ê±ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ú´æ·½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½Ê±ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
 
-³õ²½ÊµÏÖ·½°¸£º
-1.ÆäËüÏÖ³ÉµÄ¿ªÔ´ÏîÄ¿
-2.ÎÄ¼þ¸ñÊ½Ê¹ÓÃSQLITE
-3.ÎÄ¼þ¸ñÊ½Ê¹ÓÃFOXBASE¸ñÊ½¡£
+ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
+1.ï¿½ï¿½ï¿½ï¿½ï¿½Ö³ÉµÄ¿ï¿½Ô´ï¿½ï¿½Ä¿
+2.ï¿½Ä¼ï¿½ï¿½ï¿½Ê½Ê¹ï¿½ï¿½SQLITE
+3.ï¿½Ä¼ï¿½ï¿½ï¿½Ê½Ê¹ï¿½ï¿½FOXBASEï¿½ï¿½Ê½ï¿½ï¿½
 
 
 ******************************************************************************************/
@@ -1579,7 +1572,7 @@ LRESULT filter_dlg::_Init()
 //
 //			if( flt_value.GetLength() == 0 )
 //			{
-//				show_msg( GetHWND(), _T( "ÇëÉèÖÃ¹ýÂËÌõ¼þÖµ" ), NULL, _T( "ÊäÈë²»ÕýÈ·" ) ); 
+//				show_msg( GetHWND(), _T( "ï¿½ï¿½ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ" ), NULL, _T( "ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·" ) ); 
 //				break; 
 //			}
 //
@@ -2241,7 +2234,7 @@ LRESULT WINAPI save_filer_info_to_xml( action_filter_info *filter_info,
 		ASSERT( NULL != filter_info ); 
 		ASSERT( NULL != xml_node ); 
 
-		//²éÕÒÊÇ·ñÒÑ¾­´æÔÚÕâ¸ö¹ýÂË²ßÂÔ
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½
 		hr = xml_node->QueryInterface( __uuidof( MSXML::IXMLDOMElement ), ( PVOID* )&xml_element ); 
 		if( FAILED( hr ) )
 		{
@@ -2494,12 +2487,12 @@ LRESULT WINAPI make_filter_infos_conf_file_exist( LPCWSTR file_name )
 			break; 
 		}
 
-		// ´´½¨XmlÉùÃ÷
+		// ï¿½ï¿½ï¿½ï¿½Xmlï¿½ï¿½ï¿½ï¿½
 		hr = xml_doc->raw_createProcessingInstruction( L"xml", L"version=\"1.0\" encoding=\"utf-8\"", &xml_instruction );
 
 		if( S_OK != hr )
 		{
-			log_trace_ex( MSG_IMPORTANT, "¹¹ÔìKEY XML:´´½¨XMLÉùÃ÷Ê§°Ü" );
+			log_trace_ex( MSG_IMPORTANT, "ï¿½ï¿½ï¿½ï¿½KEY XML:ï¿½ï¿½ï¿½ï¿½XMLï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" );
 			ret = hr; 
 			break; 
 		}
@@ -2544,13 +2537,13 @@ LRESULT WINAPI make_filter_infos_conf_file_exist( LPCWSTR file_name )
 
 	}while( FALSE ); 
 
-	//// ÊÍ·ÅxmlÉùÃ÷
+	//// ï¿½Í·ï¿½xmlï¿½ï¿½ï¿½ï¿½
 	//if (xml_instruction != NULL)
 	//{
 	//	xml_instruction.Release();
 	//}
 
-	//// ÊÍ·ÅxmlÎÄµµ
+	//// ï¿½Í·ï¿½xmlï¿½Äµï¿½
 	//if (xml_doc != NULL)
 	//{
 	//	xml_doc.Release ();

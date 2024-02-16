@@ -1,26 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
- 
- #ifndef __ACTION_LOG_SQL_H__
+#ifndef __ACTION_LOG_SQL_H__
 #define __ACTION_LOG_SQL_H__
 
 //define the actions of the all type of an action in one common table.
@@ -35,41 +27,6 @@
 
 #define COMMON_ACTION_TABLE_NAMEA "common_action_table"
 #define COMMON_ACTION_TABLE_NAME _T( "common_action_table" ) 
-
-//AUTOINCREMENT
-/*********************************************************************************
-使用INTEGER PRIMARY KEY来实现表内的ROWID(BTREE的键)的列+索引，速度将是普通列+索引的两倍.
-当使用索引来定位数据行时，查询数据的速度与ID号具体值无关，因为数据直接关联，不再需要搜索
-定位。
-*********************************************************************************/
-
-//FLT_PATH,
-//FLT_PROCESS_NAME, 
-//FLT_COMMAND, 
-//FLT_PID, 
-//FLT_PARENT_PID,
-//FLT_TID, 
-//FLT_MAIN_TYPE, 
-//FLT_ACTION_TYPE, 
-//FLT_READ_WRITE, 
-//FLT_DESCRITION, 
-//FLT_DESC_DETAIL, 
-//FLT_ACTION_RESULT, 
-//FLT_TIME_REGION, 
-//FLT_DATE_TIME, 
-//FLT_RELATIVE_TIME, 
-//FLT_SESSION, 
-//FLT_USER, 
-//FLT_AUTH_ID, 
-//FLT_ACTION_NO,
-//FLT_CORPORATION, 
-//FLT_VERSION, 
-//FLT_VIRTUAL_TECH, 
-//FLT_CPU_ARCH, 
-
-/*********************************************************************
-用户有时需要通过进程的名称来进行查找，而不方便使用进程的全路径
-*********************************************************************/
 
 #define COLUME_PATH_NAME _T( "path" ) 
 #define COLUME_COMMAND_NAME _T( "command" )

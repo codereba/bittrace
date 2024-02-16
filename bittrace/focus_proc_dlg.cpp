@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "stdafx.h"
@@ -127,14 +120,14 @@ LRESULT on_focus_proc_timer( UINT nIDEvent )
 
 	INT32 old_rop2 = 0; 
 
-	HWND desktop_wnd;    //È¡µÃ×ÀÃæ¾ä±ú
+	HWND desktop_wnd;    //È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	HWND main_wnd_on_pos; 
 	HWND wnd_on_pos; 
 
 	RECT main_wnd_rect;
 	RECT wnd_rect;
 
-	HDC desktop_dc = NULL;     //È¡µÃ×ÀÃæÉè±¸³¡¾°
+	HDC desktop_dc = NULL;     //È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è±¸ï¿½ï¿½ï¿½ï¿½
 
 	HPEN draw_pen = NULL; 
 	HGDIOBJ old_pen = NULL; 

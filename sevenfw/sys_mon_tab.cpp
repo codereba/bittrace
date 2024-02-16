@@ -20,7 +20,7 @@
  *  2007.6.10	Ji Jie Shi modified it for this ui lib. 
  */
 
- #include "common_func.h"
+#include "common_func.h"
 #include "sys_mng_tab.h"
 #include "trace_log_api.h"
 
@@ -33,7 +33,7 @@
 //	ASSERT( sys_event != NULL ); 
 //	ASSERT( sys_event->Msgs != NULL ); 
 //
-//	ret = MessageBox( NULL, ( CHAR* )sys_event->Msgs, "¾¯¸æ", MB_YESNO | MB_TASKMODAL | MB_TOPMOST ); 
+//	ret = MessageBox( NULL, ( CHAR* )sys_event->Msgs, "ï¿½ï¿½ï¿½ï¿½", MB_YESNO | MB_TASKMODAL | MB_TOPMOST ); 
 //
 //	//__asm int 3; 
 //

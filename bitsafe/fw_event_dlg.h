@@ -1,32 +1,24 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
- 
- #pragma once 
 
-//#include "menu_ui.h"
+#pragma once 
+
 #include "conf_file.h"
 
 extern vector< fw_log > fw_logs; 
 
-#define FW_EVENT_APP _T( "Ó¦ÓÃ³ÌÐò" )
+#define FW_EVENT_APP _T( "Ó¦ï¿½Ã³ï¿½ï¿½ï¿½" )
 
 INT32 CALLBACK load_fw_log( fw_log *log, PVOID param ); 
 LRESULT CALLBACK alloc_fw_log( PVOID *log, PVOID param ); 
@@ -94,7 +86,7 @@ public:
     }
 
     /*
-    * ¹Ø¼üµÄ»Øµ÷º¯Êý£¬IListCallbackUI ÖÐµÄÒ»¸öÐéº¯Êý£¬äÖÈ¾Ê±ºò»áµ÷ÓÃ,ÔÚ[1]ÖÐÉèÖÃÁË»Øµ÷¶ÔÏó
+    * ï¿½Ø¼ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IListCallbackUI ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½[1]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     */
     LPCTSTR GetItemText(CControlUI* pControl, int iIndex, int iSubItem)
 	{
@@ -391,7 +383,7 @@ public:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

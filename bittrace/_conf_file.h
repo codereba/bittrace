@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #pragma once
@@ -601,11 +594,11 @@ INLINE LPCWSTR get_protocol_text( prot_type type )
 	{
 	case PROT_TCP: 
 		desc = _get_string_by_id( TEXT_IP_EDIT_PROT_TCP, 
-			_T( "TCPÐ­Òé" ) ); 
+			_T( "TCPÐ­ï¿½ï¿½" ) ); 
 		break; 
 	case PROT_UDP:
 		desc = _get_string_by_id( TEXT_IP_EDIT_PROT_UDP, 
-			_T( "UDPÐ­Òé" ) ); 
+			_T( "UDPÐ­ï¿½ï¿½" ) ); 
 		break; 
 	case ALL_PROT:
 		desc = _get_string_by_id( TEXT_IP_EDIT_PROT_ALL, 
@@ -624,55 +617,55 @@ INLINE LPCWSTR get_sys_action_desc( sys_action_type type )
 #ifdef COMPATIBLE_OLD_ACTION_DEFINE
 	case INSTALL_DRV:
 		desc = _get_string_by_id( TEXT_SYS_ACTION_LOAD_DRIVER_DESC, 
-			_T( "°²×°Çý¶¯" ) ); 
+			_T( "ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case ACCESS_COM:
 		desc = _get_string_by_id( TEXT_SYS_ACTION_INSTALL_COM_DESC, 
-			_T( "·ÃÎÊCOM×é¼þ" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½COMï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case MODIFY_KEY:
 		desc = _get_string_by_id( TEXT_SYS_ACTION_MODIFY_REGISTRY_DESC, 
-			_T( "ÐÞ¸Ä×¢²á±í¼üÖµ" ) ); 
+			_T( "ï¿½Þ¸ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Öµ" ) ); 
 		break; 
 	case MODIFY_FILE: 
 		desc = _get_string_by_id( TEXT_SYS_ACTION_MODIFY_FILE_DESC, 
-			_T( "ÐÞ¸ÄÎÄ¼þ" ) ); 
+			_T( "ï¿½Þ¸ï¿½ï¿½Ä¼ï¿½" ) ); 
 		break; 
 	case DELETE_FILE: 
 		desc = _get_string_by_id( TEXT_SYS_ACTION_DELETE_FILE_DESC, 
-			_T( "É¾³ýÎÄ¼þ" ) ); 
+			_T( "É¾ï¿½ï¿½ï¿½Ä¼ï¿½" ) ); 
 		break; 
 	case LOCATE_URL: 
 		desc = _get_string_by_id( TEXT_SYS_ACTION_LOCATE_TO_URL_DESC, 
-			_T( "·ÃÎÊURLÁ´½Ó" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case INSTALL_HOOK: 
 		desc = _get_string_by_id( TEXT_SYS_ACTION_INSTALL_HOOK_DESC, 
-			_T( "°²×°¹³×Ó" ) ); 
+			_T( "ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case CREATE_PROC: 
 		desc = _get_string_by_id( TEXT_SYS_ACTION_CREATE_PROCESS_DESC, 
-			_T( "Éú³É½ø³Ì" ) ); 
+			_T( "ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case ACCESS_MEM:
 		desc = _get_string_by_id( TEXT_SYS_ACTION_ACCESS_REMOTE_MEMORY_DESC, 
-			_T( "·ÃÎÊÆäËü½ø³ÌÄÚ´æ" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½" ) ); 
 		break; 
 	case OTHER_ACTION: 
 		desc = _get_string_by_id( TEXT_SYS_ACTION_OTHER_PROCTECTED_ACTION, 
-			_T( "ÆäËü²Ù×÷" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case SOCKET_CONNECT: 
 		desc = _get_string_by_id( TEXT_SYS_ACTION_CREATE_CONNECTION_DESC, 
-			_T( "½¨Á¢ÍøÂçÁ¬½Ó" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case SOCKET_SEND:
 		desc = _get_string_by_id( TEXT_SYS_ACTION_SEND_DATA_DESC, 
-			_T( "·¢ËÍÍøÂçÊý¾Ý" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 	case SOCKET_RECV:
 		desc = _get_string_by_id( TEXT_SYS_ACTION_RECEIVE_DATA_DESC, 
-			_T( "½ÓÊÕÍøÂçÊý¾Ý" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 		break; 
 #endif //COMPATIBLE_OLD_ACTION_DEFINE
 	}
@@ -687,13 +680,13 @@ INLINE LPCWSTR get_response_desc( action_response_type type )
 	switch( type )
 	{
 	case ACTION_ALLOW: 
-		desc = _get_string_by_id( TEXT_RESPONSE_ALLOW, _T( "ÔÊÐí" ) );
+		desc = _get_string_by_id( TEXT_RESPONSE_ALLOW, _T( "ï¿½ï¿½ï¿½ï¿½" ) );
 		break; 
 	case ACTION_BLOCK:
-		desc = _get_string_by_id( TEXT_RESPONSE_BLOCK, _T( "×èÖ¹" ) ); 
+		desc = _get_string_by_id( TEXT_RESPONSE_BLOCK, _T( "ï¿½ï¿½Ö¹" ) ); 
 		break; 
 	case ACTION_LEARN:
-		desc = _get_string_by_id( TEXT_RESPONSE_LEARN, _T( "Ñ¯ÎÊ" ) ); 
+		desc = _get_string_by_id( TEXT_RESPONSE_LEARN, _T( "Ñ¯ï¿½ï¿½" ) ); 
 		break; 
 	default:
 		break; 

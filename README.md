@@ -2,18 +2,10 @@
  trace system internal activities by high perfermonce aio(include multiple implementations windows support, aio,completion port, wmi etc).
  and all file size is very small(include kernel driver, application).
  
- ------------------------------------------------------------------------
- ### Source code license is The GNU General Public License v3.0 
- 
- ### And copyright for every file include copyright notation: “Copyright 2010 JiJie Shi(weixin:AIChangeLife)”
- 
- #### Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
- 
- #### Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the  documentation and/or other materials provided with the distribution.
- 
- ### Or contact us, get permission.
- 
- ---------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+For the license of the Source (including but not limited to software source code, documentation source, and configuration files), please refer to the LICENSE file.
+Note: For commercial use you need to inquiry the commercial license, please refer to the detail in the LICENSE file.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
  publish on software site huajun(chinese version), download.cnet(english version) and other software download site:
  
@@ -81,8 +73,7 @@ Third party open source code:
 uilib                                 
 
 Contact:
-    WeiXin:      jianzhi_ai
-    WeiXin:      AIChangeLife 
+    WeiXin:      651362705
 	QQ group:    601169305
     QQ:          2146651351
 	

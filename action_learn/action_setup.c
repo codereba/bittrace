@@ -1,23 +1,17 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
  #ifdef TEST_IN_RING3
 
 #include "common_func.h"
@@ -78,8 +72,8 @@ NTSTATUS exec_create_setup( param_info all_params[ ],
 
 		action_info->action.type = EXEC_create; 
 
-		action_info->action.do_exec_create.pid = all_params[ 0 ].data.ptr_val; //Ä¿±ê½ø³ÌID 
-		action_info->action.do_exec_create.parent_pid = all_params[ 0 ].data.ptr_val; //¶¯×÷·¢ÆðÕß½ø³ÌID 
+		action_info->action.do_exec_create.pid = all_params[ 0 ].data.ptr_val; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action_info->action.do_exec_create.parent_pid = all_params[ 0 ].data.ptr_val; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
 		action_info->action.do_exec_create.image_base = all_params[ 0 ].data.int32_val; 
 		action_info->action.do_exec_create.path_len = all_params[ 3 ].data.int32_val;  
 		action_info->action.do_exec_create.cmd_len = all_params[ 4 ].data.int32_val; 
@@ -150,8 +144,8 @@ NTSTATUS exec_module_load_setup( param_info all_params[ ],
 
 		action->action.type = EXEC_module_load; 
 
-		action->action.do_exec_module_load.base = all_params[ 0 ].data.uint32_val; //Ä¿±ê½ø³ÌID 
-		action->action.do_exec_module_load.size = all_params[ 1 ].data.uint32_val; //¶¯×÷·¢ÆðÕß½ø³ÌID 
+		action->action.do_exec_module_load.base = all_params[ 0 ].data.uint32_val; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->action.do_exec_module_load.size = all_params[ 1 ].data.uint32_val; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
 		action->action.do_exec_module_load.path_len = all_params[ 2 ].data.uint16_val; 
 				
 		if( action->action.do_exec_module_load.path_len + 1 > MAX_PATH )
@@ -212,8 +206,8 @@ NTSTATUS exec_destroy_setup( param_info all_params[ ],
 
 		action->action.type = EXEC_destroy; 
 
-		action->action.do_exec_destroy.pid = all_params[ 0 ].data.uint32_val; //Ä¿±ê½ø³ÌID 
-		action->action.do_exec_destroy.parent_pid = all_params[ 1 ].data.uint32_val; //¶¯×÷·¢ÆðÕß½ø³ÌID 
+		action->action.do_exec_destroy.pid = all_params[ 0 ].data.uint32_val; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->action.do_exec_destroy.parent_pid = all_params[ 1 ].data.uint32_val; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
 		action->action.do_exec_destroy.path_len = all_params[ 2 ].data.uint16_val; 
 		action->action.do_exec_destroy.cmd_len = all_params[ 3 ].data.uint16_val; 
 		
@@ -265,15 +259,15 @@ NTSTATUS file_touch_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG access; //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		//ULONG alloc_size; //ÎÄ¼þ³õÊ¼³¤¶È 
-		//ULONG attrib; //ÎÄ¼þÊôÐÔ 
-		//ULONG share; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		//ULONG disposition; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		//ULONG options; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		//ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG access; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//ULONG alloc_size; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG share; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG disposition; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		//ULONG options; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		//ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		action = ( sys_action_info* )alloc_sys_action_info( ACTION_RECORD_SIZE_BY_TYPE( file_touch ) 
 			+ ( ( MAX_PATH ) << 1 ) ); 
@@ -295,12 +289,12 @@ NTSTATUS file_touch_setup( param_info all_params[ ],
 
 		action->action.type = FILE_touch; 
 
-		action->action.do_file_touch.alloc_size = all_params[ 0 ].data.uint32_val; //ÎÄ¼þ³õÊ¼³¤¶È 
-		action->action.do_file_touch.attrib = all_params[ 1 ].data.uint32_val; //ÎÄ¼þÊôÐÔ 
-		action->action.do_file_touch.share = all_params[ 2 ].data.uint32_val; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		action->action.do_file_touch.disposition = all_params[ 3 ].data.uint32_val; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->action.do_file_touch.options = all_params[ 4 ].data.uint32_val; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		//action->action.do_file_touch.result = all_params[ 5 ].data.uint32_val; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		action->action.do_file_touch.alloc_size = all_params[ 0 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		action->action.do_file_touch.attrib = all_params[ 1 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->action.do_file_touch.share = all_params[ 2 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->action.do_file_touch.disposition = all_params[ 3 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->action.do_file_touch.options = all_params[ 4 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		//action->action.do_file_touch.result = all_params[ 5 ].data.uint32_val; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		action->action.do_file_touch.path_len = all_params[ 5 ].data.uint32_val; 
 
 		if( action->action.do_file_touch.path_len + 1 > MAX_PATH )
@@ -349,17 +343,17 @@ NTSTATUS file_open_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG access; //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		//ULONG alloc_size; //ÎÄ¼þ³õÊ¼³¤¶È 
-		//ULONG attrib; //ÎÄ¼þÊôÐÔ 
-		//ULONG share; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		//ULONG disposition; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		//ULONG options; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		////ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG access; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//ULONG alloc_size; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG share; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG disposition; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		//ULONG options; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		////ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -378,12 +372,12 @@ NTSTATUS file_open_setup( param_info all_params[ ],
 
 		action->action.type = FILE_open; 
 
-		action->action.do_file_open.access = all_params[ 0 ].data.uint32_val; //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		action->action.do_file_open.alloc_size = all_params[ 1 ].data.uint32_val; //ÎÄ¼þ³õÊ¼³¤¶È 
-		action->action.do_file_open.attrib = all_params[ 2 ].data.uint32_val; //ÎÄ¼þÊôÐÔ 
-		action->action.do_file_open.share = all_params[ 3 ].data.uint32_val; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		action->action.do_file_open.disposition = all_params[ 4 ].data.uint32_val; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->action.do_file_open.options = all_params[ 5 ].data.uint32_val; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
+		action->action.do_file_open.access = all_params[ 0 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		action->action.do_file_open.alloc_size = all_params[ 1 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		action->action.do_file_open.attrib = all_params[ 2 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->action.do_file_open.share = all_params[ 3 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->action.do_file_open.disposition = all_params[ 4 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->action.do_file_open.options = all_params[ 5 ].data.uint32_val; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
 		action->action.do_file_open.path_len = all_params[ 6 ].data.uint32_val; 
 
 		if( action->action.do_file_open.path_len + 1 > MAX_PATH )
@@ -407,17 +401,17 @@ NTSTATUS file_open_setup( param_info all_params[ ],
 //	sys_action_info *action = NULL; 
 //	action_response_type resp = ACTION_ALLOW; 
 //
-//	//ULONG access; //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-//	//ULONG alloc_size; //ÎÄ¼þ³õÊ¼³¤¶È 
-//	//ULONG attrib; //ÎÄ¼þÊôÐÔ 
-//	//ULONG share; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-//	//ULONG disposition; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-//	//ULONG options; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-//	////ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+//	//ULONG access; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+//	//ULONG alloc_size; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+//	//ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+//	//ULONG share; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+//	//ULONG disposition; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+//	//ULONG options; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+//	////ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 //	//PATH_SIZE_T path_len; 
 //	//union
 //	//{
-//	//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+//	//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 //
 //	//	struct 
 //	//	{
@@ -501,12 +495,12 @@ NTSTATUS file_read_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG data_len; //Êý¾Ý³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -531,7 +525,7 @@ NTSTATUS file_read_setup( param_info all_params[ ],
 
 		//	union
 		//	{
-		//		WCHAR path_name[ 1 ]; //½ø³ÌÈ«Â·¾¶ 
+		//		WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		//		struct 
 		//		{
@@ -553,8 +547,8 @@ NTSTATUS file_read_setup( param_info all_params[ ],
 
 		action->action.type = EXEC_destroy; 
 
-		action->action.do_file_read.offset = all_params[ 0 ].data.uint32_val; //Ä¿±ê½ø³ÌID 
-		action->action.do_file_read.data_len = all_params[ 1 ].data.uint32_val; //¶¯×÷·¢ÆðÕß½ø³ÌID 
+		action->action.do_file_read.offset = all_params[ 0 ].data.uint32_val; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->action.do_file_read.data_len = all_params[ 1 ].data.uint32_val; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
 		//action->action.do_file_read.result = all_params[ 2 ].data.uint16_val; 
 		action->action.do_file_read.path_len = all_params[ 2 ].data.uint16_val; 
 		
@@ -595,14 +589,14 @@ NTSTATUS file_write_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG offset; //ÎÄ¼þÄÚÆ«ÒÆ 
-		//ULONG data_len; //Êý¾Ý³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG offset; //ï¿½Ä¼ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ 
+		//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -630,8 +624,8 @@ NTSTATUS file_write_setup( param_info all_params[ ],
 
 		action->action.type = EXEC_destroy; 
 
-		action->action.do_file_write.offset = all_params[ 0 ].data.uint32_val; //Ä¿±ê½ø³ÌID 
-		action->action.do_file_write.data_len = all_params[ 1 ].data.uint32_val; //¶¯×÷·¢ÆðÕß½ø³ÌID 
+		action->action.do_file_write.offset = all_params[ 0 ].data.uint32_val; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->action.do_file_write.data_len = all_params[ 1 ].data.uint32_val; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
 		action->action.do_file_write.path_len= all_params[ 2 ].data.uint16_val; 
 		
 		if( action->action.do_file_write.path_len + 1 > MAX_PATH )
@@ -681,11 +675,11 @@ NTSTATUS file_modified_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -753,11 +747,11 @@ NTSTATUS file_read_dir_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -825,11 +819,11 @@ NTSTATUS file_remove_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -897,13 +891,13 @@ NTSTATUS file_rename_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG replace_existing; //ÊÇ·ñ¸²¸ÇÒÑ´æÔÚÎÄ¼þ 
-		//ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG replace_existing; //ï¿½Ç·ñ¸²¸ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
+		//ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T new_name_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -990,13 +984,13 @@ NTSTATUS file_truncate_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG eof; //½Ø¶ÏºóµÄÎÄ¼þ³¤¶È 
-		////NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG eof; //ï¿½Ø¶Ïºï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		////NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		////WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		////WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1065,13 +1059,13 @@ NTSTATUS file_mklink_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG eof; //½Ø¶ÏºóµÄÎÄ¼þ³¤¶È 
-		////NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG eof; //ï¿½Ø¶Ïºï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		////NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		////WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		////WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1090,13 +1084,13 @@ NTSTATUS file_mklink_setup( param_info all_params[ ],
 
 		action->action.type = EXEC_destroy; 
 
-		//ULONG flags; //like replace existing; //ÊÇ·ñ¸²¸ÇÒÑ´æÔÚÎÄ¼þ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG flags; //like replace existing; //ï¿½Ç·ñ¸²¸ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T link_name_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1172,10 +1166,10 @@ NTSTATUS file_chmod_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG attrib; //ÎÄ¼þÊôÐÔ 
-		////NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		////NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		if( COLLECT_CURRENT_PROCESS_CONTEXT & flags )
 		{
@@ -1240,7 +1234,7 @@ NTSTATUS file_setsec_setup( param_info all_params[ ],
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1308,13 +1302,13 @@ NTSTATUS reg_openkey_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG access; //×¢²á±í´ò¿ª/´´½¨È¨ÏÞ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG access; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		////WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶ 
+		////WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1383,11 +1377,11 @@ NTSTATUS reg_mkkey_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1455,11 +1449,11 @@ NTSTATUS reg_rmkey_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1529,11 +1523,11 @@ NTSTATUS reg_mvkey_setup( param_info all_params[ ],
 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T new_name_len; 
-		////WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶ 
-		////WCHAR new_keyname[ 0 ]; //Ä¿±ê×¢²á±í¼üÃû 
+		////WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		////WCHAR new_keyname[ 0 ]; //Ä¿ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶
+		//	WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
 		//	struct 
 		//	{
@@ -1628,11 +1622,11 @@ NTSTATUS reg_rmval_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -1701,13 +1695,13 @@ NTSTATUS reg_setval_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG type; //×¢²á±íÖµÀàÐÍ 
-		//ULONG data_len; //Êý¾Ý³¤¶È 
-		////NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG type; //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+		////NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T val_name_len; 
 		//PATH_SIZE_T key_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
-		////WCHAR path_name[ 0 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+		////WCHAR path_name[ 0 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		action = ( sys_action_info* )alloc_sys_action_info( ACTION_RECORD_SIZE_BY_TYPE( reg_setval ) 
 			+ ( ( key_name_len + 1 + val_name_len + 1 ) << 1 ) ); 
@@ -1800,7 +1794,7 @@ NTSTATUS reg_loadkey_setup( param_info all_params[ ],
 
 		//PATH_SIZE_T key_name_len; 
 		//PATH_SIZE_T hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		if( COLLECT_CURRENT_PROCESS_CONTEXT & flags )
 		{
@@ -1862,7 +1856,7 @@ NTSTATUS reg_replkey_setup( param_info all_params[ ],
 		//PATH_SIZE_T key_name_len; 
 		//PATH_SIZE_T hive_name_len; 
 		//PATH_SIZE_T new_hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		key_name_len = all_params[ 0 ].data.uint16_val; 
 		hive_name_len = all_params[ 1 ].data.uint16_val; 
@@ -2032,10 +2026,10 @@ NTSTATUS proc_exec_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 	
 		path_len = all_params[ 1 ].data.uint16_val; 
 		if( path_len + 1 > MAX_PATH )
@@ -2116,11 +2110,11 @@ NTSTATUS proc_open_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG access; //½ø³Ì´ò¿ªÈ¨ÏÞ 
-		////NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG access; //ï¿½ï¿½ï¿½Ì´ï¿½È¨ï¿½ï¿½ 
+		////NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		if( COLLECT_CURRENT_PROCESS_CONTEXT & flags )
 		{
@@ -2182,11 +2176,11 @@ NTSTATUS proc_debug_setup( param_info all_params[ ],
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -2676,14 +2670,14 @@ NTSTATUS test_action_data_setup()
 		//	DATA_BLOB_TYPE, 
 		//	MAX_PARAM_TYPE,
 
-		//ULONG pid; // ½ø³ÌID 
-		//ULONG parent_pid; // ¸¸½ø³ÌID 
-		//PVOID image_base; //process virtual address space // Ö÷Ó³Ïñ»ùÖ· 
+		//ULONG pid; // ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG parent_pid; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID image_base; //process virtual address space // ï¿½ï¿½Ó³ï¿½ï¿½ï¿½Ö· 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T cmd_len; 
 		//union 
 		//{
-		//	WCHAR path_name[ 1 ]; //½ø³ÌÈ«Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		//	struct 
 		//	{
 		//		WCHAR *path_name_ptr; 

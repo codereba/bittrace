@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #ifndef __SMTP_SETTING_H__
@@ -256,32 +249,32 @@ _return:
 
 		if( name_edit->GetText().GetLength() > MAX_EMAIL_NAME_LEN - 1 )
 		{
-			show_msg( GetHWND(), _T( "ÏÔÊ¾Ãû³Æ³¤¶È²»µÃ´óÓÚ260" ) ); 
+			show_msg( GetHWND(), _T( "ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Æ³ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 			goto _return; 
 		}
 
 		if( email_edit->GetText().GetLength() > MAX_EMAIL_NAME_LEN )
 		{
-			show_msg( GetHWND(), _T( "EMAILÕÊºÅ³¤¶È²»µÃ´óÓÚ260" ) ); 
+			show_msg( GetHWND(), _T( "EMAILï¿½ÊºÅ³ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 			goto _return; 
 		}
 
 		if( server_edit->GetText().GetLength() > MAX_EMAIL_NAME_LEN )
 		{
-			show_msg( GetHWND(), _T( "SMTPÓÊ¼þ·þÎñÆ÷Ãû³¤¶È²»µÃ´óÓÚ260" ) ); 
+			show_msg( GetHWND(), _T( "SMTPï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 			goto _return; 
 		}
 
 		if( pwd_edit->GetText().GetLength() > MAX_EMAIL_NAME_LEN )
 		{
-			show_msg( GetHWND(), _T( "ÃÜÂë³¤¶È²»µÃ´óÓÚ260" ) ); 
+			show_msg( GetHWND(), _T( "ï¿½ï¿½ï¿½ë³¤ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 			goto _return; 
 		}
 		
 		ret = str_2_port( port_edit->GetText().GetData(), &port_val ); 
 		if( ret != ERROR_SUCCESS )
 		{
-			show_msg( GetHWND(), _T( "¶Ë¿Ú¸ñÊ½²»ÕýÈ·" ) ); 
+			show_msg( GetHWND(), _T( "ï¿½Ë¿Ú¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 			goto _return; 
 		}
 		user_info->port = port_val;  
@@ -297,7 +290,7 @@ _return:
 		//	&&output_param->desc.socket.dest_port.port.port_begin == 0 
 		//	&& output_param->desc.socket.dest_port.port.port_end == 0 )
 		//{
-		//	show_msg( GetHWND(), _T( "Ô´¶Ë¿ÚºÍÄ¿±ê¶Ë¿Ú²»¿ÉÒÔÍ¬Ê±²»Éè¶¨" ) ); 
+		//	show_msg( GetHWND(), _T( "Ô´ï¿½Ë¿Úºï¿½Ä¿ï¿½ï¿½Ë¿Ú²ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½è¶¨" ) ); 
 		//	goto _return; 
 		//}
 
@@ -481,7 +474,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             bHandled = TRUE;
             return 0;

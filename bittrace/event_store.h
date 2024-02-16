@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __EVENT_STORE_H__
@@ -32,79 +25,79 @@ INLINE ULONG calc_sys_action_record_size( sys_action_type type )
 	{
 	case EXEC_create:
 		record_size += sizeof( exec_create ); 
-		break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 	case EXEC_destroy:
 		record_size += sizeof( exec_destroy ); 
-		break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 	case EXEC_module_load:
 		record_size += sizeof( exec_module_load ); 
-		break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+		break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_filemon, 
 	case FILE_touch:
 		record_size += sizeof( file_touch ); 
-		break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 	case FILE_open:
 		record_size += sizeof( file_open ); 
-		break; //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//case ACCESS_FILE:
 		//	record_size += sizeof( file_open ); 
 		//	break; 
 	case FILE_read:
 		record_size += sizeof( _file_read ); 
-		break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_write:
 		record_size += sizeof( _file_write ); 
-		break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//case MODIFY_FILE:
 		//	record_size += sizeof( file_modified ); 
 		//	break; 
 	case FILE_modified:
 		record_size += sizeof( file_modified ); 
-		break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_readdir:
 		record_size += sizeof( file_readdir ); 
-		break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 	case FILE_remove:
 		record_size += sizeof( file_remove ); 
-		break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//case DELETE_FILE:
 		//	record_size += sizeof( file_remove ); 
 		//	break; 
 	case FILE_rename:
 		record_size += sizeof( file_rename ); 
-		break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_truncate:
 		record_size += sizeof( file_truncate ); 
-		break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_mklink:
 		record_size += sizeof( file_mklink ); 
-		break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_chmod:
 		record_size += sizeof( file_chmod ); 
-		break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_setsec:
 		record_size += sizeof( file_setsec ); 
-		break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//MT_regmon, 
 	case REG_openkey:
 		record_size += sizeof( reg_openkey ); 
-		break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+		break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 	case REG_mkkey:
 		record_size += sizeof( reg_mkkey ); 
-		break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		//case MODIFY_KEY:
 		//	record_size += sizeof( reg_mkkey ); 
 		//	break; 
 	case REG_rmkey:
 		record_size += sizeof( reg_rmkey ); 
-		break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_mvkey:
 		record_size += sizeof( reg_mvkey ); 
-		break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_getinfo: 
 		record_size += sizeof( reg_getinfo ); 
 		break; 
@@ -113,138 +106,138 @@ INLINE ULONG calc_sys_action_record_size( sys_action_type type )
 		break; 
 	case REG_rmval:
 		record_size += sizeof( reg_rmval ); 
-		break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_getval:
 		record_size += sizeof( reg_getval ); 
-		break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+		break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 	case REG_setval:
 		record_size += sizeof( reg_setval ); 
-		break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 	case REG_loadkey:
 		record_size += sizeof( reg_loadkey ); 
-		break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_replkey:
 		record_size += sizeof( reg_replkey ); 
-		break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_rstrkey:
 		record_size += sizeof( reg_rstrkey ); 
-		break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_setsec:
 		record_size += sizeof( reg_setsec ); 
-		break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		//MT_procmon, 
 	case PROC_exec:
 		record_size += sizeof( proc_exec ); 
-		break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 		//case CREATE_PROC:
 		//	record_size += sizeof( proc_exec ); 
 		//	break; 
 	case PROC_open:
 		record_size += sizeof( proc_open ); 
-		break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_debug:
 		record_size += sizeof( proc_debug ); 
-		break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_suspend:
 		record_size += sizeof( proc_suspend ); 
-		break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_resume:
 		record_size += sizeof( proc_resume ); 
-		break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_exit:
 		record_size += sizeof( proc_kill ); 
-		break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		//case TERMINATE_PROC:
 		//	record_size += sizeof( proc_kill ); 
 		//	break; 
 	case PROC_job:
 		record_size += sizeof( proc_job ); 
-		break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_pgprot:
 		record_size += sizeof( proc_pgprot ); 
-		break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_freevm:
 		record_size += sizeof( proc_freevm ); 
-		break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_writevm:
 		record_size += sizeof( proc_writevm ); 
-		break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_readvm:
 		record_size += sizeof( proc_readvm ); 
-		break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_remote:
 		record_size += sizeof( thrd_remote ); 
-		break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_setctxt:
 		record_size += sizeof( thrd_setctxt ); 
-		break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_suspend:
 		record_size += sizeof( thrd_suspend ); 
-		break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_resume:
 		record_size += sizeof( thrd_resume ); 
-		break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_exit:
 		record_size += sizeof( thrd_kill ); 
-		break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_queue_apc:
 		record_size += sizeof( thrd_queue_apc ); 
-		break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 	case SYS_settime:
 		record_size += sizeof( sys_settime ); 
-		break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 	case SYS_link_knowndll:
 		record_size += sizeof( sys_link_knowndll ); 
-		break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+		break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 	case SYS_open_physmm:
 		record_size += sizeof( sys_open_physmm ); 
-		break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 		//case ACCESS_MEM:
 		//	record_size += sizeof( sys_open_physmm ); 
 		//	break; 
 	case SYS_read_physmm:
 		record_size += sizeof( sys_read_physmm ); 
-		break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 	case SYS_write_physmm:
 		record_size += sizeof( sys_write_physmm ); 
-		break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+		break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 	case SYS_load_kmod:
 		record_size += sizeof( sys_load_kmod ); 
-		break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		//case INSTALL_DRV:
 		//	record_size += sizeof( sys_load_kmod ); 
 		//	break; 
 	case SYS_enumproc:
 		record_size += sizeof( sys_enumproc ); 
-		break; //Ã¶¾Ù½ø³Ì ÎÞ 
+		break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 	case SYS_regsrv:
 		record_size += sizeof( sys_regsrv ); 
-		break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+		break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 	case SYS_opendev:
 		record_size += sizeof( sys_opendev ); 
-		break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+		break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 		//MT_w32mon
 	case W32_postmsg:
 		record_size += sizeof( w32_postmsg ); 
-		break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case W32_sendmsg:
 		record_size += sizeof( w32_sendmsg ); 
-		break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case W32_findwnd:
 		record_size += sizeof( w32_findwnd ); 
-		break; //²éÕÒ´°¿Ú ÎÞ 
+		break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 	case W32_msghook:
 		record_size += sizeof( w32_msghook ); 
-		break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		//case INSTALL_HOOK:
 		//	record_size += sizeof( w32_msghook ); 
 		//	break; 
 	case W32_lib_inject:
 		record_size += sizeof( w32_lib_inject ); 
-		break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+		break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_netmon
 	case NET_create:
@@ -255,19 +248,19 @@ INLINE ULONG calc_sys_action_record_size( sys_action_type type )
 		//	break; 
 	case NET_connect:
 		record_size += sizeof( net_connect ); 
-		break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 		//case SOCKET_CONNECT:
 		//	record_size += sizeof( net_connect ); 
 		//	break; 
 	case NET_listen:
 		record_size += sizeof( net_listen ); 
-		break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 		//case SOCKET_LISTEN:
 		//	record_size += sizeof( net_listen ); 
 		//	break; 
 	case NET_send:
 		record_size += sizeof( net_send ); 
-		break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 		//case SOCKET_SEND:
 		//	record_size += sizeof( net_send ); 
 		//	break; 
@@ -288,7 +281,7 @@ INLINE ULONG calc_sys_action_record_size( sys_action_type type )
 		break; //
 	case NET_http:
 		record_size += sizeof( net_http ); 
-		break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+		break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 		//case LOCATE_URL:
 		//	record_size += sizeof( ); 
 		//	break; 
@@ -309,31 +302,31 @@ INLINE ULONG calc_sys_action_record_size( sys_action_type type )
 		//MT_behavior, 
 	case BA_extract_hidden:
 		record_size += sizeof( ba_extract_hidden ); 
-		break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+		break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 	case BA_extract_pe:
 		record_size += sizeof( ba_extract_pe ); 
-		break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_self_copy:
 		record_size += sizeof( ba_self_copy ); 
-		break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_self_delete:
 		record_size += sizeof( ba_self_delete ); 
-		break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_ulterior_exec:
 		record_size += sizeof( ba_ulterior_exec ); 
-		break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_invade_process:
 		record_size += sizeof( ba_invade_process ); 
-		break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_infect_pe:
 		record_size += sizeof( ba_infect_pe ); 
-		break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_overwrite_pe:
 		record_size += sizeof( ba_overwrite_pe ); 
-		break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_register_autorun:
 		record_size += sizeof( ba_register_autorun ); 
-		break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+		break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//case BA_other:
 		//record_size += sizeof( ); 

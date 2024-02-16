@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #pragma once 
@@ -35,13 +28,13 @@
 #define SAVE_COMMON_CONFIG_ERROR_MESSAGE_TEXT L"Save common configuration error"
 #define SAVE_COMMON_CONFIG_ERROR_MESSAGE_TEXT L"Save common configuration successfully"
 #else
-#define UNINSTALL_NEED_RESTART_TEXT L"±ÈÌØ¸ú×ÙÐ¶ÔØÍê³É,¹Ø±Õ³ÌÐòºóÉ¾³ý³ÌÐòÄ¿Â¼Íê³ÉÈ«ÃæÐ¶ÔØ"
-#define MAIN_BITSAFE_STARTED_BALLOON_TIP_TEXT L"±ÈÌØ¸ú×ÙÒÑ¾­Æô¶¯" 
-#define RUN_BITTRACE_NEED_RESTART L"ÔËÐÐ±ÈÌØ°²È«ÐèÒªÖØÆôÏµÍ³." 
-#define BITTRACE_SUPPORT_OS_TIP_TEXT L"µ±Ç°BITTRACEÖ§³Ö32Î»,64Î»µÄWINDOWS XP,WINDOWS 2003,WINDOWS VISTA,WINDOWS 7,WINDOWS 2008,WINDOWS2012ÏµÍ³,ÔÝÊ±²»Ö§³ÖÆäËüÏµÍ³¡£"
-#define CONFIG_SYMBOL_CACHE_PATH_TIP_TEXT L"ÇëÊäÈëÕýÈ·µÄ·ûºÅ±£´æÄ¿Â¼Â·¾¶"
-#define SAVE_COMMON_CONFIG_ERROR_MESSAGE_TEXT L"±£´æ¸¨ÖúÉèÖÃÊ§°Ü"
-#define SAVE_COMMON_CONFIG_ERROR_MESSAGE_TEXT L"±£´æ¸¨ÖúÉèÖÃ³É¹¦"
+#define UNINSTALL_NEED_RESTART_TEXT L"ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ø±Õ³ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½È«ï¿½ï¿½Ð¶ï¿½ï¿½"
+#define MAIN_BITSAFE_STARTED_BALLOON_TIP_TEXT L"ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½" 
+#define RUN_BITTRACE_NEED_RESTART L"ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ø°ï¿½È«ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÏµÍ³." 
+#define BITTRACE_SUPPORT_OS_TIP_TEXT L"ï¿½ï¿½Ç°BITTRACEÖ§ï¿½ï¿½32Î»,64Î»ï¿½ï¿½WINDOWS XP,WINDOWS 2003,WINDOWS VISTA,WINDOWS 7,WINDOWS 2008,WINDOWS2012ÏµÍ³,ï¿½ï¿½Ê±ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½"
+#define CONFIG_SYMBOL_CACHE_PATH_TIP_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½Ä·ï¿½ï¿½Å±ï¿½ï¿½ï¿½Ä¿Â¼Â·ï¿½ï¿½"
+#define SAVE_COMMON_CONFIG_ERROR_MESSAGE_TEXT L"ï¿½ï¿½ï¿½æ¸¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½"
+#define SAVE_COMMON_CONFIG_ERROR_MESSAGE_TEXT L"ï¿½ï¿½ï¿½æ¸¨ï¿½ï¿½ï¿½ï¿½ï¿½Ã³É¹ï¿½"
 #endif //LANG_EN
 
 typedef enum _option_type
@@ -186,7 +179,7 @@ public:
 
 					if( symbol_path.GetLength() == 0 )
 					{
-						tmp_text = CONFIG_SYMBOL_CACHE_PATH_TIP_TEXT; //L"ÇëÊäÈëÕýÈ·µÄ·ûºÅ±£´æÄ¿Â¼Â·¾¶"; 
+						tmp_text = CONFIG_SYMBOL_CACHE_PATH_TIP_TEXT; //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½Ä·ï¿½ï¿½Å±ï¿½ï¿½ï¿½Ä¿Â¼Â·ï¿½ï¿½"; 
 
 						show_msg( GetHWND(), tmp_text ); 
 						log_trace( ( MSG_ERROR, "!!!set current work mode failed \n" ) ); 
@@ -415,7 +408,7 @@ public:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

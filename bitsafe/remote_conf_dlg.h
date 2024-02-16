@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #ifndef __REMOTE_CONF_DLG_H__
+#ifndef __REMOTE_CONF_DLG_H__
 #define __REMOTE_CONF_DLG_H__
 
 #include "General.h"
@@ -49,8 +42,8 @@ public:
     { 
     }
 
-#define ERC_ON_TEXT _T( "¿ªÆô±¾»úÔ¶³Ì¿ØÖÆ·þÎñ" )
-#define ERC_OFF_TEXT _T( "¹Ø±Õ±¾»úÔ¶³Ì¿ØÖÆ·þÎñ" )
+#define ERC_ON_TEXT _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Ì¿ï¿½ï¿½Æ·ï¿½ï¿½ï¿½" )
+#define ERC_OFF_TEXT _T( "ï¿½Ø±Õ±ï¿½ï¿½ï¿½Ô¶ï¿½Ì¿ï¿½ï¿½Æ·ï¿½ï¿½ï¿½" )
 
 	void set_erc_btn_text()
 	{
@@ -167,7 +160,7 @@ public:
 		}
 
 		tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SETTING_NOW, 
-			_T( "Ô¶³Ì¿ØÖÆÓÊ¼þÕÊºÅ»¹Î´½øÐÐÉèÖÃ,ÊÇ·ñÁ¢¼´½øÐÐÉèÖÃ?" ) ); 
+			_T( "Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ÊºÅ»ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?" ) ); 
 
 		show_msg( GetHWND(), tmp_text, &ret_state ); 
 
@@ -222,7 +215,7 @@ _return:
 			//hour = 24; 
 
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_TIME_MUST_BE_SET, 
-				_T( "²»¿ÉÒÔ²»ÉèÖÃÊ±¼ä") ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½") ); 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
 		}
@@ -274,7 +267,7 @@ _return:
 		//dlg.set_output_param( &email_box_info ); 
 
 		tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_TITLE, 
-			_T( "Ô¶³Ì¿ØÖÆÉèÖÃ" ) ); 
+			_T( "Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 		dlg.Create( GetHWND(), tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 		dlg.SetIcon( IDI_MAIN_ICON ); 
@@ -297,7 +290,7 @@ _return:
 			}
 
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SUCCESSFULLY, 
-				_T( "ÉèÖÃÔ¶³Ì¿ØÖÆÓÊÏä³É¹¦" ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 		}
 		else
@@ -373,7 +366,7 @@ _return:
 				}
 				else if( name == _T( "tip_btn" ) )
 				{
-#define ERC_DESC _T( "Çë×¢Òâ:\n  1.Ô¶³Ì¿ØÖÆÊÇ½«¿ØÖÆÃüÁîÒÔÓÊ¼þÐÎÊ½·¢ÖÁÓÊ¼þ·þÎñÆ÷,¶ø±»¿ØÖÆ¶Ë½ÓÊÕµ½ÓÊ¼þ,´¦ÀíÏàÓ¦ÃüÁîµÄ·½Ê½À´ÊµÏÖ.\n  2.Ô¶³Ì¿ØÖÆÍ¨¹ýÓÊ¼þ·þÎñÆ÷Ö§³ÖÍê³É,ÏìÓ¦Ê±¼äÓë·þÎñÆ÷¹¤×÷×´Ì¬ÓÐ¹Ø,Í¨³£¼¸·ÖÖÓÄÚ.\n  3.ÓÐÊ±·þÎñÆ÷ÎÞ·¨Æµ·±ÏìÓ¦ÃüÁî,Çë¶àÊÔ¼¸´Î.\n  4.¿ØÖÆÊ±¼äµ½Ê±,×Ô¶¯»Ö¸´ÖÁ¹æÔòÄ£Ê½.\n  5.µ±ÉèÖÃÎª×èÈûÄ£Ê½Ê±,ÔÚ¿ØÖÆÊ±¼äÖ®ÄÚ,ËùÓÐÍøÂçÍ¨ÐÅ½«¹Ø±Õ,Ô¶³Ì¿ØÖÆ¹¦ÄÜ½«ÎÞ·¨¹¤×÷.\n  6.×¢Òâ,URL¿ØÖÆ¹æÔò²»ÒªÈ¥ÓÊ¼þ·þÎñÆ÷³åÍ».\n  7.sohuÓÊ¼þ·þÎñÆ÷Êµ¼Ê²âÊÔ¿ÉÒÔÊ¹ÓÃ,ÍÆ¼öÊ¹ÓÃ.\n  8.ÓÊÏäÖÐÓÃÀ´½øÐÐÔ¶³Ì¿ØÖÆµÄÓÊ¼þ½«×Ô¶¯É¾³ý,ËùÒÔ×¢Òâ²»Òª½«ÓÊ¼þÄÚÈÝÎÄ±¾ÖÐµÄÆðÊ¼ÎÄ±¾ÉèÖÃÎªÓëÃüÁîÏàÍ¬:\"REMOTE COMMAND\",×îºÃÊ¹ÓÃ×¨ÓÃÓÊÏä.\n  9.ºó·¢ËÍµÄÃüÁî½«»áÈ¡ÏûÖ®Ç°·¢ËÍµÄÃüÁî,ËùÒÔ²»Òª¶à´ÎÖØµþ·¢ËÍÃüÁî(½¨Òé²»³¬¹ý2´Î),Í¬Ê±Òª±ÜÃâ¶Ô¹«ÍøÓÊ¼þ·þÎñ×ÊÔ´µÄÆµ·±Õ¼ÓÃ.\n  10.Ê¹ÓÃ¹«ÍøÓÊ¼þ·þÎñÆ÷ÓÐÒ»Ð©²»ÎÈ¶¨ÐÔ,ÈçÓÐÊ±»á½«ÃüÁî´¦ÀíÎªÀ¬»øÓÊ¼þ,½«ÆäÉèÖÃÕý³£ÓÊ¼þ¼´¿É.\n  11.×öÎªÒ»¸öÃâ·ÑÈí¼þ,±ÈÌØ°²È«ÎÞ·¨Ìá¹©×¨ÓÃ·þÎñÆ÷À´ÊµÏÖÈ«ÃæµÄÎÈ¶¨µÄ°²È«¹ÜÀí,Èç¹ûÄãÏ£Íû¸üºÃµÄÇ¿»¯Ëü,ÇëÖ§³ÖÎÒÃÇ:\r\n" ) BITSAFE_EMAIL __t( "»òhttp://www.codereba.com/bbs.\r\n\r\n  Çë½«ÄúµÄÒâ¼û·¢±íÖÁÂÛÌ³:\r\nhttp://www.codereba.com/bbs." ) 
+#define ERC_DESC _T( "ï¿½ï¿½×¢ï¿½ï¿½:\n  1.Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶Ë½ï¿½ï¿½Õµï¿½ï¿½Ê¼ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ä·ï¿½Ê½ï¿½ï¿½Êµï¿½ï¿½.\n  2.Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ó¦Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Ð¹ï¿½,Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.\n  3.ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½Æµï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½.\n  4.ï¿½ï¿½ï¿½ï¿½Ê±ï¿½äµ½Ê±,ï¿½Ô¶ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½.\n  5.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä£Ê½Ê±,ï¿½Ú¿ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö®ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Å½ï¿½ï¿½Ø±ï¿½,Ô¶ï¿½Ì¿ï¿½ï¿½Æ¹ï¿½ï¿½Ü½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½.\n  6.×¢ï¿½ï¿½,URLï¿½ï¿½ï¿½Æ¹ï¿½ï¿½ï¿½ÒªÈ¥ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í».\n  7.sohuï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ê²ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½,ï¿½Æ¼ï¿½Ê¹ï¿½ï¿½.\n  8.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Ì¿ï¿½ï¿½Æµï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½É¾ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½×¢ï¿½â²»Òªï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ê¼ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬:\"REMOTE COMMAND\",ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½×¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.\n  9.ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½î½«ï¿½ï¿½È¡ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ô²ï¿½Òªï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½é²»ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½),Í¬Ê±Òªï¿½ï¿½ï¿½ï¿½Ô¹ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½Æµï¿½ï¿½Õ¼ï¿½ï¿½.\n  10.Ê¹ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½È¶ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ê±ï¿½á½«ï¿½ï¿½ï¿½î´¦ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½.\n  11.ï¿½ï¿½ÎªÒ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½Þ·ï¿½ï¿½á¹©×¨ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½È¶ï¿½ï¿½Ä°ï¿½È«ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ç¿ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:\r\n" ) BITSAFE_EMAIL __t( "ï¿½ï¿½http://www.codereba.com/bbs.\r\n\r\n  ï¿½ë½«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³:\r\nhttp://www.codereba.com/bbs." ) 
 
 					tmp_text = _get_string_by_id( TEXT_ERC_NOTICE_CONTENT, ERC_DESC ); 
 					show_txt( GetHWND(), tmp_text ); 
@@ -511,7 +504,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             bHandled = TRUE;
             return 0;

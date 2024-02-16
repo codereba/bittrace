@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifdef _DEBUG_MEM_LEAKS
@@ -702,7 +695,7 @@ LRESULT WINAPI on_module_change( ULONG proc_id,
 }
 
 /********************************************************************************************************
-±£Ö¤½ø³Ì/Ä£¿éµÄÐÅÏ¢ÓÀÔ¶²»»áÉ¾³ý£¬ËùÒÔÖ±½Ó·µ»ØÖ¸ÕëÊ¹ÓÃ¡£
+ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½/Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ê¹ï¿½Ã¡ï¿½
 ********************************************************************************************************/
 LRESULT WINAPI get_proc_module_info( ULONG proc_id, LARGE_INTEGER *time, MODULE_INFO_TABLE **modules )
 {
@@ -1058,7 +1051,7 @@ LRESULT WINAPI get_process_addition_info( ULONG proc_id, LPCWSTR file_path, PROC
 	return ret; 
 }
 
-//Ê¹ÓÃÌØÊâµÄÏûÏ¢Í¨µÀÀ´´¦ÀíÄ£¿é/½ø³ÌµÄ¼ÓÔØ£¬Ð¶ÔØ»î¶¯¡£±£Ö¤ÐÅÏ¢µÄÕýÈ·£¬ÓëÊ±¼ä,¿Õ¼äÒ»ÖÂ¡£
+//Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½/ï¿½ï¿½ï¿½ÌµÄ¼ï¿½ï¿½Ø£ï¿½Ð¶ï¿½Ø»î¶¯ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½,ï¿½Õ¼ï¿½Ò»ï¿½Â¡ï¿½
 
 LRESULT WINAPI process_proc_module_info( r3_action_notify *action )
 {
@@ -1114,7 +1107,7 @@ LRESULT WINAPI process_proc_module_info( r3_action_notify *action )
 			set_current_time( &proc_info.duration.end_time ); 
 			proc_info.duration.end_time.QuadPart = 0; 
 
-			//ÒòÎªÊ¹ÓÃ½ø³Ì´´½¨»Øµ÷£¬½ø³ÌÍË³öÊ±
+			//ï¿½ï¿½ÎªÊ¹ï¿½Ã½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½Ê±
 			ret = on_process_change( action->action.action.do_exec_destroy.pid, 
 				action->action.action.do_exec_destroy.path_name, 
 				TRUE ); 
@@ -1130,7 +1123,7 @@ LRESULT WINAPI process_proc_module_info( r3_action_notify *action )
 	return ret; 
 }
 
-//¼ÓÔØÄÚºË²ãÄ£¿éµÄ·ûºÅÐÅÏ¢
+//ï¿½ï¿½ï¿½ï¿½ï¿½ÚºË²ï¿½Ä£ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 
 #pragma pack( push )
 #pragma pack( 1 )
@@ -1614,13 +1607,13 @@ LRESULT WINAPI load_current_processes_module_infos()
 		}
 		
 		/***************************************************************************************
-		×¢Òâ:
+		×¢ï¿½ï¿½:
 		
-		ÕâÀïµÄ½ø³ÌEXEÊÇÎÄ¼þÃû£¬²»ÊÇÂ·¾¶¡£
-		¿ÉÒÔÔÚÄÚºËÖÐÖÆ×öPROCESS + MODULEÐÅÏ¢Ó³Ïñ¡£µ«ÄÚºË²»ºÏÊÊÊµÏÖPROCESS+MODULEµÄÀúÊ·¼ÇÂ¼¡£
-		±¾ÉíWINDOWS¾ÍÔÚÄÚºËÖÐ°üÀ¨ÁËPROCESS+MODULE¼ÇÂ¼£¬ËüµÄÐÔÄÜÈçºÎ?
+		ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½EXEï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
+		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PROCESS + MODULEï¿½ï¿½Ï¢Ó³ï¿½ñ¡£µï¿½ï¿½ÚºË²ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½PROCESS+MODULEï¿½ï¿½ï¿½ï¿½Ê·ï¿½ï¿½Â¼ï¿½ï¿½
+		ï¿½ï¿½ï¿½ï¿½WINDOWSï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½PROCESS+MODULEï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
 		
-		ÒªÓëWINDOWSµÄÄÚ²¿½øÐÐ¾«È·£¬Éî¶ÈÕûºÏ¡£¾¡Á¿²»Òª½øÐÐ¶àÓàµÄ¸´ÖÆÐÍ¹¦ÄÜÊµÏÖ¡£
+		Òªï¿½ï¿½WINDOWSï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Í¹ï¿½ï¿½ï¿½Êµï¿½Ö¡ï¿½
 		***************************************************************************************/
 		for( i = 0; ( ULONG )i < proc_count; i ++ )
 		{

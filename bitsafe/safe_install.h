@@ -20,13 +20,21 @@
 /// @author LostSpeed
 /// @date 2012/4/21
 /// @history
-/// 2012/4/21 ÐÞ¸ÄCString to std::wstring, add CompareFileVersion
+/// 2012/4/21 ï¿½Þ¸ï¿½CString to std::wstring, add CompareFileVersion
 //////////////////////////////////////////////////////////////////////////
 
 /*
+ * Copyright 2010-2024 JiJie.Shi.
  *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __SAFE_INSTALL_H__

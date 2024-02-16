@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #ifdef BITSAFE_TEST_TOOL
+#ifdef BITSAFE_TEST_TOOL
 #include "common_func.h"
 #else
 #include "StdAfx.h"
@@ -51,11 +44,11 @@ email_box email_box_info = { 0 };
 CRITICAL_SECTION mail_box_lock; 
 
 /* Define */
-#define SEND_SIZE				4096			// ‘—M‚Ì•ªŠ„ƒTƒCƒY
-#define SMTP_ERRORSTATUS		400				// SMTPƒGƒ‰[ƒŒƒXƒ|ƒ“ƒX
-#define MIME_VERSION			"1.0"			// MIMEƒo[ƒWƒ‡ƒ“
+#define SEND_SIZE				4096			// ï¿½ï¿½ï¿½Mï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½Tï¿½Cï¿½Y
+#define SMTP_ERRORSTATUS		400				// SMTPï¿½Gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Xï¿½|ï¿½ï¿½ï¿½X
+#define MIME_VERSION			"1.0"			// MIMEï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½
 
-#define AUTH_CRAM_MD5			0				// SMTP-AUTH ‚Ì”FØƒ^ƒCƒv
+#define AUTH_CRAM_MD5			0				// SMTP-AUTH ï¿½Ì”Fï¿½Øƒ^ï¿½Cï¿½v
 #define AUTH_LOGIN				1
 #define AUTH_PLAIN				2
 #define AUTH_NON				99
@@ -175,9 +168,9 @@ _return:
 
 typedef enum _work_mode
 {
-	WORK_FREE_MODE, //×ÔÓÉ
-	WORK_BLOCK_MODE, //½ûÖ¹
-	WORK_ACL_MODE,  //ÂÌÉ«
+	WORK_FREE_MODE, //ï¿½ï¿½ï¿½ï¿½
+	WORK_BLOCK_MODE, //ï¿½ï¿½Ö¹
+	WORK_ACL_MODE,  //ï¿½ï¿½É«
 	MAX_WORK_MODE
 } work_mode;
 
@@ -240,7 +233,7 @@ LRESULT check_remote_command_by_email( email_handler* handler, LPCSTR data, ULON
 
 	if( strncmp( remote_command, ALLOW_ALL_COMMAND, CONST_STR_LEN( ALLOW_ALL_COMMAND ) ) == 0 )
 	{
-		//erc_tip = _T( "½ÓÊÕµ½ÔÊĞúçùÓĞÍ¨ĞÅÔ¶³ÌÃEE ); 
+		//erc_tip = _T( "ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ô¶ï¿½ï¿½ÃEï¿½E ); 
 		work_mode = WORK_FREE_MODE; 
 
 		work_time_str = remote_command + CONST_STR_LEN( ALLOW_ALL_COMMAND ) + 1; 
@@ -250,7 +243,7 @@ LRESULT check_remote_command_by_email( email_handler* handler, LPCSTR data, ULON
 	}
 	else if( strncmp( remote_command, BLOCK_ALL_COMMAND, CONST_STR_LEN( BLOCK_ALL_COMMAND ) ) == 0 )
 	{
-		//erc_tip = _T( "½ÓÊÕµ½×èÖ¹ËùÓĞÍ¨ĞÅÔ¶³ÌÃEE ); 
+		//erc_tip = _T( "ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ô¶ï¿½ï¿½ÃEï¿½E ); 
 		work_mode = WORK_BLOCK_MODE; 	
 
 		work_time_str = remote_command + CONST_STR_LEN( BLOCK_ALL_COMMAND ) + 1; 
@@ -260,7 +253,7 @@ LRESULT check_remote_command_by_email( email_handler* handler, LPCSTR data, ULON
 	}
 	else if( strncmp( remote_command, ACL_CTRL_COMMAND, CONST_STR_LEN( ACL_CTRL_COMMAND ) ) == 0 )
 	{
-		//erc_tip = _T( "½ÓÊÕµ½·ÃÎÊ¿ØÖÆ·½Ê½Í¨ĞÅÔ¶³ÌÃEE ); 
+		//erc_tip = _T( "ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½Æ·ï¿½Ê½Í¨ï¿½ï¿½Ô¶ï¿½ï¿½ÃEï¿½E ); 
 
 		work_mode = WORK_ACL_MODE; 
 
@@ -313,17 +306,17 @@ LRESULT execute_remote_command_by_email( email_handler* handler, PVOID context )
 	if( cmd_info->work_mode == WORK_FREE_MODE )
 	{
 		erc_tip = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_RECEIVE_ALLOW_COMMAND, 
-			_T( "½ÓÊÕµ½ÔÊĞúçùÓĞÍ¨ĞÅÔ¶³ÌÃEE ) ); 
+			_T( "ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ô¶ï¿½ï¿½ÃEï¿½E ) ); 
 	}
 	else if( cmd_info->work_mode == WORK_BLOCK_MODE )
 	{
 		erc_tip = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_RECEIVE_BLOCK_COMMAND, 
-			_T( "½ÓÊÕµ½×èÖ¹ËùÓĞÍ¨ĞÅÔ¶³ÌÃEE ) ); 
+			_T( "ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ô¶ï¿½ï¿½ÃEï¿½E ) ); 
 	}
 	else if( cmd_info->work_mode == WORK_ACL_MODE )
 	{
 		erc_tip = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_RECEIVE_ACL_COMMAND, 
-			_T( "½ÓÊÕµ½·ÃÎÊ¿ØÖÆ·½Ê½Í¨ĞÅÔ¶³ÌÃEE ) ); 
+			_T( "ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½Æ·ï¿½Ê½Í¨ï¿½ï¿½Ô¶ï¿½ï¿½ÃEï¿½E ) ); 
 	}
 	else
 	{
@@ -372,7 +365,7 @@ LRESULT execute_remote_command_by_email( email_handler* handler, PVOID context )
 			notifier = ( action_ui_notify* )handler->notifier; 
 
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_COMMAND_HOLD_TIME, 
-				_T( "%s, ±£³ÖÊ±¼äÎª:%I64uÃEn" ) ); 
+				_T( "%s, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Îª:%I64uÃEn" ) ); 
 			_sntprintf( tip_msg, MAX_PATH, tmp_text, erc_tip, ( cmd_info->time.QuadPart / 10000000 ) ); 
 		
 			data_notify.data = ( PVOID )tmp_text; 
@@ -866,13 +859,13 @@ LRESULT CALLBACK smtp_erc_return_notify( LRESULT ret_val, PVOID param )
 	if( ret_val == ERROR_SUCCESS )
 	{
 		tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SEND_COMMAND_SUCCESSFULLY, 
-			_T( "·¢ËÍÔ¶³Ì¿ØÖÆÃEûÏÉ¹? ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½ÃEï¿½ï¿½É¹? ) ); 
 		show_msg( NULL, tmp_text ); 
 	}
 	else 
 	{
 		tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SEND_COMMAND_FAILED, 
-			_T( "·¢ËÍÔ¶³Ì¿ØÖÆÃEûæ§°? ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½ÃEï¿½æ§°? ) ); 
 		show_msg( NULL, tmp_text ); 
 	}
 
@@ -1192,7 +1185,7 @@ LRESULT smtp_remote_control_async( ULONG mode, ULONG hour, ULONG minite, PVOID c
 			ASSERT( wait_ret == WAIT_TIMEOUT ); 
 
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SEND_COMMAND_NOT_IN_ORDER, 
-				_T( "ÉÏ´ÎµÄÔ¶³ÌÃEûñıÔÚ·¢ËÍÖ?ÃEûò»ÄÜË³Ğò·¢Ë?" ) ); 
+				_T( "ï¿½Ï´Îµï¿½Ô¶ï¿½ï¿½ÃEï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½ï¿½ï¿½?ÃEï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½?" ) ); 
 			show_msg( NULL, tmp_text ); 
 			
 			ret = ERROR_THREAD_NOT_READY; 
@@ -1458,79 +1451,79 @@ LRESULT check_email_conf_valid( email_box *mail_box )
 
 	if( *mail_box->email == _T( '\0' ) )
 	{
-		log_trace( ( MSG_INFO, "EMAILÕÊºÅ±ØĞEèÖ? ) ); 
+		log_trace( ( MSG_INFO, "EMAILï¿½ÊºÅ±ï¿½ĞEï¿½ï¿½? ) ); 
 		goto _return; 
 	}
 
 	if( wcsnlen( mail_box->email, MAX_EMAIL_NAME_LEN - 1 ) >= MAX_EMAIL_NAME_LEN - 1 )
 	{
-		log_trace( ( MSG_INFO, "EMAILÕÊºÅ³¤¶È²»µÃ´óÓÚ260" ) ); 
+		log_trace( ( MSG_INFO, "EMAILï¿½ÊºÅ³ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 		goto _return; 
 	}
 
 	if( _tcschr( mail_box->email, _T( '@' ) ) == NULL )
 	{
-		log_trace( ( MSG_INFO, "EMAILÕÊºÅ¸ñÊ½²»ÕıÈ·" ":%s", mail_box->email ) );
+		log_trace( ( MSG_INFO, "EMAILï¿½ÊºÅ¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ":%s", mail_box->email ) );
 		goto _return; 
 	}
 
 	//if( *mail_box->name == _T( '\0' ) )
 	//{
-	//	log_trace( ( MSG_INFO, "ÓÃ»§Ãû±ØĞEèÖ? ) ); 
+	//	log_trace( ( MSG_INFO, "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ĞEï¿½ï¿½? ) ); 
 	//	goto _return; 
 	//}
 
 	if( wcsnlen( mail_box->name, MAX_EMAIL_NAME_LEN - 1 ) >= MAX_EMAIL_NAME_LEN - 1 )
 	{
-		log_trace( ( MSG_INFO, "ÓÃ»§Ãû³¤¶È²»µÃ´óÓÚ260" ) ); 
+		log_trace( ( MSG_INFO, "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 		goto _return; 
 	}
 
 	if( *mail_box->pop3_server == _T( '\0' ) )
 	{
-		log_trace( ( MSG_INFO, "SMTPÓÊ¼ş·şÎñÆ÷Ãû±ØĞEèÖ? ) ); 
+		log_trace( ( MSG_INFO, "SMTPï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ĞEï¿½ï¿½? ) ); 
 		goto _return; 
 	}
 
 	if( wcsnlen( mail_box->server, MAX_EMAIL_NAME_LEN - 1 ) >= MAX_EMAIL_NAME_LEN - 1 )
 	{
-		log_trace( ( MSG_INFO, "SMTPÓÊ¼ş·şÎñÆ÷Ãû³¤¶È²»µÃ´óÓÚ260" ) ); 
+		log_trace( ( MSG_INFO, "SMTPï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 		goto _return; 
 	}
 
 	if( *mail_box->pop3_server == _T( '\0' ) )
 	{
-		log_trace( ( MSG_INFO, "POP3ÓÊ¼ş·şÎñÆ÷Ãû±ØĞEèÖ? ) ); 
+		log_trace( ( MSG_INFO, "POP3ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ĞEï¿½ï¿½? ) ); 
 		goto _return; 
 	}
 
 	if( wcsnlen( mail_box->pop3_server, MAX_EMAIL_NAME_LEN - 1 ) >= MAX_EMAIL_NAME_LEN - 1 )
 	{
-		log_trace( ( MSG_INFO, "POP3ÓÊ¼ş·şÎñÆ÷Ãû³¤¶È²»µÃ´óÓÚ260" ) ); 
+		log_trace( ( MSG_INFO, "POP3ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 		goto _return; 
 	}
 
 	if( *mail_box->pwd == _T( '\0' ) )
 	{
-		log_trace( ( MSG_INFO, "ÃÜÂEØĞEèÖ? ) ); 
+		log_trace( ( MSG_INFO, "ï¿½ï¿½ÂEï¿½ĞEï¿½ï¿½? ) ); 
 		goto _return; 
 	}
 
 	if( wcsnlen( mail_box->pwd, MAX_EMAIL_NAME_LEN - 1 ) >= MAX_EMAIL_NAME_LEN - 1 )
 	{
-		log_trace( ( MSG_INFO, "ÃÜÂE¤¶È²»µÃ´óÓ?60" ) ); 
+		log_trace( ( MSG_INFO, "ï¿½ï¿½ÂEï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½?60" ) ); 
 		goto _return; 
 	}
 
 	if( mail_box->port == 0 )
 	{
-		log_trace( ( MSG_INFO, "SMTP¶Ë¿Ú±ØĞEèÖ? ) ); 
+		log_trace( ( MSG_INFO, "SMTPï¿½Ë¿Ú±ï¿½ĞEï¿½ï¿½? ) ); 
 		goto _return; 
 	}
 
 	if( mail_box->pop3_port == 0 )
 	{
-		log_trace( ( MSG_INFO, "POP3¶Ë¿Ú±ØĞEèÖ? ) ); 
+		log_trace( ( MSG_INFO, "POP3ï¿½Ë¿Ú±ï¿½ĞEï¿½ï¿½? ) ); 
 	}
 
 	ret = ERROR_SUCCESS; 
@@ -1904,7 +1897,7 @@ _return:
 	return ret; 
 }
 
-#define ERROR_TIP_ERC_CONFIG_CRUPPTED _T( "¼ÓÔØÓÊ¼şÔ¶³Ì¿ØÖÆÅäÖÃÊ§°Ü,¿ÉÄÜÊÇÅäÖÃÊı¾İÆÆ»µ,ÇEØĞÂ½øĞĞÅäÖ?" ) 
+#define ERROR_TIP_ERC_CONFIG_CRUPPTED _T( "ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ô¶ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ»ï¿½,ÇEï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?" ) 
 
 LRESULT init_erc_env( PVOID context, INT32 have_ui )
 {

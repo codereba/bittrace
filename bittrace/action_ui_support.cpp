@@ -1,24 +1,17 @@
-
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 #include "common_func.h"
 #include "ring0_2_ring3.h"
 #include "action_display.h"
@@ -26,16 +19,16 @@
 
 #include "action_ui_support.h"
 
-#define MT_EXEC_DESC L"Ä£¿é¼ÓÔØ"
-#define MT_FILE_DESC L"ÎÄ¼þ"
-#define MT_REG_DESC L"×¢²á±í"
-#define MT_PROC_DESC L"½ø³Ì/Ïß³Ì"
-#define MT_COM_DESC L"COM×é¼þ"
-#define MT_SYS_DESC L"ÏµÍ³¹Ø¼ü"
+#define MT_EXEC_DESC L"Ä£ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define MT_FILE_DESC L"ï¿½Ä¼ï¿½"
+#define MT_REG_DESC L"×¢ï¿½ï¿½ï¿½"
+#define MT_PROC_DESC L"ï¿½ï¿½ï¿½ï¿½/ï¿½ß³ï¿½"
+#define MT_COM_DESC L"COMï¿½ï¿½ï¿½"
+#define MT_SYS_DESC L"ÏµÍ³ï¿½Ø¼ï¿½"
 #define MT_WIN32_DESC L"WIN32"
-#define MT_NET_DESC L"ÍøÂç"
-#define MT_BEHAVIOR_DESC L"ÌØÊâÐÐÎª"
-#define MT_PERIPHERAL_DESC L"ÍâÉè"
+#define MT_NET_DESC L"ï¿½ï¿½ï¿½ï¿½"
+#define MT_BEHAVIOR_DESC L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª"
+#define MT_PERIPHERAL_DESC L"ï¿½ï¿½ï¿½ï¿½"
 
 #define MT_EXEC_IMAGE_FILE_NAME L"exe_event.png"
 #define MT_FILE_IMAGE_FILE_NAME L"file_event.png"
@@ -60,168 +53,168 @@ LRESULT WINAPI get_string_width_from_font( )
 }
 
 #ifdef LANG_EN
-#define EVENT_NAME_OTHER L"Other" //L"ÆäËü"
-#define EVENT_NAME_EXEC_CREATE L"Process start" //L"½ø³ÌÆô¶¯"
-#define EVENT_NAME_EXEC_DESTROY L"Process stop" //L"½ø³ÌÍË³ö"
-#define EVENT_NAME_MODULE_LOAD L"Module load" //L"Ä£¿é¼ÓÔØ";
-#define EVENT_NAME_FILE_TOUCH L"Set file time" //L"ÐÞ¸ÄÎÄ¼þÊôÐÔ" 
-#define EVENT_NAME_FILE_OPEN L"Open file" //L"´ò¿ªÎÄ¼þ"
-#define EVENT_NAME_FILE_READ L"Read file" //L"¶ÁÈ¡ÎÄ¼þ"
-#define EVENT_NAME_FILE_WRITE L"Write file" //L"¶ÁÈ¡ÎÄ¼þ"
-#define EVENT_NAME_FILE_MODIFIED L"File changed" //L"ÎÄ¼þ±»ÐÞ¸Ä"
-#define EVENT_NAME_TRAVERSE_DIRECTORY L"Traverse dir" //L"±éÀúÄ¿Â¼"
-#define EVENT_NAME_REMOVE_FILE L"Remove file" //L"É¾³ýÎÄ¼þ"
-#define EVENT_NAME_RENAME_FILE L"Rename file" //L"ÖØÃüÃûÎÄ¼þ"
-#define EVENT_NAME_TRUNCATE_FILE L"Truncate file" //L"½Ø¶ÏÎÄ¼þ"
-#define EVENT_NAME_MAKE_LINK L"File hard link" //L"½¨Á¢ÎÄ¼þÓ²Á´½Ó"
-#define EVENT_NAME_CHANGE_MODE L"Set file attributes" //L"ÉèÖÃÎÄ¼þÊôÐÔ"
-#define EVENT_NAME_SET_SECURITY_INFO L"Set file security" //L"ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ"
-#define EVENT_NAME_GET_INFO L"Get file info" //L"²éÑ¯ÎÄ¼þÏà¹ØÐÅÏ¢"
-#define EVENT_NAME_SET_INFO L"Set file info" //L"ÉèÖÃÎÄ¼þÏà¹ØÐÅÏ¢"
-#define EVENT_NAME_FILE_CLOSE L"Close file" //L"¹Ø±ÕÎÄ¼þ"
+#define EVENT_NAME_OTHER L"Other" //L"ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_EXEC_CREATE L"Process start" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_EXEC_DESTROY L"Process stop" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½"
+#define EVENT_NAME_MODULE_LOAD L"Module load" //L"Ä£ï¿½ï¿½ï¿½ï¿½ï¿½";
+#define EVENT_NAME_FILE_TOUCH L"Set file time" //L"ï¿½Þ¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½" 
+#define EVENT_NAME_FILE_OPEN L"Open file" //L"ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_FILE_READ L"Read file" //L"ï¿½ï¿½È¡ï¿½Ä¼ï¿½"
+#define EVENT_NAME_FILE_WRITE L"Write file" //L"ï¿½ï¿½È¡ï¿½Ä¼ï¿½"
+#define EVENT_NAME_FILE_MODIFIED L"File changed" //L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½"
+#define EVENT_NAME_TRAVERSE_DIRECTORY L"Traverse dir" //L"ï¿½ï¿½ï¿½ï¿½Ä¿Â¼"
+#define EVENT_NAME_REMOVE_FILE L"Remove file" //L"É¾ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_RENAME_FILE L"Rename file" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_TRUNCATE_FILE L"Truncate file" //L"ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_MAKE_LINK L"File hard link" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_CHANGE_MODE L"Set file attributes" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_SET_SECURITY_INFO L"Set file security" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_GET_INFO L"Get file info" //L"ï¿½ï¿½Ñ¯ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_SET_INFO L"Set file info" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_FILE_CLOSE L"Close file" //L"ï¿½Ø±ï¿½ï¿½Ä¼ï¿½"
 
-#define EVENT_NAME_REG_OPEN_KEY L"Open key" //L"´ò¿ª×¢²á±í¼ü"
-#define EVENT_NAME_MAKE_KEY L"Create key" //L"´´½¨×¢²á±í¼ü"
-#define EVENT_NAME_REMOVE_KEY L"Remove key" //L"É¾³ý×¢²á±í¼ü"
-#define EVENT_NAME_MOVE_KEY L"Rename key" //L"ÖØÃüÃû×¢²á±í¼ü"
-#define EVENT_NAME_GET_KEY_INFO L"Get key info" // L"»ñÈ¡×¢²á±í¼üÐÅÏ¢"
-#define EVENT_NAME_SET_KEY_INFO L"Set key info" //L"ÉèÖÃ×¢²á±í¼üÐÅÏ¢"
-#define EVENT_NAME_ENUM_KEY_INFO L"Enum sub key" //L"Ã¶¾Ù×¢²á±í×Ó¼ü"
-#define EVENT_NAME_ENUM_KEY_VALUE L"Enum key value" //L"Ã¶¾Ù×¢²á±í¼üÖµ"
-#define EVENT_NAME_REMOVE_KEY_VALUE L"Remove key value" //L"É¾³ý×¢²á±í¼ü"
-#define EVENT_NAME_GET_KEY_VALUE L"Get key value" //L"»ñÈ¡×¢²á±íÖµ"
-#define EVENT_NAME_SET_KEY_VALUE L"Set key value" //L"ÉèÖÃ×¢²á±íÖµ"
-#define EVENT_NAME_LOAD_KEY_HIVE L"Load key from hive" //L"¹ÒÔØ×¢²á±íHiveÎÄ¼þ"
-#define EVENT_NAME_REPLACE_KEY L"Replace key" //L"Ìæ»»×¢²á±í¼ü"
-#define EVENT_NAME_RESTORE_KEY L"Restore key from hive" //L"µ¼Èë×¢²á±íHiveÎÄ¼þ"
-#define EVENT_NAME_SET_KEY_SECURITY L"Set key security" //L"ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ"
-#define EVENT_NAME_CLOSE_KEY L"Close key" //L"¹Ø±Õ×¢²á±í¼ü"
+#define EVENT_NAME_REG_OPEN_KEY L"Open key" //L"ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_MAKE_KEY L"Create key" //L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_REMOVE_KEY L"Remove key" //L"É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_MOVE_KEY L"Rename key" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_GET_KEY_INFO L"Get key info" // L"ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_SET_KEY_INFO L"Set key info" //L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_ENUM_KEY_INFO L"Enum sub key" //L"Ã¶ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½"
+#define EVENT_NAME_ENUM_KEY_VALUE L"Enum key value" //L"Ã¶ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Öµ"
+#define EVENT_NAME_REMOVE_KEY_VALUE L"Remove key value" //L"É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_GET_KEY_VALUE L"Get key value" //L"ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ"
+#define EVENT_NAME_SET_KEY_VALUE L"Set key value" //L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ"
+#define EVENT_NAME_LOAD_KEY_HIVE L"Load key from hive" //L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½"
+#define EVENT_NAME_REPLACE_KEY L"Replace key" //L"ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_RESTORE_KEY L"Restore key from hive" //L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½"
+#define EVENT_NAME_SET_KEY_SECURITY L"Set key security" //L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_CLOSE_KEY L"Close key" //L"ï¿½Ø±ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
 
-#define EVENT_NAME_PROCESS_EXEC L"process execute" //L"´´½¨½ø³Ì"
-#define EVENT_NAME_PROCESS_OPEN L"process open" //L"´ò¿ª½ø³Ì"
-#define EVENT_NAME_PROCESS_DEBUG L"process debug" //L"µ÷ÊÔ½ø³Ì"
-#define EVENT_NAME_PROCESS_SUSPEND L"process suspend" //L"¹ÒÆð½ø³Ì"
-#define EVENT_NAME_PROCESS_RESUME L"process resume" //L"»Ö¸´½ø³Ì"
-#define EVENT_NAME_PROCESS_EXIT L"process exit" //L"½ø³ÌÍË³ö"
-#define EVENT_NAME_PROCESS_JOB L"process join job" //L"½«½ø³Ì¼ÓÈë¹¤×÷¼¯"
-#define EVENT_NAME_PROCESS_PAGE_PROTECT L"set process page protection" //L"¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ"
-#define EVENT_NAME_PROCESS_FREE_VM L"free process virtual mem" //L"¿ç½ø³ÌÊÍ·ÅÄÚ´æ"
-#define EVENT_NAME_PROCESS_WRITE_VM L"write process virtual mem" //L"¿ç½ø³ÌÐ´ÄÚ´æ"
-#define EVENT_NAME_PROCESS_READ_VM L"read process virtual mem" //L"¿ç½ø³Ì¶ÁÄÚ´æ"
-#define EVENT_NAME_THREAD_REMOTE L"create remote thread" //L"´´½¨Ô¶³ÌÏß³Ì"
-#define EVENT_NAME_THREAD_CREATE L"create thread" //L"´´½¨Ïß³Ì"
-#define EVENT_NAME_THREAD_SET_CONTEXT L"set thread context" //L"¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ"
-#define EVENT_NAME_THREAD_SUSPEND L"thread suspend" //L"¿ç½ø³Ì¹ÒÆðÏß³Ì"
-#define EVENT_NAME_THREAD_RESUME L"thread resume" //L"¿ç½ø³Ì»Ö¸´Ïß³Ì"
-#define EVENT_NAME_THREAD_EXIT L"thread exit" //L"Ïß³ÌÍË³ö"
-#define EVENT_NAME_THREAD_QUEUE_APC L"thread queue apc" //L"¿ç½ø³ÌÅÅ¶ÓAPC"
-#define EVENT_NAME_LOAD_COM L"load com" //L"¼ÓÔØCOM×é¼þ"
-#define EVENT_NAME_URB_IO L"URB I/O" //L"URBÍ¨ÐÅ"
-#define EVENT_NAME_SET_TIME L"set system time" //L"ÉèÖÃÏµÍ³Ê±¼ä"
-#define EVENT_NAME_LINK_KNOWN_DLL L"link known dll" //L"½¨Á¢KnownDllsÁ´½Ó"
-#define EVENT_NAME_OPEN_PHYSICAL_MEM L"open physical mem" //L"´ò¿ªÎïÀíÄÚ´æÉè±¸"
-#define EVENT_NAME_READ_PHYSICAL_MEM L"read physical mem" //L"¶ÁÎïÀíÄÚ´æ"
-#define EVENT_NAME_WRITE_PHYSICAL_MEM L"write physical mem" //L"Ð´ÎïÀíÄÚ´æ"
-#define EVENT_NAME_LOAD_KERNLE_MODULE L"load kernel module" //L"¼ÓÔØÄÚºËÄ£¿é"
-#define EVENT_NAME_LOAD_MODULE L"load module" //L"¼ÓÔØÄ£¿é"
-#define EVENT_NAME_UNLOAD_MODULE L"unload module" //L"Ð¶ÔØÄ£¿é"
-#define EVENT_NAME_ENUM_PROCESS L"enum process" //L"Ã¶¾Ù½ø³Ì"
-#define EVENT_NAME_REG_SERVICE L"register service" //L"×¢²á·þÎñ"
-#define EVENT_NAME_OPEN_DEVICE L"open device" //L"´ò¿ªÉè±¸"
-#define EVENT_NAME_NET_CREATE L"socket create" //L"Éú³ÉÌ×½Ó×Ö"
-#define EVENT_NAME_NET_CONNECT L"socket connect" //L"ÍøÂçÁ¬½Ó"
-#define EVENT_NAME_NET_LISTEN L"socket listen" //L"¼àÌý¶Ë¿Ú"
-#define EVENT_NAME_NET_SEND L"socket send" //L"·¢ËÍÊý¾Ý°ü"
-#define EVENT_NAME_NET_RECEIVE L"socket receive" //L"½ÓÊÕÊý¾Ý°ü"
-#define EVENT_NAME_NET_ACCEPT L"socket accept" //L"½ÓÊÕTCPÁ¬½Ó"
-#define EVENT_NAME_NET_PARSE_DNS L"DNS request" //L"ÓòÃû½âÎö(DNS)ÇëÇó"
-#define EVENT_NAME_NET_HTTP L"HTTP request" //L"HTTPÇëÇó"
-#define EVENT_NAME_NET_ICMP_SEND L"ICMP send" //L"·¢ËÍICMP°ü"
-#define EVENT_NAME_NET_ICMP_RECEIVE L"ICMP receive" //L"½ÓÊÕICMP°ü"
+#define EVENT_NAME_PROCESS_EXEC L"process execute" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_OPEN L"process open" //L"ï¿½ò¿ª½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_DEBUG L"process debug" //L"ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_SUSPEND L"process suspend" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_RESUME L"process resume" //L"ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_EXIT L"process exit" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½"
+#define EVENT_NAME_PROCESS_JOB L"process join job" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_PAGE_PROTECT L"set process page protection" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_FREE_VM L"free process virtual mem" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_PROCESS_WRITE_VM L"write process virtual mem" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½"
+#define EVENT_NAME_PROCESS_READ_VM L"read process virtual mem" //L"ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_THREAD_REMOTE L"create remote thread" //L"ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_CREATE L"create thread" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_SET_CONTEXT L"set thread context" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_THREAD_SUSPEND L"thread suspend" //L"ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_RESUME L"thread resume" //L"ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_EXIT L"thread exit" //L"ï¿½ß³ï¿½ï¿½Ë³ï¿½"
+#define EVENT_NAME_THREAD_QUEUE_APC L"thread queue apc" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC"
+#define EVENT_NAME_LOAD_COM L"load com" //L"ï¿½ï¿½ï¿½ï¿½COMï¿½ï¿½ï¿½"
+#define EVENT_NAME_URB_IO L"URB I/O" //L"URBÍ¨ï¿½ï¿½"
+#define EVENT_NAME_SET_TIME L"set system time" //L"ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½"
+#define EVENT_NAME_LINK_KNOWN_DLL L"link known dll" //L"ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_OPEN_PHYSICAL_MEM L"open physical mem" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸"
+#define EVENT_NAME_READ_PHYSICAL_MEM L"read physical mem" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_WRITE_PHYSICAL_MEM L"write physical mem" //L"Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_LOAD_KERNLE_MODULE L"load kernel module" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½"
+#define EVENT_NAME_LOAD_MODULE L"load module" //L"ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½"
+#define EVENT_NAME_UNLOAD_MODULE L"unload module" //L"Ð¶ï¿½ï¿½Ä£ï¿½ï¿½"
+#define EVENT_NAME_ENUM_PROCESS L"enum process" //L"Ã¶ï¿½Ù½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_REG_SERVICE L"register service" //L"×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_OPEN_DEVICE L"open device" //L"ï¿½ï¿½ï¿½è±¸"
+#define EVENT_NAME_NET_CREATE L"socket create" //L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_CONNECT L"socket connect" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_LISTEN L"socket listen" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½"
+#define EVENT_NAME_NET_SEND L"socket send" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½"
+#define EVENT_NAME_NET_RECEIVE L"socket receive" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½"
+#define EVENT_NAME_NET_ACCEPT L"socket accept" //L"ï¿½ï¿½ï¿½ï¿½TCPï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_PARSE_DNS L"DNS request" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(DNS)ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_HTTP L"HTTP request" //L"HTTPï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_ICMP_SEND L"ICMP send" //L"ï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½"
+#define EVENT_NAME_NET_ICMP_RECEIVE L"ICMP receive" //L"ï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½"
 
-#define EVENT_NAME_OTERH L"Other event" //L"ÆäËü" 
+#define EVENT_NAME_OTERH L"Other event" //L"ï¿½ï¿½ï¿½ï¿½" 
 
 #else
-#define EVENT_NAME_OTHER L"ÆäËü"
-#define EVENT_NAME_EXEC_CREATE L"½ø³ÌÆô¶¯"
-#define EVENT_NAME_EXEC_DESTROY L"½ø³ÌÍË³ö"
-#define EVENT_NAME_MODULE_LOAD L"Ä£¿é¼ÓÔØ";
-#define EVENT_NAME_FILE_TOUCH L"ÐÞ¸ÄÎÄ¼þÊôÐÔ" 
-#define EVENT_NAME_FILE_OPEN L"´ò¿ªÎÄ¼þ"
-#define EVENT_NAME_FILE_READ L"¶ÁÈ¡ÎÄ¼þ"
-#define EVENT_NAME_FILE_WRITE L"¶ÁÈ¡ÎÄ¼þ"
-#define EVENT_NAME_FILE_MODIFIED L"ÎÄ¼þ±»ÐÞ¸Ä"
-#define EVENT_NAME_TRAVERSE_DIRECTORY L"±éÀúÄ¿Â¼"
-#define EVENT_NAME_REMOVE_FILE L"É¾³ýÎÄ¼þ"
-#define EVENT_NAME_RENAME_FILE L"ÖØÃüÃûÎÄ¼þ"
-#define EVENT_NAME_TRUNCATE_FILE L"½Ø¶ÏÎÄ¼þ"
-#define EVENT_NAME_MAKE_LINK L"½¨Á¢ÎÄ¼þÓ²Á´½Ó"
-#define EVENT_NAME_CHANGE_MODE L"ÉèÖÃÎÄ¼þÊôÐÔ"
-#define EVENT_NAME_SET_SECURITY_INFO L"ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ"
-#define EVENT_NAME_GET_INFO L"²éÑ¯ÎÄ¼þÏà¹ØÐÅÏ¢"
-#define EVENT_NAME_SET_INFO L"ÉèÖÃÎÄ¼þÏà¹ØÐÅÏ¢"
-#define EVENT_NAME_FILE_CLOSE L"¹Ø±ÕÎÄ¼þ"
+#define EVENT_NAME_OTHER L"ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_EXEC_CREATE L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_EXEC_DESTROY L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½"
+#define EVENT_NAME_MODULE_LOAD L"Ä£ï¿½ï¿½ï¿½ï¿½ï¿½";
+#define EVENT_NAME_FILE_TOUCH L"ï¿½Þ¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½" 
+#define EVENT_NAME_FILE_OPEN L"ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_FILE_READ L"ï¿½ï¿½È¡ï¿½Ä¼ï¿½"
+#define EVENT_NAME_FILE_WRITE L"ï¿½ï¿½È¡ï¿½Ä¼ï¿½"
+#define EVENT_NAME_FILE_MODIFIED L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½"
+#define EVENT_NAME_TRAVERSE_DIRECTORY L"ï¿½ï¿½ï¿½ï¿½Ä¿Â¼"
+#define EVENT_NAME_REMOVE_FILE L"É¾ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_RENAME_FILE L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_TRUNCATE_FILE L"ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½"
+#define EVENT_NAME_MAKE_LINK L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_CHANGE_MODE L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_SET_SECURITY_INFO L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_GET_INFO L"ï¿½ï¿½Ñ¯ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_SET_INFO L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_FILE_CLOSE L"ï¿½Ø±ï¿½ï¿½Ä¼ï¿½"
 
-#define EVENT_NAME_REG_OPEN_KEY L"´ò¿ª×¢²á±í¼ü"
-#define EVENT_NAME_MAKE_KEY L"´´½¨×¢²á±í¼ü"
-#define EVENT_NAME_REMOVE_KEY L"É¾³ý×¢²á±í¼ü"
-#define EVENT_NAME_MOVE_KEY L"ÖØÃüÃû×¢²á±í¼ü"
-#define EVENT_NAME_GET_KEY_INFO  L"»ñÈ¡×¢²á±í¼üÐÅÏ¢"
-#define EVENT_NAME_SET_KEY_INFO L"ÉèÖÃ×¢²á±í¼üÐÅÏ¢"
-#define EVENT_NAME_ENUM_KEY_INFO L"Ã¶¾Ù×¢²á±í×Ó¼ü"
-#define EVENT_NAME_ENUM_KEY_VALUE L"Ã¶¾Ù×¢²á±í¼üÖµ"
-#define EVENT_NAME_REMOVE_KEY_VALUE L"É¾³ý×¢²á±í¼ü"
-#define EVENT_NAME_GET_KEY_VALUE L"»ñÈ¡×¢²á±íÖµ"
-#define EVENT_NAME_SET_KEY_VALUE L"ÉèÖÃ×¢²á±íÖµ"
-#define EVENT_NAME_LOAD_KEY_HIVE L"¹ÒÔØ×¢²á±íHiveÎÄ¼þ"
-#define EVENT_NAME_REPLACE_KEY L"Ìæ»»×¢²á±í¼ü"
-#define EVENT_NAME_RESTORE_KEY L"µ¼Èë×¢²á±íHiveÎÄ¼þ"
-#define EVENT_NAME_SET_KEY_SECURITY L"ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ"
-#define EVENT_NAME_CLOSE_KEY L"¹Ø±Õ×¢²á±í¼ü"
+#define EVENT_NAME_REG_OPEN_KEY L"ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_MAKE_KEY L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_REMOVE_KEY L"É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_MOVE_KEY L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_GET_KEY_INFO  L"ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_SET_KEY_INFO L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"
+#define EVENT_NAME_ENUM_KEY_INFO L"Ã¶ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½"
+#define EVENT_NAME_ENUM_KEY_VALUE L"Ã¶ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Öµ"
+#define EVENT_NAME_REMOVE_KEY_VALUE L"É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_GET_KEY_VALUE L"ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ"
+#define EVENT_NAME_SET_KEY_VALUE L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ"
+#define EVENT_NAME_LOAD_KEY_HIVE L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½"
+#define EVENT_NAME_REPLACE_KEY L"ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_RESTORE_KEY L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½"
+#define EVENT_NAME_SET_KEY_SECURITY L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_CLOSE_KEY L"ï¿½Ø±ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
 
-#define EVENT_NAME_PROCESS_EXEC L"´´½¨½ø³Ì"
-#define EVENT_NAME_PROCESS_OPEN L"´ò¿ª½ø³Ì"
-#define EVENT_NAME_PROCESS_DEBUG L"µ÷ÊÔ½ø³Ì"
-#define EVENT_NAME_PROCESS_SUSPEND L"¹ÒÆð½ø³Ì"
-#define EVENT_NAME_PROCESS_RESUME L"»Ö¸´½ø³Ì"
-#define EVENT_NAME_PROCESS_EXIT L"½ø³ÌÍË³ö"
-#define EVENT_NAME_PROCESS_JOB L"½«½ø³Ì¼ÓÈë¹¤×÷¼¯"
-#define EVENT_NAME_PROCESS_PAGE_PROTECT L"¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ"
-#define EVENT_NAME_PROCESS_FREE_VM L"¿ç½ø³ÌÊÍ·ÅÄÚ´æ"
-#define EVENT_NAME_PROCESS_WRITE_VM L"¿ç½ø³ÌÐ´ÄÚ´æ"
-#define EVENT_NAME_PROCESS_READ_VM L"¿ç½ø³Ì¶ÁÄÚ´æ"
-#define EVENT_NAME_THREAD_REMOTE L"´´½¨Ô¶³ÌÏß³Ì"
-#define EVENT_NAME_THREAD_CREATE L"´´½¨Ïß³Ì"
-#define EVENT_NAME_THREAD_SET_CONTEXT L"¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ"
-#define EVENT_NAME_THREAD_SUSPEND L"¿ç½ø³Ì¹ÒÆðÏß³Ì"
-#define EVENT_NAME_THREAD_RESUME L"¿ç½ø³Ì»Ö¸´Ïß³Ì"
-#define EVENT_NAME_THREAD_EXIT L"Ïß³ÌÍË³ö"
-#define EVENT_NAME_THREAD_QUEUE_APC L"¿ç½ø³ÌÅÅ¶ÓAPC"
-#define EVENT_NAME_LOAD_COM L"¼ÓÔØCOM×é¼þ"
-#define EVENT_NAME_URB_IO L"URBÍ¨ÐÅ"
-#define EVENT_NAME_SET_TIME L"ÉèÖÃÏµÍ³Ê±¼ä"
-#define EVENT_NAME_LINK_KNOWN_DLL L"½¨Á¢KnownDllsÁ´½Ó"
-#define EVENT_NAME_OPEN_PHYSICAL_MEM L"´ò¿ªÎïÀíÄÚ´æÉè±¸"
-#define EVENT_NAME_READ_PHYSICAL_MEM L"¶ÁÎïÀíÄÚ´æ"
-#define EVENT_NAME_WRITE_PHYSICAL_MEM L"Ð´ÎïÀíÄÚ´æ"
-#define EVENT_NAME_LOAD_KERNLE_MODULE L"¼ÓÔØÄÚºËÄ£¿é"
-#define EVENT_NAME_LOAD_MODULE L"¼ÓÔØÄ£¿é"
-#define EVENT_NAME_UNLOAD_MODULE L"Ð¶ÔØÄ£¿é"
-#define EVENT_NAME_ENUM_PROCESS L"Ã¶¾Ù½ø³Ì"
-#define EVENT_NAME_REG_SERVICE L"×¢²á·þÎñ"
-#define EVENT_NAME_OPEN_DEVICE L"´ò¿ªÉè±¸"
-#define EVENT_NAME_NET_CREATE L"Éú³ÉÌ×½Ó×Ö"
-#define EVENT_NAME_NET_CONNECT L"ÍøÂçÁ¬½Ó"
-#define EVENT_NAME_NET_LISTEN L"¼àÌý¶Ë¿Ú"
-#define EVENT_NAME_NET_SEND L"·¢ËÍÊý¾Ý°ü"
-#define EVENT_NAME_NET_RECEIVE L"½ÓÊÕÊý¾Ý°ü"
-#define EVENT_NAME_NET_ACCEPT L"½ÓÊÕTCPÁ¬½Ó"
-#define EVENT_NAME_NET_PARSE_DNS L"ÓòÃû½âÎö(DNS)ÇëÇó"
-#define EVENT_NAME_NET_HTTP L"HTTPÇëÇó"
-#define EVENT_NAME_NET_ICMP_SEND L"·¢ËÍICMP°ü"
-#define EVENT_NAME_NET_ICMP_RECEIVE L"½ÓÊÕICMP°ü"
+#define EVENT_NAME_PROCESS_EXEC L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_OPEN L"ï¿½ò¿ª½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_DEBUG L"ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_SUSPEND L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_RESUME L"ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_EXIT L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½"
+#define EVENT_NAME_PROCESS_JOB L"ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_PAGE_PROTECT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_PROCESS_FREE_VM L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_PROCESS_WRITE_VM L"ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½"
+#define EVENT_NAME_PROCESS_READ_VM L"ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_THREAD_REMOTE L"ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_CREATE L"ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_SET_CONTEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_THREAD_SUSPEND L"ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_RESUME L"ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½"
+#define EVENT_NAME_THREAD_EXIT L"ï¿½ß³ï¿½ï¿½Ë³ï¿½"
+#define EVENT_NAME_THREAD_QUEUE_APC L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC"
+#define EVENT_NAME_LOAD_COM L"ï¿½ï¿½ï¿½ï¿½COMï¿½ï¿½ï¿½"
+#define EVENT_NAME_URB_IO L"URBÍ¨ï¿½ï¿½"
+#define EVENT_NAME_SET_TIME L"ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½"
+#define EVENT_NAME_LINK_KNOWN_DLL L"ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_OPEN_PHYSICAL_MEM L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸"
+#define EVENT_NAME_READ_PHYSICAL_MEM L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_WRITE_PHYSICAL_MEM L"Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½"
+#define EVENT_NAME_LOAD_KERNLE_MODULE L"ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½"
+#define EVENT_NAME_LOAD_MODULE L"ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½"
+#define EVENT_NAME_UNLOAD_MODULE L"Ð¶ï¿½ï¿½Ä£ï¿½ï¿½"
+#define EVENT_NAME_ENUM_PROCESS L"Ã¶ï¿½Ù½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_REG_SERVICE L"×¢ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_OPEN_DEVICE L"ï¿½ï¿½ï¿½è±¸"
+#define EVENT_NAME_NET_CREATE L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_CONNECT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_LISTEN L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½"
+#define EVENT_NAME_NET_SEND L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½"
+#define EVENT_NAME_NET_RECEIVE L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½"
+#define EVENT_NAME_NET_ACCEPT L"ï¿½ï¿½ï¿½ï¿½TCPï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_PARSE_DNS L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(DNS)ï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_HTTP L"HTTPï¿½ï¿½ï¿½ï¿½"
+#define EVENT_NAME_NET_ICMP_SEND L"ï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½"
+#define EVENT_NAME_NET_ICMP_RECEIVE L"ï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½"
 
-#define EVENT_NAME_OTERH L"ÆäËü" 
+#define EVENT_NAME_OTERH L"ï¿½ï¿½ï¿½ï¿½" 
 #endif //LANG_EN
 LPCWSTR WINAPI get_event_name( sys_action_type type )
 {
@@ -229,124 +222,124 @@ LPCWSTR WINAPI get_event_name( sys_action_type type )
 
 	switch( type )
 	{
-	case EXEC_create: //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£©
+	case EXEC_create: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½
 		event_name = EVENT_NAME_EXEC_CREATE; 
 		break; 
 
-	case EXEC_destroy: //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+	case EXEC_destroy: //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 			event_name = EVENT_NAME_EXEC_DESTROY; 
 			break; 
 
 	case EXEC_module_load: 
 		event_name = EVENT_NAME_MODULE_LOAD; 
-		break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+		break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_filemon: break 
 	case FILE_touch: 
 		event_name = EVENT_NAME_FILE_TOUCH; 
-		break;  //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 
-	case FILE_open: event_name = EVENT_NAME_FILE_OPEN; break;  //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_read: event_name = EVENT_NAME_FILE_READ; break;  //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_write: event_name = EVENT_NAME_FILE_WRITE;  break;  //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_modified: event_name = EVENT_NAME_FILE_MODIFIED;  break;  //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_readdir: event_name = EVENT_NAME_TRAVERSE_DIRECTORY;  break;  //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
-	case FILE_remove: event_name = EVENT_NAME_REMOVE_FILE;  break;  //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_rename: event_name = EVENT_NAME_RENAME_FILE;  break;  //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_truncate: event_name = EVENT_NAME_TRUNCATE_FILE;  break;  //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_mklink: event_name = EVENT_NAME_MAKE_LINK;  break;  //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_chmod: event_name = EVENT_NAME_CHANGE_MODE;  break;  //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_setsec: event_name = EVENT_NAME_SET_SECURITY_INFO;  break;  //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_getinfo: event_name = EVENT_NAME_GET_INFO;  break;  //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_setinfo: event_name = EVENT_NAME_SET_INFO;  break;  //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_close: event_name = EVENT_NAME_FILE_CLOSE;  break;  //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 
+	case FILE_open: event_name = EVENT_NAME_FILE_OPEN; break;  //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_read: event_name = EVENT_NAME_FILE_READ; break;  //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_write: event_name = EVENT_NAME_FILE_WRITE;  break;  //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_modified: event_name = EVENT_NAME_FILE_MODIFIED;  break;  //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_readdir: event_name = EVENT_NAME_TRAVERSE_DIRECTORY;  break;  //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
+	case FILE_remove: event_name = EVENT_NAME_REMOVE_FILE;  break;  //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_rename: event_name = EVENT_NAME_RENAME_FILE;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_truncate: event_name = EVENT_NAME_TRUNCATE_FILE;  break;  //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_mklink: event_name = EVENT_NAME_MAKE_LINK;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_chmod: event_name = EVENT_NAME_CHANGE_MODE;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_setsec: event_name = EVENT_NAME_SET_SECURITY_INFO;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_getinfo: event_name = EVENT_NAME_GET_INFO;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_setinfo: event_name = EVENT_NAME_SET_INFO;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_close: event_name = EVENT_NAME_FILE_CLOSE;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//MT_regmon: event_name = L"";  break;  
-	case REG_openkey: event_name = EVENT_NAME_REG_OPEN_KEY;  break;  //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
-	case REG_mkkey: event_name = EVENT_NAME_MAKE_KEY;  break;  //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_rmkey: event_name = EVENT_NAME_REMOVE_KEY;  break;  //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_mvkey: event_name = EVENT_NAME_MOVE_KEY;  break;  //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+	case REG_openkey: event_name = EVENT_NAME_REG_OPEN_KEY;  break;  //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+	case REG_mkkey: event_name = EVENT_NAME_MAKE_KEY;  break;  //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_rmkey: event_name = EVENT_NAME_REMOVE_KEY;  break;  //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_mvkey: event_name = EVENT_NAME_MOVE_KEY;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_getinfo: event_name = EVENT_NAME_GET_KEY_INFO;  break;  
 	case REG_setinfo: event_name = EVENT_NAME_SET_KEY_INFO;  break;  
 	case REG_enuminfo: event_name = EVENT_NAME_ENUM_KEY_INFO;  break;  
 	case REG_enum_val: event_name = EVENT_NAME_ENUM_KEY_VALUE;  break;  
-	case REG_rmval: event_name = EVENT_NAME_REMOVE_KEY_VALUE;  break;  //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_getval: event_name = EVENT_NAME_GET_KEY_VALUE;  break;  //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-	case REG_setval: event_name = EVENT_NAME_SET_KEY_VALUE;  break;  //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-	case REG_loadkey: event_name = EVENT_NAME_LOAD_KEY_HIVE;  break;  //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-	case REG_replkey: event_name = EVENT_NAME_REPLACE_KEY;  break;  //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_rstrkey: event_name = EVENT_NAME_RESTORE_KEY;  break;  //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-	case REG_setsec: event_name = EVENT_NAME_SET_KEY_SECURITY;  break;  //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
-	case REG_closekey: event_name = EVENT_NAME_CLOSE_KEY;  break;  //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+	case REG_rmval: event_name = EVENT_NAME_REMOVE_KEY_VALUE;  break;  //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_getval: event_name = EVENT_NAME_GET_KEY_VALUE;  break;  //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+	case REG_setval: event_name = EVENT_NAME_SET_KEY_VALUE;  break;  //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+	case REG_loadkey: event_name = EVENT_NAME_LOAD_KEY_HIVE;  break;  //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_replkey: event_name = EVENT_NAME_REPLACE_KEY;  break;  //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_rstrkey: event_name = EVENT_NAME_RESTORE_KEY;  break;  //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_setsec: event_name = EVENT_NAME_SET_KEY_SECURITY;  break;  //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_closekey: event_name = EVENT_NAME_CLOSE_KEY;  break;  //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		//MT_procmon: event_name = L"";  break;  
-	case PROC_exec: event_name = EVENT_NAME_PROCESS_EXEC;  break;  //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
-	case PROC_open: event_name = EVENT_NAME_PROCESS_OPEN;  break;  //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_debug: event_name = EVENT_NAME_PROCESS_DEBUG;  break;  //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_suspend: event_name = EVENT_NAME_PROCESS_SUSPEND;  break;  //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_resume: event_name = EVENT_NAME_PROCESS_RESUME;  break;  //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_exit: event_name = EVENT_NAME_PROCESS_EXIT;  break;  //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_job: event_name = EVENT_NAME_PROCESS_JOB;  break;  //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_pgprot: event_name = EVENT_NAME_PROCESS_PAGE_PROTECT;  break;  //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_freevm: event_name = EVENT_NAME_PROCESS_FREE_VM;  break;  //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_writevm: event_name = EVENT_NAME_PROCESS_WRITE_VM;  break;  //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_readvm: event_name = EVENT_NAME_PROCESS_READ_VM;  break;  //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_remote: event_name = EVENT_NAME_THREAD_REMOTE;  break;  //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_create: event_name = EVENT_NAME_THREAD_CREATE;  break;  //´´½¨Ïß³Ì
-	case THRD_setctxt: event_name = EVENT_NAME_THREAD_SET_CONTEXT;  break;  //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_suspend: event_name = EVENT_NAME_THREAD_SUSPEND;  break;  //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_resume: event_name = EVENT_NAME_THREAD_RESUME;  break;  //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_exit: event_name = EVENT_NAME_THREAD_EXIT;  break;  //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	//case THRD_exit: event_name = L"¿ç½ø³Ì½áÊøÏß³Ì";  break;  //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_queue_apc: event_name = EVENT_NAME_THREAD_QUEUE_APC;  break;  //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+	case PROC_exec: event_name = EVENT_NAME_PROCESS_EXEC;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
+	case PROC_open: event_name = EVENT_NAME_PROCESS_OPEN;  break;  //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_debug: event_name = EVENT_NAME_PROCESS_DEBUG;  break;  //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_suspend: event_name = EVENT_NAME_PROCESS_SUSPEND;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_resume: event_name = EVENT_NAME_PROCESS_RESUME;  break;  //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_exit: event_name = EVENT_NAME_PROCESS_EXIT;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_job: event_name = EVENT_NAME_PROCESS_JOB;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_pgprot: event_name = EVENT_NAME_PROCESS_PAGE_PROTECT;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_freevm: event_name = EVENT_NAME_PROCESS_FREE_VM;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_writevm: event_name = EVENT_NAME_PROCESS_WRITE_VM;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_readvm: event_name = EVENT_NAME_PROCESS_READ_VM;  break;  //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_remote: event_name = EVENT_NAME_THREAD_REMOTE;  break;  //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_create: event_name = EVENT_NAME_THREAD_CREATE;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+	case THRD_setctxt: event_name = EVENT_NAME_THREAD_SET_CONTEXT;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_suspend: event_name = EVENT_NAME_THREAD_SUSPEND;  break;  //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_resume: event_name = EVENT_NAME_THREAD_RESUME;  break;  //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_exit: event_name = EVENT_NAME_THREAD_EXIT;  break;  //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	//case THRD_exit: event_name = L"ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½";  break;  //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_queue_apc: event_name = EVENT_NAME_THREAD_QUEUE_APC;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_common
 	case COM_access: event_name = EVENT_NAME_LOAD_COM;  break;  
-	//case PORT_read: event_name = L"¶ÁÈ¡´®¿Ú"; break; 
-	//case PORT_write: event_name = L"Ð´Èë´®¿Ú"; break; 
+	//case PORT_read: event_name = L"ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½"; break; 
+	//case PORT_write: event_name = L"Ð´ï¿½ë´®ï¿½ï¿½"; break; 
 	case PORT_urb: event_name = EVENT_NAME_URB_IO; break; 
 
 		//MT_sysmon
-	case SYS_settime: event_name = EVENT_NAME_SET_TIME;  break;  //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
-	case SYS_link_knowndll: event_name = EVENT_NAME_LINK_KNOWN_DLL;  break;  //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
-	case SYS_open_physmm: event_name = EVENT_NAME_OPEN_PHYSICAL_MEM;  break;  //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
-	case SYS_read_physmm: event_name = EVENT_NAME_READ_PHYSICAL_MEM;  break;  //¶ÁÎïÀíÄÚ´æ ÎÞ 
-	case SYS_write_physmm: event_name = EVENT_NAME_WRITE_PHYSICAL_MEM;  break;  //Ð´ÎïÀíÄÚ´æ ÎÞ 
-	case SYS_load_kmod: event_name = EVENT_NAME_LOAD_KERNLE_MODULE;  break;  //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-	case SYS_load_mod: event_name = EVENT_NAME_LOAD_MODULE;  break;  //¼ÓÔØÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-	case SYS_unload_mod: event_name = EVENT_NAME_UNLOAD_MODULE;  break;  //Ð¶ÔØÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-	case SYS_enumproc: event_name = EVENT_NAME_ENUM_PROCESS;  break;  //Ã¶¾Ù½ø³Ì ÎÞ 
-	case SYS_regsrv: event_name = EVENT_NAME_REG_SERVICE;  break;  //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
-	case SYS_opendev: event_name = EVENT_NAME_OPEN_DEVICE;  break;  //´ò¿ªÉè±¸ Éè±¸Ãû 
+	case SYS_settime: event_name = EVENT_NAME_SET_TIME;  break;  //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
+	case SYS_link_knowndll: event_name = EVENT_NAME_LINK_KNOWN_DLL;  break;  //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
+	case SYS_open_physmm: event_name = EVENT_NAME_OPEN_PHYSICAL_MEM;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
+	case SYS_read_physmm: event_name = EVENT_NAME_READ_PHYSICAL_MEM;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+	case SYS_write_physmm: event_name = EVENT_NAME_WRITE_PHYSICAL_MEM;  break;  //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+	case SYS_load_kmod: event_name = EVENT_NAME_LOAD_KERNLE_MODULE;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	case SYS_load_mod: event_name = EVENT_NAME_LOAD_MODULE;  break;  //ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	case SYS_unload_mod: event_name = EVENT_NAME_UNLOAD_MODULE;  break;  //Ð¶ï¿½ï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	case SYS_enumproc: event_name = EVENT_NAME_ENUM_PROCESS;  break;  //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	case SYS_regsrv: event_name = EVENT_NAME_REG_SERVICE;  break;  //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	case SYS_opendev: event_name = EVENT_NAME_OPEN_DEVICE;  break;  //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 		//MT_w32mon
-	case W32_postmsg: event_name = L"·¢ËÍ´°¿ÚÏûÏ¢(Post)";  break;  //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case W32_sendmsg: event_name = L"·¢ËÍ´°¿ÚÏûÏ¢(Send)";  break;  //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case W32_findwnd: event_name = L"²éÕÒ´°¿Ú";  break;  //²éÕÒ´°¿Ú ÎÞ 
-	case W32_msghook: event_name = L"ÉèÖÃÏûÏ¢¹³×Ó";  break;  //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
-	case W32_lib_inject: event_name = L"DLL×¢Èë";  break;  //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+	case W32_postmsg: event_name = L"ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢(Post)";  break;  //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case W32_sendmsg: event_name = L"ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢(Send)";  break;  //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case W32_findwnd: event_name = L"ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½";  break;  //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	case W32_msghook: event_name = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½";  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	case W32_lib_inject: event_name = L"DLL×¢ï¿½ï¿½";  break;  //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_netmon: event_name = L"";  break;  
 	case NET_create: event_name = EVENT_NAME_NET_CREATE;  break;  
-	case NET_connect: event_name = EVENT_NAME_NET_CONNECT;  break;  //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
-	case NET_listen: event_name = EVENT_NAME_NET_LISTEN;  break;  //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
-	case NET_send: event_name = EVENT_NAME_NET_SEND;  break;  //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+	case NET_connect: event_name = EVENT_NAME_NET_CONNECT;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+	case NET_listen: event_name = EVENT_NAME_NET_LISTEN;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
+	case NET_send: event_name = EVENT_NAME_NET_SEND;  break;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 	case NET_recv: event_name = EVENT_NAME_NET_RECEIVE;  break;  
 	case NET_accept: event_name = EVENT_NAME_NET_ACCEPT;  break;  
 	case NET_dns: event_name = EVENT_NAME_NET_PARSE_DNS;  break;  
-	case NET_http: event_name = EVENT_NAME_NET_HTTP;  break;  //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+	case NET_http: event_name = EVENT_NAME_NET_HTTP;  break;  //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 	case NET_icmp_send: event_name = EVENT_NAME_NET_ICMP_SEND;  break;  
 	case NET_icmp_recv: event_name = EVENT_NAME_NET_ICMP_RECEIVE;  break;  
 
 		//MT_behavior: event_name = L"";  break;  
-	case BA_extract_hidden: event_name = L"ÊÍ·ÅÒþ²ØÎÄ¼þ";  break;  //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
-	case BA_extract_pe: event_name = L"ÊÍ·ÅPEÎÄ¼þ";  break;  //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
-	case BA_self_copy: event_name = L"×ÔÎÒ¸´ÖÆ";  break;  //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
-	case BA_self_delete: event_name = L"×ÔÎÒÉ¾³ý";  break;  //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
-	case BA_ulterior_exec: event_name = L"ÒþÃØÖ´ÐÐ";  break;  //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
-	case BA_invade_process: event_name = L"ÈëÇÖ½ø³Ì";  break;  //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case BA_infect_pe: event_name = L"¸ÐÈ¾PEÎÄ¼þ";  break;  //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-	case BA_overwrite_pe: event_name = L"¸²Ð´PEÎÄ¼þ";  break;  //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-	case BA_register_autorun: event_name = L"×¢²á×ÔÆô¶¯Ïî";  break;  //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+	case BA_extract_hidden: event_name = L"ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½";  break;  //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
+	case BA_extract_pe: event_name = L"ï¿½Í·ï¿½PEï¿½Ä¼ï¿½";  break;  //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_self_copy: event_name = L"ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½";  break;  //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_self_delete: event_name = L"ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½";  break;  //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_ulterior_exec: event_name = L"ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½";  break;  //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_invade_process: event_name = L"ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½";  break;  //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_infect_pe: event_name = L"ï¿½ï¿½È¾PEï¿½Ä¼ï¿½";  break;  //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_overwrite_pe: event_name = L"ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½";  break;  //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_register_autorun: event_name = L"×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";  break;  //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_other: event_name = EVENT_NAME_OTERH;  break;  
 	default:
 		event_name = L"";  

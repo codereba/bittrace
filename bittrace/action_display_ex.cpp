@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -32,320 +25,320 @@
 #include <strsafe.h>
 
 #ifdef LNAG_EN
-#define FILE_STREAM_INFO_FORMAT_TEXT L"Stream name: %s, Stream size: %I64u, Stream data size: %I64u " //L"Á÷Ãû³Æ: %s, Á÷·ÖÅä¿Õ¼ä´óÐ¡: %I64u, Á÷Êý¾Ý´óÐ¡: %I64u "
-#define PIPE_FORMAT_TEXT L"PIPE completion mode: %u, PIPE read mode: %u" //L"¹ÜµÀÍê³ÉÄ£Ê½: %u, ¹ÜÀí¶ÁÈ¡Ä£Ê½: %u"
-#define PIPE_LOCAL_INFORMATION L"PIPE input quota: %u, PIPE output quota: %u, PIPE readable data size: %u, PIPE remain output quota: %u, PIPE instance count: %u, PIPE max instance count: %u, Named PIPE configure: 0x%0.8x, Named PIPE status: %u, Named PIPE type: %u, Named PIPE end: %u" //L"¹ÜµÀÊäÈëÅä¶î: %u, ¹ÜµÀÊä³öÅä¶î: %u, ¹ÜÀí¿É¶ÁÊý¾Ý³¤¶È: %u, ¹ÜµÀÐ´Åä¶îÓàÁ¿: %u, ¹ÜµÀµ±Ç°ÊµÀýÊý: %u, ¹ÜÀí×î´óÊµÀýÊý: %u, ÃüÃû¹ÜµÀÅäÖÃ: 0x%0.8x, ÃüÃû¹ÜµÀ×´Ì¬: %u, ÃüÃû¹ÜµÀÀàÐÍ: %u, ÃüÃû¹ÜµÀ½áÊø: %u", 
-#define INVADE_PROCESS_FORMAT_TEXT L"Process id %u\n"  //L"½ø³ÌID %u\n"; 
-#define REGISTER_AUTORUN_FORMAT_TEXT L"Type %u\n"  //L"ÀàÐÍ %u\n"
-#define FILE_ATTRIBUTE_TEXT L"File attributes " //L"ÎÄ¼þÊôÐÔ "
-#define FILE_NEW_ATTRIBUTE_TEXT L"New attributes " //L"ÐÂÊôÐÔ "
-#define FILE_ATTRIBUTE_READ_ONLY_TEXT L"Read only|" //L"Ö»¶Á|"
-#define FILE_ATTRIBUTE_HIDE_TEXT L"Hide|" //L"Òþ²Ø|"
+#define FILE_STREAM_INFO_FORMAT_TEXT L"Stream name: %s, Stream size: %I64u, Stream data size: %I64u " //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u "
+#define PIPE_FORMAT_TEXT L"PIPE completion mode: %u, PIPE read mode: %u" //L"ï¿½Üµï¿½ï¿½ï¿½ï¿½Ä£Ê½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ä£Ê½: %u"
+#define PIPE_LOCAL_INFORMATION L"PIPE input quota: %u, PIPE output quota: %u, PIPE readable data size: %u, PIPE remain output quota: %u, PIPE instance count: %u, PIPE max instance count: %u, Named PIPE configure: 0x%0.8x, Named PIPE status: %u, Named PIPE type: %u, Named PIPE end: %u" //L"ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %u, ï¿½Üµï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Üµï¿½ï¿½ï¿½Ç°Êµï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½: 0x%0.8x, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½×´Ì¬: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½: %u", 
+#define INVADE_PROCESS_FORMAT_TEXT L"Process id %u\n"  //L"ï¿½ï¿½ï¿½ï¿½ID %u\n"; 
+#define REGISTER_AUTORUN_FORMAT_TEXT L"Type %u\n"  //L"ï¿½ï¿½ï¿½ï¿½ %u\n"
+#define FILE_ATTRIBUTE_TEXT L"File attributes " //L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ "
+#define FILE_NEW_ATTRIBUTE_TEXT L"New attributes " //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "
+#define FILE_ATTRIBUTE_READ_ONLY_TEXT L"Read only|" //L"Ö»ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_HIDE_TEXT L"Hide|" //L"ï¿½ï¿½ï¿½ï¿½|"
 #define FILE_ATTRIBUTE_SYSTEM_TEXT L"System|" //L"ÏµÍ³|"
 #define FILE_ATTRIBUTE_DIRECTORY_TEXT L"Directory|" //L"Ä¿Â¼|"
-#define FILE_ATTRIBUTE_ARCHIVE_TEXT L"Archive|" //L"´æµµ|"
-#define FILE_ATTRIBUTE_DEVICE_TEXT L"Device|" //L"Éè±¸|"
-#define FILE_ATTRIBUTE_GENERAL_TEXT L"General|" //L"Ò»°ã|"
-#define FILE_ATTRIBUTE_TEMPORARY_TEXT L"Temporary|" //L"ÁÙÊ±|"
-#define FILE_ATTRIBUTE_SPARSE_FILE_TEXT L"Sparse file|" //L"Ï¡Êè|"
-#define FILE_ATTRIBUTE_REPARSE_POINT_TEXT L"Reparse point|" //L"ÖØ¶¨Ïò|"
-#define FILE_ATTRIBUTE_COMPRESSED_TEXT L"Compressed|" //L"Ñ¹Ëõ|"
-#define FILE_ATTRIBUTE_OFFLINE_TEXT L"Offline|" //L"ÀëÏß|"
-#define FILE_ATTRIBUTE_NOT_CONTENT_INDEXED_TEXT L"Not content indexed|" //L"ÎÞÄÚÈÝË÷Òý|"
-#define FILE_ATTRIBUTE_ENCRYPTED_TEXT L"Encrypted|" //L"¼ÓÃÜ|"
-#define FILE_ATTRIBUTE_VIRTUAL_TEXT L"Virtual|" //L"ÐéÄâ|"
-#define FILE_READ_DATA_TEXT L"Read data/" //L"¶ÁÊý¾Ý/"
-#define FILE_LIST_DIRECTORY_TEXT L"List directory/" //L"ÁÐÄ¿Â¼/"
-#define FILE_WRITE_DATA_TEXT L"Write data/" //L"Ð´Êý¾Ý/"
-#define FILE_ADD_FILE_TEXT L"Add file/" //L"Ìí¼ÓÎÄ¼þ/"
-#define FILE_APPEND_DATA_TEXT L"Append data" //L"Ìí¼ÓÊý¾Ý/"
-#define FILE_ADD_SUBDIRECTORY_TEXT L"Add sub directory/" //L"Ìí¼Ó×ÓÄ¿Â¼/"
-#define FILE_CREATE_PIPE_INSTANCE_TEXT L"Create PIPE instance/" //L"´´½¨¹ÜµÀÊµÀý/"
-#define FILE_ACCESS_FILE_READ_EA L"Read extension attributes/" //L"¶ÁÀ©Õ¹ÊôÐÔ/"
-#define FILE_ACCESS_FILE_WRITE_EA L"Write extension attributes/" // L"Ð´À©Õ¹ÊôÐÔ/"
-#define FILE_ACCESS_EXECUTE_TEXT L"File execute mapping" //L"ÄÚ´æÓ³Éä/"
-#define FILE_ACCESS_TRAVERSE_TEXT L"Directory traverse" //L"ä¯ÀÀÎÄ¼þÂ·¾¶/"
-#define FILE_ACCESS_DELETE_CHILD_TEXT L"Delete child" //L"É¾³ý×ÓÎÄ¼þ(¼Ð)/"
-#define FILE_ACCESS_READ_ATTRIBUTES_TEXT L"Read attributes" //L"¶ÁÊôÐÔ/"
-#define FILE_ACCESS_WRITE_ATTRIBUTES_TEXT L"Write attributes" //L"Ð´ÊôÐÔ/"
-#define FILE_ACCESS_SYNCHRONIZE_TEXT L"Synchronize IO" //L"Í¬²½IO/"
-#define FILE_ACCESS_DELETE_TEXT L"Delete" //L"É¾³ý¶ÔÏó/"
-#define FILE_ACCESS_READ_CONTROL_TEXT L"Read object info" //L"¶ÁÈ¡¶ÔÏóÐÅÏ¢/"
-#define FILE_ACCESS_TEXT L"Access: " //L"·ÃÎÊÈ¨ÏÞ: "
-#define FILE_NAME_TEXT L"File name: " //L"ÎÄ¼þÃû: "
-#define FILE_ACCESS_WRITE_DAC_TEXT L"Write DAC" //L"¸ÄÐ´·ÃÎÊ¿ØÖÆÁÐ±í/"
-#define FILE_ACCESS_WRITE_OWNER_TEXT L"Write Owner" //L"¸ÄÐ´ËùÓÐÕß/"
-#define FILE_OPEN_FORMAT_TEXT L"Access 0x%0.8x Initial size %u Share mode 0x%0.8x Disposition 0x%0.8x Option 0x%0.8x \n" //L"·ÃÎÊÈ¨ÏÞ 0x%0.8x ³õÊ¼´óÐ¡ %u ¹²ÏíÊôÐÔ 0x%0.8x ¹¤×÷·½Ê½(disposition) 0x%0.8x ¹¤×÷·½Ê½(option) 0x%0.8x \n"; 
-#define REG_CREATE_KEY_FORMAT_TEXT L"Access 0x%0.8x \n"  //L"È¨ÏÞ 0x%0.8x \n"; 
-#define INJECT_LIB_FORMAT_TEXT L"DLL %s\n" //L"¶¯Ì¬¿â %s\n"; 
-#define MODULE_LOAD_FORMAT_TEXT L"Base address 0x%0.8x Size %u Flags 0x%0.8x" //L"»ùµØÖ· 0x%0.8x ´óÐ¡ %u ±êÖ¾ 0x%0.8x"
-#define FILE_READ_DIR_FORMAT_TEXT L"Filter 0x%0.8x\n" //L"¹ýÂËÌõ¼þ %u\n"; 
-#define FILE_RENAME_FORMAT_TEXT L"File dest name %s File source name %s %s\n" //L"Ä¿±êÎÄ¼þÃû %s Ô­ÎÄ¼þÃû %s %s\n"
-#define FILE_RENAME_REPLACE_TEXT L"Over write" //L"¸²¸Ç"
-#define FILE_RENAME_NOT_REPLACE_TEXT L"Not over write" //L"²»¸²¸Ç"
-#define FILE_TRUNCATE_FORMAT_TEXT L"Size %I64u\n" //L"³¤¶È %I64u\n"; 
-#define FILE_MAKE_LINK_FORMAT_TEXT L"Hard link %s Mode 0x%0.8x\n" //L"Ó²Á´½Ó%s Ä£Ê½%u\n"; 
-#define FILE_LINK_INFO_FORMAT_TEXT L"File name %s, %s" //L"ÎÄ¼þÃû %s, %s"
+#define FILE_ATTRIBUTE_ARCHIVE_TEXT L"Archive|" //L"ï¿½æµµ|"
+#define FILE_ATTRIBUTE_DEVICE_TEXT L"Device|" //L"ï¿½è±¸|"
+#define FILE_ATTRIBUTE_GENERAL_TEXT L"General|" //L"Ò»ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_TEMPORARY_TEXT L"Temporary|" //L"ï¿½ï¿½Ê±|"
+#define FILE_ATTRIBUTE_SPARSE_FILE_TEXT L"Sparse file|" //L"Ï¡ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_REPARSE_POINT_TEXT L"Reparse point|" //L"ï¿½Ø¶ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_COMPRESSED_TEXT L"Compressed|" //L"Ñ¹ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_OFFLINE_TEXT L"Offline|" //L"ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_NOT_CONTENT_INDEXED_TEXT L"Not content indexed|" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_ENCRYPTED_TEXT L"Encrypted|" //L"ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_VIRTUAL_TEXT L"Virtual|" //L"ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_READ_DATA_TEXT L"Read data/" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_LIST_DIRECTORY_TEXT L"List directory/" //L"ï¿½ï¿½Ä¿Â¼/"
+#define FILE_WRITE_DATA_TEXT L"Write data/" //L"Ð´ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ADD_FILE_TEXT L"Add file/" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½/"
+#define FILE_APPEND_DATA_TEXT L"Append data" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ADD_SUBDIRECTORY_TEXT L"Add sub directory/" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼/"
+#define FILE_CREATE_PIPE_INSTANCE_TEXT L"Create PIPE instance/" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½Êµï¿½ï¿½/"
+#define FILE_ACCESS_FILE_READ_EA L"Read extension attributes/" //L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_FILE_WRITE_EA L"Write extension attributes/" // L"Ð´ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_EXECUTE_TEXT L"File execute mapping" //L"ï¿½Ú´ï¿½Ó³ï¿½ï¿½/"
+#define FILE_ACCESS_TRAVERSE_TEXT L"Directory traverse" //L"ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½/"
+#define FILE_ACCESS_DELETE_CHILD_TEXT L"Delete child" //L"É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½(ï¿½ï¿½)/"
+#define FILE_ACCESS_READ_ATTRIBUTES_TEXT L"Read attributes" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_WRITE_ATTRIBUTES_TEXT L"Write attributes" //L"Ð´ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_SYNCHRONIZE_TEXT L"Synchronize IO" //L"Í¬ï¿½ï¿½IO/"
+#define FILE_ACCESS_DELETE_TEXT L"Delete" //L"É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_READ_CONTROL_TEXT L"Read object info" //L"ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢/"
+#define FILE_ACCESS_TEXT L"Access: " //L"ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½: "
+#define FILE_NAME_TEXT L"File name: " //L"ï¿½Ä¼ï¿½ï¿½ï¿½: "
+#define FILE_ACCESS_WRITE_DAC_TEXT L"Write DAC" //L"ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½Ð±ï¿½/"
+#define FILE_ACCESS_WRITE_OWNER_TEXT L"Write Owner" //L"ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_OPEN_FORMAT_TEXT L"Access 0x%0.8x Initial size %u Share mode 0x%0.8x Disposition 0x%0.8x Option 0x%0.8x \n" //L"ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 0x%0.8x ï¿½ï¿½Ê¼ï¿½ï¿½Ð¡ %u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½(disposition) 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½(option) 0x%0.8x \n"; 
+#define REG_CREATE_KEY_FORMAT_TEXT L"Access 0x%0.8x \n"  //L"È¨ï¿½ï¿½ 0x%0.8x \n"; 
+#define INJECT_LIB_FORMAT_TEXT L"DLL %s\n" //L"ï¿½ï¿½Ì¬ï¿½ï¿½ %s\n"; 
+#define MODULE_LOAD_FORMAT_TEXT L"Base address 0x%0.8x Size %u Flags 0x%0.8x" //L"ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½Ð¡ %u ï¿½ï¿½Ö¾ 0x%0.8x"
+#define FILE_READ_DIR_FORMAT_TEXT L"Filter 0x%0.8x\n" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %u\n"; 
+#define FILE_RENAME_FORMAT_TEXT L"File dest name %s File source name %s %s\n" //L"Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ %s Ô­ï¿½Ä¼ï¿½ï¿½ï¿½ %s %s\n"
+#define FILE_RENAME_REPLACE_TEXT L"Over write" //L"ï¿½ï¿½ï¿½ï¿½"
+#define FILE_RENAME_NOT_REPLACE_TEXT L"Not over write" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILE_TRUNCATE_FORMAT_TEXT L"Size %I64u\n" //L"ï¿½ï¿½ï¿½ï¿½ %I64u\n"; 
+#define FILE_MAKE_LINK_FORMAT_TEXT L"Hard link %s Mode 0x%0.8x\n" //L"Ó²ï¿½ï¿½ï¿½ï¿½%s Ä£Ê½%u\n"; 
+#define FILE_LINK_INFO_FORMAT_TEXT L"File name %s, %s" //L"ï¿½Ä¼ï¿½ï¿½ï¿½ %s, %s"
 #define FILE_LINK_REPLACE_TEXT L"Replace exists"
 #define FILE_LINK_NOT_REPLACE_TEXT L"Do not replace exists"
-#define FILE_NAMES_INFO_FORMAT_TEXT L"File name: %s, Index: %u" //L"ÎÄ¼þÃû: %s, ÎÄ¼þË÷ÒýºÅ: %u"
-#define FILE_DELETE_TEXT L"Delete" //L"É¾³ý"
-#define FILE_POSITION_INFO_FORMAT_TEXT L"File position: %I64u" //L"ÎÄ¼þÆ«ÒÆ: %I64u"
-#define FILE_FULL_EA_INFO_FORMAT_TEXT L"EA name: %s, EA size: %u, EA flags: 0x%0.8x"  //L"¿ÉÀ©Õ¹ÊôÐÔÃû³Æ: %s, ¿ÉÀ©Õ¹ÊôÐÔ³¤¶È: %u, ¿ÉÀ©Õ¹ÊôÐÔ±ê¼Ç: 0x%0.8x", 
-#define FILE_MODE_TEXT L"File mode: 0x%0.8x" //L"ÎÄ¼þ²Ù×÷Ä£Ê½: 0x%0.8x"
-#define FILE_ALIGNMENT_INFO_FORMAT_TEXT L"Alignment: %u"  //L"ÎÄ¼þ¶ÔÆëÒªÇó: %u"
+#define FILE_NAMES_INFO_FORMAT_TEXT L"File name: %s, Index: %u" //L"ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u"
+#define FILE_DELETE_TEXT L"Delete" //L"É¾ï¿½ï¿½"
+#define FILE_POSITION_INFO_FORMAT_TEXT L"File position: %I64u" //L"ï¿½Ä¼ï¿½Æ«ï¿½ï¿½: %I64u"
+#define FILE_FULL_EA_INFO_FORMAT_TEXT L"EA name: %s, EA size: %u, EA flags: 0x%0.8x"  //L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½: 0x%0.8x", 
+#define FILE_MODE_TEXT L"File mode: 0x%0.8x" //L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½: 0x%0.8x"
+#define FILE_ALIGNMENT_INFO_FORMAT_TEXT L"Alignment: %u"  //L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½: %u"
 #define FILE_ALL_INFO_FORMAT_TEXT L"File mode: 0x%0.8x, Access: 0x%0.8x, Alignment: %u, Allocation size: %I64u, End of file: %I64u, Position: %I64u, " \
 	L"Change time: %04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time: %04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time: %04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time: %04u-%02u-%02u %02u:%02u:%02u.%03u, " \
 	L"EA size: %u, Index: %I64u, Link count: %u, %s, %s"  
-//L"ÎÄ¼þ²Ù×÷Ä£Ê½: 0x%0.8x, ·ÃÎÊÈ¨ÏÞ: 0x%0.8x, ¶ÔÆëÒªÇó: %u, Õ¼ÓÃ¿Õ¼ä´óÐ¡: %I64u, ÎÄ¼þÊý¾Ý´óÐ¡: %I64u, ÊäÈëÖ¸ÕëÆ«ÒÆÁ¿: %I64u, " 
-//L"ÐÞ¸ÄÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, " 
-//L"¿ÉÀ©Õ¹ÊôÐÔ´óÐ¡: %u, Ë÷ÒýºÅ: %I64u, Á´½ÓÊý: %u, %s, %s",  
+//L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½: 0x%0.8x, ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½: 0x%0.8x, ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½: %u, Õ¼ï¿½Ã¿Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½: %I64u, " 
+//L"ï¿½Þ¸ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, " 
+//L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô´ï¿½Ð¡: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, %s, %s",  
 
-#define FILE_DELETED_TEXT L"Delete pending" //L"ÒÑÉ¾³ý"
+#define FILE_DELETED_TEXT L"Delete pending" //L"ï¿½ï¿½É¾ï¿½ï¿½"
 #define FILE_DIRECTORY_TEXT L"Directory" //L"Ä¿Â¼"
-#define FILE_ALLOCATION_INFO_FORMAT_TEXT L"Allocation size: %I64u"  //L"·ÖÅä¿Õ¼ä´óÐ¡: %I64u"
-#define FILE_END_OF_FILE_INFO_FORMAT_TEXT L"End of file: %I64u" //L"Êý¾Ý´óÐ¡: %I64u"
-#define FILE_ALTERNATE_NAME_INFO_FORMAT_TEXT L"Alternate name: %s" //L"¶ÌÂ·¾¶: %s"
-#define FILE_PIPE_REMOTE_INFO_FORMAT_TEXT L"Max collection count: %u, Collection time: %0.4u-%0.2u-%0.2u %0.2u:%0.2u:%0.2u.%0.3u" //L"×î´óÊý¾ÝÊÕ¼¯´ÎÊý: %u, ÊÕ¼¯Êý¾ÝÊ±¼ä: %0.4u-%0.2u-%0.2u %0.2u:%0.2u:%0.2u.%0.3u", 
-#define FILE_MAILSLOT_QUERY_INFO_FORMAT_TEXT L"Quota: %u, Max message size: %u, Messages available: %u, Next message size: %u, Read time out: %I64ums" //L"ÓÊ²ÛÅä¶î: %u, ×î´óÏûÏ¢³¤¶È: %u, »º´æÏûÏ¢Êý: %u, ÏÂ¸öÏûÏ¢´óÐ¡: %u, ¶ÁÈ¡³¬Ê±: %I64ums", 
-#define FILE_MAILSLOT_SET_INFO_FORMAT_TEXT L"Read time out: %I64ums" //L"ÓÊ²Û¶ÁÈ¡³¬Ê±: %I64ums"
-#define FILE_COMPRESSION_INFO_FORMAT_TEXT L"Compressed size: %I64u, Compression format: %s, Chunk shift: %u, Cluster shift: %u, Compression unit shift: %u" //L"Ñ¹Ëõ´óÐ¡: %I64u, Ñ¹Ëõ¸ñÊ½: %s, ¿é´óÐ¡: %u, ´Ø´óÐ¡: %u, Ñ¹Ëõµ¥Ôª´óÐ¡: %u", 
-#define FILE_OBJECT_ID_INFO_FORMAT_TEXT L"File reference: 0x%I64x, Object ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x, Birth object ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x" //L"ÎÄ¼þ²Î¿¼ºÅ: 0x%I64x, ¶ÔÏóID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x, ³õÊ¼¶ÔÏóID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x", 
-#define FILE_COMPLETION_INFO_FORMAT_TEXT L"Completion notify key: %p, Completion port: %p" //L"Òì²½IO²Ù×÷Í¨ÖªKEY: %p, Í¨Öª¶Ë¿Ú: %p"
-#define FILE_MOVE_CLUSTER_INFO_FORMAT_TEXT L"File name: %s, Cluster count: %u" //L"ÎÄ¼þÃû: %s, ´ØÊý: %u"
-#define FILE_QUOTE_INFO_FORMAT_TEXT L"Quota limit: %I64u, Quota threshold: %I64u, Quota used: %I64u, Quota change time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"Åä¶îÉÏÏÞ: %I64u, Åä¶îÁÙ½çÖµ: %I64u, Åä¶îÒÑÊ¹ÓÃ: %I64u, Åä¶î¸ÄÐ´Ê±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u", 
-#define FILE_REPARSE_POINT_INFO_FORMAT_TEXT L"File referece: %u, Tag: %u" //L"ÖØ¶¨ÏòÎÄ¼þ²Î¿¼ºÅ: %u, ÓÃ»§±ê¼Ç: %u", 
-#define FILE_NAME_FORMAT_TEXT L"File name %s" //L"ÎÄ¼þÃû:%s "
-#define FILE_DIRECTORY_INFO_FORMAT_TEXT L"Allocated size:%I64u, Data size:%I64u, File index:%u, Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" //L"·ÖÅä¿Õ¼ä:%I64u, Êý¾Ý´óÐ¡:%I64u, ÎÄ¼þË÷ÒýºÅ:%u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
-#define FILE_BOTH_DIRECTORY_INFO_FORMAT_TEXT L"File short name:%s, Allocation size:%I64u, Data size:%I64u, EA size:%u, Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" //L"¶ÌÎÄ¼þÃû:%s, ·ÖÅä¿Õ¼ä:%I64u, Êý¾Ý´óÐ¡:%I64u, À©Õ¹ÊôÐÔ³¤¶È:%u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
-#define _FILE_ATTRIBUTE_TEXT L"Attributes:" //L"ÊôÐÔ:"
-#define FILE_BASIC_INFO_FORMAT_TEXT L" Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" //L" ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
-#define FILE_STANDARD_INFO_FORMAT_TEXT L"%s Allocation time: %I64u, Data size: %I64u, Link count: %u %s" //L"%s ·ÖÅä¿Õ¼ä: %I64u, Êý¾Ý´óÐ¡: %I64u, Á´½ÓÊý: %u %s"
-#define FILE_NETWORK_OPEN_INFO_FORMAT_TEXT L"Allocation size: %I64u, End of file:%I64u, Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u \n" //L"ÎÄ¼þÕ¼ÓÃ¿Õ¼ä´óÐ¡: %I64u, Êý¾Ý´óÐ¡:%I64u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u \n"
-#define FILE_ATTRIBUTE_TAG_INFO_FORMAT_TEXT L"Reparse tag: 0x%0.8x" //L"ÖØ¶¨Ïò±ê¼Ç: 0x%0.8x"
-#define FILE_TRACKING_INFO_FORMAT_TEXT L"File tracking" //L"ÎÄ¼þ×´Ì¬¸ú×Ù"
-#define FILE_BOTH_DIR_FILE_INFO_FORMAT_TEXT L"File name: %s, short name: %s, Allocation size: %I64u, End of file: %I64u, File ID: %I64u, Index: %u, EA size: %u, Change time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last write time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Creation time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last access time: %04u-%02u-%02 %02u:%02u:%02u.%03u" //L"ÎÄ¼þÃû: %s, ¶ÌÎÄ¼þÃû: %s, ·ÖÅä¿Õ¼ä´óÐ¡: %I64u, Êý¾Ý´óÐ¡: %I64u, ÎÄ¼þID: %I64u, Ë÷ÒýºÅ: %u, À©Õ¹ÊôÐÔ´óÐ¡: %u, ÐÞ¸ÄÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u"
-#define FILE_FULL_DIR_INFO_FORMAT_TEXT L"Allocation size: %I64u, Data size: %I64u, File ID: %I64u, Index: %u, EA size: %u, Change time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last write time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Creation time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last access time: %04u-%02u-%02 %02u:%02u:%02u.%03u" //L"·ÖÅä¿Õ¼ä´óÐ¡: %I64u, Êý¾Ý´óÐ¡: %I64u, ÎÄ¼þID: %I64u, Ë÷ÒýºÅ: %u, À©Õ¹ÊôÐÔ´óÐ¡: %u, ÐÞ¸ÄÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u" 
-#define FILE_VALID_DATA_LENGHT_INFO_FORMAT_TEXT L"Valid data length: %I64u"  //L"ÓÐÐ§Êý¾Ý³¤¶È: %I64u"
-#define FILE_ALTERNATE_NAME L"File alternate name" //L"ÎÄ¼þ¶ÌÃû"
-#define FILE_COMPLETION_NOTIFICATION_INFO_FORMAT_TEXT L"IO completion flags: 0x%0.8x" //L"IOÍê³É±êÖ¾Î»: 0x%0.8x", 
-#define FILE_STATUS_BLOCK_RANGE_INFO_FORMAT_TEXT L"Status block range" //L"ÎÄ¼þ¿éÇøÓò"
+#define FILE_ALLOCATION_INFO_FORMAT_TEXT L"Allocation size: %I64u"  //L"ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u"
+#define FILE_END_OF_FILE_INFO_FORMAT_TEXT L"End of file: %I64u" //L"ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u"
+#define FILE_ALTERNATE_NAME_INFO_FORMAT_TEXT L"Alternate name: %s" //L"ï¿½ï¿½Â·ï¿½ï¿½: %s"
+#define FILE_PIPE_REMOTE_INFO_FORMAT_TEXT L"Max collection count: %u, Collection time: %0.4u-%0.2u-%0.2u %0.2u:%0.2u:%0.2u.%0.3u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %0.4u-%0.2u-%0.2u %0.2u:%0.2u:%0.2u.%0.3u", 
+#define FILE_MAILSLOT_QUERY_INFO_FORMAT_TEXT L"Quota: %u, Max message size: %u, Messages available: %u, Next message size: %u, Read time out: %I64ums" //L"ï¿½Ê²ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½: %u, ï¿½Â¸ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ð¡: %u, ï¿½ï¿½È¡ï¿½ï¿½Ê±: %I64ums", 
+#define FILE_MAILSLOT_SET_INFO_FORMAT_TEXT L"Read time out: %I64ums" //L"ï¿½Ê²Û¶ï¿½È¡ï¿½ï¿½Ê±: %I64ums"
+#define FILE_COMPRESSION_INFO_FORMAT_TEXT L"Compressed size: %I64u, Compression format: %s, Chunk shift: %u, Cluster shift: %u, Compression unit shift: %u" //L"Ñ¹ï¿½ï¿½ï¿½ï¿½Ð¡: %I64u, Ñ¹ï¿½ï¿½ï¿½ï¿½Ê½: %s, ï¿½ï¿½ï¿½Ð¡: %u, ï¿½Ø´ï¿½Ð¡: %u, Ñ¹ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Ð¡: %u", 
+#define FILE_OBJECT_ID_INFO_FORMAT_TEXT L"File reference: 0x%I64x, Object ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x, Birth object ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x" //L"ï¿½Ä¼ï¿½ï¿½Î¿ï¿½ï¿½ï¿½: 0x%I64x, ï¿½ï¿½ï¿½ï¿½ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x, ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x", 
+#define FILE_COMPLETION_INFO_FORMAT_TEXT L"Completion notify key: %p, Completion port: %p" //L"ï¿½ì²½IOï¿½ï¿½ï¿½ï¿½Í¨ÖªKEY: %p, Í¨Öªï¿½Ë¿ï¿½: %p"
+#define FILE_MOVE_CLUSTER_INFO_FORMAT_TEXT L"File name: %s, Cluster count: %u" //L"ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½: %u"
+#define FILE_QUOTE_INFO_FORMAT_TEXT L"Quota limit: %I64u, Quota threshold: %I64u, Quota used: %I64u, Quota change time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %I64u, ï¿½ï¿½ï¿½ï¿½Ù½ï¿½Öµ: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½: %I64u, ï¿½ï¿½ï¿½ï¿½Ð´Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u", 
+#define FILE_REPARSE_POINT_INFO_FORMAT_TEXT L"File referece: %u, Tag: %u" //L"ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Î¿ï¿½ï¿½ï¿½: %u, ï¿½Ã»ï¿½ï¿½ï¿½ï¿½: %u", 
+#define FILE_NAME_FORMAT_TEXT L"File name %s" //L"ï¿½Ä¼ï¿½ï¿½ï¿½:%s "
+#define FILE_DIRECTORY_INFO_FORMAT_TEXT L"Allocated size:%I64u, Data size:%I64u, File index:%u, Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" //L"ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½:%I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡:%I64u, ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
+#define FILE_BOTH_DIRECTORY_INFO_FORMAT_TEXT L"File short name:%s, Allocation size:%I64u, Data size:%I64u, EA size:%u, Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" //L"ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½:%s, ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½:%I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡:%I64u, ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½:%u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
+#define _FILE_ATTRIBUTE_TEXT L"Attributes:" //L"ï¿½ï¿½ï¿½ï¿½:"
+#define FILE_BASIC_INFO_FORMAT_TEXT L" Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" //L" ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
+#define FILE_STANDARD_INFO_FORMAT_TEXT L"%s Allocation time: %I64u, Data size: %I64u, Link count: %u %s" //L"%s ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u %s"
+#define FILE_NETWORK_OPEN_INFO_FORMAT_TEXT L"Allocation size: %I64u, End of file:%I64u, Change time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Creation time:%04u-%02u-%02u %02u:%02u:%02u.%03u, Last access time:%04u-%02u-%02u %02u:%02u:%02u.%03u \n" //L"ï¿½Ä¼ï¿½Õ¼ï¿½Ã¿Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡:%I64u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u \n"
+#define FILE_ATTRIBUTE_TAG_INFO_FORMAT_TEXT L"Reparse tag: 0x%0.8x" //L"ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½: 0x%0.8x"
+#define FILE_TRACKING_INFO_FORMAT_TEXT L"File tracking" //L"ï¿½Ä¼ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½"
+#define FILE_BOTH_DIR_FILE_INFO_FORMAT_TEXT L"File name: %s, short name: %s, Allocation size: %I64u, End of file: %I64u, File ID: %I64u, Index: %u, EA size: %u, Change time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last write time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Creation time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last access time: %04u-%02u-%02 %02u:%02u:%02u.%03u" //L"ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½Ä¼ï¿½ID: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô´ï¿½Ð¡: %u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u"
+#define FILE_FULL_DIR_INFO_FORMAT_TEXT L"Allocation size: %I64u, Data size: %I64u, File ID: %I64u, Index: %u, EA size: %u, Change time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last write time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Creation time: %04u-%02u-%02 %02u:%02u:%02u.%03u, Last access time: %04u-%02u-%02 %02u:%02u:%02u.%03u" //L"ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½Ä¼ï¿½ID: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô´ï¿½Ð¡: %u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u" 
+#define FILE_VALID_DATA_LENGHT_INFO_FORMAT_TEXT L"Valid data length: %I64u"  //L"ï¿½ï¿½Ð§ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %I64u"
+#define FILE_ALTERNATE_NAME L"File alternate name" //L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILE_COMPLETION_NOTIFICATION_INFO_FORMAT_TEXT L"IO completion flags: 0x%0.8x" //L"IOï¿½ï¿½É±ï¿½Ö¾Î»: 0x%0.8x", 
+#define FILE_STATUS_BLOCK_RANGE_INFO_FORMAT_TEXT L"Status block range" //L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 #define FILE_REMOTE_FILE_TEXT L"Remote" 
 #define FILE_LOCAL_FILE_TEXT L"Local"
-#define FILE_STANDARD_LINK_INFO_FORMAT_TEXT L"Accessable links count: %u, Total links count: %u, %s %s" //L"¿É·ÃÎÊÁ´½ÓÊý: %u, ×ÜÁ´½ÓÊý: %u, %s %s"
+#define FILE_STANDARD_LINK_INFO_FORMAT_TEXT L"Accessable links count: %u, Total links count: %u, %s %s" //L"ï¿½É·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, %s %s"
 
-//L"Ô¶³ÌÎÄ¼þ"
+//L"Ô¶ï¿½ï¿½ï¿½Ä¼ï¿½"
 #define _FILE_ATTRIBUTE_DIRECTORY_TEXT L"Directory" 
 
 #define _FILE_ATTRIBUTE_FILE_TEXT L"File" 
-#define FILE_DELETE_PENDING_TEXT L"Delete pending" //L"±ê¼ÇÉ¾³ý"
-#define FILE_INDEX_NUMBER_TEXT L"File index: %I64u" //L"Ë÷ÒýºÅ: %I64u", 
-#define FILE_EA_INFO_FORMAT_TEXT L"File EA size: %u" //L"À©Õ¹ÊôÐÔ³¤¶È: %u"
+#define FILE_DELETE_PENDING_TEXT L"Delete pending" //L"ï¿½ï¿½ï¿½É¾ï¿½ï¿½"
+#define FILE_INDEX_NUMBER_TEXT L"File index: %I64u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %I64u", 
+#define FILE_EA_INFO_FORMAT_TEXT L"File EA size: %u" //L"ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½: %u"
 
-#define KEY_OPEN_FORMAT_TEXT L"Access 0x%0.8x\n" //L"È¨ÏÞ 0x%0.8x\n";
-#define KEY_MOVE_KEY_FORAT_TEXT L"New key name %s \n" //L"ÐÂÂ·¾¶ %s \n"
-#define KEY_REMOVE_VALUE_FORMAT_TEXT L"Value name %s\n" //L"¼üÖµÃû %s\n"
-#define KEY_GET_VALUE_INFO_FORMAT_TEXT L"Value name %s type %u size %u\n" //L"¼üÖµÃû %s ÀàÐÍ %u ³¤¶È %u\n"
-#define KEY_ENUM_INFO_FORMAT_TEXT L"Key index: %u" //L"¼üË÷ÒýºÅ: %u"
-#define KEY_ENUM_VALUE_INFO_FORMAT_TEXT L"Index: %u" //L"¼üË÷ÒýºÅ: %u"
-#define KEY_SET_VALUE_INFO_FORMAT_TEXT L"Value name %s type %s size %u\n" //L"¼üÖµÃû %s ÀàÐÍ %s ³¤¶È%u\n"
-#define KEY_LOAD_FORMAT_TEXT L"Hive file %s\n" //L"hive ÎÄ¼þ%s\n"
-#define KEY_REPLACE_FORMAT_TEXT L"Old hive file %s, New hive file %s\n" //L"Ô­HIVEÎÄ¼þ %s ÐÂHIVEÎÄ¼þ %s\n" 
-#define KEY_VALUE_PARTIAL_INFO_FORMAT_TEXT L"Value type: %s" //L"ÖµÀàÐÍ: %s"
-#define GET_PROCESS_OPEN_DETAIL_FORMAT_TEXT L"Target process %u Access %0.8x \n" //L"Ä¿±ê½ø³Ì %u È¨ÏÞ %0.8x \n"
-#define PROCESS_DEBUG_FORMAT_TEXT L"Target process %u\n" //L"Ä¿±ê½ø³Ì %u\n"
-#define PROCESS_SUSPEND_FORMAT_TEXT L"Target process %s [%u] \n" //L"Ä¿±ê½ø³Ì%s [%u] \n"
-#define PROCESS_RESUME_FORMAT_TEXT L"Resume process %s (ID:%u) execution\n" //L"»Ö¸´½ø³Ì%s (ID:%u) Ö´ÐÐ\n"
-#define PROCESS_KILL_FORMAT_TEXT L"Target process %s [%u] Exit code %u\n" //L"Ä¿±ê½ø³Ì%s [%u] ÍË³ö´úÂë%u\n"
-#define PROCESS_JOB_FORMAT_TEXT L"Process job id %u\n" //L"½ø³Ì¹¤×÷×éID %u\n"
-#define PROCESS_PAGE_PROTECT_FORMAT_TEXT L"Target process id %u Address 0x%0.8x Size:%u Attributes 0x%0.8x Return size %u\n" //L"Ä¿±ê½ø³ÌID %u µØÖ· 0x%0.8x ³¤¶È:%u ÊôÐÔ 0x%0.8x ·µ»Ø³¤¶È %u\n"
-#define THREAD_KILL_FORMAT_TEXT L"Target process id %u Thread id %u Exit code 0x%0.8x\n" //L"Ä¿±ê½ø³ÌID %u Ïß³ÌID %u ÍË³ö´úÂë 0x%0.8x\n"
-#define PROT_READ_FORMAT_TEXT L"Port:%s Read %u bytes\n" //L"¶Ë¿Ú:%s ¶ÁÈ¡Êý¾Ý%u×Ö½Ú\n"
+#define KEY_OPEN_FORMAT_TEXT L"Access 0x%0.8x\n" //L"È¨ï¿½ï¿½ 0x%0.8x\n";
+#define KEY_MOVE_KEY_FORAT_TEXT L"New key name %s \n" //L"ï¿½ï¿½Â·ï¿½ï¿½ %s \n"
+#define KEY_REMOVE_VALUE_FORMAT_TEXT L"Value name %s\n" //L"ï¿½ï¿½Öµï¿½ï¿½ %s\n"
+#define KEY_GET_VALUE_INFO_FORMAT_TEXT L"Value name %s type %u size %u\n" //L"ï¿½ï¿½Öµï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u\n"
+#define KEY_ENUM_INFO_FORMAT_TEXT L"Key index: %u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u"
+#define KEY_ENUM_VALUE_INFO_FORMAT_TEXT L"Index: %u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u"
+#define KEY_SET_VALUE_INFO_FORMAT_TEXT L"Value name %s type %s size %u\n" //L"ï¿½ï¿½Öµï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½%u\n"
+#define KEY_LOAD_FORMAT_TEXT L"Hive file %s\n" //L"hive ï¿½Ä¼ï¿½%s\n"
+#define KEY_REPLACE_FORMAT_TEXT L"Old hive file %s, New hive file %s\n" //L"Ô­HIVEï¿½Ä¼ï¿½ %s ï¿½ï¿½HIVEï¿½Ä¼ï¿½ %s\n" 
+#define KEY_VALUE_PARTIAL_INFO_FORMAT_TEXT L"Value type: %s" //L"Öµï¿½ï¿½ï¿½ï¿½: %s"
+#define GET_PROCESS_OPEN_DETAIL_FORMAT_TEXT L"Target process %u Access %0.8x \n" //L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ %u È¨ï¿½ï¿½ %0.8x \n"
+#define PROCESS_DEBUG_FORMAT_TEXT L"Target process %u\n" //L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ %u\n"
+#define PROCESS_SUSPEND_FORMAT_TEXT L"Target process %s [%u] \n" //L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½%s [%u] \n"
+#define PROCESS_RESUME_FORMAT_TEXT L"Resume process %s (ID:%u) execution\n" //L"ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½%s (ID:%u) Ö´ï¿½ï¿½\n"
+#define PROCESS_KILL_FORMAT_TEXT L"Target process %s [%u] Exit code %u\n" //L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½%s [%u] ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½%u\n"
+#define PROCESS_JOB_FORMAT_TEXT L"Process job id %u\n" //L"ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ID %u\n"
+#define PROCESS_PAGE_PROTECT_FORMAT_TEXT L"Target process id %u Address 0x%0.8x Size:%u Attributes 0x%0.8x Return size %u\n" //L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ %u\n"
+#define THREAD_KILL_FORMAT_TEXT L"Target process id %u Thread id %u Exit code 0x%0.8x\n" //L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ß³ï¿½ID %u ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ 0x%0.8x\n"
+#define PROT_READ_FORMAT_TEXT L"Port:%s Read %u bytes\n" //L"ï¿½Ë¿ï¿½:%s ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½%uï¿½Ö½ï¿½\n"
 
-#define PROT_WRITE_FORMAT_TEXT L"Port:%s Write %u bytes\n" //L"¶Ë¿Ú:%s Ð´ÈëÊý¾Ý%u×Ö½Ú\n";
-#define LOAD_KERNEL_MODULE_FORMAT_TEXT L"Base address 0x%0.8x Size %I64u" //L"»ùµØÖ· 0x%0.8x ´óÐ¡ %I64u"
+#define PROT_WRITE_FORMAT_TEXT L"Port:%s Write %u bytes\n" //L"ï¿½Ë¿ï¿½:%s Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%uï¿½Ö½ï¿½\n";
+#define LOAD_KERNEL_MODULE_FORMAT_TEXT L"Base address 0x%0.8x Size %I64u" //L"ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½Ð¡ %I64u"
 
-#define ICMP_SEND_FORMAT_TEXT _T( "Source ip %s Target ip %s Type %u Code %u\n" ) //_T( "Ô´IPµØÖ· %s Ä¿±êIPµØÖ· %s ÀàÐÍ %u ´úÂë %u\n" ); 
-#define URB_INFO_FORMAT_TEXT L"%ws Size:%u " //L"%ws ³¤¶È:%u "
-#define URB_FUNCTION_SELECT_CONFIGURATION_FORMAT_TEXT L"Configuration handle:%p INTERFACE%u Alternate setting:0x%x Class:%u Sub class:%u Protocol:%u Interface handle:%p Pipe count:%u " //L"ÅäÖÃ¾ä±ú:%p INTERFACE%u ÅäÖÃÖµ:0x%x ÀàÐÍ:%u ×ÓÀàÐÍ:%u Ð­Òé:%u ½Ó¿Ú¾ä±ú:%p PipeÊýÁ¿:%u ", 
+#define ICMP_SEND_FORMAT_TEXT _T( "Source ip %s Target ip %s Type %u Code %u\n" ) //_T( "Ô´IPï¿½ï¿½Ö· %s Ä¿ï¿½ï¿½IPï¿½ï¿½Ö· %s ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u\n" ); 
+#define URB_INFO_FORMAT_TEXT L"%ws Size:%u " //L"%ws ï¿½ï¿½ï¿½ï¿½:%u "
+#define URB_FUNCTION_SELECT_CONFIGURATION_FORMAT_TEXT L"Configuration handle:%p INTERFACE%u Alternate setting:0x%x Class:%u Sub class:%u Protocol:%u Interface handle:%p Pipe count:%u " //L"ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½:%p INTERFACE%u ï¿½ï¿½ï¿½ï¿½Öµ:0x%x ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u Ð­ï¿½ï¿½:%u ï¿½Ó¿Ú¾ï¿½ï¿½:%p Pipeï¿½ï¿½ï¿½ï¿½:%u ", 
 #define URB_FUNCTION_SELECT_CONFIGURATION_PIPE_INFO_FORMAT_TEXT L"PIPE%u Max package size:%u PIPE address:%u Interval:%u Type:%u Handle:%p Max transfer size:%u Flags:0x%x " 
-#define URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_FORMAT_TEXT L"PIPE handle:%p Transfer flags:%x Transfer size:%u Buffer:%p MDL:%p Next URB:%p HCD:%p%p%p%p%p%p%p%p " //L"PIPE¾ä±ú:%p ´«Êä±êÖ¾:%u ³¤¶È:%u »º´æÇø:%p MDL:%p ÏÂÒ»¸öURB:%p HCD×Ö¶Î:%p%p%p%p%p%p%p%p ", 
-#define URB_FUNCTION_CONTROL_TRANSFER_FORMAT_TEXT L"PIPE handle:%p Transfer flags:%x Transfer size:%u »º´æÇø:%p MDL:%p Next URB:%p Setup packet:%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x HCD:%p%p%p%p%p%p%p%p " //L"PIPE¾ä±ú:%p ´«Êä±êÖ¾:%u ³¤¶È:%u »º´æÇø:%p MDL:%p ÏÂÒ»¸öURB:%p ÅäÖÃ×Ö¶Î:%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x HCD×Ö¶Î:%p%p%p%p%p%p%p%p ", 
+#define URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_FORMAT_TEXT L"PIPE handle:%p Transfer flags:%x Transfer size:%u Buffer:%p MDL:%p Next URB:%p HCD:%p%p%p%p%p%p%p%p " //L"PIPEï¿½ï¿½ï¿½:%p ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾:%u ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%p MDL:%p ï¿½ï¿½Ò»ï¿½ï¿½URB:%p HCDï¿½Ö¶ï¿½:%p%p%p%p%p%p%p%p ", 
+#define URB_FUNCTION_CONTROL_TRANSFER_FORMAT_TEXT L"PIPE handle:%p Transfer flags:%x Transfer size:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%p MDL:%p Next URB:%p Setup packet:%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x HCD:%p%p%p%p%p%p%p%p " //L"PIPEï¿½ï¿½ï¿½:%p ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾:%u ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%p MDL:%p ï¿½ï¿½Ò»ï¿½ï¿½URB:%p ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½:%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x HCDï¿½Ö¶ï¿½:%p%p%p%p%p%p%p%p ", 
 
-#define FILE_READ_FORMAT_TEXT _T( "Offset %I64u Size %u\n") //_T( "Æ«ÒÆÁ¿ %I64u ³¤¶È %u\n")
-#define NETWORK_SEND_FORMAT_TEXT _T( "Send (%s)dns request:%s\n" ) //_T( "·¢ËÍ (%s)dns ÇëÇó:%s\n" )
-#define NETWORK_HTTP_FORMAT_TEXT _T( "Protocol %u Command %u Command size %u \n" ); //_T( "Ð­Òé %u ÃüÁî %u ÃüÁî³¤¶È %u \n" );
-#define NETWORK_CONNECT_FORMAT_TEXT _T( "Local %s:%u Remote %s:%u %s Port\n" ) //_T( "±¾µØ%s:%u Ô¶³Ì%s:%u %s¶Ë¿Ú\n" )
+#define FILE_READ_FORMAT_TEXT _T( "Offset %I64u Size %u\n") //_T( "Æ«ï¿½ï¿½ï¿½ï¿½ %I64u ï¿½ï¿½ï¿½ï¿½ %u\n")
+#define NETWORK_SEND_FORMAT_TEXT _T( "Send (%s)dns request:%s\n" ) //_T( "ï¿½ï¿½ï¿½ï¿½ (%s)dns ï¿½ï¿½ï¿½ï¿½:%s\n" )
+#define NETWORK_HTTP_FORMAT_TEXT _T( "Protocol %u Command %u Command size %u \n" ); //_T( "Ð­ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½î³¤ï¿½ï¿½ %u \n" );
+#define NETWORK_CONNECT_FORMAT_TEXT _T( "Local %s:%u Remote %s:%u %s Port\n" ) //_T( "ï¿½ï¿½ï¿½ï¿½%s:%u Ô¶ï¿½ï¿½%s:%u %sï¿½Ë¿ï¿½\n" )
 
-#define FILE_SFIO_VOLUME_INFORMATION_FORMAT_TEXT L"Max requests per peroid: %u, Min period: %u, Min transfer size: %u" //L"Ã¿ÖÜÆÚ×î´óÇëÇóÊý: %u, ×îÐ¡ÖÜÆÚ³¤¶È: %u, ×îÐ¡´«Êä´óÐ¡: %u", 
-#define FILE_IO_PRIORITY_HINT_INFO_FORMAT_TEXT L"IO priority hint: %u" //L"ÍÆ¼öIOÓÅÏÈ¼¶: %u", 
-#define FILE_SFIO_RESERVE_INFO_FORMAT_TEXT L"Requests per period: %u, Peroid: %u, Retry failures: %u, %s, Request size: %u, Outstanding requests: %u" //L"Ã¿ÖÜÆÚÇëÇóÊý: %u, ÖÜÆÚÊý: %u, Ê§°ÜÖØÊÔ´ÎÊý: %u, %s, ÇëÇó´óÐ¡: %u, ÅÅÁÐÇëÇóÊý: %u", 
-#define FILE_SFIO_DISCARDABLE_TEXT L"Discardable" //L"¿É¶ªÆú" 
-#define FILE_HARD_LINK_TEXT L"File hard link" //L"ÎÄ¼þÓ²Á´½Ó"
-#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT1 L"Processes: " //L"½ø³Ì"
-#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT2 L"Is using file" //L"Õ¼ÓÃÎÄ¼þ"
-#define FILE_NORMALIZED_NAME_INFO_FORMAT_TEXT L"Normalized name" //L"±ê×¼¸ñÊ½ÎÄ¼þÃû: "
-#define FILE_NETWORK_PHYSICAL_NAME_INFO_FORMAT_TEXT L"Network physical name:%s" //L"ÍøÂçÎïÀíÃû %s"
-#define FILE_REMOTE_PROTOCOL_INFO_FORMAT_TEXT L"Protocol: %u, Protocol major version:%u, Protocol minor version:%u, Protocol revision: %u, Flags: 0x%0.8x" //L"Ô¶³ÌÐ­Òé: %u, Ô¶³ÌÐ­Òé Ö÷°æ±¾:%u, ´Î°æ±¾:%u, ÐÞ¶¨ºÅ: %u, ±êÖ¾Î»: %u"
-#define FILE_NUMA_NODE_INFO_FORMAT_TEXT L"NUMA node No. %u" //L"NUMA½áµãºÅ: %u"
-#define FILE_ATTRIBUTE_CACHE_INFO_FORMAT_TEXT L"File attribute cache" //L"ÎÄ¼þÊôÐÔ»º´æ: "
+#define FILE_SFIO_VOLUME_INFORMATION_FORMAT_TEXT L"Max requests per peroid: %u, Min period: %u, Min transfer size: %u" //L"Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡: %u", 
+#define FILE_IO_PRIORITY_HINT_INFO_FORMAT_TEXT L"IO priority hint: %u" //L"ï¿½Æ¼ï¿½IOï¿½ï¿½ï¿½È¼ï¿½: %u", 
+#define FILE_SFIO_RESERVE_INFO_FORMAT_TEXT L"Requests per period: %u, Peroid: %u, Retry failures: %u, %s, Request size: %u, Outstanding requests: %u" //L"Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, Ê§ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½: %u, %s, ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u", 
+#define FILE_SFIO_DISCARDABLE_TEXT L"Discardable" //L"ï¿½É¶ï¿½ï¿½ï¿½" 
+#define FILE_HARD_LINK_TEXT L"File hard link" //L"ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½"
+#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT1 L"Processes: " //L"ï¿½ï¿½ï¿½ï¿½"
+#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT2 L"Is using file" //L"Õ¼ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define FILE_NORMALIZED_NAME_INFO_FORMAT_TEXT L"Normalized name" //L"ï¿½ï¿½×¼ï¿½ï¿½Ê½ï¿½Ä¼ï¿½ï¿½ï¿½: "
+#define FILE_NETWORK_PHYSICAL_NAME_INFO_FORMAT_TEXT L"Network physical name:%s" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s"
+#define FILE_REMOTE_PROTOCOL_INFO_FORMAT_TEXT L"Protocol: %u, Protocol major version:%u, Protocol minor version:%u, Protocol revision: %u, Flags: 0x%0.8x" //L"Ô¶ï¿½ï¿½Ð­ï¿½ï¿½: %u, Ô¶ï¿½ï¿½Ð­ï¿½ï¿½ ï¿½ï¿½ï¿½æ±¾:%u, ï¿½Î°æ±¾:%u, ï¿½Þ¶ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Ö¾Î»: %u"
+#define FILE_NUMA_NODE_INFO_FORMAT_TEXT L"NUMA node No. %u" //L"NUMAï¿½ï¿½ï¿½ï¿½: %u"
+#define FILE_ATTRIBUTE_CACHE_INFO_FORMAT_TEXT L"File attribute cache" //L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½: "
 #define FILE_ID_GLOBAL_TX_DIR_INFO_FORMAT_TEXT L"File id global tx directory information"  
 #else
-#define FILE_STREAM_INFO_FORMAT_TEXT L"Á÷Ãû³Æ: %s, Á÷·ÖÅä¿Õ¼ä´óÐ¡: %I64u, Á÷Êý¾Ý´óÐ¡: %I64u "
-#define PIPE_FORMAT_TEXT  L"¹ÜµÀÍê³ÉÄ£Ê½: %u, ¹ÜÀí¶ÁÈ¡Ä£Ê½: %u"
-#define PIPE_LOCAL_INFORMATION L"¹ÜµÀÊäÈëÅä¶î: %u, ¹ÜµÀÊä³öÅä¶î: %u, ¹ÜÀí¿É¶ÁÊý¾Ý³¤¶È: %u, ¹ÜµÀÐ´Åä¶îÓàÁ¿: %u, ¹ÜµÀµ±Ç°ÊµÀýÊý: %u, ¹ÜÀí×î´óÊµÀýÊý: %u, ÃüÃû¹ÜµÀÅäÖÃ: 0x%0.8x, ÃüÃû¹ÜµÀ×´Ì¬: %u, ÃüÃû¹ÜµÀÀàÐÍ: %u, ÃüÃû¹ÜµÀ½áÊø: %u" 
-#define INVADE_PROCESS_FORMAT_TEXT L"½ø³ÌID %u\n" 
-#define REGISTER_AUTORUN_FORMAT_TEXT L"ÀàÐÍ %u\n"
-#define FILE_ATTRIBUTE_TEXT L"ÎÄ¼þÊôÐÔ "
-#define FILE_NEW_ATTRIBUTE_TEXT L"ÐÂÊôÐÔ "
-#define FILE_ATTRIBUTE_READ_ONLY_TEXT L"Ö»¶Á|"
-#define FILE_ATTRIBUTE_HIDE_TEXT L"Òþ²Ø|"
+#define FILE_STREAM_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u "
+#define PIPE_FORMAT_TEXT  L"ï¿½Üµï¿½ï¿½ï¿½ï¿½Ä£Ê½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ä£Ê½: %u"
+#define PIPE_LOCAL_INFORMATION L"ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½É¶ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %u, ï¿½Üµï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Üµï¿½ï¿½ï¿½Ç°Êµï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½: 0x%0.8x, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½×´Ì¬: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½: %u" 
+#define INVADE_PROCESS_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ID %u\n" 
+#define REGISTER_AUTORUN_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ %u\n"
+#define FILE_ATTRIBUTE_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ "
+#define FILE_NEW_ATTRIBUTE_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "
+#define FILE_ATTRIBUTE_READ_ONLY_TEXT L"Ö»ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_HIDE_TEXT L"ï¿½ï¿½ï¿½ï¿½|"
 #define FILE_ATTRIBUTE_SYSTEM_TEXT L"ÏµÍ³|"
 #define FILE_ATTRIBUTE_DIRECTORY_TEXT L"Ä¿Â¼|"
-#define FILE_ATTRIBUTE_ARCHIVE_TEXT L"´æµµ|"
-#define FILE_ATTRIBUTE_DEVICE_TEXT L"Éè±¸|"
-#define FILE_ATTRIBUTE_GENERAL_TEXT L"Ò»°ã|"
-#define FILE_ATTRIBUTE_TEMPORARY_TEXT L"ÁÙÊ±|"
-#define FILE_ATTRIBUTE_SPARSE_FILE_TEXT L"Ï¡Êè|"
-#define FILE_ATTRIBUTE_REPARSE_POINT_TEXT L"ÖØ¶¨Ïò|"
-#define FILE_ATTRIBUTE_COMPRESSED_TEXT L"Ñ¹Ëõ|"
-#define FILE_ATTRIBUTE_OFFLINE_TEXT L"ÀëÏß|"
-#define FILE_ATTRIBUTE_NOT_CONTENT_INDEXED_TEXT L"ÎÞÄÚÈÝË÷Òý|"
-#define FILE_ATTRIBUTE_ENCRYPTED_TEXT L"¼ÓÃÜ|"
-#define FILE_ATTRIBUTE_VIRTUAL_TEXT L"ÐéÄâ|"
-#define FILE_READ_DATA_TEXT L"¶ÁÊý¾Ý/"
-#define FILE_LIST_DIRECTORY_TEXT L"ÁÐÄ¿Â¼/"
-#define FILE_WRITE_DATA_TEXT L"Ð´Êý¾Ý/"
-#define FILE_ADD_FILE_TEXT L"Ìí¼ÓÎÄ¼þ/"
-#define FILE_APPEND_DATA_TEXT L"Ìí¼ÓÊý¾Ý/"
-#define FILE_ADD_SUBDIRECTORY_TEXT L"Ìí¼Ó×ÓÄ¿Â¼/"
-#define FILE_CREATE_PIPE_INSTANCE_TEXT L"´´½¨¹ÜµÀÊµÀý/"
-#define FILE_ACCESS_FILE_READ_EA L"¶ÁÀ©Õ¹ÊôÐÔ/"
-#define FILE_ACCESS_FILE_WRITE_EA L"Ð´À©Õ¹ÊôÐÔ/"
-#define FILE_ACCESS_EXECUTE_TEXT L"ÄÚ´æÓ³Éä/"
-#define FILE_ACCESS_TRAVERSE_TEXT L"ä¯ÀÀÎÄ¼þÂ·¾¶/"
-#define FILE_ACCESS_DELETE_CHILD_TEXT L"É¾³ý×ÓÎÄ¼þ(¼Ð)/"
-#define FILE_ACCESS_READ_ATTRIBUTES_TEXT L"¶ÁÊôÐÔ/"
-#define FILE_ACCESS_WRITE_ATTRIBUTES_TEXT L"Ð´ÊôÐÔ/"
-#define FILE_ACCESS_SYNCHRONIZE_TEXT L"Í¬²½IO/"
-#define FILE_ACCESS_DELETE_TEXT L"É¾³ý¶ÔÏó/"
-#define FILE_ACCESS_READ_CONTROL_TEXT L"¶ÁÈ¡¶ÔÏóÐÅÏ¢/"
-#define FILE_ACCESS_TEXT L"·ÃÎÊÈ¨ÏÞ: "
-#define FILE_NAME_TEXT L"ÎÄ¼þÃû: "
-#define FILE_ACCESS_WRITE_DAC_TEXT L"¸ÄÐ´·ÃÎÊ¿ØÖÆÁÐ±í/"
-#define FILE_ACCESS_WRITE_OWNER_TEXT L"¸ÄÐ´ËùÓÐÕß/"
-#define FILE_OPEN_FORMAT_TEXT L"·ÃÎÊÈ¨ÏÞ 0x%0.8x ³õÊ¼´óÐ¡ %u ¹²ÏíÊôÐÔ 0x%0.8x ¹¤×÷·½Ê½(disposition) 0x%0.8x ¹¤×÷·½Ê½(option) 0x%0.8x \n" 
-#define REG_CREATE_KEY_FORMAT_TEXT L"È¨ÏÞ 0x%0.8x \n" 
-#define INJECT_LIB_FORMAT_TEXT L"¶¯Ì¬¿â %s\n" 
-#define MODULE_LOAD_FORMAT_TEXT L"»ùµØÖ· 0x%0.8x ´óÐ¡ %u ±êÖ¾ 0x%0.8x"
-#define FILE_READ_DIR_FORMAT_TEXT L"¹ýÂËÌõ¼þ %u\n" 
-#define FILE_RENAME_FORMAT_TEXT L"Ä¿±êÎÄ¼þÃû %s Ô­ÎÄ¼þÃû %s %s\n"
-#define FILE_RENAME_REPLACE_TEXT L"¸²¸Ç"
-#define FILE_RENAME_NOT_REPLACE_TEXT L"²»¸²¸Ç"
-#define FILE_TRUNCATE_FORMAT_TEXT L"³¤¶È %I64u\n" 
-#define FILE_MAKE_LINK_FORMAT_TEXT L"Ó²Á´½Ó%s Ä£Ê½%u\n" 
-#define FILE_LINK_INFO_FORMAT_TEXT L"ÎÄ¼þÃû %s, %s"
-#define FILE_LINK_REPLACE_TEXT L"¸²¸Ç"
-#define FILE_LINK_NOT_REPLACE_TEXT L"²»¸²¸Ç"
-#define FILE_NAMES_INFO_FORMAT_TEXT L"ÎÄ¼þÃû: %s, ÎÄ¼þË÷ÒýºÅ: %u"
-#define FILE_DELETE_TEXT L"É¾³ý"
-#define FILE_POSITION_INFO_FORMAT_TEXT L"ÎÄ¼þÆ«ÒÆ: %I64u"
-#define FILE_FULL_EA_INFO_FORMAT_TEXT L"¿ÉÀ©Õ¹ÊôÐÔÃû³Æ: %s, ¿ÉÀ©Õ¹ÊôÐÔ³¤¶È: %u, ¿ÉÀ©Õ¹ÊôÐÔ±ê¼Ç: 0x%0.8x" 
-#define FILE_MODE_TEXT L"ÎÄ¼þ²Ù×÷Ä£Ê½: 0x%0.8x"
-#define FILE_ALIGNMENT_INFO_FORMAT_TEXT L"ÎÄ¼þ¶ÔÆëÒªÇó: %u"
-#define FILE_ALL_INFO_FORMAT_TEXT L"ÎÄ¼þ²Ù×÷Ä£Ê½: 0x%0.8x, ·ÃÎÊÈ¨ÏÞ: 0x%0.8x, ¶ÔÆëÒªÇó: %u, Õ¼ÓÃ¿Õ¼ä´óÐ¡: %I64u, ÎÄ¼þÊý¾Ý´óÐ¡: %I64u, ÊäÈëÖ¸ÕëÆ«ÒÆÁ¿: %I64u, " \
-	L"ÐÞ¸ÄÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u, " \
-	L"¿ÉÀ©Õ¹ÊôÐÔ´óÐ¡: %u, Ë÷ÒýºÅ: %I64u, Á´½ÓÊý: %u, %s, %s"  
+#define FILE_ATTRIBUTE_ARCHIVE_TEXT L"ï¿½æµµ|"
+#define FILE_ATTRIBUTE_DEVICE_TEXT L"ï¿½è±¸|"
+#define FILE_ATTRIBUTE_GENERAL_TEXT L"Ò»ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_TEMPORARY_TEXT L"ï¿½ï¿½Ê±|"
+#define FILE_ATTRIBUTE_SPARSE_FILE_TEXT L"Ï¡ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_REPARSE_POINT_TEXT L"ï¿½Ø¶ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_COMPRESSED_TEXT L"Ñ¹ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_OFFLINE_TEXT L"ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_NOT_CONTENT_INDEXED_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_ENCRYPTED_TEXT L"ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_ATTRIBUTE_VIRTUAL_TEXT L"ï¿½ï¿½ï¿½ï¿½|"
+#define FILE_READ_DATA_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_LIST_DIRECTORY_TEXT L"ï¿½ï¿½Ä¿Â¼/"
+#define FILE_WRITE_DATA_TEXT L"Ð´ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ADD_FILE_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½/"
+#define FILE_APPEND_DATA_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ADD_SUBDIRECTORY_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼/"
+#define FILE_CREATE_PIPE_INSTANCE_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½Êµï¿½ï¿½/"
+#define FILE_ACCESS_FILE_READ_EA L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_FILE_WRITE_EA L"Ð´ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_EXECUTE_TEXT L"ï¿½Ú´ï¿½Ó³ï¿½ï¿½/"
+#define FILE_ACCESS_TRAVERSE_TEXT L"ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½/"
+#define FILE_ACCESS_DELETE_CHILD_TEXT L"É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½(ï¿½ï¿½)/"
+#define FILE_ACCESS_READ_ATTRIBUTES_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_WRITE_ATTRIBUTES_TEXT L"Ð´ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_SYNCHRONIZE_TEXT L"Í¬ï¿½ï¿½IO/"
+#define FILE_ACCESS_DELETE_TEXT L"É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_ACCESS_READ_CONTROL_TEXT L"ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢/"
+#define FILE_ACCESS_TEXT L"ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½: "
+#define FILE_NAME_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½: "
+#define FILE_ACCESS_WRITE_DAC_TEXT L"ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½Ð±ï¿½/"
+#define FILE_ACCESS_WRITE_OWNER_TEXT L"ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/"
+#define FILE_OPEN_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 0x%0.8x ï¿½ï¿½Ê¼ï¿½ï¿½Ð¡ %u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½(disposition) 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½(option) 0x%0.8x \n" 
+#define REG_CREATE_KEY_FORMAT_TEXT L"È¨ï¿½ï¿½ 0x%0.8x \n" 
+#define INJECT_LIB_FORMAT_TEXT L"ï¿½ï¿½Ì¬ï¿½ï¿½ %s\n" 
+#define MODULE_LOAD_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½Ð¡ %u ï¿½ï¿½Ö¾ 0x%0.8x"
+#define FILE_READ_DIR_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %u\n" 
+#define FILE_RENAME_FORMAT_TEXT L"Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ %s Ô­ï¿½Ä¼ï¿½ï¿½ï¿½ %s %s\n"
+#define FILE_RENAME_REPLACE_TEXT L"ï¿½ï¿½ï¿½ï¿½"
+#define FILE_RENAME_NOT_REPLACE_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILE_TRUNCATE_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ %I64u\n" 
+#define FILE_MAKE_LINK_FORMAT_TEXT L"Ó²ï¿½ï¿½ï¿½ï¿½%s Ä£Ê½%u\n" 
+#define FILE_LINK_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½ %s, %s"
+#define FILE_LINK_REPLACE_TEXT L"ï¿½ï¿½ï¿½ï¿½"
+#define FILE_LINK_NOT_REPLACE_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILE_NAMES_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u"
+#define FILE_DELETE_TEXT L"É¾ï¿½ï¿½"
+#define FILE_POSITION_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½Æ«ï¿½ï¿½: %I64u"
+#define FILE_FULL_EA_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½: 0x%0.8x" 
+#define FILE_MODE_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½: 0x%0.8x"
+#define FILE_ALIGNMENT_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½: %u"
+#define FILE_ALL_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½: 0x%0.8x, ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½: 0x%0.8x, ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½: %u, Õ¼ï¿½Ã¿Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½: %I64u, " \
+	L"ï¿½Þ¸ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u, " \
+	L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô´ï¿½Ð¡: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, %s, %s"  
 
-#define FILE_DELETED_TEXT L"ÒÑÉ¾³ý"
+#define FILE_DELETED_TEXT L"ï¿½ï¿½É¾ï¿½ï¿½"
 #define FILE_DIRECTORY_TEXT L"Ä¿Â¼"
-#define FILE_ALLOCATION_INFO_FORMAT_TEXT L"·ÖÅä¿Õ¼ä´óÐ¡: %I64u"
-#define FILE_END_OF_FILE_INFO_FORMAT_TEXT L"Êý¾Ý´óÐ¡: %I64u"
-#define FILE_ALTERNATE_NAME_INFO_FORMAT_TEXT L"¶ÌÂ·¾¶: %s"
-#define FILE_PIPE_REMOTE_INFO_FORMAT_TEXT L"×î´óÊý¾ÝÊÕ¼¯´ÎÊý: %u, ÊÕ¼¯Êý¾ÝÊ±¼ä: %0.4u-%0.2u-%0.2u %0.2u:%0.2u:%0.2u.%0.3u" 
-#define FILE_MAILSLOT_QUERY_INFO_FORMAT_TEXT L"ÓÊ²ÛÅä¶î: %u, ×î´óÏûÏ¢³¤¶È: %u, »º´æÏûÏ¢Êý: %u, ÏÂ¸öÏûÏ¢´óÐ¡: %u, ¶ÁÈ¡³¬Ê±: %I64ums" 
-#define FILE_MAILSLOT_SET_INFO_FORMAT_TEXT L"ÓÊ²Û¶ÁÈ¡³¬Ê±: %I64ums"
-#define FILE_COMPRESSION_INFO_FORMAT_TEXT L"Ñ¹Ëõ´óÐ¡: %I64u, Ñ¹Ëõ¸ñÊ½: %s, ¿é´óÐ¡: %u, ´Ø´óÐ¡: %u, Ñ¹Ëõµ¥Ôª´óÐ¡: %u" 
-#define FILE_OBJECT_ID_INFO_FORMAT_TEXT L"ÎÄ¼þ²Î¿¼ºÅ: 0x%I64x, ¶ÔÏóID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x, ³õÊ¼¶ÔÏóID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x" 
-#define FILE_COMPLETION_INFO_FORMAT_TEXT L"Òì²½IO²Ù×÷Í¨ÖªKEY: %p, Í¨Öª¶Ë¿Ú: %p"
-#define FILE_MOVE_CLUSTER_INFO_FORMAT_TEXT L"ÎÄ¼þÃû: %s, ´ØÊý: %u"
-#define FILE_QUOTE_INFO_FORMAT_TEXT L"Åä¶îÉÏÏÞ: %I64u, Åä¶îÁÙ½çÖµ: %I64u, Åä¶îÒÑÊ¹ÓÃ: %I64u, Åä¶î¸ÄÐ´Ê±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u" 
-#define FILE_REPARSE_POINT_INFO_FORMAT_TEXT L"ÖØ¶¨ÏòÎÄ¼þ²Î¿¼ºÅ: %u, ÓÃ»§±ê¼Ç: %u" 
-#define FILE_NAME_FORMAT_TEXT L"ÎÄ¼þÃû:%s "
-#define FILE_DIRECTORY_INFO_FORMAT_TEXT L"·ÖÅä¿Õ¼ä:%I64u, Êý¾Ý´óÐ¡:%I64u, ÎÄ¼þË÷ÒýºÅ:%u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" 
-#define FILE_BOTH_DIRECTORY_INFO_FORMAT_TEXT L"¶ÌÎÄ¼þÃû:%s, ·ÖÅä¿Õ¼ä:%I64u, Êý¾Ý´óÐ¡:%I64u, À©Õ¹ÊôÐÔ³¤¶È:%u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" 
-#define _FILE_ATTRIBUTE_TEXT L"ÊôÐÔ:"
-#define FILE_BASIC_INFO_FORMAT_TEXT L" ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" 
-#define FILE_STANDARD_INFO_FORMAT_TEXT L"%s ·ÖÅä¿Õ¼ä: %I64u, Êý¾Ý´óÐ¡: %I64u, Á´½ÓÊý: %u %s"
-#define FILE_NETWORK_OPEN_INFO_FORMAT_TEXT L"ÎÄ¼þÕ¼ÓÃ¿Õ¼ä´óÐ¡: %I64u, Êý¾Ý´óÐ¡:%I64u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u \n"
-#define FILE_ATTRIBUTE_TAG_INFO_FORMAT_TEXT L"ÖØ¶¨Ïò±ê¼Ç: 0x%0.8x"
-#define FILE_TRACKING_INFO_FORMAT_TEXT L"ÎÄ¼þ×´Ì¬¸ú×Ù"
-#define FILE_BOTH_DIR_FILE_INFO_FORMAT_TEXT L"ÎÄ¼þÃû: %s, ¶ÌÎÄ¼þÃû: %s, ·ÖÅä¿Õ¼ä´óÐ¡: %I64u, Êý¾Ý´óÐ¡: %I64u, ÎÄ¼þID: %I64u, Ë÷ÒýºÅ: %u, À©Õ¹ÊôÐÔ´óÐ¡: %u, ÐÞ¸ÄÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u"
-#define FILE_FULL_DIR_INFO_FORMAT_TEXT L"·ÖÅä¿Õ¼ä´óÐ¡: %I64u, Êý¾Ý´óÐ¡: %I64u, ÎÄ¼þID: %I64u, Ë÷ÒýºÅ: %u, À©Õ¹ÊôÐÔ´óÐ¡: %u, ÐÞ¸ÄÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºóÐ´ÈëÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, Éú³ÉÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u, ×îºó·ÃÎÊÊ±¼ä: %04u-%02u-%02 %02u:%02u:%02u.%03u" 
-#define FILE_VALID_DATA_LENGHT_INFO_FORMAT_TEXT L"ÓÐÐ§Êý¾Ý³¤¶È: %I64u"
-#define FILE_ALTERNATE_NAME L"ÎÄ¼þ¶ÌÃû"
-#define FILE_COMPLETION_NOTIFICATION_INFO_FORMAT_TEXT L"IOÍê³É±êÖ¾Î»: 0x%0.8x" 
-#define FILE_STATUS_BLOCK_RANGE_INFO_FORMAT_TEXT L"ÎÄ¼þ¿éÇøÓò"
-#define FILE_REMOTE_FILE_TEXT L"Ô¶³Ì" 
-#define FILE_LOCAL_FILE_TEXT L"±¾µØ"
-#define FILE_STANDARD_LINK_INFO_FORMAT_TEXT L"¿É·ÃÎÊÁ´½ÓÊý: %u, ×ÜÁ´½ÓÊý: %u, %s %s"
+#define FILE_ALLOCATION_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u"
+#define FILE_END_OF_FILE_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u"
+#define FILE_ALTERNATE_NAME_INFO_FORMAT_TEXT L"ï¿½ï¿½Â·ï¿½ï¿½: %s"
+#define FILE_PIPE_REMOTE_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %0.4u-%0.2u-%0.2u %0.2u:%0.2u:%0.2u.%0.3u" 
+#define FILE_MAILSLOT_QUERY_INFO_FORMAT_TEXT L"ï¿½Ê²ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½: %u, ï¿½Â¸ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ð¡: %u, ï¿½ï¿½È¡ï¿½ï¿½Ê±: %I64ums" 
+#define FILE_MAILSLOT_SET_INFO_FORMAT_TEXT L"ï¿½Ê²Û¶ï¿½È¡ï¿½ï¿½Ê±: %I64ums"
+#define FILE_COMPRESSION_INFO_FORMAT_TEXT L"Ñ¹ï¿½ï¿½ï¿½ï¿½Ð¡: %I64u, Ñ¹ï¿½ï¿½ï¿½ï¿½Ê½: %s, ï¿½ï¿½ï¿½Ð¡: %u, ï¿½Ø´ï¿½Ð¡: %u, Ñ¹ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Ð¡: %u" 
+#define FILE_OBJECT_ID_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½Î¿ï¿½ï¿½ï¿½: 0x%I64x, ï¿½ï¿½ï¿½ï¿½ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x, ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ID: %0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x" 
+#define FILE_COMPLETION_INFO_FORMAT_TEXT L"ï¿½ì²½IOï¿½ï¿½ï¿½ï¿½Í¨ÖªKEY: %p, Í¨Öªï¿½Ë¿ï¿½: %p"
+#define FILE_MOVE_CLUSTER_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½: %u"
+#define FILE_QUOTE_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %I64u, ï¿½ï¿½ï¿½ï¿½Ù½ï¿½Öµ: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½: %I64u, ï¿½ï¿½ï¿½ï¿½Ð´Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u" 
+#define FILE_REPARSE_POINT_INFO_FORMAT_TEXT L"ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Î¿ï¿½ï¿½ï¿½: %u, ï¿½Ã»ï¿½ï¿½ï¿½ï¿½: %u" 
+#define FILE_NAME_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½:%s "
+#define FILE_DIRECTORY_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½:%I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡:%I64u, ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" 
+#define FILE_BOTH_DIRECTORY_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½:%s, ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½:%I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡:%I64u, ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½:%u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" 
+#define _FILE_ATTRIBUTE_TEXT L"ï¿½ï¿½ï¿½ï¿½:"
+#define FILE_BASIC_INFO_FORMAT_TEXT L" ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u\n" 
+#define FILE_STANDARD_INFO_FORMAT_TEXT L"%s ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u %s"
+#define FILE_NETWORK_OPEN_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½Õ¼ï¿½Ã¿Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡:%I64u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u \n"
+#define FILE_ATTRIBUTE_TAG_INFO_FORMAT_TEXT L"ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½: 0x%0.8x"
+#define FILE_TRACKING_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½"
+#define FILE_BOTH_DIR_FILE_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½: %s, ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½Ä¼ï¿½ID: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô´ï¿½Ð¡: %u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u"
+#define FILE_FULL_DIR_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½Ð¡: %I64u, ï¿½ï¿½ï¿½Ý´ï¿½Ð¡: %I64u, ï¿½Ä¼ï¿½ID: %I64u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô´ï¿½Ð¡: %u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02 %02u:%02u:%02u.%03u" 
+#define FILE_VALID_DATA_LENGHT_INFO_FORMAT_TEXT L"ï¿½ï¿½Ð§ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %I64u"
+#define FILE_ALTERNATE_NAME L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILE_COMPLETION_NOTIFICATION_INFO_FORMAT_TEXT L"IOï¿½ï¿½É±ï¿½Ö¾Î»: 0x%0.8x" 
+#define FILE_STATUS_BLOCK_RANGE_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILE_REMOTE_FILE_TEXT L"Ô¶ï¿½ï¿½" 
+#define FILE_LOCAL_FILE_TEXT L"ï¿½ï¿½ï¿½ï¿½"
+#define FILE_STANDARD_LINK_INFO_FORMAT_TEXT L"ï¿½É·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, %s %s"
 
-//L"Ô¶³ÌÎÄ¼þ"
+//L"Ô¶ï¿½ï¿½ï¿½Ä¼ï¿½"
 #define _FILE_ATTRIBUTE_DIRECTORY_TEXT L"Ä¿Â¼" 
 
-#define _FILE_ATTRIBUTE_FILE_TEXT L"ÎÄ¼þ" 
-#define FILE_DELETE_PENDING_TEXT L"±ê¼ÇÉ¾³ý"
-#define FILE_INDEX_NUMBER_TEXT L"Ë÷ÒýºÅ: %I64u" 
-#define FILE_EA_INFO_FORMAT_TEXT L"À©Õ¹ÊôÐÔ³¤¶È: %u"
+#define _FILE_ATTRIBUTE_FILE_TEXT L"ï¿½Ä¼ï¿½" 
+#define FILE_DELETE_PENDING_TEXT L"ï¿½ï¿½ï¿½É¾ï¿½ï¿½"
+#define FILE_INDEX_NUMBER_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %I64u" 
+#define FILE_EA_INFO_FORMAT_TEXT L"ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½: %u"
 
-#define KEY_OPEN_FORMAT_TEXT L"È¨ÏÞ 0x%0.8x\n"
-#define KEY_MOVE_KEY_FORAT_TEXT L"ÐÂÂ·¾¶ %s \n"
-#define KEY_REMOVE_VALUE_FORMAT_TEXT L"¼üÖµÃû %s\n"
-#define KEY_GET_VALUE_INFO_FORMAT_TEXT L"¼üÖµÃû %s ÀàÐÍ %u ³¤¶È %u\n"
-#define KEY_ENUM_INFO_FORMAT_TEXT L"¼üË÷ÒýºÅ: %u"
-#define KEY_ENUM_VALUE_INFO_FORMAT_TEXT L"¼üË÷ÒýºÅ: %u"
-#define KEY_SET_VALUE_INFO_FORMAT_TEXT L"¼üÖµÃû %s ÀàÐÍ %s ³¤¶È%u\n"
-#define KEY_LOAD_FORMAT_TEXT L"hive ÎÄ¼þ%s\n"
-#define KEY_REPLACE_FORMAT_TEXT L"Ô­HIVEÎÄ¼þ %s ÐÂHIVEÎÄ¼þ %s\n" 
-#define KEY_VALUE_PARTIAL_INFO_FORMAT_TEXT L"ÖµÀàÐÍ: %s"
-#define GET_PROCESS_OPEN_DETAIL_FORMAT_TEXT L"Ä¿±ê½ø³Ì %u È¨ÏÞ %0.8x \n"
-#define PROCESS_DEBUG_FORMAT_TEXT L"Ä¿±ê½ø³Ì %u\n"
-#define PROCESS_SUSPEND_FORMAT_TEXT L"Ä¿±ê½ø³Ì%s [%u] \n"
-#define PROCESS_RESUME_FORMAT_TEXT L"»Ö¸´½ø³Ì%s (ID:%u) Ö´ÐÐ\n"
-#define PROCESS_KILL_FORMAT_TEXT L"Ä¿±ê½ø³Ì%s [%u] ÍË³ö´úÂë%u\n"
-#define PROCESS_JOB_FORMAT_TEXT L"½ø³Ì¹¤×÷×éID %u\n"
-#define PROCESS_PAGE_PROTECT_FORMAT_TEXT L"Ä¿±ê½ø³ÌID %u µØÖ· 0x%0.8x ³¤¶È:%u ÊôÐÔ 0x%0.8x ·µ»Ø³¤¶È %u\n"
-#define THREAD_KILL_FORMAT_TEXT L"Ä¿±ê½ø³ÌID %u Ïß³ÌID %u ÍË³ö´úÂë 0x%0.8x\n"
-#define PROT_READ_FORMAT_TEXT L"¶Ë¿Ú:%s ¶ÁÈ¡Êý¾Ý%u×Ö½Ú\n"
+#define KEY_OPEN_FORMAT_TEXT L"È¨ï¿½ï¿½ 0x%0.8x\n"
+#define KEY_MOVE_KEY_FORAT_TEXT L"ï¿½ï¿½Â·ï¿½ï¿½ %s \n"
+#define KEY_REMOVE_VALUE_FORMAT_TEXT L"ï¿½ï¿½Öµï¿½ï¿½ %s\n"
+#define KEY_GET_VALUE_INFO_FORMAT_TEXT L"ï¿½ï¿½Öµï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u\n"
+#define KEY_ENUM_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u"
+#define KEY_ENUM_VALUE_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u"
+#define KEY_SET_VALUE_INFO_FORMAT_TEXT L"ï¿½ï¿½Öµï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½%u\n"
+#define KEY_LOAD_FORMAT_TEXT L"hive ï¿½Ä¼ï¿½%s\n"
+#define KEY_REPLACE_FORMAT_TEXT L"Ô­HIVEï¿½Ä¼ï¿½ %s ï¿½ï¿½HIVEï¿½Ä¼ï¿½ %s\n" 
+#define KEY_VALUE_PARTIAL_INFO_FORMAT_TEXT L"Öµï¿½ï¿½ï¿½ï¿½: %s"
+#define GET_PROCESS_OPEN_DETAIL_FORMAT_TEXT L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ %u È¨ï¿½ï¿½ %0.8x \n"
+#define PROCESS_DEBUG_FORMAT_TEXT L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ %u\n"
+#define PROCESS_SUSPEND_FORMAT_TEXT L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½%s [%u] \n"
+#define PROCESS_RESUME_FORMAT_TEXT L"ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½%s (ID:%u) Ö´ï¿½ï¿½\n"
+#define PROCESS_KILL_FORMAT_TEXT L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½%s [%u] ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½%u\n"
+#define PROCESS_JOB_FORMAT_TEXT L"ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ID %u\n"
+#define PROCESS_PAGE_PROTECT_FORMAT_TEXT L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ %u\n"
+#define THREAD_KILL_FORMAT_TEXT L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ß³ï¿½ID %u ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ 0x%0.8x\n"
+#define PROT_READ_FORMAT_TEXT L"ï¿½Ë¿ï¿½:%s ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½%uï¿½Ö½ï¿½\n"
 
-#define PROT_WRITE_FORMAT_TEXT L"¶Ë¿Ú:%s Ð´ÈëÊý¾Ý%u×Ö½Ú\n"
-#define LOAD_KERNEL_MODULE_FORMAT_TEXT L"»ùµØÖ· 0x%0.8x ´óÐ¡ %I64u"
+#define PROT_WRITE_FORMAT_TEXT L"ï¿½Ë¿ï¿½:%s Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%uï¿½Ö½ï¿½\n"
+#define LOAD_KERNEL_MODULE_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½Ð¡ %I64u"
 
-#define ICMP_SEND_FORMAT_TEXT L"Ô´IPµØÖ· %s Ä¿±êIPµØÖ· %s ÀàÐÍ %u ´úÂë %u\n"
-#define URB_INFO_FORMAT_TEXT L"%ws ³¤¶È:%u "
-#define URB_FUNCTION_SELECT_CONFIGURATION_FORMAT_TEXT L"ÅäÖÃ¾ä±ú:%p INTERFACE%u ÅäÖÃÖµ:0x%x ÀàÐÍ:%u ×ÓÀàÐÍ:%u Ð­Òé:%u ½Ó¿Ú¾ä±ú:%p PipeÊýÁ¿:%u " 
+#define ICMP_SEND_FORMAT_TEXT L"Ô´IPï¿½ï¿½Ö· %s Ä¿ï¿½ï¿½IPï¿½ï¿½Ö· %s ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u\n"
+#define URB_INFO_FORMAT_TEXT L"%ws ï¿½ï¿½ï¿½ï¿½:%u "
+#define URB_FUNCTION_SELECT_CONFIGURATION_FORMAT_TEXT L"ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½:%p INTERFACE%u ï¿½ï¿½ï¿½ï¿½Öµ:0x%x ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u Ð­ï¿½ï¿½:%u ï¿½Ó¿Ú¾ï¿½ï¿½:%p Pipeï¿½ï¿½ï¿½ï¿½:%u " 
 #define URB_FUNCTION_SELECT_CONFIGURATION_PIPE_INFO_FORMAT_TEXT L"PIPE%u Max package size:%u PIPE address:%u Interval:%u Type:%u Handle:%p Max transfer size:%u Flags:0x%x " 
-#define URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_FORMAT_TEXT L"PIPE¾ä±ú:%p ´«Êä±êÖ¾:%u ³¤¶È:%u »º´æÇø:%p MDL:%p ÏÂÒ»¸öURB:%p HCD×Ö¶Î:%p%p%p%p%p%p%p%p " 
-#define URB_FUNCTION_CONTROL_TRANSFER_FORMAT_TEXT L"PIPE¾ä±ú:%p ´«Êä±êÖ¾:%u ³¤¶È:%u »º´æÇø:%p MDL:%p ÏÂÒ»¸öURB:%p ÅäÖÃ×Ö¶Î:%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x HCD×Ö¶Î:%p%p%p%p%p%p%p%p " 
+#define URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_FORMAT_TEXT L"PIPEï¿½ï¿½ï¿½:%p ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾:%u ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%p MDL:%p ï¿½ï¿½Ò»ï¿½ï¿½URB:%p HCDï¿½Ö¶ï¿½:%p%p%p%p%p%p%p%p " 
+#define URB_FUNCTION_CONTROL_TRANSFER_FORMAT_TEXT L"PIPEï¿½ï¿½ï¿½:%p ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾:%u ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%p MDL:%p ï¿½ï¿½Ò»ï¿½ï¿½URB:%p ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½:%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x%0.2x HCDï¿½Ö¶ï¿½:%p%p%p%p%p%p%p%p " 
 
-#define FILE_READ_FORMAT_TEXT _T( "Offset %I64u Size %u\n") //_T( "Æ«ÒÆÁ¿ %I64u ³¤¶È %u\n")
-#define NETWORK_SEND_FORMAT_TEXT _T( "Send (%s)dns request:%s\n" ) //_T( "·¢ËÍ (%s)dns ÇëÇó:%s\n" )
-#define NETWORK_HTTP_FORMAT_TEXT _T( "Protocol %u Command %u Command size %u \n" ); //_T( "Ð­Òé %u ÃüÁî %u ÃüÁî³¤¶È %u \n" );
-#define NETWORK_CONNECT_FORMAT_TEXT _T( "Local %s:%u Remote %s:%u %s Port\n" ) //_T( "±¾µØ%s:%u Ô¶³Ì%s:%u %s¶Ë¿Ú\n" )
+#define FILE_READ_FORMAT_TEXT _T( "Offset %I64u Size %u\n") //_T( "Æ«ï¿½ï¿½ï¿½ï¿½ %I64u ï¿½ï¿½ï¿½ï¿½ %u\n")
+#define NETWORK_SEND_FORMAT_TEXT _T( "Send (%s)dns request:%s\n" ) //_T( "ï¿½ï¿½ï¿½ï¿½ (%s)dns ï¿½ï¿½ï¿½ï¿½:%s\n" )
+#define NETWORK_HTTP_FORMAT_TEXT _T( "Protocol %u Command %u Command size %u \n" ); //_T( "Ð­ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½î³¤ï¿½ï¿½ %u \n" );
+#define NETWORK_CONNECT_FORMAT_TEXT _T( "Local %s:%u Remote %s:%u %s Port\n" ) //_T( "ï¿½ï¿½ï¿½ï¿½%s:%u Ô¶ï¿½ï¿½%s:%u %sï¿½Ë¿ï¿½\n" )
 
-#define FILE_SFIO_VOLUME_INFORMATION_FORMAT_TEXT L"Ã¿ÖÜÆÚ×î´óÇëÇóÊý: %u, ×îÐ¡ÖÜÆÚ³¤¶È: %u, ×îÐ¡´«Êä´óÐ¡: %u" 
-#define FILE_IO_PRIORITY_HINT_INFO_FORMAT_TEXT L"ÍÆ¼öIOÓÅÏÈ¼¶: %u" 
-#define FILE_SFIO_RESERVE_INFO_FORMAT_TEXT L"Ã¿ÖÜÆÚÇëÇóÊý: %u, ÖÜÆÚÊý: %u, Ê§°ÜÖØÊÔ´ÎÊý: %u, %s, ÇëÇó´óÐ¡: %u, ÅÅÁÐÇëÇóÊý: %u" 
-#define FILE_SFIO_DISCARDABLE_TEXT L"¿É¶ªÆú" 
-#define FILE_HARD_LINK_TEXT L"ÎÄ¼þÓ²Á´½Ó"
-#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT1 L"½ø³Ì"
-#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT2 L"Õ¼ÓÃÎÄ¼þ"
-#define FILE_NORMALIZED_NAME_INFO_FORMAT_TEXT L"±ê×¼¸ñÊ½ÎÄ¼þÃû: "
-#define FILE_NETWORK_PHYSICAL_NAME_INFO_FORMAT_TEXT L"ÍøÂçÎïÀíÃû %s"
-#define FILE_REMOTE_PROTOCOL_INFO_FORMAT_TEXT L"Ô¶³ÌÐ­Òé: %u, Ô¶³ÌÐ­Òé Ö÷°æ±¾:%u, ´Î°æ±¾:%u, ÐÞ¶¨ºÅ: %u, ±êÖ¾Î»: %u"
-#define FILE_NUMA_NODE_INFO_FORMAT_TEXT L"NUMA½áµãºÅ: %u"
-#define FILE_ATTRIBUTE_CACHE_INFO_FORMAT_TEXT L"ÎÄ¼þÊôÐÔ»º´æ: "
-#define FILE_ID_GLOBAL_TX_DIR_INFO_FORMAT_TEXT L"ÎÄ¼þID È«¾ÖTXÄ¿Â¼ÐÅÏ¢"  
+#define FILE_SFIO_VOLUME_INFORMATION_FORMAT_TEXT L"Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Ú³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡: %u" 
+#define FILE_IO_PRIORITY_HINT_INFO_FORMAT_TEXT L"ï¿½Æ¼ï¿½IOï¿½ï¿½ï¿½È¼ï¿½: %u" 
+#define FILE_SFIO_RESERVE_INFO_FORMAT_TEXT L"Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, Ê§ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½: %u, %s, ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u" 
+#define FILE_SFIO_DISCARDABLE_TEXT L"ï¿½É¶ï¿½ï¿½ï¿½" 
+#define FILE_HARD_LINK_TEXT L"ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½"
+#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT1 L"ï¿½ï¿½ï¿½ï¿½"
+#define FILE_PROCESS_IDS_USING_FILE_INFO_TEXT2 L"Õ¼ï¿½ï¿½ï¿½Ä¼ï¿½"
+#define FILE_NORMALIZED_NAME_INFO_FORMAT_TEXT L"ï¿½ï¿½×¼ï¿½ï¿½Ê½ï¿½Ä¼ï¿½ï¿½ï¿½: "
+#define FILE_NETWORK_PHYSICAL_NAME_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s"
+#define FILE_REMOTE_PROTOCOL_INFO_FORMAT_TEXT L"Ô¶ï¿½ï¿½Ð­ï¿½ï¿½: %u, Ô¶ï¿½ï¿½Ð­ï¿½ï¿½ ï¿½ï¿½ï¿½æ±¾:%u, ï¿½Î°æ±¾:%u, ï¿½Þ¶ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Ö¾Î»: %u"
+#define FILE_NUMA_NODE_INFO_FORMAT_TEXT L"NUMAï¿½ï¿½ï¿½ï¿½: %u"
+#define FILE_ATTRIBUTE_CACHE_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½: "
+#define FILE_ID_GLOBAL_TX_DIR_INFO_FORMAT_TEXT L"ï¿½Ä¼ï¿½ID È«ï¿½ï¿½TXÄ¿Â¼ï¿½ï¿½Ï¢"  
 
 #endif //LNAG_EN
 
@@ -1022,7 +1015,7 @@ LRESULT WINAPI get_ba_infect_pe_detail( sys_action_record *action,
 			break; 
 		}
 
-		//fmt = L"¸ÐÈ¾(Ð´Èë²¡¶¾´úÂë)¿ÉÖ´ÐÐ(PE)ÎÄ¼þ %s\n"; 
+		//fmt = L"ï¿½ï¿½È¾(Ð´ï¿½ë²¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½Ö´ï¿½ï¿½(PE)ï¿½Ä¼ï¿½ %s\n"; 
 
 		*tip = L'\0'; 
 
@@ -1072,7 +1065,7 @@ LRESULT WINAPI get_ba_overwrite_pe_detail( sys_action_record *action,
 			break; 
 		}
 
-		//fmt = L"ÐÞ¸Ä¿ÉÖ´ÐÐ(PE)ÎÄ¼þ%s\n"; 
+		//fmt = L"ï¿½Þ¸Ä¿ï¿½Ö´ï¿½ï¿½(PE)ï¿½Ä¼ï¿½%s\n"; 
 
 		*tip = L'\0'; 
 	}while( FALSE ); 
@@ -1389,7 +1382,7 @@ LRESULT WINAPI get_file_write_detail( sys_action_record *action, action_context 
 			break; 
 		}
 
-		fmt = FILE_READ_FORMAT_TEXT; //_T( "Æ«ÒÆÁ¿ %I64u ³¤¶È %u\n"); 
+		fmt = FILE_READ_FORMAT_TEXT; //_T( "Æ«ï¿½ï¿½ï¿½ï¿½ %I64u ï¿½ï¿½ï¿½ï¿½ %u\n"); 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -1576,7 +1569,7 @@ LRESULT WINAPI get_proc_readvm_detail( sys_action_record *action,
 			break; 
 		}
 
-		fmt = _T( "½ø³ÌID %u µØÖ· 0x%0.8x ³¤¶È %u ·µ»Ø³¤¶È %u\n" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ %u\n" ); 
 
 		_ret = _sntprintf( tip, 
 			ccb_buf_len, 
@@ -1648,12 +1641,12 @@ LRESULT WINAPI get_proc_exec_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = _T( "½ø³ÌID %u\n" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½ï¿½ID %u\n" ); 
 
 		_ret = _sntprintf( tip, 
 			ccb_buf_len, 
@@ -1723,7 +1716,7 @@ LRESULT WINAPI get_w32_msg_hook_detail( sys_action_record *action,
 		}
 
 
-		fmt = _T( "Ä¿±ê½ø³ÌID %u ÀàÐÍ %u ¹³×Óº¯ÊýµØÖ· 0x%0.8x ¹³×ÓÄ£¿é»ùÖ· 0x%0.8x\n" ); 
+		fmt = _T( "Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ö· 0x%0.8x\n" ); 
 
 		_ret = _sntprintf( tip, 
 			ccb_buf_len, 
@@ -2011,7 +2004,7 @@ LRESULT WINAPI get_exec_create_detail( sys_action_record *action,
 			break; 
 		}
 
-		fmt = _T( "ÃüÁîÐÐ:%s ¸¸½ø³ÌID:%u ½ø³ÌID:%u »ùµØÖ·:%u" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID:%u ï¿½ï¿½ï¿½ï¿½ID:%u ï¿½ï¿½ï¿½ï¿½Ö·:%u" ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2185,7 +2178,7 @@ LRESULT WINAPI get_exec_destroy_detail( sys_action_record *action,
 			break; 
 		}
 
-		fmt =  _T( "ÃüÁîÐÐ %s ¸¸½ø³ÌID %u ½ø³ÌID %u\n" ); 
+		fmt =  _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½ï¿½ï¿½ID %u\n" ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2288,26 +2281,26 @@ LRESULT WINAPI get_file_touch_detail( sys_action_record *action,
 		}
 
 		//{
-		//	//ULONG pid; //¶¯×÷·¢ÆðÕß½ø³ÌID 
-		//	//ULONG tid; //¶¯×÷·¢ÆðÕßÏß³ÌID 
-		//	ULONG access; //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		//	ULONG alloc_size; //ÎÄ¼þ³õÊ¼³¤¶È 
-		//	ULONG attrib; //ÎÄ¼þÊôÐÔ 
-		//	ULONG share; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		//	ULONG disposition; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		//	ULONG options; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		//	//ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//	//ULONG pid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
+		//	//ULONG tid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//	ULONG access; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//	ULONG alloc_size; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		//	ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//	ULONG share; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//	ULONG disposition; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		//	ULONG options; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		//	//ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//	PATH_SIZE_T path_len; 
 		//	union
 		//	{
-		//		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//		struct 
 		//		{
 		//			WCHAR *path_name_ptr; 
 		//		};
 		//	}; 
-		//	//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//	//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		text_output = tip; 
 		remain_len = ccb_buf_len; 
@@ -2325,7 +2318,7 @@ LRESULT WINAPI get_file_touch_detail( sys_action_record *action,
 			break; 
 		}
 
-		fmt = FILE_OPEN_FORMAT_TEXT; //L"·ÃÎÊÈ¨ÏÞ 0x%0.8x ³õÊ¼´óÐ¡ %u ¹²ÏíÊôÐÔ 0x%0.8x ¹¤×÷·½Ê½(disposition) 0x0.8x ¹¤×÷·½Ê½(option) 0x%0.8x \n"; 
+		fmt = FILE_OPEN_FORMAT_TEXT; //L"ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 0x%0.8x ï¿½ï¿½Ê¼ï¿½ï¿½Ð¡ %u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½(disposition) 0x0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½(option) 0x%0.8x \n"; 
 
 		hr = StringCchPrintfExW( text_output, 
 			remain_len, 
@@ -2516,11 +2509,11 @@ LRESULT WINAPI get_file_rename_detail( sys_action_record *action,
 
 		fmt = FILE_RENAME_FORMAT_TEXT; 
 
-		//ULONG replace_existing; //ÊÇ·ñ¸²¸ÇÒÑ´æÔÚÎÄ¼þ 
-		//ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG replace_existing; //ï¿½Ç·ñ¸²¸ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
+		//ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T new_name_len; 
-		//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		_name_len = action->do_file_rename.path_len; 
 
@@ -2803,10 +2796,10 @@ LRESULT WINAPI get_file_chmod_detail( sys_action_record *action,
 		//	break; 
 		//}
 
-		//ULONG attrib; //ÎÄ¼þÊôÐÔ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		text_output = tip; 
 		remain_len = ccb_buf_len; 
@@ -3717,7 +3710,7 @@ LRESULT WINAPI get_file_info_desc( FILE_INFORMATION_CLASS info_class,
 							&text_output, 
 							&remain_len, 
 							0, 
-							FILE_DIRECTORY_INFO_FORMAT_TEXT, //L"·ÖÅä¿Õ¼ä:%I64u Êý¾Ý´óÐ¡:%I64u Ë÷ÒýºÅ:%u ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u ×îºóÐ´ÈëÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u Éú³ÉÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u ×îºó·ÃÎÊÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
+							FILE_DIRECTORY_INFO_FORMAT_TEXT, //L"ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½:%I64u ï¿½ï¿½ï¿½Ý´ï¿½Ð¡:%I64u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u\n", 
 							file_full_dir_info->AllocationSize.QuadPart, 
 							file_full_dir_info->EndOfFile.QuadPart, 
 
@@ -4478,7 +4471,7 @@ LRESULT WINAPI get_file_info_desc( FILE_INFORMATION_CLASS info_class,
 				}
 
 				{
-					//²»¿ÉÄÜÐ¡ÓÚ0
+					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½0
 					ULONG cc_max_name_len; 
 
 					cc_max_name_len = ( ULONG )( ( info_size 
@@ -6447,12 +6440,12 @@ LRESULT WINAPI get_reg_mvkey_detail( sys_action_record *action,
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T new_name_len; 
-		////WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶ 
-		////WCHAR new_keyname[ 0 ]; //Ä¿±ê×¢²á±í¼üÃû 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶
+		////WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		////WCHAR new_keyname[ 0 ]; //Ä¿ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
 		fmt = KEY_MOVE_KEY_FORAT_TEXT; 
 
@@ -6639,12 +6632,12 @@ LRESULT WINAPI get_reg_getval_detail( sys_action_record *action,
 
 		fmt = KEY_GET_VALUE_INFO_FORMAT_TEXT; 
 
-		//ULONG type; //×¢²á±íÖµÀàÐÍ 
-		//ULONG data_len; //Êý¾Ý³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG type; //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T val_name_len; 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -6891,7 +6884,7 @@ LRESULT WINAPI get_reg_enum_info_detail( sys_action_record *action,
 		//ULONG info_class; 
 		//ULONG info_size; 
 
-		//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		if( ctx->last_result == STATUS_SUCCESS 
 			|| ctx->last_result == STATUS_BUFFER_OVERFLOW )
@@ -6991,7 +6984,7 @@ LRESULT WINAPI get_reg_enum_value_detail( sys_action_record *action,
 		//ULONG info_class; 
 		//ULONG info_size; 
 
-		//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		if(  ctx->last_result == STATUS_SUCCESS 
 			|| ctx->last_result == STATUS_BUFFER_OVERFLOW )
@@ -7075,9 +7068,9 @@ LRESULT WINAPI get_reg_setval_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG tid; //¶¯×÷·¢ÆðÕßÏß³ÌID 
-		//ULONG type; //×¢²á±íÖµÀàÐÍ 
-		//ULONG data_len; //Êý¾Ý³¤¶È 
+		//ULONG tid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//ULONG type; //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 
 		fmt = KEY_SET_VALUE_INFO_FORMAT_TEXT; 
 
@@ -7172,10 +7165,10 @@ LRESULT WINAPI get_load_key_detail( sys_action_record *action,
 
 		fmt = KEY_LOAD_FORMAT_TEXT; 
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//ASSERT( action->do_reg_loadkey.path_name[ action->do_reg_loadkey.path_len ] == L'\0' ); 
 
@@ -7302,10 +7295,10 @@ LRESULT WINAPI get_rstr_key_detail( sys_action_record *action,
 
 		fmt = KEY_LOAD_FORMAT_TEXT; 
 
-		//NTSTATUS result;//¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -7442,11 +7435,11 @@ LRESULT WINAPI get_repl_key_detail( sys_action_record *action,
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T hive_name_len; 
 		//PATH_SIZE_T new_hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		fmt = KEY_REPLACE_FORMAT_TEXT; 
 
@@ -7551,11 +7544,11 @@ LRESULT WINAPI get_proc_open_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG access; //½ø³Ì´ò¿ªÈ¨ÏÞ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG access; //ï¿½ï¿½ï¿½Ì´ï¿½È¨ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		fmt = GET_PROCESS_OPEN_DETAIL_FORMAT_TEXT; 
 
@@ -7647,10 +7640,10 @@ LRESULT WINAPI get_proc_debug_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		fmt = PROCESS_DEBUG_FORMAT_TEXT; 
 
@@ -7724,10 +7717,10 @@ LRESULT WINAPI get_proc_suspend_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		fmt = PROCESS_SUSPEND_FORMAT_TEXT; 
 
@@ -7921,11 +7914,11 @@ LRESULT WINAPI get_proc_kill_detail( sys_action_record *action,
 			path_name = action->do_proc_kill.path_name; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG exitcode; //½ø³ÌÍÆ³öÂë 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG exitcode; //ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		if( path_name !=NULL )
 		{
@@ -8007,10 +8000,10 @@ LRESULT WINAPI get_proc_job_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR pathname[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶
+		//WCHAR pathname[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½
 
 		fmt = PROCESS_JOB_FORMAT_TEXT; 
 
@@ -8082,14 +8075,14 @@ LRESULT WINAPI get_proc_pg_prot_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //ÐÞ¸ÄÄÚ´æ»ùÖ· 
-		//ULONG count; //ÐÞ¸ÄÄÚ´æ³¤¶È 
-		//ACCESS_MASK attrib; //ÐÞ¸ÄÄÚ´æÊôÐÔ 
-		//ULONG bytes_changed; //³É¹¦ÐÞ¸Ä³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG count; //ï¿½Þ¸ï¿½ï¿½Ú´æ³¤ï¿½ï¿½ 
+		//ACCESS_MASK attrib; //ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG bytes_changed; //ï¿½É¹ï¿½ï¿½Þ¸Ä³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		fmt = PROCESS_PAGE_PROTECT_FORMAT_TEXT; 
 
@@ -8166,16 +8159,16 @@ LRESULT WINAPI get_proc_free_vm_detail( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"½ø³ÌID:%u µØÖ· 0x%0.8x ³¤¶È %u ÀàÐÍ %u ·µ»Ø³¤¶È:%u\n\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ID:%u ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½:%u\n\n"; 
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //ÊÍ·ÅÄÚ´æ»ùÖ· 
-		//ULONG count; //ÊÍ·ÅÄÚ´æ³¤¶È 
-		//ULONG type; //ÊÍ·ÅÄÚ´æÀàÐÍ 
-		//ULONG bytes_freed; //³É¹¦ÊÍ·Å³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //ï¿½Í·ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG count; //ï¿½Í·ï¿½ï¿½Ú´æ³¤ï¿½ï¿½ 
+		//ULONG type; //ï¿½Í·ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG bytes_freed; //ï¿½É¹ï¿½ï¿½Í·Å³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -8249,15 +8242,15 @@ LRESULT WINAPI get_proc_write_vm_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //Ð´ÈëÄÚ´æ»ùÖ· 
-		//ULONG data_len; //ÊÔÍ¼Ð´Èë³¤¶È 
-		//ULONG bytes_written; //³É¹¦Ð´Èë³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //Ð´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG data_len; //ï¿½ï¿½Í¼Ð´ï¿½ë³¤ï¿½ï¿½ 
+		//ULONG bytes_written; //ï¿½É¹ï¿½Ð´ï¿½ë³¤ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"½ø³ÌID %u µØÖ· 0x%0.8x ³¤¶È:%u ·µ»Ø³¤¶È %u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ %u\n"; 
 
 		ASSERT( action->do_proc_writevm.path_name[ action->do_proc_writevm.path_len ] == L'\0' ); 
 
@@ -8333,16 +8326,16 @@ LRESULT WINAPI get_proc_read_vm_detail( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"½ø³ÌID %u µØÖ· 0x%0.8x ³¤¶È %u ·µ»Ø³¤¶È %u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ %u\n"; 
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //¶ÁÈ¡ÄÚ´æ»ùÖ· 
-		//ULONG data_len; //ÊÔÍ¼¶ÁÈ¡³¤¶È 
-		//ULONG bytes_read; //³É¹¦¶ÁÈ¡³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //ï¿½ï¿½È¡ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG data_len; //ï¿½ï¿½Í¼ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG bytes_read; //ï¿½É¹ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		////WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		////WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -8416,18 +8409,18 @@ LRESULT WINAPI get_thread_remote_detail( sys_action_record *action,
 		}
 
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//ACCESS_MASK access; //Ïß³Ì´´½¨È¨ÏÞ 
-		//BOOLEAN suspended; //ÊÇ·ñ¹ÒÆð·½Ê½´´½¨ 
-		//PVOID start_vaddr; //Ïß³ÌÆðÊ¼µØÖ· 
-		//PVOID thread_param; //Ïß³Ì²ÎÊý 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//ACCESS_MASK access; //ï¿½ß³Ì´ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//BOOLEAN suspended; //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ 
+		//PVOID start_vaddr; //ï¿½ß³ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 
+		//PVOID thread_param; //ï¿½ß³Ì²ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		////WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		////WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"½ø³ÌID %u Ô¶³ÌÏß³ÌID:%u È¨ÏÞ %u ¹ÒÆð %u ÆôÊ¼µØÖ· 0x%0.8x ²ÎÊý 0x%0.8x\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ID %u Ô¶ï¿½ï¿½ï¿½ß³ï¿½ID:%u È¨ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½ 0x%0.8x\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -8502,13 +8495,13 @@ LRESULT WINAPI get_thread_set_ctxt_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"½ø³ÌID %u Ïß³Ì:%u \n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ß³ï¿½:%u \n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -8579,13 +8572,13 @@ LRESULT WINAPI get_thread_suspend_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"½ø³ÌID %u Ïß³ÌID %u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ß³ï¿½ID %u\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -8656,7 +8649,7 @@ LRESULT WINAPI get_thread_resume_detail( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Ä¿±ê½ø³ÌID %u Ïß³ÌID %u \n"; 
+		fmt = L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ß³ï¿½ID %u \n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -8727,12 +8720,12 @@ LRESULT WINAPI get_thread_kill_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//ULONG exitcode; //Ïß³ÌÍË³öÂë 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//ULONG exitcode; //ï¿½ß³ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		fmt = THREAD_KILL_FORMAT_TEXT; 
 
@@ -8807,11 +8800,11 @@ LRESULT WINAPI get_port_read_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½
 
 		fmt = PROT_READ_FORMAT_TEXT; 
 
@@ -8885,11 +8878,11 @@ LRESULT WINAPI get_port_urb_detail( sys_action_record *action,
 		   break; 
 	   }
 
-	   //ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	   //ULONG target_tid; //Ä¿±êÏß³ÌID 
-	   //NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	   //ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	   //ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+	   //NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	   //PATH_SIZE_T path_len; 
-	   //WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶
+	   //WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½
 
 	   {
 		   size_t cc_remain_len; 
@@ -8959,11 +8952,11 @@ LRESULT WINAPI get_port_write_detail( sys_action_record *action,
 		   break; 
 	   }
 
-	   //ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	   //ULONG target_tid; //Ä¿±êÏß³ÌID 
-	   //NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	   //ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	   //ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+	   //NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	   //PATH_SIZE_T path_len; 
-	   //WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶
+	   //WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½
 
 	   fmt = PROT_WRITE_FORMAT_TEXT; 
 
@@ -9038,13 +9031,13 @@ LRESULT WINAPI get_thread_queue_apc_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½
 
-		fmt = L"Ä¿±ê½ø³ÌID %u Ïß³ÌID %u APCº¯ÊýµØÖ· 0x%0.8x ²ÎÊý1 0x%0.8x ²ÎÊý2 0x%0.8x ²ÎÊý3 0x%0.8x\n"; 
+		fmt = L"Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ß³ï¿½ID %u APCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½1 0x%0.8x ï¿½ï¿½ï¿½ï¿½2 0x%0.8x ï¿½ï¿½ï¿½ï¿½3 0x%0.8x\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9119,10 +9112,10 @@ LRESULT WINAPI get_sys_settime_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG time_delta; //ÉèÖÃÊ±¼äÓë¶¯×÷·¢ÆðÊ±¼ä²î 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG time_delta; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ë¶¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 
-		fmt = L"ÏµÍ³Ê±¼ä (Ïà¶ÔÊ±¼ä) %u\n"; 
+		fmt = L"ÏµÍ³Ê±ï¿½ï¿½ (ï¿½ï¿½ï¿½Ê±ï¿½ï¿½) %u\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9240,10 +9233,10 @@ LRESULT WINAPI get_sys_open_physmm_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ACCESS_MASK access; //´ò¿ªÈ¨ÏÞ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ACCESS_MASK access; //ï¿½ï¿½È¨ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 
-		fmt = L"È¨ÏÞ: 0x%0.8x\n"; 
+		fmt = L"È¨ï¿½ï¿½: 0x%0.8x\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9313,11 +9306,11 @@ LRESULT WINAPI get_sys_read_physmm_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG offset; //¶ÁÈ¡Æ«ÒÆ 
-		//ULONG count; //¶ÁÈ¡³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG offset; //ï¿½ï¿½È¡Æ«ï¿½ï¿½ 
+		//ULONG count; //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 
-		fmt = L"Æ«ÒÆ:%u ³¤¶È%u\n"; 
+		fmt = L"Æ«ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½%u\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9388,11 +9381,11 @@ LRESULT WINAPI get_sys_write_physmm_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG offset; //Ð´ÈëÆ«ÒÆ 
-		//ULONG count; //Ð´Èë³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG offset; //Ð´ï¿½ï¿½Æ«ï¿½ï¿½ 
+		//ULONG count; //Ð´ï¿½ë³¤ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 
-		fmt = L"Æ«ÒÆ %u ³¤¶È %u\n"; 
+		fmt = L"Æ«ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9980,8 +9973,8 @@ LRESULT WINAPI get_reg_info_detail( ULONG key_class,
 				KEY_FULL_INFORMATION *full_info; 
 
 				/**********************************************************************
-				¿ÉÒÔ½øÐÐ×î¾«È·µÄÕë¶Ôµ¥¸ö×Ö¶ÎµÄÅÐ¶Ï
-				ÏÖÔÚÊ¹ÓÃ²»¶¨³¤×Ö¶ÎÖ®Ç°µÄ×Ö¶Î³¤¶ÈÅÐ¶Ï·½Ê½¡£
+				ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½î¾«È·ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½Ö¶Îµï¿½ï¿½Ð¶ï¿½
+				ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½Ö®Ç°ï¿½ï¿½ï¿½Ö¶Î³ï¿½ï¿½ï¿½ï¿½Ð¶Ï·ï¿½Ê½ï¿½ï¿½
 				**********************************************************************/
 				if( info_size < FIELD_OFFSET( KEY_FULL_INFORMATION, Class ) ) 
 				{
@@ -11380,15 +11373,15 @@ LRESULT WINAPI get_sys_regsrv_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ACCESS_MASK access; //·þÎñ´´½¨/´ò¿ªÈ¨ÏÞ 
-		//ULONG type; //·þÎñÀàÐÍ 
-		//ULONG starttype; //·þÎñÆô¶¯ÀàÐÍ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ACCESS_MASK access; //ï¿½ï¿½ï¿½ñ´´½ï¿½/ï¿½ï¿½È¨ï¿½ï¿½ 
+		//ULONG type; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG starttype; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T srv_name_len; 
-		//WCHAR path_name[ 1 ]; //Çý¶¯/·þÎñÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"·þÎñ(Çý¶¯)Ãû %s ÀàÐÍ %u Æô¶¯ÀàÐÍ %u È¨ÏÞ 0x%0.8x\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %u È¨ï¿½ï¿½ 0x%0.8x\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -11480,14 +11473,14 @@ LRESULT WINAPI get_sys_opendev_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG devtype; //Éè±¸ÀàÐÍ 
-		//ULONG access; //Éè±¸´ò¿ªÈ¨ÏÞ 
-		//ULONG share; //Éè±¸¹²ÏíÈ¨ÏÞ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG devtype; //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG access; //ï¿½è±¸ï¿½ï¿½È¨ï¿½ï¿½ 
+		//ULONG share; //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //Éè±¸Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½è±¸Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -11495,7 +11488,7 @@ LRESULT WINAPI get_sys_opendev_detail( sys_action_record *action,
 		//	};
 		//};
 
-		fmt = L"Éè±¸ÀàÐÍ %u È¨ÏÞ 0x%0.8x ¹²ÏíÈ¨ÏÞ 0x%0.8x\n"; 
+		fmt = L"ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ %u È¨ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 0x%0.8x\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -11567,16 +11560,16 @@ LRESULT WINAPI get_w32_postmsg_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//HWND hwnd; //Ä¿±ê´°¿Ú¾ä±ú 
-		//ULONG msg; //´°¿ÚÏûÏ¢ 
-		//WPARAM wparam; //ÏûÏ¢²ÎÊý1 
-		//LPARAM lparam; //ÏûÏ¢²ÎÊý2 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(BOOL) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//HWND hwnd; //Ä¿ï¿½ê´°ï¿½Ú¾ï¿½ï¿½ 
+		//ULONG msg; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+		//WPARAM wparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½1 
+		//LPARAM lparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½2 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(BOOL) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"PID:%u ´°Ìå 0x%0.8x ·¢ËÍÏûÏ¢ %u ²ÎÊý1 0x%0.8x ²ÎÊý2 0x%0.8x\n"; 
+		fmt = L"PID:%u ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ %u ï¿½ï¿½ï¿½ï¿½1 0x%0.8x ï¿½ï¿½ï¿½ï¿½2 0x%0.8x\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -11650,16 +11643,16 @@ LRESULT WINAPI get_sendmsg_detail( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//HWND hwnd; //Ä¿±ê´°¿Ú¾ä±ú 
-		//ULONG msg; //´°¿ÚÏûÏ¢ 
-		//WPARAM wparam; //ÏûÏ¢²ÎÊý1 
-		//LPARAM lparam; //ÏûÏ¢²ÎÊý2 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(LRESULT) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//HWND hwnd; //Ä¿ï¿½ê´°ï¿½Ú¾ï¿½ï¿½ 
+		//ULONG msg; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+		//WPARAM wparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½1 
+		//LPARAM lparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½2 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(LRESULT) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"PID:%u ´°Ìå 0x%0.8x ÏûÏ¢ %u ²ÎÊý1 0x%0.8x ²ÎÊý2 0x%0.8x\n"; 
+		fmt = L"PID:%u ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½Ï¢ %u ï¿½ï¿½ï¿½ï¿½1 0x%0.8x ï¿½ï¿½ï¿½ï¿½2 0x%0.8x\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -11735,14 +11728,14 @@ LRESULT WINAPI get_w32_findwnd_detail( sys_action_record *action,
 			break; 
 		}
 
-		//HWND parent_hwnd; //¸¸´°¿Ú¾ä±ú 
-		//HWND sub_hwnd; //×Ó´°¿Ú¾ä±ú 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(HWND) 
+		//HWND parent_hwnd; //ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ 
+		//HWND sub_hwnd; //ï¿½Ó´ï¿½ï¿½Ú¾ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(HWND) 
 		//PATH_SIZE_T cls_name_len; 
 		//PATH_SIZE_T wnd_name_len; 
-		//WCHAR cls_name[ 1 ]; //´°¿ÚÀàÃû
+		//WCHAR cls_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		fmt = L"¸¸´°Ìå 0x%0.8x ×Ó´°Ìå 0x%0.8x (ÀàÃû %s ´°ÌåÃû %s)\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½Ó´ï¿½ï¿½ï¿½ 0x%0.8x (ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s)\n"; 
 
 		ASSERT( action->do_w32_findwnd.cls_name[ action->do_w32_findwnd.cls_name_len ] == L'\0' ); 
 
@@ -12170,7 +12163,7 @@ LRESULT WINAPI get_urb_info( LPWSTR text,
 							&_text, 
 							&_cc_remain_len, 
 							0, 
-							L"ÃèÊö·ûÀàÐÍ:%u ×Ü³¤¶È:%u INTERFACEÊý:%u ÅäÖÃÖµ:%u ÅäÖÃË÷Òý%u ÅäÖÃÊôÐÔ %u ×î´óµçÁ¿%u ", 
+							L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u ï¿½Ü³ï¿½ï¿½ï¿½:%u INTERFACEï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½Öµ:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%u ", 
 							urb->UrbSelectConfiguration.ConfigurationDescriptor->bDescriptorType, 
 							urb->UrbSelectConfiguration.ConfigurationDescriptor->wTotalLength, 
 							urb->UrbSelectConfiguration.ConfigurationDescriptor->bNumInterfaces, 

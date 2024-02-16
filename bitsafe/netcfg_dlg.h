@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #pragma once
@@ -74,7 +67,7 @@ public:
         //HANDLE hThread = CreateThread(NULL,0,&netcfg_dlg::Search, (LPVOID)NULL,  0,&dwThreadID);
     }
     /*
-    * ¹Ø¼üµÄ»Øµ÷º¯Êý£¬IListCallbackUI ÖÐµÄÒ»¸öÐéº¯Êý£¬äÖÈ¾Ê±ºò»áµ÷ÓÃ,ÔÚ[1]ÖÐÉèÖÃÁË»Øµ÷¶ÔÏó
+    * ï¿½Ø¼ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IListCallbackUI ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½[1]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     */
     LPCTSTR GetItemText(CControlUI* pControl, int iIndex, int iSubItem)
     {
@@ -145,14 +138,14 @@ public:
 					if( ret != ERROR_SUCCESS )
 					{
 						tmp_text = _get_string_by_id( TEXT_NETWORK_CTRL_PANEL_OPEN_FAILED, 
-							_T( "¿ªÆôÍøÂç¿ØÖÆÃæ°åÊ§°Ü,¿ÉÄÜÊÇ²»¼æÈÝµ±Ç°ÏµÍ³»·¾³Èí¼þ£¬ÇëÉÔºóÖØÊÔ." ) ); 
+							_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ç°ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½." ) ); 
 
 						show_msg( GetHWND(), tmp_text ); 
 					}
 					else
 					{
 						tmp_text = _get_string_by_id( TEXT_NETWORK_CTRL_PANEL_OPEN_SUCCESSFULLY, 
-							_T( "¿ªÆôÍøÂç¿ØÖÆÃæ°å³É¹¦." ) ); 
+							_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½." ) ); 
 						
 						show_msg( GetHWND(), tmp_text ); 
 					}
@@ -164,14 +157,14 @@ public:
 					if( ret != ERROR_SUCCESS )
 					{
 						tmp_text = _get_string_by_id( TEXT_NETWORK_CTRL_PANEL_CLOSE_FAILED, 
-							_T( "Í£Ö¹ÍøÂç¿ØÖÆÃæ°åÊ§°Ü,¿ÉÄÜÊÇ²»¼æÈÝµ±Ç°ÏµÍ³»·¾³Èí¼þ£¬ÇëÉÔºóÖØÊÔ." ) ); 
+							_T( "Í£Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ç°ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½." ) ); 
 
 						show_msg( GetHWND(), tmp_text ); 
 					}
 					else
 					{
 						tmp_text = _get_string_by_id( TEXT_NETWORK_CTRL_PANEL_CLOSE_SUCCESSFULLY, 
-							_T( "Í£Ö¹ÍøÂç¿ØÖÆÃæ°å³É¹¦." ) ); 
+							_T( "Í£Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½." ) ); 
 						show_msg( GetHWND(), tmp_text ); 
 					}
 					Close(); 
@@ -215,7 +208,7 @@ public:
 //            sMessage += domain[iIndex].c_str();
 //
 //#endif
-//            ::MessageBox(NULL, sMessage.GetData(), _T("ÌáÊ¾"), MB_OK);
+//            ::MessageBox(NULL, sMessage.GetData(), _T("ï¿½ï¿½Ê¾"), MB_OK);
         }
         //else if(msg.sType == _T("menu")) 
         //{
@@ -363,7 +356,7 @@ public:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

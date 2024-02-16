@@ -1,26 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
- 
- #pragma once
-//#include "menu_ui.h"
+
+#pragma once
 #include "md5.h"
 #include "msg_box.h"
 #include "UIUtil.h"
@@ -50,7 +42,7 @@ INLINE LRESULT smart_update_bitsafe( HWND wnd )
 		if( ret != ERROR_FILE_NOT_FOUND )
 		{
 			tmp_text = _get_string_by_id( TEXT_UPDATE_OLD_VERSION_HAVE_NOT_UNINSTALL, 
-				_T( "¾É°æ±¾±ÈÌØ°²È«Ã»ÓÐÍê³ÉÈ«²¿Ð¶ÔØ,ÖØÐÂÔËÐÐ³ÌÐò(ÐÂ°æ±¾)Ê±,ÒªÏÈÖ´ÐÐÐ¶ÔØ(Èç³öÏÖ°²×°ÌáÊ¾,ÏÈ²»ÒªÖ´ÐÐ°²×°),ÔÚ±£Ö¤Ð¶ÔØÈ«²¿Íê³Éºó,ÔÙÖØÐÂ°²×°²¢ÔËÐÐ³ÌÐò¡£" ) ); 
+				_T( "ï¿½É°æ±¾ï¿½ï¿½ï¿½Ø°ï¿½È«Ã»ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½Ð¶ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½(ï¿½Â°æ±¾)Ê±,Òªï¿½ï¿½Ö´ï¿½ï¿½Ð¶ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ö°ï¿½×°ï¿½ï¿½Ê¾,ï¿½È²ï¿½ÒªÖ´ï¿½Ð°ï¿½×°),ï¿½Ú±ï¿½Ö¤Ð¶ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½Éºï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½" ) ); 
 
 			show_msg( wnd, tmp_text ); 
 			//tip_text->SetText( ); 
@@ -59,7 +51,7 @@ INLINE LRESULT smart_update_bitsafe( HWND wnd )
 		dlg_ret_state ret_state; 
 		LPCTSTR tmp_text; 
 
-		tmp_text = _get_string_by_id( TEXT_INSTALL_NEED_RESTART, _T( "ÓÉÓÚÏµÍ³»·¾³µÄÔ­Òò,±ÈÌØ°²È«ÐèÒªÖØÆôÏµÍ³À´Íê³É°²×°,ÊÇ·ñÁ¢¼´ÖØÆô?" ) ); 
+		tmp_text = _get_string_by_id( TEXT_INSTALL_NEED_RESTART, _T( "ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½,ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½É°ï¿½×°,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?" ) ); 
 
 #if 0
 		ret = show_msg( NULL, tmp_text, &ret_state ); 
@@ -139,7 +131,7 @@ _return:
 	{
 		LPCTSTR tmp_text; 
 
-#define FILE_DOWNLOAD_TIP_FMT _T( "ÎÄ¼þ ÒÑÏÂÔØ %d/%d" )
+#define FILE_DOWNLOAD_TIP_FMT _T( "ï¿½Ä¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %d/%d" )
 		CStdString download_tip; 
 
 		if( downloaded == 0 )
@@ -174,7 +166,7 @@ _return:
 		{
 			ASSERT( FALSE ); 
 
-			tmp_text = _get_string_by_id( TEXT_UPDATE_UPDATE_FAILED, L"¸üÐÂÊ§°Ü" ); 
+			tmp_text = _get_string_by_id( TEXT_UPDATE_UPDATE_FAILED, L"ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" ); 
 			tip_info->err_msg = tmp_text; 
 		}
 
@@ -185,7 +177,7 @@ _return:
 		}
 
 		m_pCloseBtn->SetEnabled( true ); 
-		tip_text->SetText( tip_info->err_msg ); //Çë¼ì²éÒòÌØÍøÁ¬½Ó.
+		tip_text->SetText( tip_info->err_msg ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 _return:
 		return; 
 	}
@@ -246,7 +238,7 @@ _return:
 		//wait_update_end( update_handle ); 
 		m_pCloseBtn->SetEnabled( true ); 
 		
-		tmp_text = _get_string_by_id( TEXT_UPDATE_UPDATE_SUCCESSFUL, _T( "¸üÐÂ³É¹¦" ) ); 
+		tmp_text = _get_string_by_id( TEXT_UPDATE_UPDATE_SUCCESSFUL, _T( "ï¿½ï¿½ï¿½Â³É¹ï¿½" ) ); 
 
 		tip_text->SetText( tmp_text ); 
 
@@ -260,7 +252,7 @@ _return:
 				ASSERT( FALSE ); 
 
 				tmp_text = _get_string_by_id( TEXT_UPDATE_OLD_VERSION_HAVE_NOT_UNINSTALL, 
-					_T( "¾É°æ±¾±ÈÌØ°²È«Ã»ÓÐÍê³ÉÈ«²¿Ð¶ÔØ,ÖØÐÂÔËÐÐ³ÌÐò(ÐÂ°æ±¾)Ê±,ÒªÏÈÖ´ÐÐÐ¶ÔØ(Èç³öÏÖ°²×°ÌáÊ¾,ÏÈ²»ÒªÖ´ÐÐ°²×°),ÔÚ±£Ö¤Ð¶ÔØÈ«²¿Íê³Éºó,ÔÙÖØÐÂ°²×°²¢ÔËÐÐ³ÌÐò¡£" ) ); 
+					_T( "ï¿½É°æ±¾ï¿½ï¿½ï¿½Ø°ï¿½È«Ã»ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½Ð¶ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½(ï¿½Â°æ±¾)Ê±,Òªï¿½ï¿½Ö´ï¿½ï¿½Ð¶ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Ö°ï¿½×°ï¿½ï¿½Ê¾,ï¿½È²ï¿½ÒªÖ´ï¿½Ð°ï¿½×°),ï¿½Ú±ï¿½Ö¤Ð¶ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½Éºï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½" ) ); 
 				
 				show_msg( GetHWND(), tmp_text ); 
 				goto _return; 
@@ -288,7 +280,7 @@ _return:
 
 		file_name += 1; 
 		
-		tmp_text = _get_string_by_id( TEXT_UPDATE_UPDATING_FILE_NO_TIP, _T( "ÕýÔÚ¸üÐÂµÚ%d¸öÎÄ¼þ%s\n" ) ); 
+		tmp_text = _get_string_by_id( TEXT_UPDATE_UPDATING_FILE_NO_TIP, _T( "ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½Âµï¿½%dï¿½ï¿½ï¿½Ä¼ï¿½%s\n" ) ); 
 
 		_file_name.Format( tmp_text, updated_file_count + 1, file_name ); 
 		tip_text->SetText( _file_name ); 
@@ -318,7 +310,7 @@ _return:
 
 #ifdef _DEBUG
 		tmp_text = _get_string_by_id( TEXT_UPDATE_ALREADY_NEWEST_VERSION_TIP, 
-			_T( "ÒÑ¾­ÊÇ×îÐÂµÄ°æ±¾ %s, ²»ÐèÒª½øÐÐ¸üÐÂ" ) ); 
+			_T( "ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ°æ±¾ %s, ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½" ) ); 
 		
 		tip.Format( tmp_text, version );
 
@@ -365,7 +357,7 @@ _return:
 		}
 
 		tmp_text = _get_string_by_id( TEXT_UPDATE_NEWER_VERSION_CHECKED, 
-			_T( "¼ì²âµ½¸üÐÂµÄ°æ±¾ %s (%s), ÊÇ·ñ½øÐÐ¸üÐÂ?" ) ); 
+			_T( "ï¿½ï¿½âµ½ï¿½ï¿½ï¿½ÂµÄ°æ±¾ %s (%s), ï¿½Ç·ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½ï¿½?" ) ); 
 		
 		tip.Format( tmp_text, version, msg );
 
@@ -406,7 +398,7 @@ _return:
 			whole_progress->SetMinValue( 0 ); 
 			whole_progress->SetMaxValue( update_file_count - 1 ); 
 
-			tmp_text = _get_string_by_id( TEXT_UPDATE_ALL_FILE_COUNT_TIP, _T( "¿ªÊ¼¸üÐÂ,¹²ÓÐ%d¸öÎÄ¼þ" ) ); 
+			tmp_text = _get_string_by_id( TEXT_UPDATE_ALL_FILE_COUNT_TIP, _T( "ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½%dï¿½ï¿½ï¿½Ä¼ï¿½" ) ); 
 
 			tip.Format( tmp_text, update_file_count ); 
 			tip_text->SetText(  tip ); 
@@ -752,7 +744,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

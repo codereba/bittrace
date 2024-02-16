@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -29,57 +22,57 @@
 #pragma comment( lib, "ws2_32.lib")
 
 #ifdef LANG_EN
-#define CURRENT_PROCESS_THREAD_FORMAT_TEXT L"Current process:Thread[%u]" //L"×ÔÉí½ø³Ì:Ïß³Ì[%u]", 
-#define PROCESS_THREAD_FORMAT_TEXT L"Process[%u]%s:Thread[%u]" //L"½ø³Ì[%u]%s:Ïß³Ì[%u]", L"½ø³Ì[%u]%s:Ïß³Ì[%u]", 
-#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT L"Create socket:(Protocol ID:%u)" //L"½¨Á¢Ì×½Ó×Ö:(Ð­ÒéID:%u)"
-#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT2 L"Create socket:(%s)" //L"½¨Á¢Ì×½Ó×Ö:(%s)"
-#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT L"Connect:(UDP)" //L"½¨Á¢Á¬½Ó:(UDPÐ­Òé)"
-#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT2 L"Connect:(TCP)" //L"½¨Á¢Á¬½Ó:(UDPÐ­Òé)"
-#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT3 L"Connect:(Protocol ID:%u)" //L"½¨Á¢Á¬½Ó:(Ð­ÒéID:%u)"
-#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT L"Listen port:(Protocol ID:%u)" //L"ÕìÌý¶Ë¿Ú:(Ð­ÒéID:%u)"
-#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT2 L"Listen port:(%s)" //L"ÕìÌý¶Ë¿Ú:(%s)"
-#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT L"Send:(Protocol ID:%u)" //L"·¢ËÍÊý¾Ý:(Ð­ÒéID:%u)"
-#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT2 L"Send:(%s)" //L"·¢ËÍÊý¾Ý:(%s)"
-#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"Receive:(TCP)" //L"½ÓÊÕÊý¾Ý:(TCPÐ­Òé)"
-#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT2 L"Receive:(UDP)" //L"½ÓÊÕÊý¾Ý:(UDPÐ­Òé)"
-#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT3 L"Receive:(Protocol ID:%u)" //L"½ÓÊÕÊý¾Ý:(Ð­ÒéID:%u)"
-#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT L"Accept:(Protocol ID:%u)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u" //L"½ÓÊÕÁ¬½ÓÇëÇó:(Ð­ÒéID:%u)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
-#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT2 L"Accept:(%s)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u" //L"½ÓÊÕÁ¬½ÓÇëÇó:(%s)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
-#define NETWORK_ICMP_SEND_OBJECT_PATH_FORMAT_TEXT L"Send icmp:Source:%u.%u.%u.%u Dest:%u.%u.%u.%u" //L"·¢ËÍicmp:Ô´IP:%u.%u.%u.%u Ä¿±êIP:%u.%u.%u.%u"
-#define NETWORK_ICMP_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"Receive icmp:Source:%u.%u.%u.%u Dest:%u.%u.%u.%u" //L"½ÓÊÕicmp:Ô´IP:%u.%u.%u.%u Ä¿±êIP:%u.%u.%u.%u"
+#define CURRENT_PROCESS_THREAD_FORMAT_TEXT L"Current process:Thread[%u]" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ß³ï¿½[%u]", 
+#define PROCESS_THREAD_FORMAT_TEXT L"Process[%u]%s:Thread[%u]" //L"ï¿½ï¿½ï¿½ï¿½[%u]%s:ï¿½ß³ï¿½[%u]", L"ï¿½ï¿½ï¿½ï¿½[%u]%s:ï¿½ß³ï¿½[%u]", 
+#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT L"Create socket:(Protocol ID:%u)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT2 L"Create socket:(%s)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½:(%s)"
+#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT L"Connect:(UDP)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)"
+#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT2 L"Connect:(TCP)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)"
+#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT3 L"Connect:(Protocol ID:%u)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT L"Listen port:(Protocol ID:%u)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT2 L"Listen port:(%s)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½:(%s)"
+#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT L"Send:(Protocol ID:%u)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT2 L"Send:(%s)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(%s)"
+#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"Receive:(TCP)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(TCPÐ­ï¿½ï¿½)"
+#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT2 L"Receive:(UDP)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)"
+#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT3 L"Receive:(Protocol ID:%u)" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT L"Accept:(Protocol ID:%u)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
+#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT2 L"Accept:(%s)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(%s)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
+#define NETWORK_ICMP_SEND_OBJECT_PATH_FORMAT_TEXT L"Send icmp:Source:%u.%u.%u.%u Dest:%u.%u.%u.%u" //L"ï¿½ï¿½ï¿½ï¿½icmp:Ô´IP:%u.%u.%u.%u Ä¿ï¿½ï¿½IP:%u.%u.%u.%u"
+#define NETWORK_ICMP_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"Receive icmp:Source:%u.%u.%u.%u Dest:%u.%u.%u.%u" //L"ï¿½ï¿½ï¿½ï¿½icmp:Ô´IP:%u.%u.%u.%u Ä¿ï¿½ï¿½IP:%u.%u.%u.%u"
 #else
-#define CURRENT_PROCESS_THREAD_FORMAT_TEXT L"×ÔÉí½ø³Ì:Ïß³Ì[%u]" 
-#define PROCESS_THREAD_FORMAT_TEXT L"½ø³Ì[%u]%s:Ïß³Ì[%u]" //L"½ø³Ì[%u]%s:Ïß³Ì[%u]" 
-#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT L"½¨Á¢Ì×½Ó×Ö:(Ð­ÒéID:%u)"
-#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT2 L"½¨Á¢Ì×½Ó×Ö:(%s)"
-#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT L"½¨Á¢Á¬½Ó:(UDPÐ­Òé)"
-#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT2 L"½¨Á¢Á¬½Ó:(UDPÐ­Òé)"
-#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT3 L"½¨Á¢Á¬½Ó:(Ð­ÒéID:%u)"
-#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT L"ÕìÌý¶Ë¿Ú:(Ð­ÒéID:%u)"
-#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT2 L"ÕìÌý¶Ë¿Ú:(%s)"
-#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT L"·¢ËÍÊý¾Ý:(Ð­ÒéID:%u)"
-#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT2 L"·¢ËÍÊý¾Ý:(%s)"
-#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"½ÓÊÕÊý¾Ý:(TCPÐ­Òé)"
-#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT2 L"½ÓÊÕÊý¾Ý:(UDPÐ­Òé)"
-#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT3 L"½ÓÊÕÊý¾Ý:(Ð­ÒéID:%u)"
-#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT L"½ÓÊÕÁ¬½ÓÇëÇó:(Ð­ÒéID:%u)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
-#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT2 L"½ÓÊÕÁ¬½ÓÇëÇó:(%s)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
-#define NETWORK_ICMP_SEND_OBJECT_PATH_FORMAT_TEXT L"·¢ËÍicmp:Ô´IP:%u.%u.%u.%u Ä¿±êIP:%u.%u.%u.%u"
-#define NETWORK_ICMP_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"½ÓÊÕicmp:Ô´IP:%u.%u.%u.%u Ä¿±êIP:%u.%u.%u.%u"
+#define CURRENT_PROCESS_THREAD_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ß³ï¿½[%u]" 
+#define PROCESS_THREAD_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½[%u]%s:ï¿½ß³ï¿½[%u]" //L"ï¿½ï¿½ï¿½ï¿½[%u]%s:ï¿½ß³ï¿½[%u]" 
+#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_CREATE_OBJECT_PATH_FORMAT_TEXT2 L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½:(%s)"
+#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)"
+#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT2 L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)"
+#define NETWORK_CONNECT_OBJECT_PATH_FORMAT_TEXT3 L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_LISTEN_OBJECT_PATH_FORMAT_TEXT2 L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½:(%s)"
+#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_SEND_OBJECT_PATH_FORMAT_TEXT2 L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(%s)"
+#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(TCPÐ­ï¿½ï¿½)"
+#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT2 L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)"
+#define NETWORK_RECEIVE_OBJECT_PATH_FORMAT_TEXT3 L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)"
+#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
+#define NETWORK_ACCEPT_OBJECT_PATH_FORMAT_TEXT2 L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(%s)%u.%u.%u.%u:%u <- %u.%u.%u.%u:%u"
+#define NETWORK_ICMP_SEND_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½icmp:Ô´IP:%u.%u.%u.%u Ä¿ï¿½ï¿½IP:%u.%u.%u.%u"
+#define NETWORK_ICMP_RECEIVE_OBJECT_PATH_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½icmp:Ô´IP:%u.%u.%u.%u Ä¿ï¿½ï¿½IP:%u.%u.%u.%u"
 
 #endif //LANG_EN
 
 /**************************************************************************
 NOTICE:
-WINDOWSÌá¹©ÁËÓÐ¹ØÈÕÖ¾ÄÚÈÝ¶àÑùÐÔÊý¾Ý½á¹¹µÄ±à³ÌÖ§³Ö£¬Í¨¹ýÊ¹ÓÃXML->CµÄ±àÒëÆ÷
-À´ÊµÏÖXML·½Ê½µÄÊý¾Ý½á¹¹¶¨Òåµ½CÓïÑÔ´úÂëµÄ×ª»»¡£MC.EXE£¬Ö±½ÓÊ¹ÓÃËü£¬½«»á¶Ô
-±à³ÌÓÐ·Ç³£´óµÄ¸¨Öú×÷ÓÃ¡£
-1.WPP ÏûÏ¢±àÒëÖ§³Ö
-	1.×Ô¶¯½âÊÍÏûÏ¢²ÎÊý£¬Ð´ÈëÏàÓ¦µÄ½á¹¹ÐÅÏ¢µ½PDBÎÄ¼þÖÐ¡£
-	2.¿ÉÒÔ¼ÓÈë×Ô¶¨ÒåµÄENUMÀàÐÍ£¬Í¬Ê±Ö§³Ö×Ô¶¯µ½×Ö·û´®µÄ×ª»»¡£
-	3.×Ô¶¨ÒåÏûÏ¢¼ÇÂ¼Ìõ¼þ¡£
+WINDOWSï¿½á¹©ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹ï¿½Ä±ï¿½ï¿½Ö§ï¿½Ö£ï¿½Í¨ï¿½ï¿½Ê¹ï¿½ï¿½XML->Cï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Êµï¿½ï¿½XMLï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹ï¿½ï¿½ï¿½åµ½Cï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½MC.EXEï¿½ï¿½Ö±ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Ð·Ç³ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½
+1.WPP ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½
+	1.ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä½á¹¹ï¿½ï¿½Ï¢ï¿½ï¿½PDBï¿½Ä¼ï¿½ï¿½Ð¡ï¿½
+	2.ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ENUMï¿½ï¿½ï¿½Í£ï¿½Í¬Ê±Ö§ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
+	3.ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-2.ETW ÏûÏ¢±àÒëÖ§³Ö
+2.ETW ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½
 	1.
 **************************************************************************/
 
@@ -109,24 +102,24 @@ LRESULT WINAPI _get_action_main_type( sys_action_type type, action_main_type *ma
 		switch( type )
 		{
 		//MT_execmon
-		case EXEC_create: //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
-		case EXEC_destroy: //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
-		case EXEC_module_load: //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+		case EXEC_create: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
+		case EXEC_destroy: //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case EXEC_module_load: //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 			_main_type = MT_execmon; 
 			break; 
 			//MT_filemon, 
-		case FILE_touch: //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 
-		case FILE_open: //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_read: //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_write: //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_modified: //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_readdir: //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
-		case FILE_remove: //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_rename: //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_truncate: //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_mklink: //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_chmod: //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
-		case FILE_setsec: //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		case FILE_touch: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 
+		case FILE_open: //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_read: //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_write: //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_modified: //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_readdir: //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
+		case FILE_remove: //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_rename: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_truncate: //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_mklink: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_chmod: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+		case FILE_setsec: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_getinfo:
 		case FILE_setinfo: 
 		case FILE_close:
@@ -134,44 +127,44 @@ LRESULT WINAPI _get_action_main_type( sys_action_type type, action_main_type *ma
 			break; 
 
 			//MT_regmon, 
-		case REG_openkey: //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
-		case REG_mkkey: //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-		case REG_rmkey: //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-		case REG_mvkey: //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-		case REG_rmval: //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		case REG_openkey: //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+		case REG_mkkey: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		case REG_rmkey: //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		case REG_mvkey: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		case REG_rmval: //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		case REG_getinfo:
 		case REG_setinfo:
 		case REG_enuminfo:
 		case REG_enum_val:
-		case REG_getval: //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-		case REG_setval: //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-		case REG_loadkey: //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-		case REG_replkey: //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-		case REG_rstrkey: //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-		case REG_setsec: //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+		case REG_getval: //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+		case REG_setval: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+		case REG_loadkey: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		case REG_replkey: //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		case REG_rstrkey: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+		case REG_setsec: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		case REG_closekey: 
 			_main_type = MT_regmon; 
 			break; 
 
 			//MT_procmon, 
-		case PROC_exec: //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
-		case PROC_open: //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_debug: //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_suspend: //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_resume: //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_exit: //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_job: //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_pgprot: //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_freevm: //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_writevm: //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case PROC_readvm: //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case THRD_remote: //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case THRD_create: //´´½¨Ïß³Ì
-		case THRD_setctxt: //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case THRD_suspend: //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case THRD_resume: //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case THRD_exit: //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case THRD_queue_apc: //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		case PROC_exec: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
+		case PROC_open: //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_debug: //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_suspend: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_resume: //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_exit: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_job: //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_pgprot: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_freevm: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_writevm: //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case PROC_readvm: //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case THRD_remote: //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case THRD_create: //ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+		case THRD_setctxt: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case THRD_suspend: //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case THRD_resume: //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case THRD_exit: //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case THRD_queue_apc: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 			_main_type = MT_procmon; 
 			break; 
 			//MT_common
@@ -186,51 +179,51 @@ LRESULT WINAPI _get_action_main_type( sys_action_type type, action_main_type *ma
 			break; 
 
 			//MT_sysmon
-		case SYS_settime: //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
-		case SYS_link_knowndll: //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
-		case SYS_open_physmm: //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
-		case SYS_read_physmm: //¶ÁÎïÀíÄÚ´æ ÎÞ 
-		case SYS_write_physmm: //Ð´ÎïÀíÄÚ´æ ÎÞ 
-		case SYS_load_kmod: //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-		case SYS_load_mod: //¼ÓÔØÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-		case SYS_unload_mod: //Ð¶ÔØÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-		case SYS_enumproc: //Ã¶¾Ù½ø³Ì ÎÞ 
-		case SYS_regsrv: //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
-		case SYS_opendev: //´ò¿ªÉè±¸ Éè±¸Ãû 
+		case SYS_settime: //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
+		case SYS_link_knowndll: //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
+		case SYS_open_physmm: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
+		case SYS_read_physmm: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+		case SYS_write_physmm: //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+		case SYS_load_kmod: //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		case SYS_load_mod: //ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		case SYS_unload_mod: //Ð¶ï¿½ï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		case SYS_enumproc: //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+		case SYS_regsrv: //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		case SYS_opendev: //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 			_main_type = MT_sysmon; 
 			break; 
 			//MT_w32mon
-		case W32_postmsg: //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case W32_sendmsg: //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case W32_findwnd: //²éÕÒ´°¿Ú ÎÞ 
-		case W32_msghook: //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
-		case W32_lib_inject: //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+		case W32_postmsg: //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case W32_sendmsg: //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case W32_findwnd: //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+		case W32_msghook: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+		case W32_lib_inject: //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 			_main_type = MT_w32mon; 
 			break; 
 			//MT_netmon, 
 		case NET_create: 
-		case NET_connect: //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
-		case NET_listen: //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
-		case NET_send: //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+		case NET_connect: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+		case NET_listen: //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
+		case NET_send: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 		case NET_recv: 
 		case NET_accept: 
 
 		case NET_dns:
-		case NET_http: //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+		case NET_http: //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 		case NET_icmp_send: 
 		case NET_icmp_recv: 
 			_main_type = MT_netmon; 
 			break; 
 			//MT_behavior, 
-		case BA_extract_hidden: //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
-		case BA_extract_pe: //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
-		case BA_self_copy: //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
-		case BA_self_delete: //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
-		case BA_ulterior_exec: //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
-		case BA_invade_process: //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-		case BA_infect_pe: //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-		case BA_overwrite_pe: //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-		case BA_register_autorun: //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+		case BA_extract_hidden: //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
+		case BA_extract_pe: //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case BA_self_copy: //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case BA_self_delete: //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case BA_ulterior_exec: //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case BA_invade_process: //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case BA_infect_pe: //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case BA_overwrite_pe: //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+		case BA_register_autorun: //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_other: 
 			_main_type = MT_behavior; 
 			break; 
@@ -374,13 +367,13 @@ LRESULT WINAPI get_net_recv_desc( sys_action_record *action, action_context *ctx
 
 		//IP_ADDR_T local_ip_addr; 
 		//PORT_T local_port; 
-		//ULONG protocol; //Ð­Òé 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG protocol; //Ð­ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//IP_ADDR_T ip_addr; 
 		//PORT_T port; 
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_RECEIVE_DATA, 
-			_T( "½ÓÊÕÍøÂçÊý¾Ý( %s:%dÖÁ%s:%d )" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½( %s:%dï¿½ï¿½%s:%d )" ) ); 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -453,12 +446,12 @@ LRESULT WINAPI get_net_accept_desc( sys_action_record *action, action_context *c
 
 		//IP_ADDR_T local_ip_addr; 
 		//PORT_T local_port; 
-		//ULONG protocol; //Ð­Òé 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG protocol; //Ð­ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//IP_ADDR_T ip_addr; 
 		//PORT_T port; 
 
-		fmt = _T( "´Ó%s:%u½ÓÊÕ%s:%u µ½ %s Á¬½ÓÇëÇó\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½%s:%u ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n" ); 
 
 		ip_addr_2_str( action->do_net_accept.local_ip_addr, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 		ip_addr_2_str( action->do_net_accept.ip_addr, dest_ip_addr, ARRAY_SIZE( dest_ip_addr ) ); 
@@ -556,13 +549,13 @@ LRESULT WINAPI get_net_send_desc( sys_action_record *action, action_context *ctx
 
 		//IP_ADDR_T local_ip_addr; 
 		//PORT_T local_port; 
-		//ULONG protocol; //Ð­Òé 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG protocol; //Ð­ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//IP_ADDR_T ip_addr; 
 		//PORT_T port; 
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_SEND_DATA, 
-			_T( "·¢ËÍÍøÂçÊý¾Ý( %s:%dÖÁ%s:%d )" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½( %s:%dï¿½ï¿½%s:%d )" ) ); 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -645,8 +638,8 @@ LRESULT WINAPI get_net_create_desc( sys_action_record *action, action_context *c
 
 		//IP_ADDR_T local_ip_addr; 
 		//PORT_T local_port; 
-		//ULONG protocol; //Ð­Òé 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG protocol; //Ð­ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//IP_ADDR_T ip_addr; 
 		//PORT_T port; 
 
@@ -663,7 +656,7 @@ LRESULT WINAPI get_net_create_desc( sys_action_record *action, action_context *c
 			port_desc = get_port_desc( ( USHORT )action->do_net_create.port ); 
 
 			fmt = _get_string_by_id( TEXT_SYS_ACTION_CREATE_TCP_SOCKET, 
-				_T( "½«½¨Á¢ %s Ì×½Ó×Ö( %s:%dÖÁ%s:%d%s )" ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½×½ï¿½ï¿½ï¿½( %s:%dï¿½ï¿½%s:%d%s )" ) ); 
 
 			_ret = _snwprintf( tip, 
 				ccb_buf_len, 
@@ -678,7 +671,7 @@ LRESULT WINAPI get_net_create_desc( sys_action_record *action, action_context *c
 		else if( action->do_net_create.protocol == PROT_UDP )
 		{
 			fmt = _get_string_by_id( TEXT_SYS_ACTION_CREATE_UDP_SOCKET, 
-				_T( "½«½¨Á¢ %s Ì×½Ó×Ö( %s:%d )" ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½×½ï¿½ï¿½ï¿½( %s:%d )" ) ); 
 
 			_ret = _snwprintf( tip, 
 				ccb_buf_len, 
@@ -750,13 +743,13 @@ LRESULT WINAPI get_net_http_desc( sys_action_record *action, action_context *ctx
 			break; 
 		}
 
-		//ULONG protocol; //Ð­Òé 
-		//ULONG cmd; //HTTPÃüÁî 
-		//ULONG data_len; //·¢ËÍÊý¾Ý³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG protocol; //Ð­ï¿½ï¿½ 
+		//ULONG cmd; //HTTPï¿½ï¿½ï¿½ï¿½ 
+		//ULONG data_len; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		////WCHAR path_name[ 1 ]; //URL 
-		fmt = _T( "½«Óë %s Á¬½Ó/Í¨ÐÅ Ð­Òé %u ÃüÁî %u ÃüÁî³¤¶È %u \n" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½/Í¨ï¿½ï¿½ Ð­ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½î³¤ï¿½ï¿½ %u \n" ); 
 
 		ASSERT( action->do_net_http.path_name[ action->do_net_http.path_len ] == L'\0' ); 
 
@@ -831,7 +824,7 @@ LRESULT WINAPI get_ba_extract_hidden_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÊÍ·ÅÎÄ¼þ %s\n"; 
+		fmt = L"ï¿½Í·ï¿½ï¿½Ä¼ï¿½ %s\n"; 
 
 
 		ASSERT( action->do_ba_extract_hidden.path_name[ action->do_ba_extract_hidden.path_len ] == L'\0' ); 
@@ -906,7 +899,7 @@ LRESULT WINAPI get_ba_extract_pe_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÊÍ·ÅPEÎÄ¼þ %s\n"; 
+		fmt = L"ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ %s\n"; 
 
 		ASSERT( action->do_ba_extract_pe.path_name[ action->do_ba_extract_pe.path_len ] == L'\0' ); 
 
@@ -978,7 +971,7 @@ LRESULT WINAPI get_ba_self_copy_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"¿½±´×ÔÉíÎÄ¼þÖÁ %s\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ %s\n"; 
 
 
 		ASSERT( action->do_ba_self_copy.path_name[ action->do_ba_self_copy.path_len ] == L'\0' ); 
@@ -1051,7 +1044,7 @@ LRESULT WINAPI get_ba_self_delete_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Í¨¹ý %s É¾³ý×ÔÉíÎÄ¼þ\n"; 
+		fmt = L"Í¨ï¿½ï¿½ %s É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½\n"; 
 
 		ASSERT( action->do_ba_self_delete.path_name[ action->do_ba_self_delete.path_len ] == L'\0' ); 
 
@@ -1124,7 +1117,7 @@ LRESULT WINAPI get_ba_ulterior_exec_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Òþ±ÎÖ´ÐÐ³ÌÐò%s\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð³ï¿½ï¿½ï¿½%s\n"; 
 
 
 		ASSERT( action->do_ba_ulterior_exec.path_name[ action->do_ba_ulterior_exec.path_len ] == L'\0' ); 
@@ -1198,7 +1191,7 @@ LRESULT WINAPI get_ba_invade_process_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"×¢Èë½ø³Ì %s (ID:%u)\n"; 
+		fmt = L"×¢ï¿½ï¿½ï¿½ï¿½ï¿½ %s (ID:%u)\n"; 
 
 		ASSERT( action->do_ba_invade_process.path_name[ action->do_ba_invade_process.path_len ] == L'\0' ); 
 
@@ -1280,7 +1273,7 @@ LRESULT WINAPI get_ba_infect_pe_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"¸ÐÈ¾(Ð´Èë²¡¶¾´úÂë)¿ÉÖ´ÐÐ(PE)ÎÄ¼þ %s\n"; 
+		fmt = L"ï¿½ï¿½È¾(Ð´ï¿½ë²¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½Ö´ï¿½ï¿½(PE)ï¿½Ä¼ï¿½ %s\n"; 
 
 		
 		
@@ -1368,7 +1361,7 @@ LRESULT WINAPI get_ba_overwrite_pe_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÐÞ¸Ä¿ÉÖ´ÐÐ(PE)ÎÄ¼þ%s\n"; 
+		fmt = L"ï¿½Þ¸Ä¿ï¿½Ö´ï¿½ï¿½(PE)ï¿½Ä¼ï¿½%s\n"; 
 
 		
 		
@@ -1456,7 +1449,7 @@ LRESULT WINAPI get_ba_register_autorun_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"¼ÓÈë×Ô¶¯ÔËÐÐ³ÌÐò %s ÀàÐÍ%u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½%u\n"; 
 
 		
 		
@@ -1554,7 +1547,7 @@ LRESULT WINAPI get_file_remove_desc( sys_action_record *action, action_context *
 		
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_DELETE_FILE, 
-			_T( "É¾³ý±»±£»¤ÎÄ¼þ %s\n" ) ); 
+			_T( "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ %s\n" ) ); 
 
 		_name_len = action->do_file_remove.path_len; 
 
@@ -1670,7 +1663,7 @@ LRESULT WINAPI get_file_read_desc( sys_action_record *action, action_context *ct
 		
 		
 
-		fmt = _T( "¶ÁÈ¡ÎÄ¼þ %s Æ«ÒÆÁ¿ %I64u ³¤¶È %u\n"); 
+		fmt = _T( "ï¿½ï¿½È¡ï¿½Ä¼ï¿½ %s Æ«ï¿½ï¿½ï¿½ï¿½ %I64u ï¿½ï¿½ï¿½ï¿½ %u\n"); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -1788,7 +1781,7 @@ LRESULT WINAPI get_file_write_desc( sys_action_record *action, action_context *c
 		
 		
 
-		fmt = _T( "Ð´ÈëÎÄ¼þ %s Æ«ÒÆÁ¿ %I64u ³¤¶È %u\n"); 
+		fmt = _T( "Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ %s Æ«ï¿½ï¿½ï¿½ï¿½ %I64u ï¿½ï¿½ï¿½ï¿½ %u\n"); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -1912,7 +1905,7 @@ LRESULT WINAPI get_reg_mk_key_desc( sys_action_record *action,
 		break; 
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_MODIFY_REGISTRY, 
-			_T( "ÐÞ¸Ä±»±£»¤×¢²á±í¼ü/Öµ %s È¨ÏÞ 0x%0.8x \n" ) ); 
+			_T( "ï¿½Þ¸Ä±ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½/Öµ %s È¨ï¿½ï¿½ 0x%0.8x \n" ) ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2006,7 +1999,7 @@ LRESULT WINAPI get_proc_com_access_desc( sys_action_record *action,
 		break; 
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_INSTALL_COM, 
-			_T( "¼ÓÔØCOM×é¼þ %s," ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½COMï¿½ï¿½ï¿½ %s," ) ); 
 
 	}while( FALSE ); 
 
@@ -2058,7 +2051,7 @@ LRESULT WINAPI get_proc_readvm_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = _T( "Ö±½Ó¶Á½ø³Ì %s ½ø³ÌID %u ÄÚ´æ, »ùµØÖ· 0x%0.8x ³¤¶È %u\n" ); 
+		fmt = _T( "Ö±ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ID %u ï¿½Ú´ï¿½, ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½ %u\n" ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2150,7 +2143,7 @@ LRESULT WINAPI get_proc_exec_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = _T( "Éú³É½ø³Ì %s ½ø³ÌID %u\n" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ID %u\n" ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2265,7 +2258,7 @@ LRESULT WINAPI get_w32_msg_hook_desc( sys_action_record *action,
 			ASSERT( action->do_w32_msghook.path_len == 0 ); 
 		}
 
-		fmt = _T( "°²×°¹³×Óº¯Êý º¯Êý 0x%0.8x ÀàÐÍ %u Ä¿±ê½ø³ÌID %u ¹³×ÓÄ£¿é»ùÖ· 0x%0.8x ¹³×ÓÄ£¿éÂ·¾¶ %s\n" ); 
+		fmt = _T( "ï¿½ï¿½×°ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ %u Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID %u ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½Â·ï¿½ï¿½ %s\n" ); 
 
 		_ret = _sntprintf( tip, 
 			ccb_buf_len, 
@@ -2341,7 +2334,7 @@ LRESULT WINAPI get_w32_lib_inject_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Ïò½ø³Ì %s (ID:%u) ×¢Èë¶¯Ì¬¿â %s\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ %s (ID:%u) ×¢ï¿½ë¶¯Ì¬ï¿½ï¿½ %s\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2433,7 +2426,7 @@ LRESULT WINAPI get_net_connect_desc( sys_action_record *action, action_context *
 		}
 
 
-		fmt = _T( "´Ó%s:%uÁ¬½ÓÖÁ%s:%u %s¶Ë¿Ú\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%s:%u %sï¿½Ë¿ï¿½\n" ); 
 
 		ip_addr_2_str( action->do_net_connect.local_ip_addr, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 		ip_addr_2_str( action->do_net_connect.ip_addr, dest_ip_addr, ARRAY_SIZE( dest_ip_addr ) ); 
@@ -2510,7 +2503,7 @@ LRESULT WINAPI get_net_listen_desc( sys_action_record *action, action_context *c
 			break; 
 		}
 
-		fmt = _T( "¼àÌý%s:%u %s¶Ë¿Ú\n" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½ï¿½%s:%u %sï¿½Ë¿ï¿½\n" ); 
 
 		ip_addr_2_str( action->do_net_listen.local_ip_addr, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 
@@ -2600,7 +2593,7 @@ LRESULT WINAPI get_exec_create_desc( sys_action_record *action,
 		}
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_LOAD_DRIVER, 
-			_T( "Éú³É¿ÉÖ´ÐÐÎÄ¼þ %s," ) ); 
+			_T( "ï¿½ï¿½ï¿½É¿ï¿½Ö´ï¿½ï¿½ï¿½Ä¼ï¿½ %s," ) ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2730,7 +2723,7 @@ LRESULT WINAPI get_exec_module_load_desc( sys_action_record *action,
 		}
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_LOAD_DRIVER, 
-			_T( "¼ÓÔØDLL %s ÖÁ»ùµØÖ· 0x%0.8x %u\n" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½DLL %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö· 0x%0.8x %u\n" ) ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2850,7 +2843,7 @@ LRESULT WINAPI get_exec_destroy_desc( sys_action_record *action,
 		}
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_LOAD_DRIVER, 
-			_T( "¹Ø±Õ½ø³Ì %s %s\n" ) ); 
+			_T( "ï¿½Ø±Õ½ï¿½ï¿½ï¿½ %s %s\n" ) ); 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -2990,7 +2983,7 @@ LRESULT WINAPI get_file_touch_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"¸ü¸ÄÎÄ¼þ%s ÊôÐÔ\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½%s ï¿½ï¿½ï¿½ï¿½\n"; 
 
 		if( SAVE_INFO_BY_POINTER & flags )
 		{
@@ -3101,7 +3094,7 @@ LRESULT WINAPI get_file_open_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"´ò¿ªÎÄ¼þ%s\n"; 
+		fmt = L"ï¿½ï¿½ï¿½Ä¼ï¿½%s\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -3221,7 +3214,7 @@ LRESULT WINAPI get_file_modified_desc( sys_action_record *action,
 		}
 
 
-		fmt = L"ÐÞ¸ÄÎÄ¼þ%s\n"; //L"³É¹¦" : L"Ê§°Ü"
+		fmt = L"ï¿½Þ¸ï¿½ï¿½Ä¼ï¿½%s\n"; //L"ï¿½É¹ï¿½" : L"Ê§ï¿½ï¿½"
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -3339,7 +3332,7 @@ LRESULT WINAPI get_file_readdir_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"´ò¿ªÄ¿Â¼%s\n"; 
+		fmt = L"ï¿½ï¿½Ä¿Â¼%s\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -3458,7 +3451,7 @@ LRESULT WINAPI get_file_rename_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÖØÃüÃûÎÄ¼þ%sÎª%s\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½%sÎª%s\n"; 
 
 
 		if( flags & SAVE_INFO_BY_POINTER )
@@ -3598,7 +3591,7 @@ LRESULT WINAPI get_file_truncate_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"½Ø¶ÏÎÄ¼þ%s³¤¶ÈÖÁ%u\n"; 
+		fmt = L"ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½%sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%u\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -3718,7 +3711,7 @@ LRESULT WINAPI get_file_mklink_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Éú³ÉÎÄ¼þ%sÓ²Á´½Ó%s Ä£Ê½%u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½%sÓ²ï¿½ï¿½ï¿½ï¿½%s Ä£Ê½%u\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -3848,7 +3841,7 @@ LRESULT WINAPI get_file_chmod_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÐÞ¸ÄÎÄ¼þ%sÊôÐÔÎª%u\n"; 
+		fmt = L"ï¿½Þ¸ï¿½ï¿½Ä¼ï¿½%sï¿½ï¿½ï¿½ï¿½Îª%u\n"; 
 
 		
 
@@ -3969,7 +3962,7 @@ LRESULT WINAPI get_file_setsec_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÉèÖÃÎÄ¼þ%s°²È«ÊôÐÔ\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½%sï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4088,7 +4081,7 @@ LRESULT WINAPI get_file_getinfo_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"²éÑ¯ÎÄ¼þ%sÏà¹ØÐÅÏ¢\n"; 
+		fmt = L"ï¿½ï¿½Ñ¯ï¿½Ä¼ï¿½%sï¿½ï¿½ï¿½ï¿½ï¿½Ï¢\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4206,7 +4199,7 @@ LRESULT WINAPI get_file_setinfo_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÉèÖÃÎÄ¼þ%sÏà¹ØÐÅÏ¢\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½%sï¿½ï¿½ï¿½ï¿½ï¿½Ï¢\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4314,7 +4307,7 @@ LRESULT WINAPI get_reg_open_key_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"´ò¿ª×¢²á±í¼ü%s È¨ÏÞ%u\n"; 
+		fmt = L"ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s È¨ï¿½ï¿½%u\n"; 
 
 		if( SAVE_INFO_BY_POINTER & flags )
 		{
@@ -4397,7 +4390,7 @@ LRESULT WINAPI get_reg_mkkey_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Éú³É×¢²á±í¼ü%s È¨ÏÞ%u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s È¨ï¿½ï¿½%u\n"; 
 
 		ASSERT( action->do_reg_mkkey.path_name[ action->do_reg_mkkey.path_len ] == L'\0' ); 
 
@@ -4489,7 +4482,7 @@ LRESULT WINAPI get_reg_rmkey_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"É¾³ý×¢²á±í¼ü%s\n"; 
+		fmt = L"É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4579,7 +4572,7 @@ LRESULT WINAPI get_reg_mvkey_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÒÆ¶¯×¢²á±í¼ü %s ÖÁ %s \n"; 
+		fmt = L"ï¿½Æ¶ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ %s \n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4681,7 +4674,7 @@ LRESULT WINAPI get_reg_rmval_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"É¾³ý×¢²á±í¼üÖµ %s\n"; 
+		fmt = L"É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Öµ %s\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4771,14 +4764,14 @@ LRESULT WINAPI get_reg_getval_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"¶Á×¢²á±í¼ü%s Öµ %s ÀàÐÍ %u ³¤¶È %u\n"; 
+		fmt = L"ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s Öµ %s ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u\n"; 
 
-		//ULONG type; //×¢²á±íÖµÀàÐÍ 
-		//ULONG data_len; //Êý¾Ý³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG type; //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T val_name_len; 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4885,11 +4878,11 @@ LRESULT WINAPI get_reg_setval_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG tid; //¶¯×÷·¢ÆðÕßÏß³ÌID 
-		//ULONG type; //×¢²á±íÖµÀàÐÍ 
-		//ULONG data_len; //Êý¾Ý³¤¶È 
+		//ULONG tid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//ULONG type; //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 
-		fmt = L"ÐÞ¸Ä×¢²á±í¼ü%s %s Öµ %s ³¤¶È%u\n"; 
+		fmt = L"ï¿½Þ¸ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s %s Öµ %s ï¿½ï¿½ï¿½ï¿½%u\n"; 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -4996,12 +4989,12 @@ LRESULT WINAPI get_load_key_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"¼ÓÔØ×¢²á±í¼ü%s hiveÎÄ¼þ%s\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s hiveï¿½Ä¼ï¿½%s\n"; 
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		ASSERT( action->do_reg_loadkey.path_name[ action->do_reg_loadkey.path_len ] == L'\0' ); 
 
@@ -5080,13 +5073,13 @@ LRESULT WINAPI get_repl_key_desc( sys_action_record *action,
 			break; 
 		}
 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T hive_name_len; 
 		//PATH_SIZE_T new_hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
-		fmt = L"Ìæ»»×¢²á±í¼ü%s ´Ó %s ÖÁ %s HIVEÎÄ¼þ\n"; 
+		fmt = L"ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s ï¿½ï¿½ %s ï¿½ï¿½ %s HIVEï¿½Ä¼ï¿½\n"; 
 
 		ASSERT( action->do_reg_replkey.path_name[ action->do_reg_replkey.path_len ] == L'\0' ); 
 
@@ -5166,12 +5159,12 @@ LRESULT WINAPI get_rstr_key_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"HIVEÎÄ¼þ %s\n"; 
+		fmt = L"HIVEï¿½Ä¼ï¿½ %s\n"; 
 
-		//NTSTATUS result;//¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//NTSTATUS result;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T hive_name_len; 
-		//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+		//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		if( flags & SAVE_INFO_BY_POINTER )
 		{
@@ -5259,13 +5252,13 @@ LRESULT WINAPI get_proc_open_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG access; //½ø³Ì´ò¿ªÈ¨ÏÞ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG access; //ï¿½ï¿½ï¿½Ì´ï¿½È¨ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"ÒÔÈ¨ÏÞ %0.8x ´ò¿ªÄ¿±ê½ø³Ì %u\n"; 
+		fmt = L"ï¿½ï¿½È¨ï¿½ï¿½ %0.8x ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ %u\n"; 
 
 		ASSERT( action->do_proc_open.path_name[ action->do_proc_open.path_len ] == L'\0' ); 
 
@@ -5339,12 +5332,12 @@ LRESULT WINAPI get_proc_debug_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"µ÷ÊÔ½ø³Ì%u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½%u\n"; 
 
 		ASSERT( action->do_proc_debug.path_name[ action->do_proc_debug.path_len ] == L'\0' ); 
 
@@ -5416,12 +5409,12 @@ LRESULT WINAPI get_proc_suspend_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"¹ÒÆð½ø³Ì%u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%u\n"; 
 
 		ASSERT( action->do_proc_suspend.path_name[ action->do_proc_suspend.path_len ] == L'\0' );  
 
@@ -5493,7 +5486,7 @@ LRESULT WINAPI get_proc_resume_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"»Ö¸´½ø³Ì%s (ID:%u) Ö´ÐÐ\n"; 
+		fmt = L"ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½%s (ID:%u) Ö´ï¿½ï¿½\n"; 
 
 		ASSERT( action->do_proc_resume.path_name[ action->do_proc_resume.path_len ] == L'\0' ); 
 
@@ -5566,13 +5559,13 @@ LRESULT WINAPI get_proc_kill_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÖÐÖ¹½ø³Ì%s ID %u ÍË³ö´úÂë%u\n"; 
+		fmt = L"ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½%s ID %u ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½%u\n"; 
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG exitcode; //½ø³ÌÍÆ³öÂë 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG exitcode; //ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		ASSERT( action->do_proc_kill.path_name[ action->do_proc_kill.path_len ] == L'\0' ); 
 
@@ -5646,12 +5639,12 @@ LRESULT WINAPI get_proc_job_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR pathname[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶
+		//WCHAR pathname[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½
 	
-		fmt = L"¼ÓÈë½ø³Ì¹¤×÷×é %s ID:%u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ %s ID:%u\n"; 
 
 		ASSERT( action->do_proc_job.path_name[ action->do_proc_job.path_len ] == L'\0' ); 
 
@@ -5724,16 +5717,16 @@ LRESULT WINAPI get_proc_pg_prot_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //ÐÞ¸ÄÄÚ´æ»ùÖ· 
-		//ULONG count; //ÐÞ¸ÄÄÚ´æ³¤¶È 
-		//ACCESS_MASK attrib; //ÐÞ¸ÄÄÚ´æÊôÐÔ 
-		//ULONG bytes_changed; //³É¹¦ÐÞ¸Ä³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG count; //ï¿½Þ¸ï¿½ï¿½Ú´æ³¤ï¿½ï¿½ 
+		//ACCESS_MASK attrib; //ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG bytes_changed; //ï¿½É¹ï¿½ï¿½Þ¸Ä³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"ÐÞ¸Ä½ø³Ì %s (ID:%u) ÄÚ´æ 0x%0.8x (³¤¶È:%u) ÊôÐÔÖÁ0x%0.8x (ÐÞ¸Ä½á¹û³¤¶È:%u)\n"; 
+		fmt = L"ï¿½Þ¸Ä½ï¿½ï¿½ï¿½ %s (ID:%u) ï¿½Ú´ï¿½ 0x%0.8x (ï¿½ï¿½ï¿½ï¿½:%u) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0x%0.8x (ï¿½Þ¸Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u)\n"; 
 
 		ASSERT( action->do_proc_pgprot.path_name[ action->do_proc_pgprot.path_len ] == L'\0' ); 
 
@@ -5810,16 +5803,16 @@ LRESULT WINAPI get_proc_free_vm_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÊÍ·Å½ø³Ì %s (ID:%u) ÄÚ´æ 0x%0.8x (³¤¶È:%u ÀàÐÍ:%u) (ÊÍ·Å½á¹û³¤¶È:%u\n)\n"; 
+		fmt = L"ï¿½Í·Å½ï¿½ï¿½ï¿½ %s (ID:%u) ï¿½Ú´ï¿½ 0x%0.8x (ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½:%u) (ï¿½Í·Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u\n)\n"; 
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //ÊÍ·ÅÄÚ´æ»ùÖ· 
-		//ULONG count; //ÊÍ·ÅÄÚ´æ³¤¶È 
-		//ULONG type; //ÊÍ·ÅÄÚ´æÀàÐÍ 
-		//ULONG bytes_freed; //³É¹¦ÊÍ·Å³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //ï¿½Í·ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG count; //ï¿½Í·ï¿½ï¿½Ú´æ³¤ï¿½ï¿½ 
+		//ULONG type; //ï¿½Í·ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG bytes_freed; //ï¿½É¹ï¿½ï¿½Í·Å³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 
 		ASSERT( action->do_proc_freevm.path_name[ action->do_proc_freevm.path_len ] == L'\0' ); 
@@ -5897,15 +5890,15 @@ LRESULT WINAPI get_proc_write_vm_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //Ð´ÈëÄÚ´æ»ùÖ· 
-		//ULONG data_len; //ÊÔÍ¼Ð´Èë³¤¶È 
-		//ULONG bytes_written; //³É¹¦Ð´Èë³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //Ð´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG data_len; //ï¿½ï¿½Í¼Ð´ï¿½ë³¤ï¿½ï¿½ 
+		//ULONG bytes_written; //ï¿½É¹ï¿½Ð´ï¿½ë³¤ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"Ð´Èë½ø³Ì%s (ID:%u) ÄÚ´æ 0x%0.8x (³¤¶È:%u) (Ð´Èë½á¹û³¤¶È:%u)\n"; 
+		fmt = L"Ð´ï¿½ï¿½ï¿½ï¿½ï¿½%s (ID:%u) ï¿½Ú´ï¿½ 0x%0.8x (ï¿½ï¿½ï¿½ï¿½:%u) (Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u)\n"; 
 
 		ASSERT( action->do_proc_writevm.path_name[ action->do_proc_writevm.path_len ] == L'\0' ); 
 
@@ -5982,16 +5975,16 @@ LRESULT WINAPI get_proc_read_vm_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"¶ÁÈ¡½ø³Ì %s (ID:%u) ÄÚ´æ 0x%0.8x (³¤¶È:%u) (¶ÁÈ¡½á¹û³¤¶È:%u)\n"; 
+		fmt = L"ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ %s (ID:%u) ï¿½Ú´ï¿½ 0x%0.8x (ï¿½ï¿½ï¿½ï¿½:%u) (ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u)\n"; 
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//PVOID base; //¶ÁÈ¡ÄÚ´æ»ùÖ· 
-		//ULONG data_len; //ÊÔÍ¼¶ÁÈ¡³¤¶È 
-		//ULONG bytes_read; //³É¹¦¶ÁÈ¡³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//PVOID base; //ï¿½ï¿½È¡ï¿½Ú´ï¿½ï¿½Ö· 
+		//ULONG data_len; //ï¿½ï¿½Í¼ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG bytes_read; //ï¿½É¹ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		////WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		////WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		ASSERT( action->do_proc_readvm.path_name[ action->do_proc_readvm.path_len ] == L'\0' ); 
 
@@ -6070,18 +6063,18 @@ LRESULT WINAPI get_thread_remote_desc( sys_action_record *action,
 		}
 
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//ACCESS_MASK access; //Ïß³Ì´´½¨È¨ÏÞ 
-		//BOOLEAN suspended; //ÊÇ·ñ¹ÒÆð·½Ê½´´½¨ 
-		//PVOID start_vaddr; //Ïß³ÌÆðÊ¼µØÖ· 
-		//PVOID thread_param; //Ïß³Ì²ÎÊý 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//ACCESS_MASK access; //ï¿½ß³Ì´ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//BOOLEAN suspended; //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ 
+		//PVOID start_vaddr; //ï¿½ß³ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 
+		//PVOID thread_param; //ï¿½ß³Ì²ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		////WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		////WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"´´½¨½ø³Ì%s (ID:%u) Ô¶³ÌÏß³Ì (ID:%u) È¨ÏÞ:%u ¹ÒÆð %u ÆôÊ¼µØÖ· 0x%0.8x ²ÎÊý 0x%0.8x\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%s (ID:%u) Ô¶ï¿½ï¿½ï¿½ß³ï¿½ (ID:%u) È¨ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 0x%0.8x ï¿½ï¿½ï¿½ï¿½ 0x%0.8x\n"; 
 
 		ASSERT( action->do_thrd_remote.path_name[ action->do_thrd_remote.path_len ] == L'\0' ); 
 
@@ -6159,13 +6152,13 @@ LRESULT WINAPI get_thread_set_ctxt_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"ÉèÖÃ½ø³Ì%s (ID:%u) Ïß³Ì:%u »·¾³²ÎÊý\n"; 
+		fmt = L"ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½%s (ID:%u) ï¿½ß³ï¿½:%u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n"; 
 
 		ASSERT( action->do_thrd_setctxt.path_name[ action->do_thrd_setctxt.path_len ] == L'\0' ); 
 
@@ -6239,13 +6232,13 @@ LRESULT WINAPI get_thread_suspend_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"¹ÒÆð½ø³Ì%s (ID:%u) Ïß³Ì:%u\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%s (ID:%u) ï¿½ß³ï¿½:%u\n"; 
 
 		ASSERT( action->do_thrd_suspend.path_name[ action->do_thrd_suspend.path_len ] == L'\0' ); 
 
@@ -6319,7 +6312,7 @@ LRESULT WINAPI get_thread_resume_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"»Ö¸´½ø³Ì%s (ID:%u) Ïß³Ì:%u ÔËÐÐ\n"; 
+		fmt = L"ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½%s (ID:%u) ï¿½ß³ï¿½:%u ï¿½ï¿½ï¿½ï¿½\n"; 
 
 		ASSERT( action->do_thrd_resume.path_name[ action->do_thrd_resume.path_len ] == L'\0' ); 
 
@@ -6393,14 +6386,14 @@ LRESULT WINAPI get_thread_kill_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//ULONG exitcode; //Ïß³ÌÍË³öÂë 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//ULONG exitcode; //ï¿½ß³ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"ÖÐÖ¹½ø³Ì %s (ID:%u) Ïß³Ì%u ÍË³ö´úÂë:0x%0.8x\n"; 
+		fmt = L"ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ %s (ID:%u) ï¿½ß³ï¿½%u ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½:0x%0.8x\n"; 
 
 		ASSERT( action->do_thrd_kill.path_name[ action->do_thrd_kill.path_len ] == L'\0' ); 
 
@@ -6475,13 +6468,13 @@ LRESULT WINAPI get_thread_queue_apc_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//ULONG target_tid; //Ä¿±êÏß³ÌID 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½
 
-		fmt = L"Ìí¼Ó½ø³Ì %s (ID:%u) Ïß³Ì %u APC ¶ÓÁÐ\n"; 
+		fmt = L"ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ %s (ID:%u) ï¿½ß³ï¿½ %u APC ï¿½ï¿½ï¿½ï¿½\n"; 
 
 		ASSERT( action->do_thrd_queue_apc.path_name[ action->do_thrd_queue_apc.path_len ] == L'\0' ); 
 
@@ -6555,7 +6548,7 @@ LRESULT WINAPI get_sys_settime_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"ÉèÖÃÏµÍ³Ê±¼ä %u(Ïà¶ÔÊ±¼ä)\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ %u(ï¿½ï¿½ï¿½Ê±ï¿½ï¿½)\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -6625,7 +6618,7 @@ LRESULT WINAPI get_sys_link_knowndll_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Á´½ÓÏµÍ³ Known Dll(¶¯Ì¬¿â) %s\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ÏµÍ³ Known Dll(ï¿½ï¿½Ì¬ï¿½ï¿½) %s\n"; 
 
 		ASSERT( action->do_sys_link_knowndll.path_name[ action->do_sys_link_knowndll.path_len ] == L'\0' ); 
 
@@ -6697,10 +6690,10 @@ LRESULT WINAPI get_sys_open_physmm_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ACCESS_MASK access; //´ò¿ªÈ¨ÏÞ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ACCESS_MASK access; //ï¿½ï¿½È¨ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 
-		fmt = L"ÏµÍ³ÄÚ´æÉè±¸(PhysicalMemory) È¨ÏÞ:0x%0.8x\n"; 
+		fmt = L"ÏµÍ³ï¿½Ú´ï¿½ï¿½è±¸(PhysicalMemory) È¨ï¿½ï¿½:0x%0.8x\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -6770,11 +6763,11 @@ LRESULT WINAPI get_sys_read_physmm_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG offset; //¶ÁÈ¡Æ«ÒÆ 
-		//ULONG count; //¶ÁÈ¡³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG offset; //ï¿½ï¿½È¡Æ«ï¿½ï¿½ 
+		//ULONG count; //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 
-		fmt = L"ÏµÍ³ÄÚ´æ Æ«ÒÆ:%u ³¤¶È%u\n"; 
+		fmt = L"ÏµÍ³ï¿½Ú´ï¿½ Æ«ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½%u\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -6846,11 +6839,11 @@ LRESULT WINAPI get_sys_write_physmm_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG offset; //Ð´ÈëÆ«ÒÆ 
-		//ULONG count; //Ð´Èë³¤¶È 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG offset; //Ð´ï¿½ï¿½Æ«ï¿½ï¿½ 
+		//ULONG count; //Ð´ï¿½ë³¤ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 
-		fmt = L"Ð´ÈëÏµÍ³ÄÚ´æÉè±¸(PhysicalMemory) Æ«ÒÆ %u ³¤¶È %u\n"; 
+		fmt = L"Ð´ï¿½ï¿½ÏµÍ³ï¿½Ú´ï¿½ï¿½è±¸(PhysicalMemory) Æ«ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ %u\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -6929,7 +6922,7 @@ LRESULT WINAPI get_sys_load_kmod_desc( sys_action_record *action, action_context
 		}
 
 		fmt = _get_string_by_id( TEXT_SYS_ACTION_LOAD_DRIVER, 
-			_T( "¼ÓÔØÇý¶¯ %s," ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s," ) ); 
 
 
 		if( flags & SAVE_INFO_BY_POINTER )
@@ -7032,7 +7025,7 @@ LRESULT WINAPI get_sys_enumproc_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = L"Ã¶¾Ù½ø³Ì\n"; 
+		fmt = L"Ã¶ï¿½Ù½ï¿½ï¿½ï¿½\n"; 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -7102,15 +7095,15 @@ LRESULT WINAPI get_sys_regsrv_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ACCESS_MASK access; //·þÎñ´´½¨/´ò¿ªÈ¨ÏÞ 
-		//ULONG type; //·þÎñÀàÐÍ 
-		//ULONG starttype; //·þÎñÆô¶¯ÀàÐÍ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ACCESS_MASK access; //ï¿½ï¿½ï¿½ñ´´½ï¿½/ï¿½ï¿½È¨ï¿½ï¿½ 
+		//ULONG type; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG starttype; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//PATH_SIZE_T srv_name_len; 
-		//WCHAR path_name[ 1 ]; //Çý¶¯/·þÎñÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"×¢²á·þÎñ(Çý¶¯) %s ÎÄ¼þÂ·¾¶ %s ÀàÐÍ %u Æô¶¯ÀàÐÍ %u È¨ÏÞ 0x%0.8x\n"; 
+		fmt = L"×¢ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) %s ï¿½Ä¼ï¿½Â·ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ %u ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %u È¨ï¿½ï¿½ 0x%0.8x\n"; 
 
 		ASSERT( action->do_sys_regsrv.path_name[ action->do_sys_regsrv.path_len ] == L'\0' ); 
 
@@ -7190,14 +7183,14 @@ LRESULT WINAPI get_sys_opendev_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG devtype; //Éè±¸ÀàÐÍ 
-		//ULONG access; //Éè±¸´ò¿ªÈ¨ÏÞ 
-		//ULONG share; //Éè±¸¹²ÏíÈ¨ÏÞ 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG devtype; //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG access; //ï¿½è±¸ï¿½ï¿½È¨ï¿½ï¿½ 
+		//ULONG share; //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
 		//union
 		//{
-		//	WCHAR path_name[ 1 ]; //Éè±¸Â·¾¶ 
+		//	WCHAR path_name[ 1 ]; //ï¿½è±¸Â·ï¿½ï¿½ 
 
 		//	struct 
 		//	{
@@ -7205,7 +7198,7 @@ LRESULT WINAPI get_sys_opendev_desc( sys_action_record *action,
 		//	};
 		//};
 
-		fmt = L"´ò¿ªÉè±¸ %s ÀàÐÍ%u È¨ÏÞ 0x%0.8x ¹²ÏíÈ¨ÏÞ 0x%0.8x\n"; 
+		fmt = L"ï¿½ï¿½ï¿½è±¸ %s ï¿½ï¿½ï¿½ï¿½%u È¨ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 0x%0.8x\n"; 
 
 		ASSERT( action->do_sys_opendev.path_name[ action->do_sys_opendev.path_len ] == L'\0' ); 
 
@@ -7280,16 +7273,16 @@ LRESULT WINAPI get_w32_postmsg_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//HWND hwnd; //Ä¿±ê´°¿Ú¾ä±ú 
-		//ULONG msg; //´°¿ÚÏûÏ¢ 
-		//WPARAM wparam; //ÏûÏ¢²ÎÊý1 
-		//LPARAM lparam; //ÏûÏ¢²ÎÊý2 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(BOOL) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//HWND hwnd; //Ä¿ï¿½ê´°ï¿½Ú¾ï¿½ï¿½ 
+		//ULONG msg; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+		//WPARAM wparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½1 
+		//LPARAM lparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½2 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(BOOL) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"Ïò½ø³Ì %s (ID:%u) ´°Ìå 0x%0.8x ·¢ËÍÏûÏ¢ %u ²ÎÊý1 0x%0.8x ²ÎÊý2 0x%0.8x\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ %s (ID:%u) ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ %u ï¿½ï¿½ï¿½ï¿½1 0x%0.8x ï¿½ï¿½ï¿½ï¿½2 0x%0.8x\n"; 
 
 		ASSERT( action->do_w32_postmsg.path_name[ action->do_w32_postmsg.path_len ] == L'\0' ); 
 
@@ -7366,16 +7359,16 @@ LRESULT WINAPI get_sendmsg_desc( sys_action_record *action,
 			break; 
 		}
 
-		//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-		//HWND hwnd; //Ä¿±ê´°¿Ú¾ä±ú 
-		//ULONG msg; //´°¿ÚÏûÏ¢ 
-		//WPARAM wparam; //ÏûÏ¢²ÎÊý1 
-		//LPARAM lparam; //ÏûÏ¢²ÎÊý2 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(LRESULT) 
+		//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		//HWND hwnd; //Ä¿ï¿½ê´°ï¿½Ú¾ï¿½ï¿½ 
+		//ULONG msg; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+		//WPARAM wparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½1 
+		//LPARAM lparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½2 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(LRESULT) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
-		fmt = L"Ïò½ø³Ì %s (ID:%u) ´°Ìå 0x%0.8x ·¢ËÍÏûÏ¢ %u ²ÎÊý1 0x%0.8x ²ÎÊý2 0x%0.8x\n"; 
+		fmt = L"ï¿½ï¿½ï¿½ï¿½ï¿½ %s (ID:%u) ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ %u ï¿½ï¿½ï¿½ï¿½1 0x%0.8x ï¿½ï¿½ï¿½ï¿½2 0x%0.8x\n"; 
 
 		ASSERT( action->do_w32_sendmsg.path_name[ action->do_w32_sendmsg.path_len ] == L'\0' ); 
 
@@ -7453,14 +7446,14 @@ LRESULT WINAPI get_w32_findwnd_desc( sys_action_record *action,
 			break; 
 		}
 
-		//HWND parent_hwnd; //¸¸´°¿Ú¾ä±ú 
-		//HWND sub_hwnd; //×Ó´°¿Ú¾ä±ú 
-		//NTSTATUS result; //¶¯×÷Íê³É½á¹û(HWND) 
+		//HWND parent_hwnd; //ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ 
+		//HWND sub_hwnd; //ï¿½Ó´ï¿½ï¿½Ú¾ï¿½ï¿½ 
+		//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(HWND) 
 		//PATH_SIZE_T cls_name_len; 
 		//PATH_SIZE_T wnd_name_len; 
-		//WCHAR cls_name[ 1 ]; //´°¿ÚÀàÃû
+		//WCHAR cls_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		fmt = L"²éÕÒ¸¸´°Ìå 0x%0.8x ×Ó´°Ìå 0x%0.8x ´°Ìå (ÀàÃû %s ´°ÌåÃû %s)\n"; 
+		fmt = L"ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ï¿½ 0x%0.8x ï¿½Ó´ï¿½ï¿½ï¿½ 0x%0.8x ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s)\n"; 
 
 		ASSERT( action->do_w32_findwnd.cls_name[ action->do_w32_findwnd.cls_name_len ] == L'\0' ); 
 
@@ -7554,7 +7547,7 @@ LRESULT WINAPI get_access_file_desc( sys_action_record *action, action_context *
 			break; 
 		}
 
-		fmt = _T( "·ÃÎÊÎÄ¼þ %s," ); 
+		fmt = _T( "ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ %s," ); 
 
 		_name_len = wcslen( action->file_info.path_name ); 
 
@@ -7663,7 +7656,7 @@ LRESULT WINAPI get_modify_file_desc( sys_action_record *action,
 			break; 
 		}
 
-		fmt = _T( " ÐÞ¸ÄÎÄ¼þ%s\n" ); 
+		fmt = _T( " ï¿½Þ¸ï¿½ï¿½Ä¼ï¿½%s\n" ); 
 
 		if( flags & LOAD_DATA_PTR_PARAM )
 		{
@@ -7790,7 +7783,7 @@ LRESULT WINAPI get_delete_file_desc( sys_action_record *action, action_context *
 			break; 
 		}
 
-		fmt = _T( " É¾³ýÎÄ¼þ%s\n" ); 
+		fmt = _T( " É¾ï¿½ï¿½ï¿½Ä¼ï¿½%s\n" ); 
 
 		if( flags & LOAD_DATA_PTR_PARAM )
 		{
@@ -7893,7 +7886,7 @@ LRESULT WINAPI get_modify_key_desc( sys_action_record *action, action_context *c
 			break; 
 		}
 
-		fmt = _T( " ÐÞ¸Ä×¢²á±í¼ü%s\n" ); 
+		fmt = _T( " ï¿½Þ¸ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½%s\n" ); 
 
 		if( flags & LOAD_DATA_PTR_PARAM )
 		{
@@ -7988,7 +7981,7 @@ LRESULT WINAPI get_create_proc_desc( sys_action_record *action, action_context *
 			break; 
 		}
 
-		fmt = _T( "Éú³É½ø³Ì%s\n" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½%s\n" ); 
 
 		if( flags & LOAD_DATA_PTR_PARAM )
 		{
@@ -8102,7 +8095,7 @@ LRESULT WINAPI get_terminate_proc_desc( sys_action_record *action, action_contex
 			break; 
 		}
 
-		fmt = _T( "ÖÐÖ¹½ø³Ì %s\n" ); 
+		fmt = _T( "ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ %s\n" ); 
 
 		if( flags & LOAD_DATA_PTR_PARAM )
 		{
@@ -8216,7 +8209,7 @@ LRESULT WINAPI get_access_com_desc( sys_action_record *action, action_context *c
 			break; 
 		}
 
-		fmt = _T( "·ÃÎÊCOM×é¼þ%s\n" ); 
+		fmt = _T( "ï¿½ï¿½ï¿½ï¿½COMï¿½ï¿½ï¿½%s\n" ); 
 
 		if( flags & LOAD_DATA_PTR_PARAM )
 		{
@@ -8476,7 +8469,7 @@ LRESULT WINAPI get_socket_create_desc( sys_action_record *action, action_context
 			break; 
 		}
 
-		fmt = _T( "ÔÚ%s:%uÉú³É%sÌ×½Ó×Ö\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½%sï¿½×½ï¿½ï¿½ï¿½\n" ); 
 
 		param = get_prot_type_desc( action->socket_info.prot ); 
 		ASSERT( param != NULL ); 
@@ -8563,7 +8556,7 @@ LRESULT WINAPI get_socket_connect_desc( sys_action_record *action, action_contex
 			break; 
 		}
 
-		fmt = _T( "´Ó%s:%uÁ¬½ÓÖÁ%s:%u %s¶Ë¿Ú\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%s:%u %sï¿½Ë¿ï¿½\n" ); 
 
 		ip_addr_2_str( action->socket_info.src_ip, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 		ip_addr_2_str( action->socket_info.dest_ip, dest_ip_addr, ARRAY_SIZE( dest_ip_addr ) ); 
@@ -8651,7 +8644,7 @@ LRESULT WINAPI get_socket_listen_desc( sys_action_record *action, action_context
 			break; 
 		}
 
-		fmt = _T( "ÔÚ%s:%u¼àÌýTCPÁ¬½ÓÇëÇó\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½TCPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n" ); 
 
 		ip_addr_2_str( action->socket_info.src_ip, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 
@@ -8734,7 +8727,7 @@ LRESULT WINAPI get_socket_send_desc( sys_action_record *action, action_context *
 			break; 
 		}
 
-		fmt = _T( "´Ó%s:%u·¢ËÍÖÁ%s:%u %s Êý¾Ý\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%s:%u %s ï¿½ï¿½ï¿½ï¿½\n" ); 
 
 		ip_addr_2_str( action->socket_info.src_ip, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 		ip_addr_2_str( action->socket_info.dest_ip, dest_ip_addr, ARRAY_SIZE( dest_ip_addr ) ); 
@@ -8822,7 +8815,7 @@ LRESULT WINAPI get_socket_recv_desc( sys_action_record *action, action_context *
 			break; 
 		}
 
-		fmt = _T( "´Ó%s:%u½ÓÊÕ%s:%u %s Êý¾Ý\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½%s:%u %s ï¿½ï¿½ï¿½ï¿½\n" ); 
 
 		ip_addr_2_str( action->socket_info.src_ip, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 		ip_addr_2_str( action->socket_info.dest_ip, dest_ip_addr, ARRAY_SIZE( dest_ip_addr ) ); 
@@ -8910,7 +8903,7 @@ LRESULT WINAPI get_socket_accept_desc( sys_action_record *action, action_context
 			break; 
 		}
 
-		fmt = _T( "´Ó%s:%u½ÓÊÕ%s:%u %s Á¬½ÓÇëÇó\n" ); 
+		fmt = _T( "ï¿½ï¿½%s:%uï¿½ï¿½ï¿½ï¿½%s:%u %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n" ); 
 
 		ip_addr_2_str( action->socket_info.src_ip, src_ip_addr, ARRAY_SIZE( src_ip_addr ) ); 
 		ip_addr_2_str( action->socket_info.dest_ip, dest_ip_addr, ARRAY_SIZE( dest_ip_addr ) ); 
@@ -9055,7 +9048,7 @@ LRESULT WINAPI get_icmp_send_desc( sys_action_record *action, action_context *ct
 		ip_addr_2_str( action->icmp_info.src_ip, src_ip_addr, IPV4_ADDR_LEN ); 
 		ip_addr_2_str( action->icmp_info.dest_ip, dest_ip_addr, IPV4_ADDR_LEN ); 
 		
-		fmt = _T( "´Ó%s Ïò %s ·¢ËÍICMPÃüÁî %u %u\n" ); 
+		fmt = _T( "ï¿½ï¿½%s ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½ï¿½ï¿½ %u %u\n" ); 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9139,7 +9132,7 @@ LRESULT WINAPI get_icmp_recv_desc( sys_action_record *action, action_context *ct
 		ip_addr_2_str( action->icmp_info.src_ip, src_ip_addr, IPV4_ADDR_LEN ); 
 		ip_addr_2_str( action->icmp_info.dest_ip, dest_ip_addr, IPV4_ADDR_LEN ); 
 
-		fmt = _T( "[%s] ´Ó%s½ÓÊÕICMPÃüÁî %u %u\n" ); 
+		fmt = _T( "[%s] ï¿½ï¿½%sï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½ï¿½ï¿½ %u %u\n" ); 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9215,7 +9208,7 @@ LRESULT _get_icmp_send_desc( sys_action_record *action, action_context *ctx, pre
 		ip_addr_2_str( action->do_net_icmp_send.src_ip, src_ip_addr, IPV4_ADDR_LEN ); 
 		ip_addr_2_str( action->do_net_icmp_send.dest_ip, dest_ip_addr, IPV4_ADDR_LEN ); 
 
-		fmt = _T( "´Ó%s Ïò %s ·¢ËÍICMPÃüÁî %u %u\n" ); 
+		fmt = _T( "ï¿½ï¿½%s ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½ï¿½ï¿½ %u %u\n" ); 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9289,7 +9282,7 @@ LRESULT _get_icmp_recv_desc( sys_action_record *action, action_context *ctx, pre
 		ip_addr_2_str( action->do_net_icmp_recv.src_ip, src_ip_addr, IPV4_ADDR_LEN ); 
 		ip_addr_2_str( action->do_net_icmp_recv.dest_ip, dest_ip_addr, IPV4_ADDR_LEN ); 
 
-		fmt = _T( "[%s] ´Ó%s½ÓÊÕICMPÃüÁî %u %u\n" ); 
+		fmt = _T( "[%s] ï¿½ï¿½%sï¿½ï¿½ï¿½ï¿½ICMPï¿½ï¿½ï¿½ï¿½ %u %u\n" ); 
 
 		_ret = _snwprintf( tip, 
 			ccb_buf_len, 
@@ -9406,7 +9399,7 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 				ret = ERROR_SUCCESS; 
 			}
 
-			_ret = _sntprintf( _T( "Ó¦ÓÃ³ÌÐò %s " ), ccb_buf_len, app_name ); 
+			_ret = _sntprintf( _T( "Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ %s " ), ccb_buf_len, app_name ); 
 			if( _ret <= 0 )
 			{
 				ret = ERROR_ERRORS_ENCOUNTERED; 
@@ -9531,23 +9524,23 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 #endif //COMPATIBLE_OLD_ACTION_DEFINE
 		case EXEC_create:
 			ret = get_exec_create_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 		case EXEC_destroy:
 			ret = get_exec_destroy_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case EXEC_module_load:
 			ret = get_exec_module_load_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+			break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_filemon, 
 		case FILE_touch:
 			ret = get_file_touch_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 		case FILE_open:
 			ret = get_file_open_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_read:
 			ret = get_file_read_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
@@ -9555,36 +9548,36 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 		case FILE_write:
 			ret = get_file_write_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_file_write_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_modified:
 			ret = get_file_modified_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_readdir:
 			ret = get_file_readdir_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 		case FILE_remove:
 			ret = get_file_remove_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_file_remove_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 
-			break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_rename:
 			ret = get_file_rename_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_truncate:
 			ret = get_file_truncate_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_mklink:
 			ret = get_file_mklink_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_chmod:
 			ret = get_file_chmod_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_setsec:
 			ret = get_file_setsec_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_getinfo: 
 			ret = get_file_getinfo_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			break; 
@@ -9597,102 +9590,102 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 			//MT_regmon, 
 		case REG_openkey:
 			ret = get_reg_open_key_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+			break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 
 		case REG_mkkey:
 			ret = get_reg_mkkey_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_reg_mk_key_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//case MODIFY_KEY
 			//	break; 
 		case REG_rmkey:
 			ret = get_reg_rmkey_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_mvkey:
 			ret = get_reg_mvkey_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rmval:
 			ret = get_reg_rmval_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getval:
 			ret = get_reg_getval_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_setval:
 			ret = get_reg_setval_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_loadkey:
 			ret = get_load_key_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_replkey:
 			ret = get_repl_key_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rstrkey:
 			ret = get_rstr_key_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
-			//break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+			//break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//MT_procmon, 
 		case PROC_exec:
 			ret = get_proc_exec_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 
 		case PROC_open:
 			ret = get_proc_open_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_debug:
 			ret = get_proc_debug_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_suspend:
 			ret = get_proc_suspend_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_resume:
 			ret = get_proc_resume_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_exit:
 			ret = get_proc_kill_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case PROC_job:
 			ret = get_proc_job_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_pgprot:
 			ret = get_proc_pg_prot_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_freevm:
 			ret = get_proc_free_vm_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_writevm:
 			ret = get_proc_write_vm_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_readvm:
 			ret = get_proc_read_vm_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_proc_readvm_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_remote:
 			ret = get_thread_remote_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_setctxt:
 			ret = get_thread_set_ctxt_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_suspend:
 			ret = get_thread_suspend_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_resume:
 			ret = get_thread_resume_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_exit:
 			ret = get_thread_kill_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_queue_apc:
 			ret = get_thread_queue_apc_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_common
 			//case COM_access:
@@ -9700,52 +9693,52 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 			//MT_sysmon
 		case SYS_settime:
 			ret = get_sys_settime_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_link_knowndll:
 			ret = get_sys_link_knowndll_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+			break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 		case SYS_open_physmm:
 			ret = get_sys_open_physmm_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 
 		case SYS_read_physmm:
 			ret = get_sys_read_physmm_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_write_physmm: 
 			ret = get_sys_write_physmm_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+			break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_load_kmod:
 			ret = get_sys_load_kmod_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 			//case INSTALL_DRV:
 			//	break; 
 		case SYS_enumproc:
 			ret = get_sys_enumproc_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ã¶¾Ù½ø³Ì ÎÞ 
+			break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_regsrv:
 			ret = get_sys_regsrv_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		case SYS_opendev:
 			ret = get_sys_opendev_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+			break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 			//MT_w32mon
 		case W32_postmsg:
 			ret = get_w32_postmsg_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_sendmsg:
 			ret = get_sendmsg_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_findwnd:
 			ret = get_w32_findwnd_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //²éÕÒ´°¿Ú ÎÞ 
+			break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case W32_msghook:
 			ret = get_w32_msg_hook_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 
 		case W32_lib_inject:
 			ret = get_w32_lib_inject_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+			break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_netmon
 		case NET_create:
@@ -9754,17 +9747,17 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 
 		case NET_connect:
 			ret = get_net_connect_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 			//case SOCKET_CONNECT:
 			//	break; 
 		case NET_listen:
 			ret = get_net_listen_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_LISTEN:
 			//	break; 
 		case NET_send:
 			ret = get_net_send_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_SEND:
 			//	break; 
 		case NET_recv:
@@ -9779,7 +9772,7 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 			//	break; 
 		case NET_http: 
 			ret = get_net_http_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 
 		case NET_icmp_send:
 			ret = _get_icmp_send_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
@@ -9790,32 +9783,32 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 			//MT_behavior, 
 		case BA_extract_hidden:
 			ret = get_ba_extract_hidden_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+			break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 		case BA_extract_pe:
 			ret = get_ba_extract_pe_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_copy:
 			ret = get_ba_self_copy_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_delete:
 			ret = get_ba_self_delete_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_ulterior_exec:
 			ret = get_ba_ulterior_exec_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_invade_process:
 			ret = get_ba_invade_process_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_infect_pe:
 			ret = get_ba_infect_pe_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 
-			break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_overwrite_pe:
 			ret = get_ba_overwrite_pe_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_register_autorun:
 			ret = get_ba_register_autorun_desc( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//case BA_other:
 			//desc = L"BA_other"; 
@@ -9828,7 +9821,7 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 		case OTHER_ACTION:
 			{
 				tmp_fmt = _get_string_by_id( TEXT_SYS_ACTION_PROCTECTED_ACTION, 
-					_T( "Ö´ÐÐ±»±£»¤²Ù×÷" ) ); 
+					_T( "Ö´ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 				_ret = _snwprintf( tip, ccb_buf_len, tmp_fmt, 
 					app_name );
@@ -9858,7 +9851,7 @@ LRESULT WINAPI get_action_tip( sys_action_record *action, action_context *ctx, L
 }
 
 /****************************************************************************************************
-Êý¾Ý½á¹¹ÓëÔËËã¹ý³ÌµÄ×îÓÅ»¯ºÍ×î¾«¼òÊÇ¹Ø¼ü¡£
+ï¿½ï¿½ï¿½Ý½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½î¾«ï¿½ï¿½ï¿½Ç¹Ø¼ï¿½ï¿½ï¿½
 ****************************************************************************************************/
 
 LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx, LPWSTR tip, ULONG ccb_buf_len, ULONG flags )
@@ -10008,23 +10001,23 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 #endif //COMPATIBLE_OLD_ACTION_DEFINE
 		case EXEC_create:
 			ret = get_exec_create_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 		case EXEC_destroy:
 			ret = get_exec_destroy_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case EXEC_module_load:
 			ret = get_exec_module_load_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+			break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_filemon, 
 		case FILE_touch:
 			ret = get_file_touch_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 		case FILE_open:
 			ret = get_file_open_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_read:
 			ret = get_file_read_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
@@ -10032,43 +10025,43 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 		case FILE_write:
 			ret = get_file_write_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_file_write_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_modified:
 			ret = get_file_modified_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_readdir:
 			ret = get_file_readdir_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 		case FILE_remove:
 			ret = get_file_remove_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_file_remove_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 
-			break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_rename:
 			ret = get_file_rename_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_truncate:
 			ret = get_file_truncate_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_mklink:
 			ret = get_file_mklink_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_chmod:
 			ret = get_file_chmod_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_setsec:
 			ret = get_file_setsec_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_getinfo:
 			ret = get_file_getinfo_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_setinfo:
 			ret = get_file_setinfo_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_close:
 			ret = get_file_close_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			break; 
@@ -10076,21 +10069,21 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 			//MT_regmon, 
 		case REG_openkey:
 			ret = get_reg_open_key_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+			break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 
 		case REG_mkkey:
 			ret = get_reg_mkkey_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_reg_mk_key_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//case MODIFY_KEY
 			//	break; 
 		case REG_rmkey:
 			ret = get_reg_rmkey_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_mvkey:
 			ret = get_reg_mvkey_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getinfo:
 			ret = get_reg_getinfo_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
@@ -10106,91 +10099,91 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 			break; 
 		case REG_rmval:
 			ret = get_reg_rmval_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getval:
 			ret = get_reg_getval_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_setval:
 			ret = get_reg_setval_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_loadkey:
 			ret = get_load_key_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_replkey:
 			ret = get_repl_key_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rstrkey:
 			ret = get_rstr_key_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		
 		case REG_closekey:
 			ret = get_close_key_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_setsec:
 			ret = get_reg_set_sec_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 
-			break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//MT_procmon, 
 		case PROC_exec:
 			ret = get_proc_exec_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 
 		case PROC_open:
 			ret = get_proc_open_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_debug:
 			ret = get_proc_debug_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_suspend:
 			ret = get_proc_suspend_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_resume:
 			ret = get_proc_resume_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_exit:
 			ret = get_proc_kill_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case PROC_job:
 			ret = get_proc_job_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_pgprot:
 			ret = get_proc_pg_prot_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_freevm:
 			ret = get_proc_free_vm_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_writevm:
 			ret = get_proc_write_vm_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_readvm:
 			ret = get_proc_read_vm_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 			//ret = get_proc_readvm_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_remote:
 			ret = get_thread_remote_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_setctxt:
 			ret = get_thread_set_ctxt_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_suspend:
 			ret = get_thread_suspend_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_resume:
 			ret = get_thread_resume_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_exit:
 			ret = get_thread_kill_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_queue_apc:
 			ret = get_thread_queue_apc_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_common
 			//case COM_access:
@@ -10207,52 +10200,52 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 			//MT_sysmon
 		case SYS_settime:
 			ret = get_sys_settime_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_link_knowndll:
 			ret = get_sys_link_knowndll_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+			break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 		case SYS_open_physmm:
 			ret = get_sys_open_physmm_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 
 		case SYS_read_physmm:
 			ret = get_sys_read_physmm_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_write_physmm: 
 			ret = get_sys_write_physmm_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+			break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_load_kmod:
 			ret = get_sys_load_kmod_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 			//case INSTALL_DRV:
 			//	break; 
 		case SYS_enumproc:
 			ret = get_sys_enumproc_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //Ã¶¾Ù½ø³Ì ÎÞ 
+			break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_regsrv:
 			ret = get_sys_regsrv_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		case SYS_opendev:
 			ret = get_sys_opendev_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+			break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 			//MT_w32mon
 		case W32_postmsg:
 			ret = get_w32_postmsg_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_sendmsg:
 			ret = get_sendmsg_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_findwnd:
 			ret = get_w32_findwnd_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //²éÕÒ´°¿Ú ÎÞ 
+			break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case W32_msghook:
 			ret = get_w32_msg_hook_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 
 		case W32_lib_inject:
 			ret = get_w32_lib_inject_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+			break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_netmon
 		case NET_create:
@@ -10261,17 +10254,17 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 
 		case NET_connect:
 			ret = get_net_connect_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 			//case SOCKET_CONNECT:
 			//	break; 
 		case NET_listen:
 			ret = get_net_listen_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_LISTEN:
 			//	break; 
 		case NET_send:
 			ret = get_net_send_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_SEND:
 			//	break; 
 		case NET_recv:
@@ -10289,7 +10282,7 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 			break; 
 		case NET_http: 
 			ret = get_net_http_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 
 		case NET_icmp_send:
 			ret = _get_icmp_send_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
@@ -10300,32 +10293,32 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 			//MT_behavior, 
 		case BA_extract_hidden:
 			ret = get_ba_extract_hidden_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+			break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 		case BA_extract_pe:
 			ret = get_ba_extract_pe_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_copy:
 			ret = get_ba_self_copy_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_delete:
 			ret = get_ba_self_delete_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_ulterior_exec:
 			ret = get_ba_ulterior_exec_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_invade_process:
 			ret = get_ba_invade_process_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_infect_pe:
 			ret = get_ba_infect_pe_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
 
-			break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_overwrite_pe:
 			ret = get_ba_overwrite_pe_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_register_autorun:
 			ret = get_ba_register_autorun_detail( action, ctx, &prepared_params, tip, ccb_buf_len, flags ); 
-			break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//case BA_other:
 			//desc = L"BA_other"; 
@@ -10338,7 +10331,7 @@ LRESULT WINAPI get_action_detail( sys_action_record *action, action_context *ctx
 		case OTHER_ACTION:
 			{
 				tmp_fmt = _get_string_by_id( TEXT_SYS_ACTION_PROCTECTED_ACTION, 
-					_T( "Ö´ÐÐ±»±£»¤²Ù×÷" ) ); 
+					_T( "Ö´ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 				_ret = _snwprintf( tip, ccb_buf_len, tmp_fmt );
 				break; 
@@ -10409,7 +10402,7 @@ LRESULT WINAPI get_key_data_text( LPWSTR data_dump, ULONG ccb_buf_len, PVOID dat
 }
 
 /***************************************************************************************
-Ê¹ÓÃ0¿½±´Êä³öµÄ·½·¨£¬µ±¿ÉÒÔÖ±½ÓÊ¹ÓÃ½á¹¹ÌåÖÐµÄÄÚ´æÊ±£¬²»½øÐÐ¿½±´£¬ÓÅ»¯´Ëº¯ÊýÔËÐÐÐÔÄÜ¡£
+Ê¹ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ê¹ï¿½Ã½á¹¹ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ú´ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
 ***************************************************************************************/
 LRESULT WINAPI get_object_path( sys_action_record *action, 
 							   action_context *ctx, 
@@ -10537,7 +10530,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
 
-			break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 		case EXEC_destroy:
 			{
@@ -10553,7 +10546,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case EXEC_module_load:
 			{
@@ -10570,7 +10563,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+			break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_filemon, 
 		case FILE_touch:
@@ -10588,7 +10581,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 
 		case FILE_open:
 			{
@@ -10605,7 +10598,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 		
-			break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_read:
 			{
@@ -10638,7 +10631,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 	
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_modified:
 			{
@@ -10655,7 +10648,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_readdir:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -10671,7 +10664,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 		case FILE_remove:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -10688,7 +10681,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
 
-			break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_rename:
 			{
@@ -10705,7 +10698,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_truncate:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -10721,7 +10714,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_mklink:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -10737,7 +10730,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_chmod:
 			{
@@ -10754,7 +10747,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_setsec:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -10770,7 +10763,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_getinfo:
 			{
@@ -10787,7 +10780,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_setinfo:
 			{
@@ -10804,7 +10797,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_close:
 			{
@@ -10838,7 +10831,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+			break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 
 		case REG_mkkey:
 			{
@@ -10855,7 +10848,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//case MODIFY_KEY
 			//	break; 
 		case REG_rmkey:
@@ -10873,7 +10866,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_mvkey:
 			{
@@ -10890,7 +10883,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getinfo:
 			{
@@ -10977,7 +10970,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getval:
 			{
@@ -11001,7 +10994,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_setval:
 			{
@@ -11024,7 +11017,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_loadkey: 
 			{
@@ -11041,7 +11034,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_replkey:
 			{
@@ -11058,7 +11051,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rstrkey:
 			{
@@ -11075,7 +11068,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		case REG_setsec:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11091,7 +11084,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_closekey: 
 			{
@@ -11125,7 +11118,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 
 		case PROC_open:
 			{
@@ -11142,7 +11135,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_debug:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11158,7 +11151,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_suspend:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11174,7 +11167,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_resume:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11190,7 +11183,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_exit:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11206,7 +11199,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case PROC_job:
 			{
@@ -11223,7 +11216,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_pgprot:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11239,7 +11232,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_freevm:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11255,7 +11248,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_writevm:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11271,7 +11264,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_readvm:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11287,7 +11280,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_remote:
 			{
 				LPCWSTR path_name; 
@@ -11296,7 +11289,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 				{
 					hr = StringCchPrintfW( obj_path, 
 						cc_buf_len, 
-						CURRENT_PROCESS_THREAD_FORMAT_TEXT, //L"×ÔÉí½ø³Ì:Ïß³Ì[%u]", 
+						CURRENT_PROCESS_THREAD_FORMAT_TEXT, //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ß³ï¿½[%u]", 
 						action->do_thrd_remote.target_tid ); 
 
 					if( FAILED( hr ) )
@@ -11320,7 +11313,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 					hr = StringCchPrintfW( obj_path, 
 						cc_buf_len, 
-						PROCESS_THREAD_FORMAT_TEXT, //L"½ø³Ì[%u]%s:Ïß³Ì[%u]", 
+						PROCESS_THREAD_FORMAT_TEXT, //L"ï¿½ï¿½ï¿½ï¿½[%u]%s:ï¿½ß³ï¿½[%u]", 
 						action->do_thrd_remote.target_pid, 
 						path_name, 
 						action->do_thrd_remote.target_tid ); 
@@ -11336,7 +11329,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				path_len = wcslen( _obj_path ); 
 			}
-			break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_setctxt:
 			{
 				LPCWSTR path_name; 
@@ -11345,7 +11338,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 				{
 					hr = StringCchPrintfW( obj_path, 
 						cc_buf_len, 
-						CURRENT_PROCESS_THREAD_FORMAT_TEXT, //L"×ÔÉí½ø³Ì:Ïß³Ì[%u]", 
+						CURRENT_PROCESS_THREAD_FORMAT_TEXT, //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ß³ï¿½[%u]", 
 						action->do_thrd_setctxt.target_tid ); 
 
 					if( FAILED( hr ) )
@@ -11369,7 +11362,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 					hr = StringCchPrintfW( obj_path, 
 						cc_buf_len, 
-						PROCESS_THREAD_FORMAT_TEXT, //L"½ø³Ì[%u]%s:Ïß³Ì[%u]", L"½ø³Ì[%u]%s:Ïß³Ì[%u]", 
+						PROCESS_THREAD_FORMAT_TEXT, //L"ï¿½ï¿½ï¿½ï¿½[%u]%s:ï¿½ß³ï¿½[%u]", L"ï¿½ï¿½ï¿½ï¿½[%u]%s:ï¿½ß³ï¿½[%u]", 
 						action->do_thrd_setctxt.target_pid, 
 						path_name, 
 						action->do_thrd_setctxt.target_tid ); 
@@ -11385,7 +11378,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				path_len = wcslen( _obj_path ); 
 			}
-			break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_suspend:
 			{
 				LPCWSTR path_name; 
@@ -11434,7 +11427,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				path_len = wcslen( _obj_path ); 
 			}
-			break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_resume:
 			{
 				LPCWSTR path_name; 
@@ -11483,7 +11476,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				path_len = wcslen( _obj_path ); 
 			}
-			break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_exit:
 			{
 				LPCWSTR path_name; 
@@ -11532,7 +11525,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				path_len = wcslen( _obj_path ); 
 			}	
-			break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_queue_apc:
 			{
 				LPCWSTR path_name; 
@@ -11581,7 +11574,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				path_len = wcslen( _obj_path ); 
 			}	
-			break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_common
 			//case COM_access:
@@ -11643,7 +11636,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			{
 				hr = StringCchCopyW( obj_path, 
 					cc_buf_len, 
-					L"ÏµÍ³Ê±ÖÓ" ); 
+					L"ÏµÍ³Ê±ï¿½ï¿½" ); 
 
 				if( FAILED( hr ) )
 				{
@@ -11653,7 +11646,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				_obj_path = obj_path; 
 			}
-			break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_link_knowndll:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11669,12 +11662,12 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+			break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 		case SYS_open_physmm:
 			{
 				hr = StringCchCopyW( obj_path, 
 					cc_buf_len, 
-					L"ÏµÍ³ÄÚ´æÉè±¸(PhysicalMemory)" ); 
+					L"ÏµÍ³ï¿½Ú´ï¿½ï¿½è±¸(PhysicalMemory)" ); 
 
 				if( FAILED( hr ) )
 				{
@@ -11684,13 +11677,13 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				_obj_path = obj_path; 
 			}
-			break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 
 		case SYS_read_physmm:
 			{
 				hr = StringCchCopyW( obj_path, 
 					cc_buf_len, 
-					L"ÏµÍ³ÄÚ´æÉè±¸(PhysicalMemory)" ); 
+					L"ÏµÍ³ï¿½Ú´ï¿½ï¿½è±¸(PhysicalMemory)" ); 
 
 				if( FAILED( hr ) )
 				{
@@ -11700,12 +11693,12 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				_obj_path = obj_path; 
 			}
-			break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_write_physmm: 
 			{
 				hr = StringCchCopyW( obj_path, 
 					cc_buf_len, 
-					L"ÏµÍ³ÄÚ´æÉè±¸(PhysicalMemory)" ); 
+					L"ÏµÍ³ï¿½Ú´ï¿½ï¿½è±¸(PhysicalMemory)" ); 
 				
 				if( FAILED( hr ) )
 				{
@@ -11715,7 +11708,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 				_obj_path = obj_path; 
 			}
-			break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+			break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		
 		case SYS_load_kmod:
 			{
@@ -11732,13 +11725,13 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 			//case INSTALL_DRV:
 			//	break; 
 		case SYS_enumproc:
 			*obj_path = L'\0'; 
 			_obj_path = obj_path; 
-			break; //Ã¶¾Ù½ø³Ì ÎÞ 
+			break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_regsrv:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11754,7 +11747,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		case SYS_opendev:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11770,7 +11763,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+			break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 			//MT_w32mon
 		case W32_postmsg:
@@ -11788,7 +11781,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_sendmsg:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11804,14 +11797,14 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_findwnd:
 			{
 				obj_path[ 0 ] = L'\0'; 
 				_obj_path = obj_path; 
 			}
 
-			break; //²éÕÒ´°¿Ú ÎÞ 
+			break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case W32_msghook:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -11827,7 +11820,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 
 		case W32_lib_inject:
 			{
@@ -11844,7 +11837,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+			break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_netmon
 		case NET_create:
@@ -11871,7 +11864,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 					ASSERT( SUCCEEDED( hr ) ); 
 
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"½¨Á¢Ì×½Ó×Ö:(Ð­ÒéID:%u)%u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)%u.%u.%u.%u:%u", 
 					//	action->do_net_create.protocol, 
 					//	( ( action->do_net_create.local_ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_create.local_ip_addr & 0x00ff0000 ) >> 16), 
@@ -11891,7 +11884,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 					ASSERT( SUCCEEDED( hr ) ); 
 
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"½¨Á¢Ì×½Ó×Ö:(%s)%u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½:(%s)%u.%u.%u.%u:%u", 
 					//	prot_desc, 
 					//	( ( action->do_net_connect.local_ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_connect.local_ip_addr & 0x00ff0000 ) >> 16), 
@@ -11993,7 +11986,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 							0 ); 
 
 						ASSERT( SUCCEEDED( hr ) ); 
-						//hr = StringCchPrintfW( obj_path, cc_buf_len, L"½¨Á¢Á¬½Ó:(UDPÐ­Òé)%u.%u.%u.%u:%u -> %u.%u.%u.%u:%u", 
+						//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)%u.%u.%u.%u:%u -> %u.%u.%u.%u:%u", 
 						//	( ( action->do_net_connect.local_ip_addr & 0xff000000 ) >> 24 ), 
 						//	( ( action->do_net_connect.local_ip_addr & 0x00ff0000 ) >> 16), 
 						//	( ( action->do_net_connect.local_ip_addr & 0x0000ff00 ) >> 8 ), 
@@ -12021,7 +12014,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 							0 ); 
 
 						ASSERT( SUCCEEDED( hr ) );
-						//hr = StringCchPrintfW( obj_path, cc_buf_len, L"½¨Á¢Á¬½Ó:(TCPÐ­Òé)%u.%u.%u.%u:%u -> %u.%u.%u.%u:%u", 
+						//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(TCPÐ­ï¿½ï¿½)%u.%u.%u.%u:%u -> %u.%u.%u.%u:%u", 
 						//	( ( action->do_net_connect.local_ip_addr & 0xff000000 ) >> 24 ), 
 						//	( ( action->do_net_connect.local_ip_addr & 0x00ff0000 ) >> 16), 
 						//	( ( action->do_net_connect.local_ip_addr & 0x0000ff00 ) >> 8 ), 
@@ -12047,7 +12040,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 						ASSERT( SUCCEEDED( hr ) );
 					}
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"½¨Á¢Á¬½Ó:(Ð­ÒéID:%u)%u.%u.%u.%u:%u -> %u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)%u.%u.%u.%u:%u -> %u.%u.%u.%u:%u", 
 					//	action->do_net_connect.protocol, 
 					//	( ( action->do_net_connect.local_ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_connect.local_ip_addr & 0x00ff0000 ) >> 16), 
@@ -12196,7 +12189,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 				_obj_path = obj_path; 
 				path_len = wcslen( _obj_path ); 
 			}		
-			break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 			//case SOCKET_CONNECT:
 			//	break; 
 		case NET_listen:
@@ -12223,7 +12216,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 					ASSERT( SUCCEEDED( hr ) ); 
 
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ÕìÌý¶Ë¿Ú:(Ð­ÒéID:%u)%u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½:(Ð­ï¿½ï¿½ID:%u)%u.%u.%u.%u:%u", 
 					//	action->do_net_listen.protocol, 
 					//	( ( action->do_net_listen.local_ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_listen.local_ip_addr & 0x00ff0000 ) >> 16), 
@@ -12243,7 +12236,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 
 					ASSERT( SUCCEEDED( hr ) ); 
 
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ÕìÌý¶Ë¿Ú:(%s)%u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½:(%s)%u.%u.%u.%u:%u", 
 					//	prot_desc, 
 					//	( ( action->do_net_listen.local_ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_listen.local_ip_addr & 0x00ff0000 ) >> 16), 
@@ -12320,7 +12313,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 				_obj_path = obj_path; 
 				path_len = wcslen( _obj_path ); 
 			}
-			break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_LISTEN:
 			//	break; 
 		case NET_send:
@@ -12348,7 +12341,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 					ASSERT( SUCCEEDED( hr ) ); 
 
 
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"·¢ËÍÊý¾Ý:(Ð­ÒéID:%u)%u.%u.%u.%u:%u > %u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)%u.%u.%u.%u:%u > %u.%u.%u.%u:%u", 
 					//	action->do_net_send.protocol, 
 					//	( ( action->do_net_send.local_ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_send.local_ip_addr & 0x00ff0000 ) >> 16), 
@@ -12363,7 +12356,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 				}
 				else
 				{
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"·¢ËÍÊý¾Ý:(%s)%u.%u.%u.%u:%u > %u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(%s)%u.%u.%u.%u:%u > %u.%u.%u.%u:%u", 
 					//	prot_desc, 
 					//	( ( action->do_net_send.local_ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_send.local_ip_addr & 0x00ff0000 ) >> 16), 
@@ -12519,7 +12512,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 				_obj_path = obj_path; 
 				path_len = wcslen( _obj_path ); 
 			}	
-			break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_SEND:
 			//	break; 
 		case NET_recv:
@@ -12831,7 +12824,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 								break; 
 							}
 						}
-						//hr = StringCchPrintfW( obj_path, cc_buf_len, L"½ÓÊÕÊý¾Ý:(UDPÐ­Òé)%u.%u.%u.%u:%u < %u.%u.%u.%u:%u",  
+						//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(UDPÐ­ï¿½ï¿½)%u.%u.%u.%u:%u < %u.%u.%u.%u:%u",  
 						//	( ( action->do_net_recv.ip_addr & 0xff000000 ) >> 24 ), 
 						//	( ( action->do_net_recv.ip_addr & 0x00ff0000 ) >> 16), 
 						//	( ( action->do_net_recv.ip_addr & 0x0000ff00 ) >> 8 ), 
@@ -12984,7 +12977,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 							}
 						}
 					}
-					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"½ÓÊÕÊý¾Ý:(Ð­ÒéID:%u)%u.%u.%u.%u:%u < %u.%u.%u.%u:%u", 
+					//hr = StringCchPrintfW( obj_path, cc_buf_len, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:(Ð­ï¿½ï¿½ID:%u)%u.%u.%u.%u:%u < %u.%u.%u.%u:%u", 
 					//	action->do_net_recv.protocol, 
 					//	( ( action->do_net_recv.ip_addr & 0xff000000 ) >> 24 ), 
 					//	( ( action->do_net_recv.ip_addr & 0x00ff0000 ) >> 16), 
@@ -13082,7 +13075,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			//{
 			//	break; 
 			//}			
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 		case NET_http: 
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13103,12 +13096,12 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			//{
 			//	break; 
 			//}			
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 
 		case NET_icmp_send:
 			hr = StringCchPrintfW( obj_path, cc_buf_len, 
 				NETWORK_ICMP_SEND_OBJECT_PATH_FORMAT_TEXT, 
-				//L"·¢ËÍicmp:Ô´IP:%u.%u.%u.%u Ä¿±êIP:%u.%u.%u.%u", 
+				//L"ï¿½ï¿½ï¿½ï¿½icmp:Ô´IP:%u.%u.%u.%u Ä¿ï¿½ï¿½IP:%u.%u.%u.%u", 
 				( ( action->do_net_icmp_send.src_ip & 0xff000000 ) >> 24 ), 
 				( ( action->do_net_icmp_send.src_ip & 0x00ff0000 ) >> 16), 
 				( ( action->do_net_icmp_send.src_ip & 0x0000ff00 ) >> 8 ), 
@@ -13133,7 +13126,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			//BYTE type; 
 			//BYTE code; 
 			hr = StringCchPrintfW( obj_path, cc_buf_len, 
-				NETWORK_ICMP_RECEIVE_OBJECT_PATH_FORMAT_TEXT, //L"½ÓÊÕicmp:Ô´IP:%u.%u.%u.%u Ä¿±êIP:%u.%u.%u.%u", 
+				NETWORK_ICMP_RECEIVE_OBJECT_PATH_FORMAT_TEXT, //L"ï¿½ï¿½ï¿½ï¿½icmp:Ô´IP:%u.%u.%u.%u Ä¿ï¿½ï¿½IP:%u.%u.%u.%u", 
 				( ( action->do_net_icmp_recv.src_ip & 0xff000000 ) >> 24 ), 
 				( ( action->do_net_icmp_recv.src_ip & 0x00ff0000 ) >> 16), 
 				( ( action->do_net_icmp_recv.src_ip & 0x0000ff00 ) >> 8 ), 
@@ -13168,7 +13161,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+			break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 		case BA_extract_pe:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13184,7 +13177,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_copy:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13200,7 +13193,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_delete:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13216,7 +13209,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_ulterior_exec:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13232,7 +13225,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_invade_process:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13248,7 +13241,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_infect_pe:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13264,7 +13257,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' );
-			break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_overwrite_pe:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13280,7 +13273,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_register_autorun:
 			{
 				if( flags & SAVE_INFO_BY_POINTER )
@@ -13296,7 +13289,7 @@ LRESULT WINAPI get_object_path( sys_action_record *action,
 			}
 
 			ASSERT( _obj_path[ path_len ] == L'\0' ); 
-			break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//case BA_other:
 			//desc = L"BA_other"; 

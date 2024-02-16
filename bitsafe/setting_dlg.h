@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #pragma once 
+#pragma once 
 
 #include "setting_menu_ui.h"
 #include "conf_file.h"
@@ -303,7 +296,7 @@ public:
     }
  
     /*
-    * ¹Ø¼üµÄ»Øµ÷º¯Êý£¬IListCallbackUI ÖÐµÄÒ»¸öÐéº¯Êý£¬äÖÈ¾Ê±ºò»áµ÷ÓÃ,ÔÚ[1]ÖÐÉèÖÃÁË»Øµ÷¶ÔÏó
+    * ï¿½Ø¼ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IListCallbackUI ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½[1]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     */
     LPCTSTR GetItemText(CControlUI* pControl, int iIndex, int iSubItem)
     {
@@ -337,7 +330,7 @@ public:
 		if( sel_index < 0 )
 		{
 			tmp_text = _get_string_by_id( TEXT_CONFIG_DIALOG_NO_SELECT_TIP, 
-				_T( "Ã»ÓÐÑ¡ÖÐÐèÒª±à¼­µÄÌõÄ¿" ) ); 
+				_T( "Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Òªï¿½à¼­ï¿½ï¿½ï¿½ï¿½Ä¿" ) ); 
 
 			show_msg( GetHWND(), tmp_text, NULL ); 
 			goto _return; 
@@ -355,7 +348,7 @@ public:
 			if( ret == ERROR_DEL_SUPER_RULE )
 			{
 				tmp_text = _get_string_by_id( TEXT_CONFIG_DIALOG_DONT_DELETE_SUPER_TIP, 
-					_T( "Ä¬ÈÏ¹æÔòÎª±£Ö¤ÏµÍ³Õý³£¹¤×÷»ò¹Ø¼ü°²È«ÐÔËù±ØÐëµÄ¶¨Òå,¶ÔÆäÐÞ¸Ä½«Ê¹ÏµÍ³ÎÞ·¨Õý³£¹¤×÷»ò¼«Ò×ÊÜµ½¹¥»÷" ) ); 
+					_T( "Ä¬ï¿½Ï¹ï¿½ï¿½ï¿½Îªï¿½ï¿½Ö¤ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä½ï¿½Ê¹ÏµÍ³ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 				show_msg( GetHWND(), tmp_text ); 
 			}
 
@@ -365,7 +358,7 @@ public:
 		else
 		{
 			tmp_text = _get_string_by_id( TEXT_CONFIG_DIALOG_DELETE_SUCCESS_TIP, 
-				_T( "É¾³ý¹æÔò³É¹¦" ) ); 
+				_T( "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 		}
 
@@ -385,7 +378,7 @@ _return:
 		if( sel_index < 0 )
 		{
 			tmp_text = _get_string_by_id( TEXT_CONFIG_DIALOG_NO_SELECT_TIP, 
-				_T( "Ã»ÓÐÑ¡ÖÐÐèÒª±à¼­µÄÌõÄ¿" ) ); 
+				_T( "Ã»ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Òªï¿½à¼­ï¿½ï¿½ï¿½ï¿½Ä¿" ) ); 
 			show_msg( GetHWND(), tmp_text, NULL ); 
 			goto _return; 
 		}
@@ -394,7 +387,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_CONFIG_DIALOG_DONT_DELETE_SUPER_TIP, 
-				_T( "Ä¬ÈÏ¹æÔòÎª±£Ö¤ÏµÍ³Õý³£¹¤×÷»ò¹Ø¼ü°²È«ÐÔËù±ØÐëµÄ¶¨Òå,¶ÔÆäÐÞ¸Ä½«Ê¹ÏµÍ³ÎÞ·¨Õý³£¹¤×÷»ò¼«Ò×ÊÜµ½¹¥»÷" ) ); 
+				_T( "Ä¬ï¿½Ï¹ï¿½ï¿½ï¿½Îªï¿½ï¿½Ö¤ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Ä½ï¿½Ê¹ÏµÍ³ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 			if( ret == ERROR_DEL_SUPER_RULE )
 			{
@@ -687,7 +680,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #ifdef _DEBUG_MEM_LEAKS
@@ -25,128 +18,6 @@
 
 #include "common_func.h"
 #include "vista.h"
-//#include <AccCtrl.h>
-//#include <AclAPI.h>
-
-/*
-CEveryoneSA::CEveryoneSA(DWORD dwAccessPermissions)
-{
-    m_lpACL = NULL;
-	m_lpEveryoneSID = NULL;
-	m_lpSD = NULL;
-
-	m_sa.lpSecurityDescriptor = NULL;
-	m_sa.bInheritHandle = FALSE;
-	m_sa.nLength = 0;
-
-	Init(dwAccessPermissions);
-}
-
-CEveryoneSA::~CEveryoneSA()
-{
-	if( m_lpEveryoneSID != NULL )
-    {
-        FreeSid(m_lpEveryoneSID);
-		m_lpEveryoneSID = NULL;
-    }
-	
-    if ( m_lpACL != NULL )
-    {
-        LocalFree(m_lpACL);
-		m_lpACL = NULL;
-    }
-	
-    if ( m_lpSD != NULL )
-    {
-        LocalFree(m_lpSD);
-		m_lpSD = NULL;
-    }
-}
-
-void CEveryoneSA::Init(DWORD dwAccessPermissions)
-{
-	do
-    {
-		SID_IDENTIFIER_AUTHORITY SIDAuthWorld = SECURITY_WORLD_SID_AUTHORITY;
-		EXPLICIT_ACCESS ea[1];
-		DWORD dwRet;
-
-        // Create a well-known SID for the Everyone group.
-		if( !AllocateAndInitializeSid(&SIDAuthWorld,
-			1,
-			SECURITY_WORLD_RID,
-			0, 0, 0, 0, 0, 0, 0,
-			&m_lpEveryoneSID)
-			)
-        {
-            break;
-        }
-		
-        // Initialize an EXPLICIT_ACCESS structure for an ACE.
-        ZeroMemory(&ea, sizeof(EXPLICIT_ACCESS));
-        ea[0].grfAccessPermissions	= dwAccessPermissions;
-        ea[0].grfAccessMode			= SET_ACCESS;
-        ea[0].grfInheritance		= NO_INHERITANCE;
-        ea[0].Trustee.TrusteeForm	= TRUSTEE_IS_SID;
-        ea[0].Trustee.TrusteeType	= TRUSTEE_IS_WELL_KNOWN_GROUP;
-        ea[0].Trustee.ptstrName		= (LPTSTR)m_lpEveryoneSID;
-		
-        // Create a new ACL that contains the new ACEs.
-        dwRet = SetEntriesInAcl(1, ea, NULL, &m_lpACL);
-        if( ERROR_SUCCESS != dwRet )
-        {
-            break;
-        }
-		
-        // Initialize a security descriptor. 
-        m_lpSD = (PSECURITY_DESCRIPTOR)LocalAlloc(LPTR,
-			SECURITY_DESCRIPTOR_MIN_LENGTH
-			);
-        if( NULL == m_lpSD )
-        {
-            break;
-        }
-		
-        if( !InitializeSecurityDescriptor(m_lpSD, SECURITY_DESCRIPTOR_REVISION ) )
-        { 
-            break;
-        }
-		
-        // Add the ACL to the security descriptor.
-        if (!SetSecurityDescriptorDacl(m_lpSD,
-			TRUE,    // bDaclPresent flag 
-			m_lpACL,
-			FALSE)
-			)  // not a default DACL
-        {
-            break;
-        }
-		
-        // Initialize a security attributes structure.
-        m_sa.nLength = sizeof(SECURITY_ATTRIBUTES);
-        m_sa.lpSecurityDescriptor = m_lpSD;
-        m_sa.bInheritHandle = FALSE;
-	} while ( FALSE );
-}
-
-PSECURITY_ATTRIBUTES CEveryoneSA::FileAllAccess()
-{
-	static CEveryoneSA sa(FILE_ALL_ACCESS);
-	return sa;
-}
-
-PSECURITY_ATTRIBUTES CEveryoneSA::EventAllAccess()
-{
-	static CEveryoneSA sa(EVENT_ALL_ACCESS);
-	return sa;
-}
-
-PSECURITY_ATTRIBUTES CEveryoneSA::MutexAllAccess()
-{
-	static CEveryoneSA sa(MUTEX_ALL_ACCESS);
-	return sa;
-}
-*/
 
 BOOL WINAPI	IsVistaLater()
 {
@@ -197,10 +68,10 @@ BOOL EnablePrivilege(HANDLE hToken, LPCTSTR szPrivName)
 {
 	TOKEN_PRIVILEGES tkp;
 	
-	LookupPrivilegeValue(NULL, szPrivName, &tkp.Privileges[0].Luid);//修改进程权限
+	LookupPrivilegeValue(NULL, szPrivName, &tkp.Privileges[0].Luid);//锟睫改斤拷锟斤拷权锟斤拷
 	tkp.PrivilegeCount = 1;
 	tkp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
-	AdjustTokenPrivileges(hToken, FALSE, &tkp, sizeof(tkp), NULL, NULL);//通知系统修改进程权限
+	AdjustTokenPrivileges(hToken, FALSE, &tkp, sizeof(tkp), NULL, NULL);//通知系统锟睫改斤拷锟斤拷权锟斤拷
 
 	return((GetLastError() == ERROR_SUCCESS));
 }

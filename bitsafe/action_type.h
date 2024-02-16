@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __ACTION_TYPE_H__
@@ -25,12 +18,12 @@
 #include "action_type_common.h"
 
 /*************************************************************************
-PVOIDÀàÐÍÓëULONG£¬ULONGLONGÀàÐÍ¹ØÏµ£º
-1.PVOIDÀàÐÍµÄ³¤¶ÈÊÇÓÉÓÚ±àÒëÆ÷±àÒëÊ±¶¨µÄ£¬µ«ÔËÐÐÊ±±ØÐëÓÐÏàÓ¦
-WINDOWSÏµÍ³Î»ÊýÓëÓ²¼þÆ½Ì¨µÄÖ§³Ö¡£
-2.ËùÒÔµ±Çý¶¯ÓëÓ¦ÓÃ±àÒëµÄÎ»ÊýÊÇÒ»ÑùµÄ£¬ÕâÊ±¶ÔÄÚ´æºÍULONGLONGµÄ´¦Àí×î¸ßÐ§µÄ¡£
-3.¶øµ±Çý¶¯ÓëÓ¦ÓÃµÄ±àÒëµÄÎ»ÊýÊÇ²»Ò»ÑùµÄ£¬¾ÍÐèÒªÒ»ÖÖÏàÓ¦µÄÔ¼¶¨ºÃµÄ×ª»»·½Ê½£¬
-»òÕß¶¼¶¨ÒåÎª¼æÈÝÐÔ×îºÃµÄULONGLONGÐÍ¡£
+PVOIDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ULONGï¿½ï¿½ULONGLONGï¿½ï¿½ï¿½Í¹ï¿½Ïµï¿½ï¿½
+1.PVOIDï¿½ï¿½ï¿½ÍµÄ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦
+WINDOWSÏµÍ³Î»ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½Æ½Ì¨ï¿½ï¿½Ö§ï¿½Ö¡ï¿½
+2.ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã±ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ULONGLONGï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½Ä¡ï¿½
+3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ÃµÄ±ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ç²ï¿½Ò»ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÒ»ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½Ãµï¿½×ªï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½
+ï¿½ï¿½ï¿½ß¶ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ULONGLONGï¿½Í¡ï¿½
 *************************************************************************/
 
 typedef ULONGLONG POINTER_TYPE; 
@@ -52,66 +45,66 @@ typedef enum _action_main_type
 typedef enum _sys_action_type
 {
 	//MT_execmon
-	EXEC_create,  //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
-	EXEC_destroy, //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
-	EXEC_module_load, //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+	EXEC_create,  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
+	EXEC_destroy, //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	EXEC_module_load, //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	
 	//MT_filemon, 
-	FILE_touch, //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 
-	FILE_open, //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	FILE_read, //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	FILE_write, //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	FILE_modified, //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
-	FILE_readdir, //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
-	FILE_remove, //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	FILE_rename, //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	FILE_truncate, //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	FILE_mklink, //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
-	FILE_chmod, //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
-	FILE_setsec, //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+	FILE_touch, //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 
+	FILE_open, //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_read, //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_write, //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_modified, //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_readdir, //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
+	FILE_remove, //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_rename, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_truncate, //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_mklink, //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_chmod, //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	FILE_setsec, //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	FILE_getinfo, 
 	FILE_setinfo, 
 	FILE_close, 
 	
 	//MT_regmon, 
-	REG_openkey, //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
-	REG_mkkey, //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	REG_rmkey, //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	REG_mvkey, //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+	REG_openkey, //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+	REG_mkkey, //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	REG_rmkey, //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	REG_mvkey, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	REG_getinfo, 
 	REG_setinfo, 
 	REG_enuminfo, 
 	REG_enum_val, 
-	REG_rmval, //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	REG_getval, //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-	REG_setval, //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-	REG_loadkey, //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-	REG_replkey, //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	REG_rstrkey, //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-	REG_setsec, //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+	REG_rmval, //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	REG_getval, //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+	REG_setval, //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+	REG_loadkey, //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	REG_replkey, //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	REG_rstrkey, //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	REG_setsec, //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	REG_closekey, 
 	
 	//MT_procmon, 
-	PROC_exec, //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
-	PROC_open, //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_debug, //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_suspend, //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_resume, //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+	PROC_exec, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
+	PROC_open, //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_debug, //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_suspend, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_resume, //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	PROC_kill, 
-	PROC_exit, //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_job, //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_pgprot, //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_freevm, //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_writevm, //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	PROC_readvm, //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	THRD_remote, //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	THRD_create, //´´½¨Ïß³Ì
-	THRD_setctxt, //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	THRD_suspend, //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	THRD_resume, //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	THRD_kill, //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+	PROC_exit, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_job, //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_pgprot, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_freevm, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_writevm, //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	PROC_readvm, //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	THRD_remote, //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	THRD_create, //ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+	THRD_setctxt, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	THRD_suspend, //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	THRD_resume, //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	THRD_kill, //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	THRD_exit, 
-	THRD_queue_apc, //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+	THRD_queue_apc, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 	//MT_common
 	COM_access, 
@@ -120,48 +113,48 @@ typedef enum _sys_action_type
 	PORT_urb, 
 
 	//MT_sysmon
-	SYS_settime, //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
-	SYS_link_knowndll, //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
-	SYS_open_physmm, //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
-	SYS_read_physmm, //¶ÁÎïÀíÄÚ´æ ÎÞ 
-	SYS_write_physmm, //Ð´ÎïÀíÄÚ´æ ÎÞ 
-	SYS_load_kmod, //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-	SYS_load_mod, //¼ÓÔØÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-	SYS_unload_mod, //Ð¶ÔØÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-	SYS_enumproc, //Ã¶¾Ù½ø³Ì ÎÞ 
-	SYS_regsrv, //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
-	SYS_opendev, //´ò¿ªÉè±¸ Éè±¸Ãû 
+	SYS_settime, //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
+	SYS_link_knowndll, //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
+	SYS_open_physmm, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
+	SYS_read_physmm, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+	SYS_write_physmm, //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+	SYS_load_kmod, //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	SYS_load_mod, //ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	SYS_unload_mod, //Ð¶ï¿½ï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	SYS_enumproc, //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	SYS_regsrv, //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	SYS_opendev, //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 	//MT_w32mon
-	W32_postmsg, //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	W32_sendmsg, //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	W32_findwnd, //²éÕÒ´°¿Ú ÎÞ 
-	W32_msghook, //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
-	W32_lib_inject, //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+	W32_postmsg, //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	W32_sendmsg, //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	W32_findwnd, //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	W32_msghook, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	W32_lib_inject, //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 	
 	//MT_netmon, 
 	NET_create, 
-	NET_connect, //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
-	NET_listen, //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
-	NET_send, //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+	NET_connect, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+	NET_listen, //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
+	NET_send, //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 	NET_recv, 
 	NET_accept, 
 	
 	NET_dns, 
-	NET_http, //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+	NET_http, //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 	NET_icmp_send, 
 	NET_icmp_recv, 
 	
 	//MT_behavior, 
-	BA_extract_hidden, //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
-	BA_extract_pe, //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
-	BA_self_copy, //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
-	BA_self_delete, //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
-	BA_ulterior_exec, //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
-	BA_invade_process, //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	BA_infect_pe, //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-	BA_overwrite_pe, //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-	BA_register_autorun, //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+	BA_extract_hidden, //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
+	BA_extract_pe, //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	BA_self_copy, //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	BA_self_delete, //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	BA_ulterior_exec, //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	BA_invade_process, //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	BA_infect_pe, //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	BA_overwrite_pe, //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	BA_register_autorun, //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	BA_other, 
 	OTHER_ACTION = BA_other, 
 	MAX_SYS_ACTION_TYPE, 
@@ -209,24 +202,24 @@ action description structures
 
 typedef USHORT PATH_SIZE_T; 
 
-//¶¯×÷ Â·¾¶¹ýÂËÆ÷ ²ÎÊý MT_execmon 
-typedef struct _exec_create //(Ö´ÐÐ¼à¿Ø) 
+//ï¿½ï¿½ï¿½ï¿½ Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ MT_execmon 
+typedef struct _exec_create //(Ö´ï¿½Ð¼ï¿½ï¿½) 
 {
-	ULONG pid; // ½ø³ÌID 
-	ULONG parent_pid; // ¸¸½ø³ÌID 
-	POINTER_TYPE image_base; //process virtual address space // Ö÷Ó³Ïñ»ùÖ· 
+	ULONG pid; // ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG parent_pid; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	POINTER_TYPE image_base; //process virtual address space // ï¿½ï¿½Ó³ï¿½ï¿½ï¿½Ö· 
 	PATH_SIZE_T path_len; 
 	PATH_SIZE_T cmd_len; 
 	union 
 	{
-		WCHAR path_name[ 1 ]; //½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		struct 
 		{
 			WCHAR *path_name_ptr; 
 			WCHAR *cmd_line_ptr; 
 		};
 	};
-	//WCHAR cmdline[ 0 ]; //follow the path name// ½ø³ÌÃüÁîÐÐ 
+	//WCHAR cmdline[ 0 ]; //follow the path name// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 } exec_create, *pexec_create; 
 
 typedef struct _exec_destroy
@@ -238,7 +231,7 @@ typedef struct _exec_destroy
 	
 	union
 	{
-		WCHAR path_name[ 1 ]; //½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -246,7 +239,7 @@ typedef struct _exec_destroy
 			WCHAR *cmd_line_ptr; 
 		};
 	};
-	//WCHAR cmd_line[ 0 ]; //follow the path name //½ø³ÌÃüÁîÐÐ 
+	//WCHAR cmd_line[ 0 ]; //follow the path name //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 } exec_destroy, *pexec_destroy; 
 
 #define LOAD_RING3_MODULE 0x00000002
@@ -254,16 +247,16 @@ typedef struct _exec_destroy
 
 typedef struct exec_module_load 
 {
-	//ULONG pid; //½ø³ÌID 
+	//ULONG pid; //ï¿½ï¿½ï¿½ï¿½ID 
 
-	ULONG64 base; //Ä£¿é»ùÖ· 
-	ULONG64 size; // Ä£¿é´óÐ¡ 
+	ULONG64 base; //Ä£ï¿½ï¿½ï¿½Ö· 
+	ULONG64 size; // Ä£ï¿½ï¿½ï¿½Ð¡ 
 	ULONG time_stamp; 
 	ULONG flags; 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -274,36 +267,36 @@ typedef struct exec_module_load
 
 typedef struct _file_open 
 {
-	ULONG access; //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-	ULONG alloc_size; //ÎÄ¼þ³õÊ¼³¤¶È 
-	ULONG attrib; //ÎÄ¼þÊôÐÔ 
-	ULONG share; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-	ULONG disposition; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-	ULONG options; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-	//ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	ULONG access; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+	ULONG alloc_size; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+	ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	ULONG share; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	ULONG disposition; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+	ULONG options; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+	//ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
 			WCHAR *path_name_ptr; 
 		};
 	}; 
-	//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+	//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 } file_open, *pfile_open; 
 
 typedef file_open file_touch; 
 
 typedef struct _file_read
 {
-	ULONGLONG offset; //ÎÄ¼þÄÚÆ«ÒÆ 
-	ULONG data_len; //Êý¾Ý³¤¶È 
+	ULONGLONG offset; //ï¿½Ä¼ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ 
+	ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -329,7 +322,7 @@ typedef struct _port_read
 	BYTE port_type; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -348,7 +341,7 @@ typedef struct _file_modified
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -359,12 +352,12 @@ typedef struct _file_modified
 
 typedef struct _file_readdir
 {
-	ULONG filter; //ÎÄ¼þ±éÀú¹ýÂËÌõ¼þ 
+	ULONG filter; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -379,12 +372,12 @@ typedef file_modified file_remove, *pfile_remove;
 typedef struct _file_rename
 {
 
-	BOOLEAN replace_existing; //ÊÇ·ñ¸²¸ÇÒÑ´æÔÚÎÄ¼þ 
+	BOOLEAN replace_existing; //ï¿½Ç·ñ¸²¸ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
 	PATH_SIZE_T path_len; 
 	PATH_SIZE_T new_name_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -397,11 +390,11 @@ typedef struct _file_rename
 typedef struct _file_truncate
 { 
 
-	ULONGLONG eof; //½Ø¶ÏºóµÄÎÄ¼þ³¤¶È  
+	ULONGLONG eof; //ï¿½Ø¶Ïºï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½  
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -412,12 +405,12 @@ typedef struct _file_truncate
 
 typedef struct _file_mklink
 {
-	ULONG flags; //like replace existing; //ÊÇ·ñ¸²¸ÇÒÑ´æÔÚÎÄ¼þ  
+	ULONG flags; //like replace existing; //ï¿½Ç·ñ¸²¸ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½  
 	PATH_SIZE_T path_len; 
 	PATH_SIZE_T link_name_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -429,12 +422,12 @@ typedef struct _file_mklink
 
 typedef struct _file_chmod
 {
-	ULONG attrib; //ÎÄ¼þÊôÐÔ 
+	ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -448,14 +441,14 @@ typedef file_modified file_setsec, *pfile_setsec;
 
 typedef struct _file_getinfo
 {
-	//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	PATH_SIZE_T path_len; 
 	ULONG info_class; 
 	ULONG info_size; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -471,7 +464,7 @@ typedef struct _file_close
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -482,11 +475,11 @@ typedef struct _file_close
 
 typedef struct _reg_openkey
 { 
-	ULONG access; //×¢²á±í´ò¿ª/´´½¨È¨ÏÞ 
+	ULONG access; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -500,7 +493,7 @@ typedef struct _reg_closekey
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -511,11 +504,11 @@ typedef struct _reg_closekey
 
 typedef struct _reg_mkkey 
 {
-	ULONG access; //×¢²á±í´ò¿ª/´´½¨È¨ÏÞ  
+	ULONG access; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½  
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
 		struct 
 		{
@@ -529,7 +522,7 @@ typedef struct _reg_rmkey
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
 		struct 
 		{
@@ -544,7 +537,7 @@ typedef struct _reg_mvkey
 	PATH_SIZE_T new_name_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
 		struct 
 		{
@@ -561,7 +554,7 @@ typedef struct _reg_rmval
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 
 		struct 
 		{
@@ -582,7 +575,7 @@ typedef struct _reg_getinfo
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -602,7 +595,7 @@ typedef struct _reg_enum_val
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -615,13 +608,13 @@ typedef reg_enum_val reg_enuminfo, *preg_enuminfo;
 
 typedef struct _reg_setval
 {
-	ULONG type; //×¢²á±íÖµÀàÐÍ 
-	ULONG data_len; //Êý¾Ý³¤¶È 
+	ULONG type; //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+	ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	PATH_SIZE_T val_name_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -633,14 +626,14 @@ typedef struct _reg_setval
 
 typedef struct _reg_getval
 {
-	ULONG type; //×¢²á±íÖµÀàÐÍ 
-	ULONG info_size; //Êý¾Ý³¤¶È 
+	ULONG type; //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+	ULONG info_size; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	PATH_SIZE_T val_name_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -656,7 +649,7 @@ typedef struct reg_loadkey
 	PATH_SIZE_T hive_name_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -674,7 +667,7 @@ typedef struct _reg_replkey
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -690,10 +683,10 @@ typedef reg_loadkey reg_rstrkey;
 typedef struct _reg_setsec
 {
 	PATH_SIZE_T path_len; 
-	//WCHAR path_name[ 1 ]; //×¢²á±í¼üÂ·¾¶Ãû 
+	//WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -703,15 +696,15 @@ typedef struct _reg_setsec
 } reg_setsec, *preg_setsec; 
 
 
-//_MT_procmon (½ø³Ì¼à¿Ø)  ¶¯×÷ Â·¾¶¹ýÂËÆ÷ ²ÎÊý 
+//_MT_procmon (ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½)  ï¿½ï¿½ï¿½ï¿½ Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 typedef struct _proc_exec
 {
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -722,13 +715,13 @@ typedef struct _proc_exec
 
 typedef struct _proc_open
 {
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG access; //½ø³Ì´ò¿ªÈ¨ÏÞ 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG access; //ï¿½ï¿½ï¿½Ì´ï¿½È¨ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -740,13 +733,13 @@ typedef struct _proc_open
 
 typedef struct _com_access
 {
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG access; //½ø³Ì´ò¿ªÈ¨ÏÞ 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG access; //ï¿½ï¿½ï¿½Ì´ï¿½È¨ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -757,11 +750,11 @@ typedef struct _com_access
 
 typedef struct _proc_debug
 {
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -772,11 +765,11 @@ typedef struct _proc_debug
 
 typedef struct _proc_suspend
 {
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -789,12 +782,12 @@ typedef proc_suspend proc_resume, *pproc_resume;
 
 typedef struct _proc_kill
 {
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG exitcode; //½ø³ÌÍÆ³öÂë 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG exitcode; //ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -807,11 +800,11 @@ typedef proc_kill proc_exit, *pproc_exit;
 
 typedef struct _proc_job
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -822,15 +815,15 @@ typedef struct _proc_job
 
 typedef struct _proc_pgprot 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	POINTER_TYPE base; //ÐÞ¸ÄÄÚ´æ»ùÖ· 
-	ULONG count; //ÐÞ¸ÄÄÚ´æ³¤¶È 
-	ACCESS_MASK attrib; //ÐÞ¸ÄÄÚ´æÊôÐÔ 
-	ULONG bytes_changed; //³É¹¦ÐÞ¸Ä³¤¶È 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	POINTER_TYPE base; //ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+	ULONG count; //ï¿½Þ¸ï¿½ï¿½Ú´æ³¤ï¿½ï¿½ 
+	ACCESS_MASK attrib; //ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	ULONG bytes_changed; //ï¿½É¹ï¿½ï¿½Þ¸Ä³ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -841,16 +834,16 @@ typedef struct _proc_pgprot
 
 typedef struct _proc_freevm 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	POINTER_TYPE base; //ÊÍ·ÅÄÚ´æ»ùÖ· 
-	ULONG count; //ÊÍ·ÅÄÚ´æ³¤¶È 
-	ULONG type; //ÊÍ·ÅÄÚ´æÀàÐÍ 
-	ULONG bytes_freed; //³É¹¦ÊÍ·Å³¤¶È 
-	//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	POINTER_TYPE base; //ï¿½Í·ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+	ULONG count; //ï¿½Í·ï¿½ï¿½Ú´æ³¤ï¿½ï¿½ 
+	ULONG type; //ï¿½Í·ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	ULONG bytes_freed; //ï¿½É¹ï¿½ï¿½Í·Å³ï¿½ï¿½ï¿½ 
+	//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -861,15 +854,15 @@ typedef struct _proc_freevm
 
 typedef struct _proc_writevm 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	POINTER_TYPE base; //Ð´ÈëÄÚ´æ»ùÖ· 
-	ULONG data_len; //ÊÔÍ¼Ð´Èë³¤¶È 
-	ULONG bytes_written; //³É¹¦Ð´Èë³¤¶È 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	POINTER_TYPE base; //Ð´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+	ULONG data_len; //ï¿½ï¿½Í¼Ð´ï¿½ë³¤ï¿½ï¿½ 
+	ULONG bytes_written; //ï¿½É¹ï¿½Ð´ï¿½ë³¤ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -880,16 +873,16 @@ typedef struct _proc_writevm
 
 typedef struct _proc_readvm 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	POINTER_TYPE base; //¶ÁÈ¡ÄÚ´æ»ùÖ· 
-	ULONG data_len; //ÊÔÍ¼¶ÁÈ¡³¤¶È 
-	ULONG bytes_read; //³É¹¦¶ÁÈ¡³¤¶È 
-	NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	POINTER_TYPE base; //ï¿½ï¿½È¡ï¿½Ú´ï¿½ï¿½Ö· 
+	ULONG data_len; //ï¿½ï¿½Í¼ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+	ULONG bytes_read; //ï¿½É¹ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
+	NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -900,16 +893,16 @@ typedef struct _proc_readvm
 
 typedef struct _thrd_remote 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG target_tid; //Ä¿±êÏß³ÌID 
-	ACCESS_MASK access; //Ïß³Ì´´½¨È¨ÏÞ 
-	BOOLEAN suspended; //ÊÇ·ñ¹ÒÆð·½Ê½´´½¨ 
-	POINTER_TYPE start_vaddr; //Ïß³ÌÆðÊ¼µØÖ· 
-	POINTER_TYPE thread_param; //Ïß³Ì²ÎÊý 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+	ACCESS_MASK access; //ï¿½ß³Ì´ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+	BOOLEAN suspended; //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ 
+	POINTER_TYPE start_vaddr; //ï¿½ß³ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 
+	POINTER_TYPE thread_param; //ï¿½ß³Ì²ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -920,17 +913,17 @@ typedef struct _thrd_remote
 
 typedef struct _thrd_create
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG target_tid; //Ä¿±êÏß³ÌID 
-	ACCESS_MASK access; //Ïß³Ì´´½¨È¨ÏÞ 
-	BOOLEAN suspended; //ÊÇ·ñ¹ÒÆð·½Ê½´´½¨ 
-	POINTER_TYPE start_vaddr; //Ïß³ÌÆðÊ¼µØÖ· 
-	POINTER_TYPE thread_param; //Ïß³Ì²ÎÊý 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+	ACCESS_MASK access; //ï¿½ß³Ì´ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+	BOOLEAN suspended; //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ 
+	POINTER_TYPE start_vaddr; //ï¿½ß³ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 
+	POINTER_TYPE thread_param; //ï¿½ß³Ì²ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -941,12 +934,12 @@ typedef struct _thrd_create
 
 typedef struct _thrd_setctxt 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG target_tid; //Ä¿±êÏß³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -957,12 +950,12 @@ typedef struct _thrd_setctxt
 
 typedef struct _thrd_suspend 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG target_tid; //Ä¿±êÏß³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -974,12 +967,12 @@ typedef struct _thrd_suspend
 
 typedef struct _thrd_resume 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG target_tid; //Ä¿±êÏß³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -991,14 +984,14 @@ typedef struct _thrd_resume
 typedef struct _thrd_kill 
 { 
 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG target_tid; //Ä¿±êÏß³ÌID 
-	ULONG exitcode; //Ïß³ÌÍË³öÂë 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+	ULONG exitcode; //ï¿½ß³ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1011,8 +1004,8 @@ typedef thrd_kill thrd_exit, *pthrd_exit;
 
 typedef struct _thrd_queue_apc 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	ULONG target_tid; //Ä¿±êÏß³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	ULONG target_tid; //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
 	POINTER_TYPE apc_routine; 
 	POINTER_TYPE arg1; 
 	POINTER_TYPE arg2; 
@@ -1022,7 +1015,7 @@ typedef struct _thrd_queue_apc
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1033,7 +1026,7 @@ typedef struct _thrd_queue_apc
 
 typedef struct _sys_settime 
 { 
-	ULONG time_delta; //ÉèÖÃÊ±¼äÓë¶¯×÷·¢ÆðÊ±¼ä²î 
+	ULONG time_delta; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ë¶¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ 
 } sys_settime, *psys_settime; 
 
 typedef struct _sys_link_knowndll 
@@ -1041,7 +1034,7 @@ typedef struct _sys_link_knowndll
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1052,13 +1045,13 @@ typedef struct _sys_link_knowndll
 
 typedef struct _sys_open_physmm 
 {
-	ACCESS_MASK access; //´ò¿ªÈ¨ÏÞ 
+	ACCESS_MASK access; //ï¿½ï¿½È¨ï¿½ï¿½ 
 } sys_open_physmm, *psys_open_physmm; 
 
 typedef struct _sys_read_physmm 
 { 
-	ULONG offset; //¶ÁÈ¡Æ«ÒÆ 
-	ULONG count; //¶ÁÈ¡³¤¶È 
+	ULONG offset; //ï¿½ï¿½È¡Æ«ï¿½ï¿½ 
+	ULONG count; //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ 
 } sys_read_physmm, *psys_read_physmm; 
 
 typedef sys_read_physmm sys_write_physmm, *psys_write_physmm; 
@@ -1070,7 +1063,7 @@ typedef struct _sys_load_kmod
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1087,7 +1080,7 @@ typedef struct _sys_load_mod
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1101,20 +1094,20 @@ typedef sys_load_mod sys_unload_mod;
 typedef sys_load_kmod sys_load_kmod_policy; 
 typedef struct _sys_enumproc 
 { 
-	NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 } sys_enumproc, *psys_enumproc; 
 
 typedef struct _sys_regsrv 
 { 
-	ACCESS_MASK access; //·þÎñ´´½¨/´ò¿ªÈ¨ÏÞ 
-	ULONG type; //·þÎñÀàÐÍ 
-	ULONG starttype; //·þÎñÆô¶¯ÀàÐÍ 
-	NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	ACCESS_MASK access; //ï¿½ï¿½ï¿½ñ´´½ï¿½/ï¿½ï¿½È¨ï¿½ï¿½ 
+	ULONG type; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	ULONG starttype; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	PATH_SIZE_T path_len; 
 	PATH_SIZE_T srv_name_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1126,13 +1119,13 @@ typedef struct _sys_regsrv
 
 typedef struct _sys_opendev 
 { 
-	ULONG devtype; //Éè±¸ÀàÐÍ 
-	ULONG access; //Éè±¸´ò¿ªÈ¨ÏÞ 
-	ULONG share; //Éè±¸¹²ÏíÈ¨ÏÞ 
+	ULONG devtype; //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ 
+	ULONG access; //ï¿½è±¸ï¿½ï¿½È¨ï¿½ï¿½ 
+	ULONG share; //ï¿½è±¸ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Éè±¸Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½è±¸Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1180,16 +1173,16 @@ typedef LONG_PTR LRESULT; //LONG_PTR
 
 typedef struct _w32_postmsg 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	HANDLE_TYPE hwnd; //Ä¿±ê´°¿Ú¾ä±ú 
-	ULONG msg; //´°¿ÚÏûÏ¢ 
-	WPARAM_TYPE wparam; //ÏûÏ¢²ÎÊý1 
-	LPARAM_TYPE lparam; //ÏûÏ¢²ÎÊý2 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	HANDLE_TYPE hwnd; //Ä¿ï¿½ê´°ï¿½Ú¾ï¿½ï¿½ 
+	ULONG msg; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+	WPARAM_TYPE wparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½1 
+	LPARAM_TYPE lparam; //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½2 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		LPCWSTR path_name_ptr; 
 	};
 
@@ -1199,14 +1192,14 @@ typedef w32_postmsg w32_sendmsg, *pw32_sendmsg;
 
 typedef struct _w32_findwnd 
 { 
-	HANDLE_TYPE parent_hwnd; //¸¸´°¿Ú¾ä±ú 
-	HANDLE_TYPE sub_hwnd; //×Ó´°¿Ú¾ä±ú 
-	NTSTATUS result; //¶¯×÷Íê³É½á¹û(HWND) 
+	HANDLE_TYPE parent_hwnd; //ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ 
+	HANDLE_TYPE sub_hwnd; //ï¿½Ó´ï¿½ï¿½Ú¾ï¿½ï¿½ 
+	NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(HWND) 
 	PATH_SIZE_T cls_name_len; 
 	PATH_SIZE_T wnd_name_len; 
 	union
 	{
-		WCHAR cls_name[ 1 ]; //´°¿ÚÀàÃû
+		WCHAR cls_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		LPCWSTR cls_name_ptr; 
 		LPCWSTR wnd_name_ptr; 		
 	}; 
@@ -1214,14 +1207,14 @@ typedef struct _w32_findwnd
 
 typedef struct _w32_msghook 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	POINTER_TYPE modbase; //¹³×ÓÄ£¿é»ùÖ· 
-	POINTER_TYPE hookfunc; //¹³×Óº¯ÊýµØÖ· 
-	ULONG hooktype; //¹³×ÓÀàÐÍ 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	POINTER_TYPE modbase; //ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ö· 
+	POINTER_TYPE hookfunc; //ï¿½ï¿½ï¿½Óºï¿½ï¿½ï¿½ï¿½ï¿½Ö· 
+	ULONG hooktype; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×¢²á±íÖµÂ·¾¶ 
+		WCHAR path_name[ 1 ]; //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1233,13 +1226,13 @@ typedef struct _w32_msghook
 
 typedef struct _w32_lib_inject 
 { 
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
-	NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+	NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 	PATH_SIZE_T path_len; 
 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1250,7 +1243,7 @@ typedef struct _w32_lib_inject
 
 } w32_lib_inject, *pw32_lib_inject; 
 
-//MT_netmon (ÍøÂç¼à¿Ø) ¶¯×÷ Â·¾¶¹ýÂËÆ÷ ²ÎÊý 
+//MT_netmon (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
 typedef ULONG IP_ADDR_T; 
 typedef USHORT PORT_T; 
@@ -1259,7 +1252,7 @@ typedef struct _net_connect
 { 
 	IP_ADDR_T local_ip_addr; 
 	PORT_T local_port; 
-	ULONG protocol; //Ð­Òé 
+	ULONG protocol; //Ð­ï¿½ï¿½ 
 	IP_ADDR_T ip_addr; 
 	PORT_T port; 
 } net_connect, *pnet_connect; 
@@ -1273,9 +1266,9 @@ typedef struct _net_send
 
 	IP_ADDR_T local_ip_addr; 
 	PORT_T local_port; 
-	ULONG protocol; //Ð­Òé 
-	ULONG data_len; //·¢ËÍÊý¾Ý³¤¶È 
-	IP_ADDR_T ip_addr;//Ô¶³ÌIP:¶Ë¿Ú 
+	ULONG protocol; //Ð­ï¿½ï¿½ 
+	ULONG data_len; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+	IP_ADDR_T ip_addr;//Ô¶ï¿½ï¿½IP:ï¿½Ë¿ï¿½ 
 	PORT_T port; 
 } net_send, *pnet_send; 
 
@@ -1285,9 +1278,9 @@ typedef net_recv net_accept;
 
 typedef struct _net_http 
 { 
-	ULONG protocol; //Ð­Òé 
-	ULONG cmd; //HTTPÃüÁî 
-	ULONG data_len; //·¢ËÍÊý¾Ý³¤¶È 
+	ULONG protocol; //Ð­ï¿½ï¿½ 
+	ULONG cmd; //HTTPï¿½ï¿½ï¿½ï¿½ 
+	ULONG data_len; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 
 	PATH_SIZE_T path_len; 
 
@@ -1304,7 +1297,7 @@ typedef struct _net_http
 
 typedef struct _net_dns 
 {  
-	ULONG protocol; //Ð­Òé  
+	ULONG protocol; //Ð­ï¿½ï¿½  
 	PATH_SIZE_T path_len; 
 	union
 	{
@@ -1327,15 +1320,15 @@ typedef struct _net_icmp_send
 
 typedef net_icmp_send net_icmp_recv; 
 
-//MT_behavior (ÐÐÎª¼à¿Ø) 
-//ÐÐÎª Â·¾¶¹ýÂËÆ÷ ²ÎÊý 
+//MT_behavior (ï¿½ï¿½Îªï¿½ï¿½ï¿½) 
+//ï¿½ï¿½Îª Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
 typedef struct _ba_extract_hidden
 {
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //ÊÍ·ÅÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½Í·ï¿½ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{
@@ -1357,11 +1350,11 @@ typedef ba_extract_hidden ba_ulterior_exec;
 
 typedef struct _ba_invade_process
 {
-	ULONG target_pid; //Ä¿±ê½ø³ÌID 
+	ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		LPCWSTR path_name_ptr; 
 	}; 
 } ba_invade_process, *pba_invade_process; 
@@ -1371,11 +1364,11 @@ typedef ba_extract_hidden ba_infect_pe;
 	  
 typedef struct _ba_register_autorun
 {
-	ULONG type; //×ÔÆô¶¯ÀàÐÍ 
+	ULONG type; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	PATH_SIZE_T path_len; 
 	union
 	{
-		WCHAR path_name[ 1 ]; //×ÔÆô¶¯ÎÄ¼þÈ«Â·¾¶ 
+		WCHAR path_name[ 1 ]; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		struct 
 		{

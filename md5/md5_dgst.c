@@ -1,4 +1,3 @@
-/* crypto/md5/md5_dgst.c */
 /* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
  * All rights reserved.
  *
@@ -58,7 +57,6 @@
 
 #include <stdio.h>
 #include "md5_locl.h"
-//#include <openssl/opensslv.h>
 
 const char MD5_version[]="MD5" "Version 1.0";
 

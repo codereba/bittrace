@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #ifndef HTTPClient_H_  
+#ifndef HTTPClient_H_  
 #define HTTPClient_H_  
   
   
@@ -42,27 +35,27 @@ public:
     ~HTTPClient(void);  
   
   
-    //parmSock: ÓëÍøÕ¾Á¬½ÓµÄÌ×½Ó×Ö  
-    //serverName: ÍøÕ¾ÍøÖ·  
-    //sourcePath: ÎÄ¼þÂ·¾¶  
-    //fileName: ÎÄ¼þÃû  
-    //localDirectory: ÎÄ¼þ´æ´¢ÔÚ±¾µØµÄÄ¿Â¼  
-    //port: ÏÂÔØÎÄ¼þ¶Ë¿Ú  
+    //parmSock: ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½Óµï¿½ï¿½×½ï¿½ï¿½ï¿½  
+    //serverName: ï¿½ï¿½Õ¾ï¿½ï¿½Ö·  
+    //sourcePath: ï¿½Ä¼ï¿½Â·ï¿½ï¿½  
+    //fileName: ï¿½Ä¼ï¿½ï¿½ï¿½  
+    //localDirectory: ï¿½Ä¼ï¿½ï¿½æ´¢ï¿½Ú±ï¿½ï¿½Øµï¿½Ä¿Â¼  
+    //port: ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ë¿ï¿½  
     bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePath, string fileName, string localDirectory, string port);  
       
-    //¸ñÊ½»¯httpÇëÇóÍ·£¬Ôö¼ÓRange×Ö¶Î£¬¸Ã×Ö¶Î±íÊ¾ÒÑÏÂÔØµÄÎÄ¼þ×Ö½ÚÊý  
+    //ï¿½ï¿½Ê½ï¿½ï¿½httpï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rangeï¿½Ö¶Î£ï¿½ï¿½ï¿½ï¿½Ö¶Î±ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ä¼ï¿½ï¿½Ö½ï¿½ï¿½ï¿½  
     void FormatRequestHeader(char *buf,string serverName,string requestFile,std::string Port = "80");  
       
-    //»ñÈ¡ÒªÏÂÔØµÄÎÄ¼þ´óÐ¡£¬szBufferÎª½ÓÊÕµ½µÄÊý¾Ý,nRetÎª½ÓÊÕµ½µÃÊý¾Ý³¤¶È  
+    //ï¿½ï¿½È¡Òªï¿½ï¿½ï¿½Øµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½szBufferÎªï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,nRetÎªï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½  
     bool GetFileLength(const char* szBuffer);  
       
-    //ÅÐ¶ÏÊÇ·ñÐèÒªÏÂÔØÎÄ¼þ£¬Èç²»ÐèÒª·µ»Øfalse  
+    //ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ç²»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½false  
     bool NeedToDownloadFile();  
   
   
 private:  
-    long int RangeInt;  //ÒÑÏÂÔØµÄÎÄ¼þ×Ö½ÚÊý  
-    long int ContentLengthInt;  //ÒªÏÂÔØµÄÎÄ¼þ´óÐ¡  
+    long int RangeInt;  //ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ä¼ï¿½ï¿½Ö½ï¿½ï¿½ï¿½  
+    long int ContentLengthInt;  //Òªï¿½ï¿½ï¿½Øµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡  
 };  
   
   
@@ -89,22 +82,22 @@ HTTPClient::~HTTPClient(void)
 {  
 }  
 //////////////////////////////////////////////////  
-//¸ñÊ½»¯httpÇëÇóÍ·  
+//ï¿½ï¿½Ê½ï¿½ï¿½httpï¿½ï¿½ï¿½ï¿½Í·  
 //////////////////////////////  
 void HTTPClient::FormatRequestHeader(char *buf,std::string serverName,std::string requestFile,std::string port)  
 {  
     memset(buf,'\0',1024);  
-    //µÚÒ»ÐÐ  
+    //ï¿½ï¿½Ò»ï¿½ï¿½  
     sprintf(buf,"GET %s HTTP/1.1\r\n",requestFile.c_str());  
       
-    //µÚ¶þÐÐ  
+    //ï¿½Ú¶ï¿½ï¿½ï¿½  
     strcat(buf,"Host:");  
     strcat(buf,serverName.c_str());  
     strcat(buf,":");  
     strcat(buf,port.c_str());  
     strcat(buf,"\r\n");  
       
-    //µÚÈýÐÐ  
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
     strcat(buf,"Accept:*/*");  
     strcat(buf,"\r\n");  
     //////////////////////////////  
@@ -112,15 +105,15 @@ void HTTPClient::FormatRequestHeader(char *buf,std::string serverName,std::strin
     strcat(buf,"\r\n");  
         */  
     //////////////////////////  
-    //µÚËÄÐÐ(¿ÉÓÐ¿ÉÎÞ)  
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½)  
     strcat(buf,"User-Agent:GeneralDownloadApplication");  
     strcat(buf,"\r\n");  
       
-    //µÚÎåÐÐ ·Ç³Ö¾ÃÁ¬½Ó  
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç³Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½  
     strcat(buf,"Connection:close");  
     strcat(buf,"\r\n");  
       
-    //µÚÁùÐÐ ¶ÏµãÐø´«¹Ø¼ü  
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½  
     char RangeString[15];  
     ltoa(RangeInt,RangeString,10);  
       
@@ -128,7 +121,7 @@ void HTTPClient::FormatRequestHeader(char *buf,std::string serverName,std::strin
     strcat(buf,RangeString);  
     strcat(buf,"-\r\n");  
       
-    ///×îºóÒ»ÐÐ:¿ÕÐÐ  
+    ///ï¿½ï¿½ï¿½Ò»ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½  
     strcat(buf,"\r\n");  
   
   
@@ -136,24 +129,24 @@ void HTTPClient::FormatRequestHeader(char *buf,std::string serverName,std::strin
   
 }  
 /////////////////////////////////////////  
-//»ñÈ¡ÒªÏÂÔØµÄÎÄ¼þ´óÐ¡´æÈëContentLengthIntÖÐ  
+//ï¿½ï¿½È¡Òªï¿½ï¿½ï¿½Øµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ContentLengthIntï¿½ï¿½  
 ///////////////////////////////////////////  
 bool HTTPClient::GetFileLength(const char* szBuffer)  
 {  
     std::string strBuffer(szBuffer);  
   
   
-    //»ñÈ¡httpÍ·µÄ´óÐ¡  
+    //ï¿½ï¿½È¡httpÍ·ï¿½Ä´ï¿½Ð¡  
     int httpLength = strBuffer.find("\r\n\r\n");   
-    //httpÍ·È«²¿µÄ´óÐ¡£¬²»°üÀ¨'\0'  
+    //httpÍ·È«ï¿½ï¿½ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'\0'  
     httpLength = httpLength + strlen("\r\n\r\n");    
   
   
-    //´æ´¢Content-RangeÖ®ºóµÄÊý¾Ý  
+    //ï¿½æ´¢Content-RangeÖ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
     std::string strContent;  
-    //´æ´¢Content-RangeÐÐÖÐµÄ×Ö·û´®Öµ  
+    //ï¿½æ´¢Content-Rangeï¿½ï¿½ï¿½Ðµï¿½ï¿½Ö·ï¿½ï¿½ï¿½Öµ  
     std::string strContentRange;  
-    //»ñÈ¡Content-RangeÐÐ  
+    //ï¿½ï¿½È¡Content-Rangeï¿½ï¿½  
     int ContentRangeBegin = strBuffer.find("Content-Range: bytes ");  
     if(ContentRangeBegin == -1)  
     {  
@@ -164,7 +157,7 @@ bool HTTPClient::GetFileLength(const char* szBuffer)
   
   
     strContentRange = strContent.substr(sizeof("Content-Range: bytes "));  
-    ///±£´æÒªÏÂÔØµÄÎÄ¼þ´óÐ¡  
+    ///ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Øµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡  
     std::string strLength = strContentRange.substr(strContentRange.find("/")+1);  
     this->ContentLengthInt = atol(strLength.c_str());  
       
@@ -173,7 +166,7 @@ bool HTTPClient::GetFileLength(const char* szBuffer)
   
   
 ////////////////////////////////////////////////////////////////////  
-//ÅÐ¶ÏÊÇ·ñÐèÒªÏÂÔØÎÄ¼þ  
+//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½  
 ////////////////////////////////////////////////////////////////////  
 bool HTTPClient::NeedToDownloadFile()  
 {  
@@ -184,7 +177,7 @@ bool HTTPClient::NeedToDownloadFile()
     return true;  
 }  
 ////////////////////////////////////////////////////////////////////  
-//            parmSock: ÓëÍøÕ¾Á¬½ÓµÄÌ×½Ó×Ö  
+//            parmSock: ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½Óµï¿½ï¿½×½ï¿½ï¿½ï¿½  
 //        serverName = "127.0.0.1" or "localhost"  
 //            sourcePath = "/abc/"  
 //            fileName = "config.xml"  
@@ -198,9 +191,9 @@ bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePa
   
   
     ////////////////////////////////////////////////  
-    //ÄÜ¹»Ê¶±ðÖÐÎÄÄ¿Â¼ºÍÎÄ¼þÃû  
+    //ï¿½Ü¹ï¿½Ê¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½  
     std::locale::global(std::locale(""));  
-    //ÏÈÅÐ¶Ï¸ÃÎÄ¼þÊÇ·ñ´æÔÚ£¬Èç´æÔÚ»ñÈ¡ÎÄ¼þ´óÐ¡  
+    //ï¿½ï¿½ï¿½Ð¶Ï¸ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½È¡ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡  
     ifstream fin(newfile.c_str());  
     /*if(!fin.is_open()) 
     { 
@@ -216,7 +209,7 @@ bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePa
     fin.close();  
   
   
-    //´ò¿ªÎÄ¼þ£¬¶¨Î»ÎÄ¼þÄÚÖ¸Õëµ½ÎÄ¼þÎ²  
+    //ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ä¼ï¿½ï¿½ï¿½Ö¸ï¿½ëµ½ï¿½Ä¼ï¿½Î²  
     fout.open(newfile.c_str(),ios_base::binary|ios_base::app);    
     if(!fout.is_open())  
     {  
@@ -228,7 +221,7 @@ bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePa
   
   
     /////////////////////////////////////////  
-    //½«Ä¿Â¼ºÍÎÄ¼þÃûÖÐµÄ' '×ª»»Îª"%20"  
+    //ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ðµï¿½' '×ªï¿½ï¿½Îª"%20"  
     /////////////////////////////////////////  
     //sourcePath  
     int npos = sourcePath.find(" ");  
@@ -258,7 +251,7 @@ bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePa
     string requestFile = sourcePath + fileName;  
   
   
-    //¸ñÊ½»¯httpÐ­ÒéÇëÇóÍ·  
+    //ï¿½ï¿½Ê½ï¿½ï¿½httpÐ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·  
     FormatRequestHeader(szBuffer,serverName,requestFile,port);  
       
     int nRet = send(parmSock, szBuffer, strlen(szBuffer), 0);  
@@ -278,7 +271,7 @@ bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePa
     // Receive the file contents and print to stdout  
     //  
     ///////////////////////////////////////////////////////////////  
-        //È¡³öhttpÍ·,´óÐ¡Ó¦¸Ã²»³¬¹ý1024¸ö×Ö½Ú,Ö»ÔÚµÚÒ»´Î½ÓÊÕÊ±½øÐÐ´¦Àí  
+        //È¡ï¿½ï¿½httpÍ·,ï¿½ï¿½Ð¡Ó¦ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½1024ï¿½ï¿½ï¿½Ö½ï¿½,Ö»ï¿½Úµï¿½Ò»ï¿½Î½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½  
     ///////////////////////////////////////////////////////////////  
     nRet = recv(parmSock, szBuffer, sizeof(szBuffer), 0);  
     if (nRet == SOCKET_ERROR)  
@@ -301,7 +294,7 @@ bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePa
         }  
         i++;  
     }  
-    //ÎÄ¼þÄÚÈÝ¿ªÊ¼  
+    //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½Ê¼  
     int fileBegin = i+4;  
   
   
@@ -329,7 +322,7 @@ bool HTTPClient::DownloadFile(SOCKET parmSock,string serverName, string sourcePa
         return true;  
     }  
     /////////////////////////////////////////////////////////////  
-    //ÈçÐèÒªÏÂÔØÎÄ¼þ£¬Ö´ÐÐÒÔÏÂ´úÂë  
+    //ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½  
     /////////////////////////////////////////////////////////////  
     for(i = fileBegin; i < nRet; i++)  
     {  
@@ -389,8 +382,8 @@ int main()
     //m.DownloadFile("localhost","/abc/","config.xml","D:\\");  
   
   
-    std::string url = "http://localhost/ÐÂ ½¨ ÎÄ ¼þ ¼Ð/ÔÉ Âä ÐÇ ³½ .rmvb";  
-    std::string localDirectory = "D:\\ÖÐ ¹ú\\";  
+    std::string url = "http://localhost/ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½/ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ .rmvb";  
+    std::string localDirectory = "D:\\ï¿½ï¿½ ï¿½ï¿½\\";  
     std::string port = "5550";  
 //  cout<<m.ContentLengthInt<<endl;  
 //  cout<<m.RangeInt<<endl;  

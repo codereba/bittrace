@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __ACL_DEFINE_H__
@@ -84,9 +77,9 @@ typedef enum _param_compare_type
 
 typedef enum _work_mode
 {
-	WORK_FREE_MODE, //×ÔÓÉ
-	WORK_BLOCK_MODE, //½ûÖ¹
-	WORK_ACL_MODE,  //ÂÌÉ«
+	WORK_FREE_MODE, //ï¿½ï¿½ï¿½ï¿½
+	WORK_BLOCK_MODE, //ï¿½ï¿½Ö¹
+	WORK_ACL_MODE,  //ï¿½ï¿½É«
 	WORK_LEARN_MODE, 
 	MAX_WORK_MODE
 } work_mode;
@@ -153,21 +146,21 @@ INLINE LPCWSTR get_prot_type_desc( prot_type type )
 
 
 #ifdef _DRIVER
-#define INSTALL_DRV_DESC L"°²×°Çý¶¯" 
-#define INSTALL_HOOK_DESC L"°²×°¹³×Ó" 
-#define CREATE_PROC_DESC L"ÔËÐÐÆäËü³ÌÐò" 
-#define ACCESS_MEM_DESC L"·ÃÎÊÆäËü³ÌÐòÄÚ´æ" 
-#define ACCESS_COM_DESC L"·ÃÎÊCOM×é¼þ¹¦ÄÜ" 
-#define MODIFY_KEY_DESC L"ÐÞ¸Ä×¢²á±í¼üÖµ" 
-#define MODIFY_FILE_DESC L"ÐÞ¸Ä±»±£»¤Ä¿Â¼ÏÂÎÄ¼þ" 
+#define INSTALL_DRV_DESC L"ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½" 
+#define INSTALL_HOOK_DESC L"ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½" 
+#define CREATE_PROC_DESC L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" 
+#define ACCESS_MEM_DESC L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½" 
+#define ACCESS_COM_DESC L"ï¿½ï¿½ï¿½ï¿½COMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" 
+#define MODIFY_KEY_DESC L"ï¿½Þ¸ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Öµ" 
+#define MODIFY_FILE_DESC L"ï¿½Þ¸Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½" 
 #else
-#define INSTALL_DRV_DESC _T( "°²×°Çý¶¯" )
-#define INSTALL_HOOK_DESC _T( "°²×°¹³×Ó") 
-#define CREATE_PROC_DESC _T( "ÔËÐÐÆäËü³ÌÐò") 
-#define ACCESS_MEM_DESC _T( "·ÃÎÊÆäËü³ÌÐòÄÚ´æ" )
-#define ACCESS_COM_DESC _T( "·ÃÎÊCOM×é¼þ¹¦ÄÜ")
-#define MODIFY_KEY_DESC _T( "ÐÞ¸Ä×¢²á±í¼üÖµ")
-#define MODIFY_FILE_DESC _T( "ÐÞ¸Ä±»±£»¤Ä¿Â¼ÏÂÎÄ¼þ" )
+#define INSTALL_DRV_DESC _T( "ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½" )
+#define INSTALL_HOOK_DESC _T( "ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½") 
+#define CREATE_PROC_DESC _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½") 
+#define ACCESS_MEM_DESC _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½" )
+#define ACCESS_COM_DESC _T( "ï¿½ï¿½ï¿½ï¿½COMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
+#define MODIFY_KEY_DESC _T( "ï¿½Þ¸ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Öµ")
+#define MODIFY_FILE_DESC _T( "ï¿½Þ¸Ä±ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½" )
 #endif //_DRIVER
 
 #define is_valid_access_rule_type( type ) ( type >= ACTION_RULE_BEGIN && type <= ACTION_RULE_END ) 
@@ -1216,7 +1209,7 @@ INLINE NTSTATUS validate_data_cont( PVOID data_cont, data_context_type data_type
 			}
 			break; 
 #endif //DRIVER
-			//×¢ÒâÓÃ»§²ã»º´æÇøµÄ·ÃÎÊÒì³£ÎÊÌâ¡£
+			//×¢ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ã»ºï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½â¡£
 		case DATA_CONTEXT_BUF:
 			if( data_cont == NULL )
 			{
@@ -2611,56 +2604,56 @@ INLINE access_rule_type acl_type( sys_action_type action_type )
 #endif //COMPATIBLE_OLD_ACTION_DEFINE
 	
 	case OTHER_ACTION:
-	case EXEC_create://½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
-	case EXEC_destroy://½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
-	case EXEC_module_load: //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+	case EXEC_create://ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
+	case EXEC_destroy://ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case EXEC_module_load: //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		//MT_procmon: 
-	case PROC_exec: //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
-	case PROC_open: //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_debug: //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_suspend: //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_resume: //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_exit: //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_job: //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_pgprot: //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_freevm: //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_writevm: //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case PROC_readvm: //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_remote: //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_setctxt: //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_suspend: //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_resume: //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_exit: //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case THRD_queue_apc: //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+	case PROC_exec: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
+	case PROC_open: //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_debug: //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_suspend: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_resume: //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_exit: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_job: //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_pgprot: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_freevm: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_writevm: //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case PROC_readvm: //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_remote: //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_setctxt: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_suspend: //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_resume: //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_exit: //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case THRD_queue_apc: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_sysmon
-	case SYS_settime: //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
-	case SYS_link_knowndll: //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
-	case SYS_open_physmm: //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
-	case SYS_read_physmm: //¶ÁÎïÀíÄÚ´æ ÎÞ 
-	case SYS_write_physmm: //Ð´ÎïÀíÄÚ´æ ÎÞ 
-	case SYS_load_kmod: //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
-	case SYS_enumproc: //Ã¶¾Ù½ø³Ì ÎÞ 
-	case SYS_regsrv: //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
-	case SYS_opendev: //´ò¿ªÉè±¸ Éè±¸Ãû 
+	case SYS_settime: //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
+	case SYS_link_knowndll: //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
+	case SYS_open_physmm: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
+	case SYS_read_physmm: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+	case SYS_write_physmm: //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
+	case SYS_load_kmod: //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	case SYS_enumproc: //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	case SYS_regsrv: //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+	case SYS_opendev: //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 		//MT_w32mon
-	case W32_postmsg: //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case W32_sendmsg: //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case W32_findwnd: //²éÕÒ´°¿Ú ÎÞ 
-	case W32_msghook: //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
-	case W32_lib_inject: //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+	case W32_postmsg: //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case W32_sendmsg: //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case W32_findwnd: //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	case W32_msghook: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
+	case W32_lib_inject: //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_behavior: 
-	case BA_extract_hidden: //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
-	case BA_extract_pe: //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
-	case BA_self_copy: //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
-	case BA_self_delete: //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
-	case BA_ulterior_exec: //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
-	case BA_invade_process: //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
-	case BA_infect_pe: //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-	case BA_overwrite_pe: //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
-	case BA_register_autorun: //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+	case BA_extract_hidden: //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
+	case BA_extract_pe: //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_self_copy: //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_self_delete: //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_ulterior_exec: //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_invade_process: //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_infect_pe: //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_overwrite_pe: //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
+	case BA_register_autorun: //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	//case BA_other: 
 
 #ifdef COMPATIBLE_OLD_ACTION_DEFINE
@@ -2683,19 +2676,19 @@ INLINE access_rule_type acl_type( sys_action_type action_type )
 #endif //COMPATIBLE_OLD_ACTION_DEFINE
 
 	//MT_regmon: 
-	case REG_openkey: //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
-	case REG_mkkey: //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_rmkey: //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_mvkey: //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+	case REG_openkey: //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+	case REG_mkkey: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_rmkey: //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_mvkey: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_getinfo: 
 	case REG_setinfo: 
-	case REG_rmval: //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_getval: //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-	case REG_setval: //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
-	case REG_loadkey: //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-	case REG_replkey: //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
-	case REG_rstrkey: //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
-	case REG_setsec: //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+	case REG_rmval: //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_getval: //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+	case REG_setval: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+	case REG_loadkey: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_replkey: //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_rstrkey: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
+	case REG_setsec: //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_closekey:
 		rule_type = REG_RULE_TYPE; 
 		break; 
@@ -2705,18 +2698,18 @@ INLINE access_rule_type acl_type( sys_action_type action_type )
 #endif //COMPATIBLE_OLD_ACTION_DEFINE
 
 		//MT_filemon: 
-	case FILE_touch: //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 
-	case FILE_open: //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_read: //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_write: //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_modified: //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_readdir: //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
-	case FILE_remove: //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_rename: //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_truncate: //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_mklink: //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_chmod: //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
-	case FILE_setsec: //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+	case FILE_touch: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 
+	case FILE_open: //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_read: //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_write: //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_modified: //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_readdir: //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
+	case FILE_remove: //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_rename: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_truncate: //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_mklink: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_chmod: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
+	case FILE_setsec: //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_getinfo:
 	case FILE_setinfo:
 		rule_type = FILE_RULE_TYPE; 
@@ -2730,9 +2723,9 @@ INLINE access_rule_type acl_type( sys_action_type action_type )
 
 		//MT_netmon: 
 	case NET_create: 
-	case NET_connect: //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
-	case NET_listen: //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
-	case NET_send: //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+	case NET_connect: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
+	case NET_listen: //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
+	case NET_send: //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 	case NET_recv: 
 	case NET_accept: 
 
@@ -2741,7 +2734,7 @@ INLINE access_rule_type acl_type( sys_action_type action_type )
 		rule_type = SOCKET_RULE_TYPE; 
 
 		break; 
-	case NET_http: //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+	case NET_http: //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 #ifdef COMPATIBLE_OLD_ACTION_DEFINE
 	case LOCATE_URL:
 		rule_type = URL_RULE_TYPE; 

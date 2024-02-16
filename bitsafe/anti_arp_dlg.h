@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #pragma once 
@@ -33,14 +26,14 @@
 
 #define WM_OUTPUT_ARP_INFO ( WM_USER + 101 )
 
-#define START_ANTI_ARP_TITLE _T( "¿ªÆôARP¹¥»÷¹ýÂË" )
-#define STOP_ANTI_ARP_TITLE _T( "Í£Ö¹ARP¹¥»÷¹ýÂË" )
+#define START_ANTI_ARP_TITLE _T( "ï¿½ï¿½ï¿½ï¿½ARPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" )
+#define STOP_ANTI_ARP_TITLE _T( "Í£Ö¹ARPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" )
 
 #define ARP_HOST_MAC_LISTS_BUFF_LEN ( ULONG )( 1024 * 200 )
 #define MAX_ARP_HOST_MAC_LIST_NUM ( ( ARP_HOST_MAC_LISTS_BUFF_LEN - sizeof( ARP_HOST_MAC_LISTS ) + sizeof( ARP_HOST_MAC_OUTPUT ) ) / sizeof( ARP_HOST_MAC_OUTPUT ) ) 
 
 /*
-*  Ïß³Ìº¯ÊýÖÐ´«ÈëµÄ½á¹¹Ìå±äÁ¿£¬Ê¹ÓÃÏß³ÌÎªÁËÊ¹½çÃæÏß³ÌÁ¢¼´·µ»Ø£¬·ÀÖ¹¿¨×¡£¬ÄãÃÇ¶®µÃ¡£
+*  ï¿½ß³Ìºï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ä½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ß³ï¿½Îªï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½×¡ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½Ã¡ï¿½
 */
 struct Prama
 {
@@ -161,7 +154,7 @@ _return:
 
 	LRESULT on_ok_bn()
 	{
-		// TODO: ÔÚ´ËÌí¼Ó¿Ø¼þÍ¨Öª´¦Àí³ÌÐò´úÂë
+		// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ó¿Ø¼ï¿½Í¨Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		INT32 ret = 0; 
 		CControlUI *ok_btn; 
@@ -407,7 +400,7 @@ _return:
 #define ARP_IP_FMT_STRING_ENGLISH _T( "Host IP %d.%d.%d.%d Arp replied mac: \n" )
 			
 			tmp_text = _get_string_by_id( TEXT_ANTI_ARP_HOST_MAC_LIST, 
-				_T( "Ö÷»ú %d.%d.%d.%d ¶ÔÓ¦ mac µØÖ·(ARPÐ­Òé»Ø¸´): \n" ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ %d.%d.%d.%d ï¿½ï¿½Ó¦ mac ï¿½ï¿½Ö·(ARPÐ­ï¿½ï¿½Ø¸ï¿½): \n" ) ); 
 			_stprintf( ip_addr, tmp_text, _IP[ 0 ], 
 				_IP[ 1 ], 
 				_IP[ 2 ], 
@@ -618,7 +611,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __LANG_EN_H__
@@ -25,69 +18,69 @@
 #include "string_common.h"
 
 #ifdef LANG_EN
-#define KEY_BASIC_INFO_FORMAT_TEXT L"Index: %u, Write time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"Ë÷ÒýºÅ: %u, Ð´ÈëÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u"
-#define KEY_BASIC_INFO_FORMAT_TEXT2 L"Index: %u, Last write time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"Ë÷ÒýºÅ: %u, Ð´ÈëÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u"
+#define KEY_BASIC_INFO_FORMAT_TEXT L"Index: %u, Write time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u"
+#define KEY_BASIC_INFO_FORMAT_TEXT2 L"Index: %u, Last write time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u"
 
-#define KEY_BASIC_INFO_KEY_NAME L"Key name:" //L"¼üÃû:"
-#define KEY_BASIC_INFO_KEY_CLASS L"Key class:" //L"¼üÀàÐÍÃû:"
-#define KEY_FULL_INFO_FORMAT_TEXT L"Max class name: %u, Max key name: %u, Max value name: %u, Max value size: %u, Max count of sub key: %u, Max count of key value: %u, Index: %u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u" //L"×î´óÀàÐÍÃû³¤¶È: %u, ×î´ó¼üÃû³¤¶È: %u, ×î´óÖµÃû³¤¶È: %u, ×î´óÖµÊý¾Ý³¤¶È: %u, ×î´ó×Ó¼üÊý: %u, ×î´ó¼üÖµÊý: %u, Ë÷ÒýºÅ: %u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u", 
-#define KEY_CACHE_INFO_FORMAT_TEXT L"Key name length:%u Max sub key name:%u, Max key name: %u, Max value size: %u, Max count of sub key: %u, Max count of key value: %u, Index: %u, Last write time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"¼üÃû³¤¶È:%u ×î´ó×Ó¼üÃû³¤¶È:%u, ×î´ó¼üÖµÃû³¤¶È: %u, ×î´ó¼üÖµÊý¾Ý³¤¶È: %u, ×î´ó×Ó¼üÊý: %u, ×î´ó¼üÖµÊý: %u, Ë÷ÒýºÅ: %u, ×îºó¸ÄÐ´Ê±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u", 
-#define KEY_USER_TAG L"User tag: 0x%0.8x" //L"ÓÃ»§±ê¼Ç: 0x%0.8x"
+#define KEY_BASIC_INFO_KEY_NAME L"Key name:" //L"ï¿½ï¿½ï¿½ï¿½:"
+#define KEY_BASIC_INFO_KEY_CLASS L"Key class:" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:"
+#define KEY_FULL_INFO_FORMAT_TEXT L"Max class name: %u, Max key name: %u, Max value name: %u, Max value size: %u, Max count of sub key: %u, Max count of key value: %u, Index: %u, Last write time:%04u-%02u-%02u %02u:%02u:%02u.%03u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u", 
+#define KEY_CACHE_INFO_FORMAT_TEXT L"Key name length:%u Max sub key name:%u, Max key name: %u, Max value size: %u, Max count of sub key: %u, Max count of key value: %u, Index: %u, Last write time: %04u-%02u-%02u %02u:%02u:%02u.%03u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Ð´Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u", 
+#define KEY_USER_TAG L"User tag: 0x%0.8x" //L"ï¿½Ã»ï¿½ï¿½ï¿½ï¿½: 0x%0.8x"
 #define KEY_VIRTUAL_INFO_FORMAT_TEXT L"%s %s %s %s %s "
-#define KEY_IN_VIRTUAL_SPACE L"Virtualization candidate" //L"Î»ÓÚÐéÄâ¿Õ¼ä"
-#define KEY_VIRTUAL_ENABLE L"Virtualization enabled" //L"¼üÐéÄâ»¯"
-#define KEY_VIRTUAL_TAGET L"Virtual target" //L"ÐéÄâ¼ü"
-#define KEY_VIRTUAL_STORE L"Virtual store" //L"Î»ÓÚÐéÄâ´æ´¢Çø"
-#define KEY_VIRTUAL_SOURCE L"Virtual source" //L"ÔøÐéÄâ»¯"
-#define KEY_HANDLE_TAGS_FORMAT_TEXT L"Key handle tags: 0x%0.8x" //L"¾ä±ú±ê¼Ç: 0x%0.8x"
+#define KEY_IN_VIRTUAL_SPACE L"Virtualization candidate" //L"Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½"
+#define KEY_VIRTUAL_ENABLE L"Virtualization enabled" //L"ï¿½ï¿½ï¿½ï¿½ï¿½â»¯"
+#define KEY_VIRTUAL_TAGET L"Virtual target" //L"ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define KEY_VIRTUAL_STORE L"Virtual store" //L"Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½"
+#define KEY_VIRTUAL_SOURCE L"Virtual source" //L"ï¿½ï¿½ï¿½ï¿½ï¿½â»¯"
+#define KEY_HANDLE_TAGS_FORMAT_TEXT L"Key handle tags: 0x%0.8x" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 0x%0.8x"
 
-#define KEY_VALUE_BASIC_INFO_FORMAT_TEXT L"Value index: %u, Value type: %s" //L"¼üÖµË÷ÒýºÅ: %u, ¼üÖµÀàÐÍ: %s", 
-#define KEY_VALUE_NAME_TEXT L"Key value name:" //L"¼üÖµÃû:"
-#define KEY_VALUE_INDEX_TEXT L"Key value index: %u" //L"Ë÷ÒýºÅ: %u", 
+#define KEY_VALUE_BASIC_INFO_FORMAT_TEXT L"Value index: %u, Value type: %s" //L"ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½: %s", 
+#define KEY_VALUE_NAME_TEXT L"Key value name:" //L"ï¿½ï¿½Öµï¿½ï¿½:"
+#define KEY_VALUE_INDEX_TEXT L"Key value index: %u" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u", 
 #define REG_VALUE_NONE L"None" //L"Î´Öª"
-#define REG_VALUE_SZ L"String" //L"×Ö·û´®"
-#define REG_VALUE_EXPAND_SZ L"Expand string" //L"¿ÉÀ©Õ¹×Ö·û´®"
-#define REG_VALUE_BINARY L"Binary" //L"¶þ½øÖÆ"
-#define REG_VALUE_DWORD L"Dword" //L"Ë«×Ö"
-#define REG_VALUE_DWORD_BIG_ENDIAN L"Dword(Big endian)" //L"Ë«×Ö(´ó×Ö½ÚÐò)
-#define REG_VALUE_LINK L"Link" //L"Á´½Ó" Á´½Ó·ûºÅ
-#define REG_VALUE_MULTI_SZ L"Multi-String" //L"¶à×Ö·û´®"
-#define REG_VALUE_RESOURCE_LIST L"Resource list" //L"×ÊÔ´ÁÐ±í"
-#define REG_VALUE_FULL_RESOURCE_DESCRIPTOR L"Full resource descriptor" //L"ÍêÕû×ÊÔ´ÃèÊö·û"
-#define REG_VALUE_RESOURCE_REQUIREMENTS_LIST L"Resource requirements list" //L"×ÊÔ´ÐèÇóÁÐ±í"
-#define REG_VALUE_QWORD L"Qword" //L"ËÄ×Ö"
+#define REG_VALUE_SZ L"String" //L"ï¿½Ö·ï¿½ï¿½ï¿½"
+#define REG_VALUE_EXPAND_SZ L"Expand string" //L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½Ö·ï¿½ï¿½ï¿½"
+#define REG_VALUE_BINARY L"Binary" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define REG_VALUE_DWORD L"Dword" //L"Ë«ï¿½ï¿½"
+#define REG_VALUE_DWORD_BIG_ENDIAN L"Dword(Big endian)" //L"Ë«ï¿½ï¿½(ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½)
+#define REG_VALUE_LINK L"Link" //L"ï¿½ï¿½ï¿½ï¿½" ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½
+#define REG_VALUE_MULTI_SZ L"Multi-String" //L"ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½"
+#define REG_VALUE_RESOURCE_LIST L"Resource list" //L"ï¿½ï¿½Ô´ï¿½Ð±ï¿½"
+#define REG_VALUE_FULL_RESOURCE_DESCRIPTOR L"Full resource descriptor" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define REG_VALUE_RESOURCE_REQUIREMENTS_LIST L"Resource requirements list" //L"ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½"
+#define REG_VALUE_QWORD L"Qword" //L"ï¿½ï¿½ï¿½ï¿½"
 #else
-#define KEY_BASIC_INFO_FORMAT_TEXT L"Ë÷ÒýºÅ: %u, Ð´ÈëÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u"
-#define KEY_BASIC_INFO_FORMAT_TEXT2 L"Ë÷ÒýºÅ: %u, Ð´ÈëÊ±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u"
+#define KEY_BASIC_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u"
+#define KEY_BASIC_INFO_FORMAT_TEXT2 L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, Ð´ï¿½ï¿½Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u"
 
-#define KEY_BASIC_INFO_KEY_NAME L"¼üÃû:"
-#define KEY_BASIC_INFO_KEY_CLASS L"¼üÀàÐÍÃû:"
-#define KEY_FULL_INFO_FORMAT_TEXT L"×î´óÀàÐÍÃû³¤¶È: %u, ×î´ó¼üÃû³¤¶È: %u, ×î´óÖµÃû³¤¶È: %u, ×î´óÖµÊý¾Ý³¤¶È: %u, ×î´ó×Ó¼üÊý: %u, ×î´ó¼üÖµÊý: %u, Ë÷ÒýºÅ: %u, ÐÞ¸ÄÊ±¼ä:%04u-%02u-%02u %02u:%02u:%02u.%03u" 
-#define KEY_CACHE_INFO_FORMAT_TEXT L"¼üÃû³¤¶È:%u ×î´ó×Ó¼üÃû³¤¶È:%u, ×î´ó¼üÖµÃû³¤¶È: %u, ×î´ó¼üÖµÊý¾Ý³¤¶È: %u, ×î´ó×Ó¼üÊý: %u, ×î´ó¼üÖµÊý: %u, Ë÷ÒýºÅ: %u, ×îºó¸ÄÐ´Ê±¼ä: %04u-%02u-%02u %02u:%02u:%02u.%03u" 
-#define KEY_USER_TAG L"ÓÃ»§±ê¼Ç: 0x%0.8x"
+#define KEY_BASIC_INFO_KEY_NAME L"ï¿½ï¿½ï¿½ï¿½:"
+#define KEY_BASIC_INFO_KEY_CLASS L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:"
+#define KEY_FULL_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½Þ¸ï¿½Ê±ï¿½ï¿½:%04u-%02u-%02u %02u:%02u:%02u.%03u" 
+#define KEY_CACHE_INFO_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½ï¿½ï¿½Ð´Ê±ï¿½ï¿½: %04u-%02u-%02u %02u:%02u:%02u.%03u" 
+#define KEY_USER_TAG L"ï¿½Ã»ï¿½ï¿½ï¿½ï¿½: 0x%0.8x"
 #define KEY_VIRTUAL_INFO_FORMAT_TEXT L"%s %s %s %s %s "
-#define KEY_IN_VIRTUAL_SPACE L"Î»ÓÚÐéÄâ¿Õ¼ä"
-#define KEY_VIRTUAL_ENABLE L"¼üÐéÄâ»¯"
-#define KEY_VIRTUAL_TAGET L"ÐéÄâ¼ü"
-#define KEY_VIRTUAL_STORE L"Î»ÓÚÐéÄâ´æ´¢Çø"
-#define KEY_VIRTUAL_SOURCE L"ÔøÐéÄâ»¯"
-#define KEY_HANDLE_TAGS_FORMAT_TEXT L"¾ä±ú±ê¼Ç: 0x%0.8x"
+#define KEY_IN_VIRTUAL_SPACE L"Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½"
+#define KEY_VIRTUAL_ENABLE L"ï¿½ï¿½ï¿½ï¿½ï¿½â»¯"
+#define KEY_VIRTUAL_TAGET L"ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define KEY_VIRTUAL_STORE L"Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½"
+#define KEY_VIRTUAL_SOURCE L"ï¿½ï¿½ï¿½ï¿½ï¿½â»¯"
+#define KEY_HANDLE_TAGS_FORMAT_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: 0x%0.8x"
 
-#define KEY_VALUE_BASIC_INFO_FORMAT_TEXT L"¼üÖµË÷ÒýºÅ: %u, ¼üÖµÀàÐÍ: %s" 
-#define KEY_VALUE_NAME_TEXT L"¼üÖµÃû:"
-#define KEY_VALUE_INDEX_TEXT L"Ë÷ÒýºÅ: %u" 
+#define KEY_VALUE_BASIC_INFO_FORMAT_TEXT L"ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u, ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½: %s" 
+#define KEY_VALUE_NAME_TEXT L"ï¿½ï¿½Öµï¿½ï¿½:"
+#define KEY_VALUE_INDEX_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %u" 
 #define REG_VALUE_NONE L"Î´Öª"
-#define REG_VALUE_SZ L"×Ö·û´®"
-#define REG_VALUE_EXPAND_SZ L"¿ÉÀ©Õ¹×Ö·û´®"
-#define REG_VALUE_BINARY L"¶þ½øÖÆ"
-#define REG_VALUE_DWORD L"Ë«×Ö"
-#define REG_VALUE_DWORD_BIG_ENDIAN L"Ë«×Ö(´ó×Ö½ÚÐò)"
-#define REG_VALUE_LINK L"Á´½Ó" //Á´½Ó·ûºÅ
-#define REG_VALUE_MULTI_SZ L"¶à×Ö·û´®"
-#define REG_VALUE_RESOURCE_LIST L"×ÊÔ´ÁÐ±í"
-#define REG_VALUE_FULL_RESOURCE_DESCRIPTOR L"ÍêÕû×ÊÔ´ÃèÊö·û"
-#define REG_VALUE_RESOURCE_REQUIREMENTS_LIST L"×ÊÔ´ÐèÇóÁÐ±í"
-#define REG_VALUE_QWORD L"ËÄ×Ö"
+#define REG_VALUE_SZ L"ï¿½Ö·ï¿½ï¿½ï¿½"
+#define REG_VALUE_EXPAND_SZ L"ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½Ö·ï¿½ï¿½ï¿½"
+#define REG_VALUE_BINARY L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define REG_VALUE_DWORD L"Ë«ï¿½ï¿½"
+#define REG_VALUE_DWORD_BIG_ENDIAN L"Ë«ï¿½ï¿½(ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½)"
+#define REG_VALUE_LINK L"ï¿½ï¿½ï¿½ï¿½" //ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½
+#define REG_VALUE_MULTI_SZ L"ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½"
+#define REG_VALUE_RESOURCE_LIST L"ï¿½ï¿½Ô´ï¿½Ð±ï¿½"
+#define REG_VALUE_FULL_RESOURCE_DESCRIPTOR L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define REG_VALUE_RESOURCE_REQUIREMENTS_LIST L"ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½"
+#define REG_VALUE_QWORD L"ï¿½ï¿½ï¿½ï¿½"
 #endif //LANG_EN
 
 #ifdef __cplusplus

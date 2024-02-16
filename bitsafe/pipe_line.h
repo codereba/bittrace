@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #ifndef __PIPE_LINE_H__
+#ifndef __PIPE_LINE_H__
 #define __PIPE_LINE_H__
 
 #define RASBASE 600
@@ -99,17 +92,17 @@ INLINE LRESULT uninit_pipe_point( pipe_ipc_point *point )
 }
 
 LRESULT __stdcall _exec_cmd_from_pipe( pipe_ipc_point *point, 
-									  const BYTE* method,	// Èç¹ûËüÎª¿Õ£¬¿Í»§¶Ë»á·µ»ØÒ»¸ö ¡°²ÎÊý´íÎó¡± ÏûÏ¢
-									  const BYTE* data,			// Èç¹ûËüÎª¿Õ£¬¿Í»§¶Ë»á·µ»ØÒ»¸ö ¡°²ÎÊý´íÎó¡± ÏûÏ¢
+									  const BYTE* method,	// ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½Í»ï¿½ï¿½Ë»á·µï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¢
+									  const BYTE* data,			// ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½Í»ï¿½ï¿½Ë»á·µï¿½ï¿½Ò»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¢
 									  ULONG data_len,
 									  VOID** data_ret,
 									  ULONG* data_ret_len
 									  ); 
 
 /**
-* @brief ÊÍ·ÅÍ¨¹ý´ËÀà·ÖÅäµÄÄÚ´æ
-* @param[in] pBuffer ÐèÒªÊÍ·ÅµÄÄÚ´æµØÖ·
-* @return 0 ³É¹¦£¬ÆäËûÎªÊ§°Ü´íÎóÂë
+* @brief ï¿½Í·ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+* @param[in] pBuffer ï¿½ï¿½Òªï¿½Í·Åµï¿½ï¿½Ú´ï¿½ï¿½Ö·
+* @return 0 ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÊ§ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 INLINE LRESULT __stdcall release_pipe_buf(
 	PVOID *data
@@ -121,8 +114,8 @@ INLINE LRESULT __stdcall release_pipe_buf(
 }
 
 /**
-* @brief ½¨Á¢Óë·þÎñ¶ËÃüÃû¹ÜµÀ·þÎñÆ÷µÄÁ¬½Ó
-* @return  0 ³É¹¦£¬ÆäËûÎªÊ§°Ü´íÎóÂë
+* @brief ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @return  0 ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÊ§ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 LRESULT __stdcall connect_to_pipe( LPCWSTR pipe_name, HANDLE *pipe_out ); 
 

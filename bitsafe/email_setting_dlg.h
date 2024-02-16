@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #ifndef __EMAIL_SETTING_H__
+#ifndef __EMAIL_SETTING_H__
 #define __EMAIL_SETTING_H__
 
 #include "msg_box.h"
@@ -338,7 +331,7 @@ _return:
 		if( input_str.GetLength() > MAX_EMAIL_NAME_LEN - 1 )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_DISPLAY_NAME_LENGTH_ERROR, 
-				_T( "ÏÔÊ¾Ãû³Æ³¤¶È²»µÃ´óÓÚ260" ) ); 
+				_T( "ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Æ³ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -346,7 +339,7 @@ _return:
 
 		//if( input_str.IsEmpty() == TRUE )
 		//{
-		//	show_msg( GetHWND(), _T( "ÏÔÊ¾Ãû³Æ" ) ); 
+		//	show_msg( GetHWND(), _T( "ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½" ) ); 
 		//	goto _return; 
 		//}
 
@@ -354,7 +347,7 @@ _return:
 		if( input_str.GetLength() > MAX_EMAIL_NAME_LEN )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_EMAIL_ACCOUNT_LENGTH_ERROR, 
-				_T( "EMAILÕÊºÅ³¤¶È²»µÃ´óÓÚ260" ) ); 
+				_T( "EMAILï¿½ÊºÅ³ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -364,7 +357,7 @@ _return:
 		if( _tcschr( input_str, _T( '@' ) ) == NULL )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_EMAIL_ACCOUNT_FORMAT_ERROR, 
-				_T( "EMAILÕÊºÅ¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "EMAILï¿½ÊºÅ¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
 		}
@@ -372,7 +365,7 @@ _return:
 		if( input_str.IsEmpty() == TRUE )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_EMAIL_ACCOUNT_MUST_SET, 
-				_T( "EMAILÕÊºÅ±ØÐëÉèÖÃ" ) ); 
+				_T( "EMAILï¿½ÊºÅ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
 		}
@@ -381,7 +374,7 @@ _return:
 		if( input_str.GetLength() > MAX_EMAIL_NAME_LEN )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SMTP_SERVER_LENGTH_ERROR, 
-				_T( "SMTPÓÊ¼þ·þÎñÆ÷Ãû³¤¶È²»µÃ´óÓÚ260" ) ); 
+				_T( "SMTPï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 			
 			show_msg( GetHWND(), tmp_text); 
 			goto _return; 
@@ -390,7 +383,7 @@ _return:
 		if( input_str.IsEmpty() == TRUE )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SMTP_SERVER_MUST_SET, 
-				_T( "SMTPÓÊ¼þ·þÎñÆ÷Ãû±ØÐëÉèÖÃ" ) ); 
+				_T( "SMTPï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
 		}
@@ -400,7 +393,7 @@ _return:
 		if( input_str.GetLength() > MAX_EMAIL_NAME_LEN )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_POP3_SERVER_LENGTH_ERROR, 
-				_T( "POP3ÓÊ¼þ·þÎñÆ÷Ãû³¤¶È²»µÃ´óÓÚ260" ) ); 
+				_T( "POP3ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -409,7 +402,7 @@ _return:
 		if( input_str.IsEmpty() == TRUE )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_POP3_SERVER_MUST_SET, 
-				_T( "POP3ÓÊ¼þ·þÎñÆ÷Ãû±ØÐëÉèÖÃ" ) ); 
+				_T( "POP3ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -419,7 +412,7 @@ _return:
 		if( input_str.GetLength() > MAX_EMAIL_NAME_LEN )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_PASSWORD_LENGTH_ERROR, 
-				_T( "ÃÜÂë³¤¶È²»µÃ´óÓÚ260" ) ); 
+				_T( "ï¿½ï¿½ï¿½ë³¤ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -430,7 +423,7 @@ _return:
 			dlg_ret_state ret_status; 
 
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_NO_NEED_PASSWORD_TIP, 
-				_T( "²»ÐèÒªÃÜÂë?ÇëÈ·ÈÏ." ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½?ï¿½ï¿½È·ï¿½ï¿½." ) ); 
 
 			show_msg( GetHWND(), tmp_text, &ret_status ); 
 			
@@ -444,7 +437,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_SMTP_PORT_FMT_ERROR, 
-				_T( "SMTP¶Ë¿Ú¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "SMTPï¿½Ë¿Ú¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
 		}
@@ -455,7 +448,7 @@ _return:
 		if( ret != ERROR_SUCCESS )
 		{
 			tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_POP3_PORT_FMT_ERROR, 
-				_T( "POP3¶Ë¿Ú¸ñÊ½²»ÕýÈ·" ) ); 
+				_T( "POP3ï¿½Ë¿Ú¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·" ) ); 
 
 			show_msg( GetHWND(), tmp_text ); 
 			goto _return; 
@@ -476,7 +469,7 @@ _return:
 		//	&&output_param->desc.socket.dest_port.port.port_begin == 0 
 		//	&& output_param->desc.socket.dest_port.port.port_end == 0 )
 		//{
-		//	show_msg( GetHWND(), _T( "Ô´¶Ë¿ÚºÍÄ¿±ê¶Ë¿Ú²»¿ÉÒÔÍ¬Ê±²»Éè¶¨" ) ); 
+		//	show_msg( GetHWND(), _T( "Ô´ï¿½Ë¿Úºï¿½Ä¿ï¿½ï¿½Ë¿Ú²ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½è¶¨" ) ); 
 		//	goto _return; 
 		//}
 
@@ -564,14 +557,14 @@ _return:
 						if( ret == ERROR_SUCCESS )
 						{
 							tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_TEST_EMAIL_ACCOUNT_SUCCESSFULLY, 
-								_T( "²âÊÔÓÊÏä³É¹¦" ) ); 
+								_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½" ) ); 
 
 							show_msg( GetHWND(), tmp_text ); 
 						}
 						else
 						{
 							tmp_text = _get_string_by_id( TEXT_ERC_ACCOUNT_SETTING_TEST_EMAIL_ACCOUNT_FAILED, 
-								_T( "²âÊÔÓÊÏäÊ§°Ü" ) ); 
+								_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" ) ); 
 
 							show_msg( GetHWND(), tmp_text ); 
 						}
@@ -709,7 +702,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             bHandled = TRUE;
             return 0;

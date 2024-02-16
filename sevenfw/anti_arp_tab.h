@@ -1,34 +1,25 @@
 /*
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
- * This file is part of NetMonitor.
+ * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * NetMonitor is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * NetMonitor is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with NetMonitor.  If not, see <http://www.gnu.org/licenses/>.
- *
- *
- *  2007.6.10	Ji Jie Shi modified it for this ui lib. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
- 
- #ifndef __ANTI_ARAP_TAB_H__
+#ifndef __ANTI_ARAP_TAB_H__
 #define __ANTI_ARAP_TAB_H__
 
 #include "antiarp_api.h"
 #include "ui_ctrl.h"
 
-#define START_ANTI_ARP_TITLE _T( "¿ªÆôARP¹¥»÷¹ýÂË" )
-#define STOP_ANTI_ARP_TITLE _T( "Í£Ö¹ARP¹¥»÷¹ýÂË" )
+#define START_ANTI_ARP_TITLE _T( "ï¿½ï¿½ï¿½ï¿½ARPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" )
+#define STOP_ANTI_ARP_TITLE _T( "Í£Ö¹ARPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" )
 
 #define ARP_HOST_MAC_LISTS_BUFF_LEN ( ULONG )( 1024 * 300 )
 #define MAX_ARP_HOST_MAC_LIST_NUM ( ( ARP_HOST_MAC_LISTS_BUFF_LEN - sizeof( ARP_HOST_MAC_LISTS ) + sizeof( ARP_HOST_MAC_OUTPUT ) ) / sizeof( ARP_HOST_MAC_OUTPUT ) ) 
@@ -378,7 +369,7 @@ error_return:
 
 	LRESULT on_ok_bn(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled)
 	{
-		// TODO: ÔÚ´ËÌí¼Ó¿Ø¼þÍ¨Öª´¦Àí³ÌÐò´úÂë
+		// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ó¿Ø¼ï¿½Í¨Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		INT32 ret; 
 		HWND bn_ok; 

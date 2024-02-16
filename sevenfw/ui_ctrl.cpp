@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -59,10 +52,10 @@ LRESULT load_driver_work_sets( ULONG flags, PVOID ui_context, PVOID work_context
 LRESULT WINAPI get_driver_version( ULARGE_INTEGER *driver_version ); 
 
 /******************************************************************************************
-Çý¶¯µÄ¼æÈÝÐÔ¼ì²éµÄ·½°¸:
-1.Í¨¹ýIO CTLÂëÀ´µÃµ½DRIVERµÄ°æ±¾ºÅ
-2.½øÐÐ°æ±¾ºÅ¼ì²é£¬±ØÐëÓëÓ¦ÓÃ²ãÏàÓ¦µÄ°æ±¾ºÅÒ»ÖÂ²ÅÄÜÔËÐÐ,·ñÔòÍ¨ÖªÓÃ»§»úÆ÷ÖØÆôºó²ÅÄÜÔËÐÐ,½øÐÐÐ¶ÔØ¡£
-3.Çý¶¯µÄ¼æÈÝ°æ±¾ºÅÖ»ÓÐÔÚÓëÓ¦ÓÃ²ãµÄÍ¨ÐÅ·½Ê½»òÄÚÈÝ·¢Éú±ä»¯Ê±£¬²Å¸Ä±ä¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ä·ï¿½ï¿½ï¿½:
+1.Í¨ï¿½ï¿½IO CTLï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½DRIVERï¿½Ä°æ±¾ï¿½ï¿½
+2.ï¿½ï¿½ï¿½Ð°æ±¾ï¿½Å¼ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã²ï¿½ï¿½ï¿½Ó¦ï¿½Ä°æ±¾ï¿½ï¿½Ò»ï¿½Â²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ø¡ï¿½
+3.ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ý°æ±¾ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã²ï¿½ï¿½Í¨ï¿½Å·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ä»¯Ê±ï¿½ï¿½ï¿½Å¸Ä±ä¡£
 ******************************************************************************************/
 
 ULARGE_INTEGER compatible_driver_version = { ( ( 0 ) << 16 | 8906 ), 0 }; 
@@ -3938,7 +3931,7 @@ INLINE LRESULT init_anti_arp( PVOID context, PVOID param )
 		ret = install_anti_arp_driver(); 
 		if( ret != ERROR_SUCCESS )
 		{
-#define ANTI_ARP_NEED_RESTART_TIP _T( "ÓÉÓÚÏµÍ³»·¾³Ô­Òò,·´ARP¹¦ÄÜÎÞ·¨Õý³£¼ÓÔØ,ÐèÒªÏµÍ³ÖØÆô,ÊÇ·ñÁ¢¼´ÖØÆô?" )
+#define ANTI_ARP_NEED_RESTART_TIP _T( "ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½,ï¿½ï¿½ARPï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ÒªÏµÍ³ï¿½ï¿½ï¿½ï¿½,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?" )
 			
 			tmp_text = _get_string_by_id( TEXT_ANTI_ARP_NEED_REBOOT_TIP, ANTI_ARP_NEED_RESTART_TIP ); 
 
@@ -4883,7 +4876,7 @@ LRESULT WINAPI lite_work( ULONG flags, PVOID context, PVOID param )
 			ret = check_driver_version(); 
 			if( ret != ERROR_SUCCESS )
 			{
-				_ret = notify_error_msg( L"BITTRACEÆäËü°æ±¾ÒÑ¾­ÔËÐÐ,ÖØÆôÏµÍ³¸üÐÂÖÁµ±Ç°°æ±¾." ); 
+				_ret = notify_error_msg( L"BITTRACEï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½æ±¾." ); 
 				exit( 0 ); 
 				break; 
 			}
@@ -4898,7 +4891,7 @@ LRESULT WINAPI lite_work( ULONG flags, PVOID context, PVOID param )
 		}
 		
 #ifdef SUPPORT_LITE_WORK
-		//Èç¹ûÔÚÕâÀï½øÐÐÐ¶ÔØ£¬ÄÇÃ´Èç¹û³ÌÐòÍË³öºó£¬¾ÍÎÞ·¨ÔÙ´Î´ò¿ªEVENTMONÇý¶¯
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ø£ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ó£¬¾ï¿½ï¿½Þ·ï¿½ï¿½Ù´Î´ï¿½EVENTMONï¿½ï¿½ï¿½ï¿½
 		_ret = delete_event_mon_driver_file(); 
 		if( _ret != ERROR_SUCCESS )
 		{

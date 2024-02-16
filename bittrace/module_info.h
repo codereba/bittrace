@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __MODULE_INFO_H__
@@ -93,20 +86,20 @@ typedef struct _PROCESS_MODULE_INFO_TABLE
 } PROCESS_MODULE_INFO_TABLE, *PPROCESS_MODULE_INFO_TABLE; 
 
 /********************************************************************************
-µÃµ½ÏµÍ³ÊÂ¼þ¹ý³ÌÖÐµÄ½ø³ÌºÍÄ£¿éµÄ¾ßÌåÐÅÏ¢,¿ÉÒÔÊ¹ÓÃÒÔÏÂ·½·¨;
-1.ÔÚÃ¿Ò»¸ö½ÓÊÕµ½ÊÂ¼þÊ±£¬¶¼¼ÆËã/½ÓÊÕ(´ÓÏµÍ³)Ò»´Î½ø³Ì/Ä£¿éµÄ¾ßÌåÐÅÏ¢
-2.¸ú×Ù¿ªÊ¼Ê±£¬¿ªÊ¼¼ÇÂ¼,¸ú×ÙÏµÍ³ÖÐ½ø³ÌÄ£¿éµÄËùÓÐ±ä»¯£¬ÔÚÃ¿´Î½ø³Ì/Ä£¿é±ä»¯Ê±£¬½øÐÐ
-ÏàÓ¦µÄ¸üÐÂ£¬µÃµ½Ã¿¸öÊÂ¼þµÄË²¼ä½ø³Ì,Ä£¿é×´Ì¬¡£
-	½ø³Ì/Ä£¿éµÄÐÅÏ¢¼ÇÂ¼µ¥¶ÀµÄ½ø³Ì/Ä£¿éÐÅÏ¢ÁÐ±íÖÐ¡£
+ï¿½Ãµï¿½ÏµÍ³ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ½ï¿½ï¿½Ìºï¿½Ä£ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢,ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½;
+1.ï¿½ï¿½Ã¿Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½Â¼ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ÏµÍ³)Ò»ï¿½Î½ï¿½ï¿½ï¿½/Ä£ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+2.ï¿½ï¿½ï¿½Ù¿ï¿½Ê¼Ê±ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Â¼,ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½Ð½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ä»¯ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½Î½ï¿½ï¿½ï¿½/Ä£ï¿½ï¿½ä»¯Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ó¦ï¿½Ä¸ï¿½ï¿½Â£ï¿½ï¿½Ãµï¿½Ã¿ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½,Ä£ï¿½ï¿½×´Ì¬ï¿½ï¿½
+	ï¿½ï¿½ï¿½ï¿½/Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½/Ä£ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ð±ï¿½ï¿½Ð¡ï¿½
 
-µÚ2ÖÖ·½·¨¾ßÓÐ¸üºÃµÄÐÔÄÜ£¬µÚ1ÖÖÓëµÚ2 ÖÖ·½·¨¾ßÓÐ²»Í¬µÄÎó²îÌØÐÔºÍÔ­Òò¡£
-³õ²½Éè¶¨Ê¹ÓÃµÚ2ÖÖ·½·¨ÊµÏÖ¹¦ÄÜ¡£
+ï¿½ï¿½2ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½2 ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½Ô­ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨Ê¹ï¿½Ãµï¿½2ï¿½Ö·ï¿½ï¿½ï¿½Êµï¿½Ö¹ï¿½ï¿½Ü¡ï¿½
 ********************************************************************************/
 
 /*******************************************************************************
-¸ßÐÔÄÜ·ûºÅ·ÖÎöÏµÍ³:
-ÏÂÒ»²½½«Í¨¹ýÁ´½ÓÈëDBGHELPÓÅ»¯ºóµÄ´úÂëÓë½ø³Ì/Ä£¿éÐÅÏ¢ÁÐ±íÒ»Æð×é½¨³É¸ßÐÔÄÜµÄµ÷ÊÔ
-ÐÅÏ¢·ÖÎöÏµÍ³¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½Ü·ï¿½ï¿½Å·ï¿½ï¿½ï¿½ÏµÍ³:
+ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DBGHELPï¿½Å»ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/Ä£ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ð±ï¿½Ò»ï¿½ï¿½ï¿½é½¨ï¿½É¸ï¿½ï¿½ï¿½ï¿½ÜµÄµï¿½ï¿½ï¿½
+ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½
 *******************************************************************************/
 #define INVALID_MODULE_INDEX ( ULONG )( -1 ) 
 

@@ -1,23 +1,17 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 #ifndef __FILTER_FRAME_H__
 #define __FILTER_FRAME_H__
 
@@ -43,81 +37,81 @@
 #define FILTER_CONDITION_IO_MODE L"Read/Write"
 #define FILTER_CONDITION_OBJECT L"Object"
 #define FILTER_CONDITION_DETAIL L"Detail"
-#define FILTER_CONDITION_DATA L"Data" //L"ÊÂ¼þÊý¾Ý"
-#define FILTER_CONDITION_RESULT L"Result" //L"½á¹û"
-#define FILTER_CONDITION_CALL_STACK L"Call stack" //L"µ÷ÓÃ¶ÑÕ»"
-#define FILTER_CONDITION_DURATION L"Duration" //L"Ê±¼äÇø¼ä"
-#define FILTER_CONDITION_TIME L"Time" //L"ÈÕÆÚ Ê±¼ä"
-#define FILTER_CONDITION_RELATIVE_TIME L"Relative time" //L"Ïà¶ÔÊ±¼ä"
-#define FILTER_CONDITION_SESSION L"Session" //L"»á»°"
-#define FILTER_CONDITION_USER_NAME L"User name" //L"ÓÃ»§"
-#define FILTER_CONDITION_USER_ID L"User identifier" //L"Éí·ÝIDºÅ"
-#define FILTER_CONDITION_EVENT_ID L"Event ID" //L"ÐòÁÐºÅ"
-#define FILTER_CONDITION_CORPORATION L"Corporation" //L"¹«Ë¾"
-#define FILTER_CONDITION_VERSION L"Version" //L"°æ±¾"
-#define FILTER_CONDITION_VIRTUAL L"Virtual" //L"ÐéÄâ»¯"
-#define FILTER_CONDITION_CPU_ARCH L"CPU arch" //L"CPU¼Ü¹¹"
+#define FILTER_CONDITION_DATA L"Data" //L"ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_RESULT L"Result" //L"ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_CALL_STACK L"Call stack" //L"ï¿½ï¿½ï¿½Ã¶ï¿½Õ»"
+#define FILTER_CONDITION_DURATION L"Duration" //L"Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_TIME L"Time" //L"ï¿½ï¿½ï¿½ï¿½ Ê±ï¿½ï¿½"
+#define FILTER_CONDITION_RELATIVE_TIME L"Relative time" //L"ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"
+#define FILTER_CONDITION_SESSION L"Session" //L"ï¿½á»°"
+#define FILTER_CONDITION_USER_NAME L"User name" //L"ï¿½Ã»ï¿½"
+#define FILTER_CONDITION_USER_ID L"User identifier" //L"ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½"
+#define FILTER_CONDITION_EVENT_ID L"Event ID" //L"ï¿½ï¿½ï¿½Ðºï¿½"
+#define FILTER_CONDITION_CORPORATION L"Corporation" //L"ï¿½ï¿½Ë¾"
+#define FILTER_CONDITION_VERSION L"Version" //L"ï¿½æ±¾"
+#define FILTER_CONDITION_VIRTUAL L"Virtual" //L"ï¿½ï¿½ï¿½â»¯"
+#define FILTER_CONDITION_CPU_ARCH L"CPU arch" //L"CPUï¿½Ü¹ï¿½"
 
-#define FILTER_COMPARE_MODE_CONTAIN L"Contain" //L"°üº¬"
-#define FILTER_COMPARE_MODE_NOT_CONTAIN L"Not Contain" //L"²»°üº¬"
-#define FILTER_COMPARE_MODE_EQUAL L"Equal" //L"µÈÓÚ" 
-#define FILTER_COMPARE_MODE_NOT_EUQAL L"Not equal" //L"²»µÈÓÚ" 
-#define FILTER_COMPARE_MODE_LOWER L"Lower" //L"Ð¡ÓÚ" 
-#define FILTER_COMPARE_MODE_GREATER L"Greater" //L"´óÓÚ"
-#define FILTER_COMPARE_MODE_START L"Start" //L"¿ªÊ¼"
-#define FILTER_COMPARE_MODE_END L"End" //L"½áÊø"
+#define FILTER_COMPARE_MODE_CONTAIN L"Contain" //L"ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_COMPARE_MODE_NOT_CONTAIN L"Not Contain" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_COMPARE_MODE_EQUAL L"Equal" //L"ï¿½ï¿½ï¿½ï¿½" 
+#define FILTER_COMPARE_MODE_NOT_EUQAL L"Not equal" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" 
+#define FILTER_COMPARE_MODE_LOWER L"Lower" //L"Ð¡ï¿½ï¿½" 
+#define FILTER_COMPARE_MODE_GREATER L"Greater" //L"ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_COMPARE_MODE_START L"Start" //L"ï¿½ï¿½Ê¼"
+#define FILTER_COMPARE_MODE_END L"End" //L"ï¿½ï¿½ï¿½ï¿½"
 #define FILTER_COMPARE_MODE_UNKNOWN L"Unknown" //L"Î´Öª"
 
-#define FILTER_MODE_INCLUDE_TEXT L"Inlude" //L"¼ÓÈë"
-#define FILTER_MODE_EXCLUDE_TEXT L"Exclude" //L"ÅÅ³ý"
+#define FILTER_MODE_INCLUDE_TEXT L"Inlude" //L"ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_MODE_EXCLUDE_TEXT L"Exclude" //L"ï¿½Å³ï¿½"
 #define FILTER_MODE_UNKNOWN_TEXT L"Unknown" //L"Î´Öª"
 
-#define PLEASE_SET_FILTER_CONDITION_TIP L"Filter condition is required." //_T( "ÇëÉèÖÃ¹ýÂËÌõ¼þÖµ" )
-#define INPUT_FILTER_CONDITION_INVALID L"Input error" //_T( "ÊäÈë²»ÕýÈ·" ) 
+#define PLEASE_SET_FILTER_CONDITION_TIP L"Filter condition is required." //_T( "ï¿½ï¿½ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ" )
+#define INPUT_FILTER_CONDITION_INVALID L"Input error" //_T( "ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·" ) 
 #else
 #define FILTER_CONDITION_UNKNOWN L"Î´Öª"
-#define FILTER_CONDITION_IMAGE_PATH L"½ø³ÌÂ·¾¶"
-#define FILTER_CONDITION_PROCESS_NAME L"½ø³ÌÃû"
-#define FILTER_CONDITION_COMMAND_LINE L"ÃüÃûÐÐ"
-#define FILTER_CONDITION_PROCESS_ID L"½ø³ÌID"
-#define FILTER_CONDITION_PARENT_PROCESS_ID L"¸¸½ø³ÌID"
-#define FILTER_CONDITION_THREAD_ID L"Ïß³ÌID"
-#define FILTER_CONDITION_MAIN_TYPE L"Ö÷ÀàÐÍ"
-#define FILTER_CONDITION_EVENT_TYPE L"ÊÂ¼þÀàÐÍ"
-#define FILTER_CONDITION_IO_MODE L"¶Á/Ð´"
-#define FILTER_CONDITION_OBJECT L"¶ÔÏó"
-#define FILTER_CONDITION_DETAIL L"Ï¸½Ú"
-#define FILTER_CONDITION_DATA L"ÊÂ¼þÊý¾Ý"
-#define FILTER_CONDITION_RESULT L"½á¹û"
-#define FILTER_CONDITION_CALL_STACK L"µ÷ÓÃ¶ÑÕ»"
-#define FILTER_CONDITION_DURATION L"Ê±¼äÇø¼ä"
-#define FILTER_CONDITION_TIME L"ÈÕÆÚ Ê±¼ä"
-#define FILTER_CONDITION_RELATIVE_TIME L"Ïà¶ÔÊ±¼ä"
-#define FILTER_CONDITION_SESSION L"»á»°"
-#define FILTER_CONDITION_USER_NAME L"ÓÃ»§"
-#define FILTER_CONDITION_USER_ID L"Éí·ÝIDºÅ"
-#define FILTER_CONDITION_EVENT_ID L"ÐòÁÐºÅ"
-#define FILTER_CONDITION_CORPORATION L"¹«Ë¾"
-#define FILTER_CONDITION_VERSION L"°æ±¾"
-#define FILTER_CONDITION_VIRTUAL L"ÐéÄâ»¯"
-#define FILTER_CONDITION_CPU_ARCH L"CPU¼Ü¹¹"
+#define FILTER_CONDITION_IMAGE_PATH L"ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½"
+#define FILTER_CONDITION_PROCESS_NAME L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_COMMAND_LINE L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_PROCESS_ID L"ï¿½ï¿½ï¿½ï¿½ID"
+#define FILTER_CONDITION_PARENT_PROCESS_ID L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID"
+#define FILTER_CONDITION_THREAD_ID L"ï¿½ß³ï¿½ID"
+#define FILTER_CONDITION_MAIN_TYPE L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_EVENT_TYPE L"ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_IO_MODE L"ï¿½ï¿½/Ð´"
+#define FILTER_CONDITION_OBJECT L"ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_DETAIL L"Ï¸ï¿½ï¿½"
+#define FILTER_CONDITION_DATA L"ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_RESULT L"ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_CALL_STACK L"ï¿½ï¿½ï¿½Ã¶ï¿½Õ»"
+#define FILTER_CONDITION_DURATION L"Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_CONDITION_TIME L"ï¿½ï¿½ï¿½ï¿½ Ê±ï¿½ï¿½"
+#define FILTER_CONDITION_RELATIVE_TIME L"ï¿½ï¿½ï¿½Ê±ï¿½ï¿½"
+#define FILTER_CONDITION_SESSION L"ï¿½á»°"
+#define FILTER_CONDITION_USER_NAME L"ï¿½Ã»ï¿½"
+#define FILTER_CONDITION_USER_ID L"ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½"
+#define FILTER_CONDITION_EVENT_ID L"ï¿½ï¿½ï¿½Ðºï¿½"
+#define FILTER_CONDITION_CORPORATION L"ï¿½ï¿½Ë¾"
+#define FILTER_CONDITION_VERSION L"ï¿½æ±¾"
+#define FILTER_CONDITION_VIRTUAL L"ï¿½ï¿½ï¿½â»¯"
+#define FILTER_CONDITION_CPU_ARCH L"CPUï¿½Ü¹ï¿½"
 
-#define FILTER_COMPARE_MODE_CONTAIN L"°üº¬"
-#define FILTER_COMPARE_MODE_NOT_CONTAIN L"²»°üº¬"
-#define FILTER_COMPARE_MODE_EQUAL L"µÈÓÚ" 
-#define FILTER_COMPARE_MODE_NOT_EUQAL L"²»µÈÓÚ" 
-#define FILTER_COMPARE_MODE_LOWER L"Ð¡ÓÚ" 
-#define FILTER_COMPARE_MODE_GREATER L"´óÓÚ"
-#define FILTER_COMPARE_MODE_START L"¿ªÊ¼"
-#define FILTER_COMPARE_MODE_END L"½áÊø"
+#define FILTER_COMPARE_MODE_CONTAIN L"ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_COMPARE_MODE_NOT_CONTAIN L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_COMPARE_MODE_EQUAL L"ï¿½ï¿½ï¿½ï¿½" 
+#define FILTER_COMPARE_MODE_NOT_EUQAL L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" 
+#define FILTER_COMPARE_MODE_LOWER L"Ð¡ï¿½ï¿½" 
+#define FILTER_COMPARE_MODE_GREATER L"ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_COMPARE_MODE_START L"ï¿½ï¿½Ê¼"
+#define FILTER_COMPARE_MODE_END L"ï¿½ï¿½ï¿½ï¿½"
 #define FILTER_COMPARE_MODE_UNKNOWN L"Î´Öª"
 
-#define FILTER_MODE_INCLUDE_TEXT L"¼ÓÈë"
-#define FILTER_MODE_EXCLUDE_TEXT L"ÅÅ³ý"
+#define FILTER_MODE_INCLUDE_TEXT L"ï¿½ï¿½ï¿½ï¿½"
+#define FILTER_MODE_EXCLUDE_TEXT L"ï¿½Å³ï¿½"
 #define FILTER_MODE_UNKNOWN_TEXT L"Î´Öª"
 
-#define PLEASE_SET_FILTER_CONDITION_TIP L"ÇëÉèÖÃ¹ýÂËÌõ¼þÖµ" 
-#define INPUT_FILTER_CONDITION_INVALID L"ÊäÈë²»ÕýÈ·" 
+#define PLEASE_SET_FILTER_CONDITION_TIP L"ï¿½ï¿½ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ" 
+#define INPUT_FILTER_CONDITION_INVALID L"ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·" 
 #endif //LANG_EN
 
 LRESULT WINAPI load_filter_infos_from_conf_file( LPCWSTR file_name ); 
@@ -232,23 +226,23 @@ next task:
 
 
 	/***********************************
-	ÏµÍ³µÄÄ£¿éÔÚÄÚºËÖÐ½øÐÐÎ¬»¤£¬µ±ÓÐÊÂ¼þ·¢ÉúÊ±£¬Ê¹ÓÃÈçÏÂµÄ½á¹¹¼ÇÂ¼µ÷ÓÃ¶ÑÕ»Ïà¹ØµÄÐÅÏ¢£º
-	1.Ä£¿éµÄÃû³Æ:Ïà¶ÔÆ«ÒÆÁ¿
+	ÏµÍ³ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½Ð½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ½á¹¹ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ã¶ï¿½Õ»ï¿½ï¿½Øµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
+	1.Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½
 	
-	Ä£¿éÃû³Æ¼¯ÔÚÄÚºËÖÐÎ¬»¤£¬²¢ÇÒ½«ÆäÖ±½ÓÓ³ÉäÖÁRING3²ã¡£Ê¹ÓÃ¼ÓËøµÄ·½Ê½£¬¶ÔÆä½øÐÐ±£»¤ÐÔµÄ¶ÁÐ´¡£
+	Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½RING3ï¿½ã¡£Ê¹ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Ä·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ÔµÄ¶ï¿½Ð´ï¿½ï¿½
 
-	´òÓ¡ÖÁ»º´æÇøºó£¬½«×Ö·û´®±£ÁôÏÂÀ´£¬²»ÔÙ½øÐÐÖØ¸´µÄ´òÓ¡¡£
+	ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ä´ï¿½Ó¡ï¿½ï¿½
 
-	´òÓ¡ÊÂ¼þÐÅÏ¢·½·¨£º
-	1.ÊÂ¼þÐÅÏ¢ÎªÒ»¸ö½á¹¹Ìå£¬ËùÓÐÊÂ¼þÐÅÏ¢³¤¶È¶¼Í³Ò»½øÐÐ·ÖÅä£º
-	 È±µã£ºÄÚºËÏûºÄ´ó
-	 ¶¨Î»,¶ÁÈ¡ÊÂ¼þµÄÐÅÏ¢²ÎÊýÏà¶Ô·Ç³£¼òµ¥
+	ï¿½ï¿½Ó¡ï¿½Â¼ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	1.ï¿½Â¼ï¿½ï¿½ï¿½Ï¢ÎªÒ»ï¿½ï¿½ï¿½á¹¹ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½È¶ï¿½Í³Ò»ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ä£º
+	 È±ï¿½ã£ºï¿½Úºï¿½ï¿½ï¿½ï¿½Ä´ï¿½
+	 ï¿½ï¿½Î»,ï¿½ï¿½È¡ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô·Ç³ï¿½ï¿½ï¿½
 
-	2.Ê¹ÓÃ½á¹¹½âÎö·½·¨¶Ô²»Í¬³¤¶ÈµÄ¸÷¸öÊÂ¼þÐÅÏ¢²ÎÊý½øÐÐ¶¨Î»£¬Í¬Ê±ÉèÖÃÏàÓ¦µÄ×Ö·û´®Êä³ö¡£
-	3.Ê¹ÓÃÒ»ÖÖÍ³Ò»µÄ·½·¨½«ÊÂ¼þµÄÐÅÏ¢¼¯ÖÐÊä³öÎªÒ»ÌõÏûÏ¢¡£
+	2.Ê¹ï¿½Ã½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Í¬ï¿½ï¿½ï¿½ÈµÄ¸ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Î»ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	3.Ê¹ï¿½ï¿½Ò»ï¿½ï¿½Í³Ò»ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÒ»ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
 	***********************************/
 	/*
-    * ¹Ø¼üµÄ»Øµ÷º¯Êý£¬IListCallbackUI ÖÐµÄÒ»¸öÐéº¯Êý£¬äÖÈ¾Ê±ºò»áµ÷ÓÃ,ÔÚ[1]ÖÐÉèÖÃÁË»Øµ÷¶ÔÏó
+    * ï¿½Ø¼ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IListCallbackUI ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½[1]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     */
 
     void Notify(TNotifyUI& msg)
@@ -570,7 +564,7 @@ next task:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

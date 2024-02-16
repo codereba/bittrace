@@ -1,26 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
-//#include "action_type.h"
 #include "acl_define.h"
 #include "action_type_parse.h"
 
@@ -298,15 +290,15 @@ NTSTATUS parse_file_touch_param( file_touch *action,
 			break; 
 		}
 
-		//ULONG access; //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		//ULONG alloc_size; //ÎÄ¼þ³õÊ¼³¤¶È 
-		//ULONG attrib; //ÎÄ¼þÊôÐÔ 
-		//ULONG share; //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		//ULONG disposition; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		//ULONG options; //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		////ULONG result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG access; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		//ULONG alloc_size; //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG attrib; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG share; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		//ULONG disposition; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		//ULONG options; //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		////ULONG result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//PATH_SIZE_T path_len; 
-		//WCHAR path_name[ 1 ]; //ÎÄ¼þÈ«Â·¾¶ 
+		//WCHAR path_name[ 1 ]; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		set_param_info( params[ 0 ], UINT32_TYPE, uint32_val, action->access ); 
 		set_param_info( params[ 1 ], UINT32_TYPE, uint32_val, action->alloc_size ); 
@@ -324,10 +316,10 @@ NTSTATUS parse_file_touch_param( file_touch *action,
 
 /*******************************************************************************************************
 2014.11.02 17:00 
-Í¨¹ý²âÊÔ£¬·¢ÏÖÎÄ¼þ´ò¿ª²Ù×÷µÄÄ¿±êÎÄ¼þµÄÂ·¾¶²»ÕýÈ·£¬¿ÉÄÜÊÇÃ»ÓÐÕýÈ·½«Ä¿Â¼Ãû0½áÎ²¡£
-¾ßÌåÇé¿öÈçÏÂ£º
+Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ò¿ª²ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ä¿Â¼ï¿½ï¿½0ï¿½ï¿½Î²ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½
 \Device\HarddiskVolume10\*\bittrace\ffile source='...
-¾ßÌåÔ­ÒòÐèÒª½øÐÐ¼ì²é
+ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ð¼ï¿½ï¿½
 *******************************************************************************************************/
 
 NTSTATUS parse_file_open_param( file_open *action, param_info *params, ULONG max_count, ULONG *count_out )
@@ -2911,21 +2903,21 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 		case EXEC_destroy:
 			ntstatus = parse_exec_destroy( &action->do_exec_destroy, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case EXEC_module_load:
 			ntstatus = parse_exec_module_load_param( &action->do_exec_module_load, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+			break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_filemon, 
 		case FILE_touch:
@@ -2933,7 +2925,7 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ ÎÄ¼þ¼à¿Ø
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½
 
 		case FILE_open:
 			ntstatus = parse_file_open_param( &action->do_file_open, 
@@ -2941,14 +2933,14 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				max_count, 
 				count_out ); 
 
-			break; //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_read:
 			ntstatus = parse_file_read_param( &action->do_file_read, 
 				params, 
 				max_count, 
 				count_out ); 
 
-			break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_write:
 			ntstatus = parse_file_write_param( &action->do_file_write, 
@@ -2956,7 +2948,7 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				max_count, 
 				count_out ); 
 
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_modified:
 			ntstatus = parse_file_modified_param( &action->do_file_modified, 
@@ -2964,48 +2956,48 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				max_count, 
 				count_out ); 
 
-			break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_readdir:
 			//ntstatus = parse_file_read( &action->, 
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 		case FILE_remove:
 			ntstatus = parse_file_remove_param( &action->do_file_remove, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_rename:
 			ntstatus = parse_file_rename_param( &action->do_file_rename, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_truncate:
 			ntstatus = parse_file_truncate_param( &action->do_file_truncate, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_mklink:
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_chmod:
 			ntstatus = parse_file_chmod_param( &action->do_file_chmod, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_setsec:
 			ntstatus = parse_file_set_sec_param( &action->do_file_setsec, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_getinfo:
 			ntstatus = STATUS_INVALID_PARAMETER; 
@@ -3013,7 +3005,7 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_setinfo:
 			ntstatus = STATUS_INVALID_PARAMETER; 
@@ -3021,7 +3013,7 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 			//MT_regmon, 
 		case REG_openkey:
@@ -3029,27 +3021,27 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+			break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 
 		case REG_mkkey:
 			ntstatus = parse_reg_make_key_param( &action->do_reg_mkkey, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		case REG_rmkey:
 			ntstatus = parse_reg_remove_key_param(  &action->do_reg_rmkey, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_mvkey:
 			ntstatus = parse_reg_move_key_param( &action->do_reg_mvkey, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getinfo:
 			ntstatus = parse_reg_get_info_param( &action->do_reg_rmval, 
@@ -3080,42 +3072,42 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getval:
 			ntstatus = parse_reg_get_value_param( &action->do_reg_getval, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_setval:
 			ntstatus = parse_reg_set_value_param( &action->do_reg_setval, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_loadkey:
 			ntstatus = parse_reg_load_key_param( &action->do_reg_loadkey, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_replkey:
 			ntstatus = parse_reg_repl_key_param( &action->do_reg_replkey, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rstrkey:
 			ntstatus = parse_reg_restore_key_param( &action->do_reg_rstrkey, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_setsec:
 			ntstatus = STATUS_INVALID_PARAMETER; 
@@ -3123,14 +3115,14 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
-			break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//MT_procmon, 
 		case PROC_exec:
 			ntstatus = parse_proc_exec_param( &action->do_proc_exec, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 			//case CREATE_PROC:
 			//desc = L"CREATE_PROC"; 
 			//	break; 
@@ -3139,32 +3131,32 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_debug:
 			ntstatus = parse_proc_debug_param( &action->do_proc_debug, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_suspend:
 			//ntstatus = parse_proc_sus( &action->, 
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_resume:
 			ntstatus = parse_proc_resume_param( &action->do_proc_resume, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_exit:
 			ntstatus = parse_proc_kill_param( &action->do_proc_kill, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 			//case TERMINATE_PROC:
 			//desc = L"TERMINATE_PROC"; 
 			//	break; 
@@ -3173,68 +3165,68 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_pgprot:
 			ntstatus = parse_proc_page_prot_param( &action->do_proc_pgprot, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_freevm:
 			ntstatus = parse_proc_free_vm_param( &action->do_proc_freevm, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_writevm:
 			ntstatus = parse_proc_write_vm_param( &action->do_proc_writevm, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_readvm:
 			ntstatus = parse_proc_read_vm_param( &action->do_proc_readvm, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_remote:
 			ntstatus = parse_thread_remote_param( &action->do_thrd_remote, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_setctxt:
 			ntstatus = parse_thread_set_context_param( &action->do_thrd_setctxt, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_suspend:
 			ntstatus = parse_thread_suspend_param( &action->do_thrd_suspend, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_resume:
 			//ntstatus = parse_thread_resume_( &action->, 
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_exit:
 			ntstatus = parse_thread_kill_param( &action->do_thrd_kill, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_queue_apc:
 			ntstatus = parse_thread_queue_apc_param( &action->do_thrd_queue_apc, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_common
 		case COM_access:
@@ -3247,66 +3239,66 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 			break; 
 		case SYS_settime:
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_link_knowndll:
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+			break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 		case SYS_open_physmm:
 
 			ntstatus = parse_sys_open_phys_mm_param( &action->do_sys_open_physmm, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 		case SYS_read_physmm:
 			ntstatus = parse_sys_read_phys_mm_param( &action->do_sys_read_physmm, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_write_physmm:
 			//ntstatus = parse_sys_write_phy( &action->, 
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+			break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_load_kmod:
 			ntstatus = parse_sys_load_kmod_param( &action->do_sys_load_kmod, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		case SYS_enumproc:
 			//ntstatus = parse_( &action->, 
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //Ã¶¾Ù½ø³Ì ÎÞ 
+			break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_regsrv:
 			ntstatus = parse_sys_reg_srv_param( &action->do_sys_regsrv, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		case SYS_opendev:
 			ntstatus = parse_sys_open_dev_param( &action->do_sys_opendev, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+			break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 			//MT_w32mon
 		case W32_postmsg:
 			ntstatus = STATUS_INVALID_PARAMETER; 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_sendmsg:
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_findwnd:
-			break; //²éÕÒ´°¿Ú ÎÞ 
+			break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case W32_msghook:
-			break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 			//case INSTALL_HOOK:
 			//	break; 
 		case W32_lib_inject:
@@ -3315,7 +3307,7 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				max_count, 
 				count_out ); 
 
-			break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+			break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_netmon
 		case NET_create:
@@ -3329,20 +3321,20 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 		case NET_listen:
 			ntstatus = parse_net_listen( &action->do_net_listen, 
 				params, 
 				max_count, 
 				count_out ); 
 
-			break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 		case NET_send:
 			ntstatus = parse_net_send( &action->do_net_send, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 		case NET_recv:
 			ntstatus = parse_net_recv( &action->do_net_recv, 
 				params, 
@@ -3360,13 +3352,13 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 		case NET_http: 
 			ntstatus = parse_net_http( &action->do_net_http, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 		case NET_icmp_send:
 			//ntstatus = parse_net_icmp_send( &action->, 
 			//	params, 
@@ -3384,56 +3376,56 @@ NTSTATUS get_params_from_action( sys_action_record *action,
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+			break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 		case BA_extract_pe:
 			ntstatus = parse_ba_extract_pe( &action->do_ba_extract_pe, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_copy:
 			ntstatus = parse_ba_self_copy( &action->do_ba_self_copy, 
 				params, 
 				max_count, 
 				count_out ); 
 
-			break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_delete:
 			ntstatus = parse_ba_self_delete( &action->do_ba_self_delete, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_ulterior_exec:
 			//ntstatus = parse_ba_( &action->, 
 			//	params, 
 			//	max_count, 
 			//	count_out ); 
-			break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_invade_process:
 			ntstatus = parse_ba_invade_process( &action->do_ba_invade_process, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_infect_pe:
 			ntstatus = parse_ba_infect_pe( &action->do_ba_infect_pe, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_overwrite_pe:
 			ntstatus = parse_ba_overwrite_pe( &action->do_ba_overwrite_pe, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_register_autorun:
 			ntstatus = parse_ba_register_autorun( &action->do_ba_register_autorun, 
 				params, 
 				max_count, 
 				count_out ); 
-			break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		default:
 			ASSERT( FALSE ); 
 			ntstatus = STATUS_INVALID_PARAMETER; 

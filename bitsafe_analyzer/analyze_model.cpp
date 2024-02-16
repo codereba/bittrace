@@ -1,31 +1,23 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-
  
- #include "common_func.h"
+#include "common_func.h"
 #include "analyze_model.h"
 
 /*********************************************************************************************
-ÖØÒª¶È¸ß,¸´ÏÖ¶È¸ßµÄÄ£ÐÍ: 
-1.·ÖÎöÏµÍ³ÖÐÓÐÊ²Ã´ÍøÂçÍ¨ÐÅ£¬Í¨ÐÅµÄÄÚÈÝÀ´×ÔÓÚÄÄÀï
+ï¿½ï¿½Òªï¿½È¸ï¿½,ï¿½ï¿½ï¿½Ö¶È¸ßµï¿½Ä£ï¿½ï¿½: 
+1.ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Å£ï¿½Í¨ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 2.
 *********************************************************************************************/
 #define MAX_ANALYZE_MODULE_DESC_LEN 200
@@ -64,29 +56,29 @@ typedef struct _ANALYZING_MODEL
 } ANALYZING_MODEL, *PANALYZING_MODEL; 
 
 /************************************************************************
-²Ù×÷³è¹¦ÄÜ£º
-½«Ò»ÐòÁÐµÄ³ÌÐò¶¯×÷¼ÇÂ¼ÏÂÀ´£¬½øÐÐÍ³Ò»µÄÖ´ÐÐ¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½è¹¦ï¿½Ü£ï¿½
+ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ÐµÄ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³Ò»ï¿½ï¿½Ö´ï¿½Ð¡ï¿½
 ************************************************************************/
 /********************************************************************
-ÎÊÌâ:
-°²×°³ÌÐòÐÞ¸ÄÁËÄÄÐ©ÎÄ¼þºÍ×¢²á±íÏî?
+ï¿½ï¿½ï¿½ï¿½:
+ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½Ä¼ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½?
 
-·ÖÎö·½·¨:
-Ê¹ÓÃ°²×°³ÌÐòµÄ½ø³ÌID£¬½ø³ÌIMAGEÂ·¾¶£¬Í¨¹ýCREATE PROCESS¼ÆËã×Ó½ø³ÌID£¬
-È«Â·¾¶£¬Ê¹ÓÃÒÔÉÏËùÓÐµÄÌõ¼þ½øÐÐ¹ýÂË¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+Ê¹ï¿½Ã°ï¿½×°ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IMAGEÂ·ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½CREATE PROCESSï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½IDï¿½ï¿½
+È«Â·ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½Ë¡ï¿½
 
-ÊµÏÖ:
-ÊÇ·ñ¿ÉÒÔ±í´ïÒ»¸öSQLÓï¾ä£¿¿ÉÒÔ¡£µ«¸´ÔÓ¶ÈºÜ¸ß¡£
+Êµï¿½ï¿½:
+ï¿½Ç·ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½Ò»ï¿½ï¿½SQLï¿½ï¿½ä£¿ï¿½ï¿½ï¿½Ô¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ÈºÜ¸ß¡ï¿½
 
-ÎÊÌâ:
-build³ÌÐòÖ´ÐÐÁËÄÄÐ©ÃüÁî?
+ï¿½ï¿½ï¿½ï¿½:
+buildï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½ï¿½ï¿½?
 
-·ÖÎö·½·¨:
-¼ÇÂ¼build³ÌÐòÉú³ÉµÄËùÓÐµÄ½ø³Ì£¬ËùÓÐ×Ó½ø³ÌÉú³ÉµÄ½ø³Ì¡£½«ËùÓÐ½ø³ÌÔËÐÐµÄ
-ÃüÁî¶¼¼ÇÂ¼ÏÂÀ´¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+ï¿½ï¿½Â¼buildï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ÐµÄ½ï¿½ï¿½Ì£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ½ï¿½ï¿½Ì¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½
+ï¿½ï¿½ï¿½î¶¼ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-ÊµÏÖ:
-SQLÓï¾ä£¬²Ù×÷ºê½Å±¾¼¯¡£
+Êµï¿½ï¿½:
+SQLï¿½ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½ï¿½ï¿½
 *********************************************************************/
 
 #include <vecotr>

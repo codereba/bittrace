@@ -1,23 +1,17 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 #include "stdafx.h"
 #include "resource.h"
 #include "ui_config.h"
@@ -146,7 +140,7 @@ LRESULT load_lang_conf()
 		ASSERT( FALSE ); 
 
 		tmp_text = _get_string_by_id( TEXT_LANG_LOAD_LANG_CONFIG_ERROR, 
-			_T( "¼ÓÔØÓïÑÔÅäÖÃÊ§°Ü" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" ) ); 
 
 		show_msg( NULL, tmp_text ); 
 		lang_id_setting = LANG_ID_CN; 
@@ -277,7 +271,7 @@ LRESULT chg_original_lang( action_ui_notify *ui_notify, BOOLEAN *conf_file_exist
 
 		if( ret != ERROR_FILE_NOT_FOUND )
 		{
-			tmp_text = _T( "ÏµÍ³¹Ø¼üÊý¾Ý±»ÆÆ»µ,ÓïÑÔÅäÖÃÐÅÏ¢ÐèÒªÖØÐÂÉèÖÃ!\n\n" ) \
+			tmp_text = _T( "ÏµÍ³ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½Æ»ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!\n\n" ) \
 						_T( "Language configuration file is corrupted, need setting again." ); 
 
 			show_msg( NULL, tmp_text, NULL, _T( "" ), 0 ); 
@@ -290,7 +284,7 @@ LRESULT chg_original_lang( action_ui_notify *ui_notify, BOOLEAN *conf_file_exist
 			}
 		}
 
-		tmp_text = _T( "ÏÖÔÚ»¹Ã»ÓÐÉèÖÃÓïÑÔ,ÇëÁ¢¼´ÉèÖÃ,²Å¿ÉÒÔÕýÈ·ÏÔÊ¾½çÃæ.\n\n" ) \
+		tmp_text = _T( "ï¿½ï¿½ï¿½Ú»ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Å¿ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½.\n\n" ) \
 			__t( "Have not set language now, please set it now, then ui can display correctly" ); 
 
 		_ret = show_msg( NULL, tmp_text, &ret_state, 0 ); 
@@ -302,7 +296,7 @@ LRESULT chg_original_lang( action_ui_notify *ui_notify, BOOLEAN *conf_file_exist
 		if( ret_state == OK_STATE )
 		{
 			tmp_text = _get_string_by_id( TEXT_LANG_TITLE, 
-				_T("Á¢¼´ÉèÖÃÓïÑÔ") ); 
+				_T("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½") ); 
 			dlg.Create( NULL, tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 			dlg.SetIcon( IDI_MAIN_ICON ); 
 			dlg.CenterWindow();

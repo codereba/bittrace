@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #include "StdAfx.h"
+#include "StdAfx.h"
 #include "common_func.h"
 #include "bitsafe_common.h"
 #include "seven_fw_api.h"
@@ -1101,7 +1094,7 @@ LRESULT input_default_rules( access_rule_type type, INT32 is_service )
 
 		rule_buffer->rule.type = URL_RULE_TYPE; 
 		rule_buffer->rule.resp = ACTION_ALLOW; 
-		wcscpy( rule_buffer->desc, L"Ä¬ÈÏURL±£»¤¹æÔò" );  
+		wcscpy( rule_buffer->desc, L"Ä¬ï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" );  
 		rule_buffer->rule.desc.params[ 0 ]->id = INVALID_ID_VALUE; 
 		rule_buffer->rule.desc.params[ 0 ]->is_cls = FALSE; 
 		rule_buffer->rule.desc.params[ 0 ]->type = APP_DEFINE; 
@@ -1150,7 +1143,7 @@ LRESULT input_default_rules( access_rule_type type, INT32 is_service )
 
 		rule_buffer->rule.type = FILE_RULE_TYPE; 
 		rule_buffer->rule.resp = ACTION_BLOCK; 
-		wcscpy( rule_buffer->desc, L"Ä¬ÈÏÎÄ¼þ±£»¤¹æÔò" );  
+		wcscpy( rule_buffer->desc, L"Ä¬ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" );  
 		rule_buffer->rule.desc.params[ 0 ]->id = INVALID_ID_VALUE; 
 		rule_buffer->rule.desc.params[ 0 ]->is_cls = FALSE; 
 		rule_buffer->rule.desc.params[ 0 ]->type = APP_DEFINE; 
@@ -1202,7 +1195,7 @@ LRESULT input_default_rules( access_rule_type type, INT32 is_service )
 
 		rule_buffer->rule.type = FILE_RULE_TYPE; 
 		rule_buffer->rule.resp = ACTION_LEARN; 
-		wcscpy( rule_buffer->desc, L"Ä¬ÈÏÎÄ¼þ±£»¤¹æÔò" );  
+		wcscpy( rule_buffer->desc, L"Ä¬ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" );  
 		rule_buffer->rule.desc.params[ 0 ]->id = INVALID_ID_VALUE; 
 		rule_buffer->rule.desc.params[ 0 ]->is_cls = FALSE; 
 		rule_buffer->rule.desc.params[ 0 ]->type = APP_DEFINE; 
@@ -1266,7 +1259,7 @@ LRESULT input_default_rules( access_rule_type type, INT32 is_service )
 
 			rule_buffer->rule.type = REG_RULE_TYPE; 
 			rule_buffer->rule.resp = ACTION_LEARN; 
-			wcscpy( rule_buffer->desc, L"Ä¬ÈÏ×¢²á±í±£»¤¹æÔò" );  
+			wcscpy( rule_buffer->desc, L"Ä¬ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" );  
 			rule_buffer->rule.desc.params[ 0 ]->id = INVALID_ID_VALUE; 
 			rule_buffer->rule.desc.params[ 0 ]->is_cls = FALSE; 
 			rule_buffer->rule.desc.params[ 0 ]->type = APP_DEFINE; 
@@ -1497,21 +1490,21 @@ VOID get_prot_type_desc( LPTSTR text_out, ULONG length, prot_type type )
 	if( type == PROT_TCP )
 	{
 		tmp_text = _get_string_by_id( TEXT_IP_EDIT_PROT_TCP, 
-			_T( "TCPÐ­Òé" ) ); 
+			_T( "TCPÐ­ï¿½ï¿½" ) ); 
 
 		_tcsncpy( text_out, tmp_text, length ); 
 	}
 	else if( type == PROT_UDP )
 	{
 		tmp_text = _get_string_by_id( TEXT_IP_EDIT_PROT_UDP, 
-			_T( "UDPÐ­Òé" ) ); 
+			_T( "UDPÐ­ï¿½ï¿½" ) ); 
 
 		_tcsncpy( text_out, tmp_text, length ); 
 	}
 	else if( type == ALL_PROT )
 	{
 		tmp_text = _get_string_by_id( TEXT_IP_EDIT_PROT_ALL, 
-			_T( "ËùÓÐÐ­Òé" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½Ð­ï¿½ï¿½" ) ); 
 		_tcsncpy( text_out, tmp_text, length ); 
 	}
 	else 
@@ -1529,19 +1522,19 @@ VOID get_action_type_desc( LPTSTR text_out, ULONG length, action_response_type a
 	if( action == ACTION_ALLOW )
 	{
 		tmp_text = _get_string_by_id( TEXT_RESPONSE_ALLOW, 
-			_T( "ÔÊÐí" ) ); 
+			_T( "ï¿½ï¿½ï¿½ï¿½" ) ); 
 		_tcsncpy( text_out, tmp_text, length ); 
 	}
 	else if( action == ACTION_BLOCK )
 	{
 		tmp_text = _get_string_by_id( TEXT_RESPONSE_BLOCK, 
-			_T( "¾Ü¾ø" ) ); 
+			_T( "ï¿½Ü¾ï¿½" ) ); 
 		_tcsncpy( text_out, tmp_text, length ); 
 	}
 	else if( action == ACTION_LEARN )
 	{
 		tmp_text = _get_string_by_id( TEXT_RESPONSE_LEARN, 
-			_T( "Ñ¯ÎÊ" ) ); 
+			_T( "Ñ¯ï¿½ï¿½" ) ); 
 		_tcsncpy( text_out, tmp_text, length ); 
 	}
 	else 
@@ -2101,7 +2094,7 @@ LRESULT add_rule_action( HWND wnd, access_rule_type cur_rule_type )
 	target_rules->push_back( rule_alloc ); 
 
 	tmp_text = _get_string_by_id( TEXT_ACL_MANAGEMENT_ADD_SUCCESSULLY_TIP, 
-		_T( "Ìí¼Ó¹æÔò¶¨Òå³É¹¦" ) ); 
+		_T( "ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½" ) ); 
 
 	show_msg( wnd, tmp_text ); 
 
@@ -2220,7 +2213,7 @@ LRESULT modify_rule_action( HWND wnd, ULONG sel_index, access_rule_desc *action_
 	target_rules->operator []( sel_index )->rule = *action_rule; 
 
 	tmp_text = _get_string_by_id( TEXT_ACL_MANAGEMENT_EDIT_SUCCESSULLY_TIP, 
-		_T( "±à¼­¹æÔò¶¨Òå³É¹¦" ) ); 
+		_T( "ï¿½à¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½" ) ); 
 
 	show_msg( wnd, tmp_text ); 
 

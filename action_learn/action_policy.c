@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #include "common_func.h"
+#include "common_func.h"
 #include "ring0_2_ring3.h"
 #include "acl_define.h"
 #include "hash_table.h"
@@ -74,11 +67,11 @@ NTSTATUS check_sys_action_valid( sys_action_record *action )
 }
 
 /*********************************************************************
-×é²ßÂÔ¼ì²âÐÐÎª¹ý³Ì:
-1.µ±ÓÐÐÂµÄÐÐÎª·¢ÉúÊ±£¬·â×°³ÉÏàÓ¦µÄÊý¾Ý½á¹¹¡£
-2.ÕÒ³öËùÓÐÔÚµ±Ç°ÐÐÎªÔ´ÖÐÃ»ÓÐÃüÖÐµÄ²ßÂÔ¡£
-3.Ê¹ÓÃÃ»ÓÐÃüÖÐµÄ²ßÂÔ¼¯À´¼ì²â´ËÐÐÎª¡£
-£¨µÚ1°æ±¾ÏÈ¼ì²âÒ»±éËùÓÐµÄ²ßÂÔ¼¯¡££©
+ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½:
+1.ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹ï¿½ï¿½
+2.ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ç°ï¿½ï¿½ÎªÔ´ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½Ô¡ï¿½
+3.Ê¹ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½1ï¿½æ±¾ï¿½È¼ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½
 *********************************************************************/
 NTSTATUS is_policy_hitted( action_source_info *source, 
 						  policy_holder *policy )
@@ -148,9 +141,9 @@ LRESULT check_policy_holder_ok( policy_holder *pol_holder )
 }
 
 /******************************************************************
-µ±ÐÐÎªÔ´·¢ÉúÐÐÎªºó£¬²ßÂÔ×é¼ì²â¹ý³Ì:
-1.ÕÒ³öÐÐÔ´ÊÇ·ñÓÐ¶ÔÓ¦µÄ²ßÂÔ¡£
-2.Èç¹ûÓÐ£¬½«´Ë²ßÂÔÌí¼ÓÒýÓÃ£¬·â×°ÔÚÒ»¸öÖ¸¶¨·â°üÖÐ£¬¼ÇÂ¼ÔÚÐÐÎªÔ´µÄ×´
-Ì¬ÖÐ¡£
-3.¶ÔËùÓÐµÄ×´Ì¬²éÕÒÊÇ·ñÓÐ¶ÔÓ¦µÄ×é²ßÂÔ£¬Èç¹ûÓÐ£¬ÔòÖ´ÐÐÏàÓ¦µÄÏìÓ¦¡£
+ï¿½ï¿½ï¿½ï¿½ÎªÔ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+1.ï¿½Ò³ï¿½ï¿½ï¿½Ô´ï¿½Ç·ï¿½ï¿½Ð¶ï¿½Ó¦ï¿½Ä²ï¿½ï¿½Ô¡ï¿½
+2.ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½×°ï¿½ï¿½Ò»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ÎªÔ´ï¿½ï¿½×´
+Ì¬ï¿½Ð¡ï¿½
+3.ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ð¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½
 ******************************************************************/

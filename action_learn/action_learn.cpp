@@ -1,24 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
- #include "common_func.h"
+
+#include "common_func.h"
 #include "ring0_2_ring3.h"
 #include "acl_define.h"
 #include "hash_table.h"
@@ -50,114 +44,114 @@ switch action type template
 switch( type )
 {
 case EXEC_create:
-break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 case EXEC_destroy:
-break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 case EXEC_module_load:
-break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 //MT_filemon, 
 case FILE_touch:
-break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 case FILE_open:
-break; //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 //case ACCESS_FILE:
 //	break; 
 case FILE_read:
-break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 case FILE_write:
-break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 //case MODIFY_FILE:
 //	break; 
 case FILE_modified:
-break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 case FILE_readdir:
-break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 case FILE_remove:
-break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 //case DELETE_FILE:
 //	break; 
 case FILE_rename:
-break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 case FILE_truncate:
-break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 case FILE_mklink:
-break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 case FILE_chmod:
-break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 case FILE_setsec:
-break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 //MT_regmon, 
 case REG_openkey:
-break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 case REG_mkkey:
-break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 //case MODIFY_KEY:
 //	record_size += sizeof( reg_mkkey ); 
 //	break; 
 case REG_rmkey:
-break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 case REG_mvkey:
-break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 case REG_rmval:
-break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 case REG_getval:
-break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 case REG_setval:
-break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 case REG_loadkey:
-break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 case REG_replkey:
-break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 case REG_rstrkey:
-break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 case REG_setsec:
-break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 //MT_procmon, 
 case PROC_exec:
-break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 //case CREATE_PROC:
 //	record_size += sizeof( proc_exec ); 
 //	break; 
 case PROC_open:
-break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_debug:
-break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_suspend:
-break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_resume:
-break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_kill:
-break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 //case TERMINATE_PROC:
 //	record_size += sizeof( proc_kill ); 
 //	break; 
 case PROC_job:
-break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_pgprot:
-break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_freevm:
-break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_writevm:
-break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case PROC_readvm:
-break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case THRD_remote:
-break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case THRD_setctxt:
-break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case THRD_suspend:
-break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case THRD_resume:
-break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case THRD_kill:
-break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case THRD_queue_apc:
-break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 //MT_common
 //case COM_access:
@@ -169,43 +163,43 @@ break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû
 
 //MT_sysmon
 case SYS_settime:
-break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 case SYS_link_knowndll:
-break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 case SYS_open_physmm:
-break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 //case ACCESS_MEM:
 //	break; 
 case SYS_read_physmm:
-break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 case SYS_write_physmm:
-break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 case SYS_load_kmod:
-break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 //case INSTALL_DRV:
 //	record_size += sizeof( sys_load_kmod ); 
 //	break; 
 case SYS_enumproc:
-break; //Ã¶¾Ù½ø³Ì ÎÞ 
+break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 case SYS_regsrv:
-break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 case SYS_opendev:
-break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 //MT_w32mon
 case W32_postmsg:
-break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case W32_sendmsg:
-break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case W32_findwnd:
-break; //²éÕÒ´°¿Ú ÎÞ 
+break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 case W32_msghook:
-break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 //case INSTALL_HOOK:
 //	record_size += sizeof( w32_msghook ); 
 //	break; 
 case W32_lib_inject:
-break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 //MT_netmon
 case NET_create:
@@ -214,17 +208,17 @@ break;
 //	record_size += sizeof( net_create ); 
 //	break; 
 case NET_connect:
-break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 //case SOCKET_CONNECT:
 //	record_size += sizeof( net_connect ); 
 //	break; 
 case NET_listen:
-break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 //case SOCKET_LISTEN:
 //	record_size += sizeof( net_listen ); 
 //	break; 
 case NET_send:
-break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 //case SOCKET_SEND:
 //	record_size += sizeof( net_send ); 
 //	break; 
@@ -239,7 +233,7 @@ break;
 //	record_size += sizeof( net_accept ); 
 //	break; 
 case NET_http:
-break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 //case LOCATE_URL:
 //	record_size += sizeof( ); 
 //	break; 
@@ -257,23 +251,23 @@ break;
 
 //MT_behavior, 
 case BA_extract_hidden:
-break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 case BA_extract_pe:
-break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case BA_self_copy:
-break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case BA_self_delete:
-break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case BA_ulterior_exec:
-break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case BA_invade_process:
-break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case BA_infect_pe:
-break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case BA_overwrite_pe:
-break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 case BA_register_autorun:
-break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 //case BA_other:
 //record_size += sizeof( ); 
@@ -418,20 +412,20 @@ of the action source, return.
 *****************************************************************/
 
 /*****************************************************************
-×¢Òâ£º
-½«ÐÐÎª·ÖÎª3ÖÖ£º
-1.Î´ÖªÐÐÎªÔ´ÐÐÎª£¬¶ÔÆäÐÐÎªÐèÒª½øÐÐSANDBOX
-2.ÐÐÎªÔ´°×Ãûµ¥ÐÐÎª£¬¶ÔÆäÐÐÎª½øÐÐÖ±½Ó·Å¹ý¡£
-3.ÐÐÎªÔ´ºÚÃûµ¥ÐÐÎª£¬¶ÔÆäÐÐÎª½øÐÐÖ±½Ó×èÖ¹¡£
+×¢ï¿½â£º
+ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Îª3ï¿½Ö£ï¿½
+1.Î´Öªï¿½ï¿½ÎªÔ´ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½SANDBOX
+2.ï¿½ï¿½ÎªÔ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó·Å¹ï¿½ï¿½ï¿½
+3.ï¿½ï¿½ÎªÔ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½
 
-»òÊ¹ÓÃ¼òµ¥µÄ·½·¨£¬ÅÐ¶ÏµÄ»ù±¾µ¥ÔªÊÇÐÐÎªÔ´£¬¶ø²»ÊÇÐÐÎª£º
-1.Î´ÖªÐÐÎªÔ´
-2.°×Ãûµ¥ÐÐÎªÔ´
-3.ºÚÃûµ¥ÐÐÎªÔ´¡£
+ï¿½ï¿½Ê¹ï¿½Ã¼òµ¥µÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ÏµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ÎªÔ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
+1.Î´Öªï¿½ï¿½ÎªÔ´
+2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÔ´
+3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÔ´ï¿½ï¿½
 
-ÒâË¼¾ÍÊÇ¶ÔÍ¬Ò»×éÖ¸ÁîÐòÁÐ£¨»òÍ¬Ò»¸öÐÐÎª£©Ö»·ÖÎöÒ»´Î¡£
-ÒòÎªSANDBOXÔËÐÐ»úÖÆ»áÕ¼ÓÃÒ»¶¨Á¿µÄ×ÊÔ´£¬²»ºÏÊÊÍ¬Ê±¶Ô´óÁ¿µÄÖ¸ÁîÐòÁÐ
-½øÐÐ´¦Àí¡£
+ï¿½ï¿½Ë¼ï¿½ï¿½ï¿½Ç¶ï¿½Í¬Ò»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î¡ï¿½
+ï¿½ï¿½ÎªSANDBOXï¿½ï¿½ï¿½Ð»ï¿½ï¿½Æ»ï¿½Õ¼ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½
 *****************************************************************/
 /******************************************************************
 check the policy for the action, get the response for action series.
@@ -636,12 +630,12 @@ NTSTATUS init_test_action_policies()
 				all_test_policy[ i ].policy.do_net_accept.port = 8001; 
 				break; 
 			case 1:
-				//LPCWSTR pathname; //ÎÄ¼þÈ«Â·¾¶
-				//ULONG pid; //¶¯×÷·¢ÆðÕß½ø³ÌID 
-				//ULONG tid; //¶¯×÷·¢ÆðÕßÏß³ÌID 
-				//ULONG offset; //ÎÄ¼þÄÚÆ«ÒÆ 
-				//ULONG data_len; //Êý¾Ý³¤¶È 
-				//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+				//LPCWSTR pathname; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½
+				//ULONG pid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
+				//ULONG tid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ID 
+				//ULONG offset; //ï¿½Ä¼ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ 
+				//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+				//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 				all_test_policy[ i ].policy.type = FILE_modified; 
 				*all_test_policy[ i ].policy.do_file_write.path_name = L'\0'; 
 				all_test_policy[ i ].policy.do_file_write.offset = 100; 
@@ -649,12 +643,12 @@ NTSTATUS init_test_action_policies()
 				//all_test_policy[ i ].policy.do_file_write.result = STATUS_SUCCESS; 
 				break; 
 			case 2:
-				//LPCWSTR pathname; //Ä¿±ê½ø³ÌÈ«Â·¾¶ 
-				//ULONG pid; //¶¯×÷·¢ÆðÕß½ø³ÌID 
-				//ULONG tid; //¶¯×÷·¢ÆðÕßÏß³ÌID 
-				//ULONG target_pid; //Ä¿±ê½ø³ÌID 
-				//ULONG exitcode; //½ø³ÌÍÆ³öÂë 
-				//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+				//LPCWSTR pathname; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
+				//ULONG pid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
+				//ULONG tid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ID 
+				//ULONG target_pid; //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+				//ULONG exitcode; //ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ 
+				//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 				
 				all_test_policy[ i ].policy.type = PROC_kill; 
 				*all_test_policy[ i ].policy.do_proc_kill.path_name = L'\0'; 
@@ -709,12 +703,12 @@ NTSTATUS init_test_actions()
 				all_test_action[ i ].do_net_accept.protocol = SELF_TEST;  
 				break; 
 			case 1:
-				//LPCWSTR pathname; //ÎÄ¼þÈ«Â·¾¶
-				//ULONG pid; //¶¯×÷·¢ÆðÕß½ø³ÌID 
-				//ULONG tid; //¶¯×÷·¢ÆðÕßÏß³ÌID 
-				//ULONG offset; //ÎÄ¼þÄÚÆ«ÒÆ 
-				//ULONG data_len; //Êý¾Ý³¤¶È 
-				//NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+				//LPCWSTR pathname; //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½
+				//ULONG pid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
+				//ULONG tid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ID 
+				//ULONG offset; //ï¿½Ä¼ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ 
+				//ULONG data_len; //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
+				//NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 				all_test_action[ i ].type = FILE_modified; 
 				all_test_action[ i ].do_file_write.path_name[ 0 ] = L'\0'; 
 				all_test_action[ i ].do_file_write.offset = 100; 

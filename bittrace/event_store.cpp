@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -24,13 +17,13 @@
 #include "event_store.h"
 
 /**********************************************************************************
-procmon¸ú×Ù¹¦ÄÜµÄ·ÖÎö£º
-1.ÆäÖÐÈÕÖ¾µÄ1/3ÊÇPROFILINGÊÂ¼þ£¬Õâ¸öÊÂ¼þÊÇ¶¨Ê±¶ÔÏµÍ³µÄËùÓÐµÄÏß³ÌµÄÓÃÊ±Çé¿ö£¬ºÍCONTEXT
-SWITCH½øÐÐ¸ú×Ù·ÖÎö¡££¨¼ÛÖµÊÇÊ²Ã´£¿£©
+procmonï¿½ï¿½ï¿½Ù¹ï¿½ï¿½ÜµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½
+1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½1/3ï¿½ï¿½PROFILINGï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ç¶ï¿½Ê±ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ß³Ìµï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CONTEXT
+SWITCHï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Ù·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ê²Ã´ï¿½ï¿½ï¿½ï¿½
 
-bittraceÓëprocmonµÄ¹Ø¼ü²î±ð£º
-1.×¢²á±í¼üµÄ¹Ø±ÕÊÂ¼þPROCMON·Ç³£¶à£¬ÆäÖÐµÄÔ­ÒòÊÇÊ²Ã´£¿(¶¼Ê¹ÓÃCALLBACKÓ¦¸Ã£¬ÄÇÃ´²î±ðÎªÊ²Ã´
-ÕâÃ´´ó£¿)
+bittraceï¿½ï¿½procmonï¿½Ä¹Ø¼ï¿½ï¿½ï¿½ï¿½
+1.×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹Ø±ï¿½ï¿½Â¼ï¿½PROCMONï¿½Ç³ï¿½ï¿½à£¬ï¿½ï¿½ï¿½Ðµï¿½Ô­ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½(ï¿½ï¿½Ê¹ï¿½ï¿½CALLBACKÓ¦ï¿½Ã£ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ÎªÊ²Ã´
+ï¿½ï¿½Ã´ï¿½ï¿½)
 **********************************************************************************/
 ULONG WINAPI calc_correct_record_append_size( r3_action_notify *event )
 {
@@ -43,172 +36,172 @@ ULONG WINAPI calc_correct_record_append_size( r3_action_notify *event )
 	{
 	case EXEC_create:
 		record_append_size += ( ( event->action.action.do_exec_create.path_len + 1 ) << 1 ); 
-		break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 	case EXEC_destroy:
 		record_append_size += ( ( event->action.action.do_exec_destroy.path_len + 1 ) << 1 ); 
-		break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 	case EXEC_module_load:
 		record_append_size += ( ( event->action.action.do_exec_module_load.path_len + 1 ) << 1 ); 
-		break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+		break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_filemon, 
 	case FILE_touch:
 		record_append_size += ( ( event->action.action.do_file_touch.path_len + 1 ) << 1 ); 
-		break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 	case FILE_open:
 		record_append_size += ( ( event->action.action.do_file_open.path_len + 1 ) << 1 ); 
-		break; //´ò¿ªÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//case ACCESS_FILE:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case FILE_read:
 		record_append_size += ( ( event->action.action.do_file_read.path_len + 1 ) << 1 ); 
-		break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_write:
 		record_append_size += ( ( event->action.action.do_file_write.path_len + 1 ) << 1 ); 
-		break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//case MODIFY_FILE:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case FILE_modified:
 		record_append_size += ( ( event->action.action.do_file_modified.path_len + 1 ) << 1 ); 
-		break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_readdir:
 		record_append_size += ( ( event->action.action.do_file_readdir.path_len + 1 ) << 1 ); 
-		break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 	case FILE_remove:
 		record_append_size += ( ( event->action.action.do_file_remove.path_len + 1 ) << 1 ); 
-		break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		//case DELETE_FILE:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case FILE_rename:
 		record_append_size += ( ( event->action.action.do_file_rename.path_len + 1 ) << 1 ); 
-		break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_truncate:
 		record_append_size += ( ( event->action.action.do_file_truncate.path_len + 1 ) << 1 ); 
-		break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_mklink:
 		record_append_size += ( ( event->action.action.do_file_mklink.path_len + 1 ) << 1 ); 
-		break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_chmod:
 		record_append_size += ( ( event->action.action.do_file_chmod.path_len + 1 ) << 1 ); 
-		break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 	case FILE_setsec:
 		record_append_size += ( ( event->action.action.do_file_setsec.path_len + 1 ) << 1 ); 
-		break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 	case FILE_getinfo:
 		record_append_size += ( ( event->action.action.do_file_getinfo.path_len + 1 ) << 1 ); 
-		break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 	case FILE_setinfo:
 		record_append_size += ( ( event->action.action.do_file_setinfo.path_len + 1 ) << 1 ); 
-		break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		//MT_regmon, 
 	case REG_openkey:
 		record_append_size += ( ( event->action.action.do_reg_openkey.path_len + 1 ) << 1 ); 
-		break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+		break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 	case REG_mkkey:
 		record_append_size += ( ( event->action.action.do_reg_mkkey.path_len + 1 ) << 1 ); 
-		break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 		//case MODIFY_KEY:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case REG_rmkey:
 		record_append_size += ( ( event->action.action.do_reg_rmkey.path_len + 1 ) << 1 ); 
-		break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_mvkey:
 		record_append_size += ( ( event->action.action.do_reg_mvkey.path_len + 1 ) << 1 ); 
-		break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_rmval:
 		record_append_size += ( ( event->action.action.do_reg_rmval.path_len + 1 
 			+ event->action.action.do_reg_rmval.val_len + 1 ) << 1 ); 
-		break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_getval:
 		record_append_size += ( ( event->action.action.do_reg_getval.path_len + 1 
 			+ event->action.action.do_reg_getval.val_name_len + 1 ) << 1 ) 
 			+ event->action.action.do_reg_getval.info_size; 
-		break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+		break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 	case REG_setval:
 		record_append_size += ( ( event->action.action.do_reg_getval.path_len + 1 
 			+ event->action.action.do_reg_getval.val_name_len + 1 ) << 1 ) 
 			+ event->action.action.do_reg_getval.info_size; 
-		break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 	case REG_loadkey:
 		record_append_size += ( ( event->action.action.do_reg_loadkey.path_len + 1 ) << 1 ); 
-		break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_replkey:
 		record_append_size += ( ( event->action.action.do_reg_replkey.path_len + 1 ) << 1 ); 
-		break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_rstrkey:
 		record_append_size += ( ( event->action.action.do_reg_rstrkey.path_len + 1 ) << 1 ); 
-		break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 	case REG_setsec:
 		record_append_size += ( ( event->action.action.do_reg_setsec.path_len + 1 ) << 1 ); 
-		break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		//MT_procmon, 
 	case PROC_exec:
 		record_append_size += ( ( event->action.action.do_proc_exec.path_len + 1 ) << 1 ); 
-		break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 		//case CREATE_PROC:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case PROC_open:
 		record_append_size += ( ( event->action.action.do_proc_open.path_len + 1 ) << 1 ); 
-		break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_debug:
 		record_append_size += ( ( event->action.action.do_proc_debug.path_len + 1 ) << 1 ); 
-		break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_suspend:
 		record_append_size += ( ( event->action.action.do_proc_suspend.path_len + 1 ) << 1 ); 
-		break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_resume:
 		record_append_size += ( ( event->action.action.do_proc_resume.path_len + 1 ) << 1 ); 
-		break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_exit:
 		record_append_size += ( ( event->action.action.do_proc_exit.path_len + 1 ) << 1 ); 
-		break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		//case TERMINATE_PROC:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case PROC_job:
 		record_append_size += ( ( event->action.action.do_proc_job.path_len + 1 ) << 1 ); 
-		break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_pgprot:
 		record_append_size += ( ( event->action.action.do_proc_pgprot.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_freevm:
 		record_append_size += ( ( event->action.action.do_proc_freevm.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_writevm:
 		record_append_size += ( ( event->action.action.do_proc_writevm.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case PROC_readvm:
 		record_append_size += ( ( event->action.action.do_proc_readvm.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_remote:
 		record_append_size += ( ( event->action.action.do_thrd_remote.path_len + 1 ) << 1 ); 
-		break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_setctxt:
 		record_append_size += ( ( event->action.action.do_thrd_setctxt.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_suspend:
 		record_append_size += ( ( event->action.action.do_thrd_suspend.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_resume:
 		record_append_size += ( ( event->action.action.do_thrd_resume.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_exit:
 		record_append_size += ( ( event->action.action.do_thrd_exit.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case THRD_queue_apc:
 		record_append_size += ( ( event->action.action.do_thrd_queue_apc.path_len + 1 ) << 1 ); 
-		break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_common
 		//case COM_access:
@@ -220,53 +213,53 @@ ULONG WINAPI calc_correct_record_append_size( r3_action_notify *event )
 
 		//MT_sysmon
 	case SYS_settime:
-		break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 	case SYS_link_knowndll:
 		record_append_size += ( ( event->action.action.do_sys_link_knowndll.path_len + 1 ) << 1 ); 
-		break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+		break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 	case SYS_open_physmm:
-		break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 		//case ACCESS_MEM:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case SYS_read_physmm:
-		break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 	case SYS_write_physmm:
-		break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+		break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 	case SYS_load_kmod:
 		record_append_size += ( ( event->action.action.do_sys_load_kmod.path_len + 1 ) << 1 ); 
-		break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		//case INSTALL_DRV:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case SYS_enumproc:
-		break; //Ã¶¾Ù½ø³Ì ÎÞ 
+		break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 	case SYS_regsrv:
 		record_append_size += ( ( event->action.action.do_sys_regsrv.path_len + 1 ) << 1 ); 
-		break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+		break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 	case SYS_opendev:
 		record_append_size += ( ( event->action.action.do_sys_opendev.path_len + 1 ) << 1 ); 
-		break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+		break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 		//MT_w32mon
 	case W32_postmsg:
 		record_append_size += ( ( event->action.action.do_w32_postmsg.path_len + 1 ) << 1 ); 
-		break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case W32_sendmsg:
 		record_append_size += ( ( event->action.action.do_w32_sendmsg.path_len + 1 ) << 1 ); 
-		break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case W32_findwnd:
 		record_append_size = 0; 
-		break; //²éÕÒ´°¿Ú ÎÞ 
+		break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 	case W32_msghook:
 		record_append_size += ( ( event->action.action.do_w32_msghook.path_len + 1 ) << 1 ); 
-		break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		//case INSTALL_HOOK:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case W32_lib_inject:
 		record_append_size += ( ( event->action.action.do_w32_lib_inject.path_len + 1 ) << 1 ); 
-		break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+		break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 		//MT_netmon
 	case NET_create:
@@ -275,17 +268,17 @@ ULONG WINAPI calc_correct_record_append_size( r3_action_notify *event )
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case NET_connect:
-		break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 		//case SOCKET_CONNECT:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case NET_listen:
-		break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 		//case SOCKET_LISTEN:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
 	case NET_send:
-		break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+		break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 		//case SOCKET_SEND:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
@@ -300,7 +293,7 @@ ULONG WINAPI calc_correct_record_append_size( r3_action_notify *event )
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break;
 	case NET_http:
-		break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+		break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 		//case LOCATE_URL:
 		//	record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 
 		//	break; 
@@ -324,31 +317,31 @@ ULONG WINAPI calc_correct_record_append_size( r3_action_notify *event )
 		//MT_behavior, 
 	case BA_extract_hidden:
 		record_append_size += ( ( event->action.action.do_ba_extract_hidden.path_len + 1 ) << 1 ); 
-		break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+		break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 	case BA_extract_pe:
 		record_append_size += ( ( event->action.action.do_ba_extract_pe.path_len + 1 ) << 1 ); 
-		break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_self_copy:
 		record_append_size += ( ( event->action.action.do_ba_self_copy.path_len + 1 ) << 1 ); 
-		break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_self_delete:
 		record_append_size += ( ( event->action.action.do_ba_self_delete.path_len + 1 ) << 1 ); 
-		break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_ulterior_exec:
 		record_append_size += ( ( event->action.action.do_ba_ulterior_exec.path_len + 1 ) << 1 ); 
-		break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_invade_process:
 		record_append_size += ( ( event->action.action.do_ba_invade_process.path_len + 1 ) << 1 ); 
-		break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+		break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_infect_pe:
 		record_append_size += ( ( event->action.action.do_ba_infect_pe.path_len + 1 ) << 1 ); 
-		break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_overwrite_pe:
 		record_append_size += ( ( event->action.action.do_ba_overwrite_pe.path_len + 1 ) << 1 ); 
-		break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+		break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 	case BA_register_autorun:
 		record_append_size += ( ( event->action.action.do_ba_register_autorun.path_len + 1 ) << 1 ); 
-		break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+		break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		//case BA_other:
 		//record_append_size += ( ( event->action.action..path_len + 1 ) << 1 ); 

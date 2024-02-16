@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __LANG_CN_H__
@@ -32,7 +25,7 @@ extern "C" {
 
 #ifdef _DEBUG
 	extern ULONG all_strings_cn_count; 
-#define LAST_CN_STRING __t( "Èç¹ûÊ¹ÓÃ2.0.0.288Ö®Ç°°æ±¾,½øÐÐÉý¼¶ºó,ÇëÏÈ²»Òªµã»÷°²×°ÌáÊ¾µÄÈ·ÈÏ°´Å¥½øÐÐ°²×°,¶øÊÇÏÈ½øÐÐÐ¶ÔØºó,È»ºóÖØÆôWINDOWS,ÔÙÔËÐÐ,²»È»¿ÉÄÜÓÉÓÚ°æ±¾ÎÊÌâ,µ¼ÖÂÏµÍ³³ö´í¡£Ôì³ÉµÄ²»±ãÇëÁÂ½â." ) 
+#define LAST_CN_STRING __t( "ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½2.0.0.288Ö®Ç°ï¿½æ±¾,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½È²ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½×°ï¿½ï¿½Ê¾ï¿½ï¿½È·ï¿½Ï°ï¿½Å¥ï¿½ï¿½ï¿½Ð°ï¿½×°,ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½ï¿½Ð¶ï¿½Øºï¿½,È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½WINDOWS,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú°æ±¾ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½." ) 
 
 #endif //_DEBUG
 

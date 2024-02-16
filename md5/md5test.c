@@ -1,4 +1,3 @@
-/* crypto/md5/md5test.c */
 /* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
  * All rights reserved.
  *
@@ -59,8 +58,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-//#include "../e_os.h"
 
 #ifdef OPENSSL_NO_MD5
 int main(int argc, char *argv[])

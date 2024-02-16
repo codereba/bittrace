@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "StdAfx.h"
@@ -40,10 +33,10 @@ LRESULT event_properies_dlg::set_event( PVOID event )
 <HorizontalLayout >
 <List name="image_list" bkcolor="#FFFFFFFF" inset="0,0,0,0" itemshowhtml="true" vscrollbar="true" hscrollbar="true" headerbkimage="file='list_header_bg.png'" itemalign="left" itemtextpadding="5,0,0,0" itembkcolor="#FFE2DDDF" itemaltbk="true" menu="true">
 <ListHeader height="24" menu="true">
-<ListHeaderItem text="Ä£¿é"  font="10" width="100" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
-<ListHeaderItem text="»ùµØÖ·" font="10" width="240" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
-<ListHeaderItem text="´óÐ¡" font="10" width="240" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
-<ListHeaderItem text="Â·¾¶" font="10" width="240" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+<ListHeaderItem text="Ä£ï¿½ï¿½"  font="10" width="100" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+<ListHeaderItem text="ï¿½ï¿½ï¿½ï¿½Ö·" font="10" width="240" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+<ListHeaderItem text="ï¿½ï¿½Ð¡" font="10" width="240" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
+<ListHeaderItem text="Â·ï¿½ï¿½" font="10" width="240" hotimage="file='list_header_hot.png'" pushedimage="file='list_header_pushed.png'" sepimage="file='list_header_sep.png'" sepwidth="1"/>
 </ListHeader>
 </List>
 </HorizontalLayout>
@@ -141,7 +134,7 @@ LRESULT event_properies_dlg::load_event_information()
 		ctrl = m_pm.FindControl( L"duration" ); 
 		ASSERT( ctrl != NULL ); 
 
-		//¼ÆËãÊÂ¼þµÄÖ´ÐÐ×ÜÊ±¼ä
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 		ctrl->SetText( L"" ); 
 
 		ctrl = m_pm.FindControl( L"event_properties" ); 

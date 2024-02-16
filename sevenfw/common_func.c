@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -962,10 +955,10 @@ _return:
 }
 
 #define DEF_OP_TMP_BUF_LEN 4096
-/** @brief Éú³É¶¯Ì¬»º´æÇø
-* @param buf ¶¯Ì¬»º´æÇøÖ¸Õë£¬Êä³ö
-* @param len ¶¯Ì¬»º´æÇø³¤¶È£¬Êä³ö
-* @return ³É¹¦·µ»ØSTATUS_SUCCESS
+/** @brief ï¿½ï¿½ï¿½É¶ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param buf ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë£¬ï¿½ï¿½ï¿½
+* @param len ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½
+* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½STATUS_SUCCESS
 */
 LRESULT init_op_temp_buf( OUT PBYTE *buf, IN ULONG len, OUT PULONG out_len )
 {
@@ -992,10 +985,10 @@ _return:
 	return ret; 
 }
 
-/** ÊÍ·Å¶¯Ì¬»º´æÇø
-* @param buf »º´æÇøÖ¸Õë
-* @param len »º´æÇø³¤¶È
-* @return ÎÞ
+/** ï¿½Í·Å¶ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param buf ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+* @param len ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @return ï¿½ï¿½
 */
 VOID uninit_op_temp_buf( IN OUT PBYTE *buf, IN OUT PULONG len )
 {
@@ -1008,12 +1001,12 @@ VOID uninit_op_temp_buf( IN OUT PBYTE *buf, IN OUT PULONG len )
 
 #define REALLOC_INC_LEN 4096
 
-/** @brief ¼ÆËã»º´æÇøµÄ³¤¶ÈÊÇ·ñºÏºõÒªÇó£¬Èç²»Ð¡ÓÚÒªÇó³¤¶È£¬ÖØÐÂ·ÖÅä
-* @param buf µ±Ç°µÄ»º´æÇøÖ¸Õë/Êä³öµÄÐÂÉú³ÉµÄ»º´æÇøÖ¸Õë
-* @param len µ±Ç°»º´æÇøÒÑ¾­Ê¹ÓÃ³¤¶È
-* @param max_len µ±Ç°»º´æÇøµÄ·ÖÅä³¤¶È
-* @param need_len ÐèÒªÊ¹ÓÃµÄ³¤¶È
-* @return Èç¹û³É¹¦ ·µ»ØSTATUS_SUCCESS£¬·ñÔò·µ»Ø´íÎó Âë¡£
+/** @brief ï¿½ï¿½ï¿½ã»ºï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ïºï¿½Òªï¿½ï¿½ï¿½ç²»Ð¡ï¿½ï¿½Òªï¿½ó³¤¶È£ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½
+* @param buf ï¿½ï¿½Ç°ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+* @param len ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½Ê¹ï¿½Ã³ï¿½ï¿½ï¿½
+* @param max_len ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ä³¤ï¿½ï¿½
+* @param need_len ï¿½ï¿½ÒªÊ¹ï¿½ÃµÄ³ï¿½ï¿½ï¿½
+* @return ï¿½ï¿½ï¿½ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½STATUS_SUCCESSï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»Ø´ï¿½ï¿½ï¿½ ï¿½ë¡£
 */
 //LRESULT realloc_if_need( PBYTE *buf, ULONG len, PULONG max_len, ULONG need_len )
 //{
@@ -1500,7 +1493,7 @@ _return:
 //		GetTempFileName(szPathClone, __TEXT("Del"), 0, szPathClone);
 //		CopyFile(szPathOrig, szPathClone, FALSE);
 //
-//		//***×¢ÒâÁË***:
+//		//***×¢ï¿½ï¿½ï¿½ï¿½***:
 //		// Open the clone EXE using FILE_FLAG_DELETE_ON_CLOSE
 //		HANDLE hfile = CreateFile(szPathClone, 0, FILE_SHARE_READ, NULL, 
 //			OPEN_EXISTING, FILE_FLAG_DELETE_ON_CLOSE, NULL);
@@ -1540,7 +1533,7 @@ BOOL SelfDeleteASM()
 	GetModuleFileName(module, buf, MAX_PATH);
 	CloseHandle((HANDLE)4);
 
-	//ÒÔÏÂÕâ¶Î´úÂë¿ÉÄÜºÍ²Ù×÷ÏµÍ³Ïà¹Ø(98/2000/xp), ÓÐÐ©´úÂëÒª×öµ÷Õû
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ÜºÍ²ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½(98/2000/xp), ï¿½ï¿½Ð©ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #ifndef _WIN64
 	__asm 
 	{
@@ -2626,12 +2619,12 @@ LRESULT port_2_str( USHORT port, TCHAR *buf, ULONG buf_len )
 	return ret; 
 }
 
-/** @brief ¼ÆËã»º´æÇøµÄ³¤¶ÈÊÇ·ñºÏºõÒªÇó£¬Èç²»Ð¡ÓÚÒªÇó³¤¶È£¬ÖØÐÂ·ÖÅä
-* @param buf µ±Ç°µÄ»º´æÇøÖ¸Õë/Êä³öµÄÐÂÉú³ÉµÄ»º´æÇøÖ¸Õë
-* @param len µ±Ç°»º´æÇøÒÑ¾­Ê¹ÓÃ³¤¶È
-* @param max_len µ±Ç°»º´æÇøµÄ·ÖÅä³¤¶È
-* @param need_len ÐèÒªÊ¹ÓÃµÄ³¤¶È
-* @return Èç¹û³É¹¦ ·µ»ØSTATUS_SUCCESS£¬·ñÔò·µ»Ø´íÎó Âë¡£
+/** @brief ï¿½ï¿½ï¿½ã»ºï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ïºï¿½Òªï¿½ï¿½ï¿½ç²»Ð¡ï¿½ï¿½Òªï¿½ó³¤¶È£ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½
+* @param buf ï¿½ï¿½Ç°ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+* @param len ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½Ê¹ï¿½Ã³ï¿½ï¿½ï¿½
+* @param max_len ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ä³¤ï¿½ï¿½
+* @param need_len ï¿½ï¿½ÒªÊ¹ï¿½ÃµÄ³ï¿½ï¿½ï¿½
+* @return ï¿½ï¿½ï¿½ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½STATUS_SUCCESSï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»Ø´ï¿½ï¿½ï¿½ ï¿½ë¡£
 */
 LRESULT realloc_if_need( PBYTE *buf, ULONG len, PULONG max_len, ULONG need_len )
 {
@@ -2670,17 +2663,17 @@ _return:
 	return ret; 
 }
 
-// ¶¨Òåº¯Êý·µ»ØÖµ
+// ï¿½ï¿½ï¿½åº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 //typedef ULONG NTSTATUS;
 
-// ¿í×Ö½Ú×Ö·û´®½á¹¹¶¨Òå
+// ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½
 //typedef struct _UNICODE_STRING {
 //	USHORT  Length;
 //	USHORT  MaximumLength;
 //	PWSTR  Buffer;
 //} UNICODE_STRING, *PUNICODE_STRING;
 
-// ¶ÔÏóÊôÐÔ¶¨Òå
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½
 typedef struct _OBJECT_ATTRIBUTES {
 	ULONG Length;
 	HANDLE RootDirectory;
@@ -2690,13 +2683,13 @@ typedef struct _OBJECT_ATTRIBUTES {
 	PSECURITY_QUALITY_OF_SERVICE SecurityQualityOfService;
 } OBJECT_ATTRIBUTES,*POBJECT_ATTRIBUTES;
 
-// »ù±¾ÐÅÏ¢¶¨Òå
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 typedef struct _DIRECTORY_BASIC_INFORMATION {
 	UNICODE_STRING ObjectName;
 	UNICODE_STRING ObjectTypeName;
 } DIRECTORY_BASIC_INFORMATION, *PDIRECTORY_BASIC_INFORMATION;
 
-// ·µ»ØÖµ»ò×´Ì¬ÀàÐÍ¶¨Òå
+// ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½
 #define OBJ_CASE_INSENSITIVE      0x00000040L
 #define DIRECTORY_QUERY           (0x0001)
 #define STATUS_SUCCESS            ((NTSTATUS)0x00000000L) // ntsubauth
@@ -2706,7 +2699,7 @@ typedef struct _DIRECTORY_BASIC_INFORMATION {
 #define SYMBOLIC_LINK_QUERY       (0x0001)
 #define SYMBOLIC_LINK_ALL_ACCESS  (STANDARD_RIGHTS_REQUIRED | 0x1)
 
-// ³õÊ¼»¯¶ÔÏóÊôÐÔºê¶¨Òå
+// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºê¶¨ï¿½ï¿½
 #define InitializeObjectAttributes( p, n, a, r, s ) { \
 	(p)->Length = sizeof( OBJECT_ATTRIBUTES );          \
 	(p)->RootDirectory = r;                             \
@@ -2716,11 +2709,11 @@ typedef struct _DIRECTORY_BASIC_INFORMATION {
 	(p)->SecurityQualityOfService = NULL;               \
 }
 
-// ×Ö·û´®³õÊ¼»¯
+// ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
 typedef VOID (CALLBACK* RTLINITUNICODESTRING)(PUNICODE_STRING,PCWSTR);
 RTLINITUNICODESTRING RtlInitUnicodeString;
 
-// ×Ö·û´®±È½Ï
+// ï¿½Ö·ï¿½ï¿½ï¿½ï¿½È½ï¿½
 typedef
 BOOLEAN
 (WINAPI *RTLEQUALUNICODESTRING)(
@@ -2730,7 +2723,7 @@ BOOLEAN
 								);
 RTLEQUALUNICODESTRING RtlEqualUnicodeString;
 
-// ´ò¿ª¶ÔÏó
+// ï¿½ò¿ª¶ï¿½ï¿½ï¿½
 typedef NTSTATUS (WINAPI *ZWOPENDIRECTORYOBJECT)(
 	OUT PHANDLE DirectoryHandle,
 	IN ACCESS_MASK DesiredAccess,
@@ -2738,7 +2731,7 @@ typedef NTSTATUS (WINAPI *ZWOPENDIRECTORYOBJECT)(
 	);
 ZWOPENDIRECTORYOBJECT ZwOpenDirectoryObject;
 
-// ²éÑ¯¶ÔÏó
+// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 typedef
 NTSTATUS
 (WINAPI *ZWQUERYDIRECTORYOBJECT)(
@@ -2752,7 +2745,7 @@ NTSTATUS
 								 );
 ZWQUERYDIRECTORYOBJECT ZwQueryDirectoryObject;
 
-// ´ò¿ª·ûºÅÁ´½Ó¶ÔÏó
+// ï¿½ò¿ª·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 typedef
 NTSTATUS
 (WINAPI *ZWOPENSYMBOLICKLINKOBJECT)(
@@ -2762,7 +2755,7 @@ NTSTATUS
 									);
 ZWOPENSYMBOLICKLINKOBJECT ZwOpenSymbolicLinkObject;
 
-// ²éÑ¯·ûºÅÁ´½Ó¶ÔÏó
+// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 typedef
 NTSTATUS
 (WINAPI *ZWQUERYSYMBOLICKLINKOBJECT)(
@@ -2779,7 +2772,7 @@ typedef VOID
 								 );
 
 RTLCOPYUNICODESTRING RtlCopyUnicodeString; 
-// ¹Ø±ÕÒÑ¾­´ò¿ªµÄ¶ÔÏó
+// ï¿½Ø±ï¿½ï¿½Ñ¾ï¿½ï¿½ò¿ªµÄ¶ï¿½ï¿½ï¿½
 typedef
 NTSTATUS
 (WINAPI *ZWCLOSE)(
@@ -2887,11 +2880,11 @@ LRESULT enum_symbolic_links( WCHAR *sym_name, WCHAR *dev_name, ULONG buf_len )
 			OBJECT_ATTRIBUTES symbolicLinkAttributes;
 			HANDLE            hSymbolicLink;
 
-			// ³õÊ¼»¯·ûºÅÁ´½Ó¶ÔÏóÊôÐÔ
+			// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			InitializeObjectAttributes(&symbolicLinkAttributes, &directoryInfo->ObjectName, 
 				OBJ_CASE_INSENSITIVE, hDirectory, NULL);
 
-			// ´ò¿ª·ûºÅÁ´½Ó¶ÔÏó
+			// ï¿½ò¿ª·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 			ntStatus = ZwOpenSymbolicLinkObject(&hSymbolicLink, SYMBOLIC_LINK_QUERY, &symbolicLinkAttributes);
 			if ( ntStatus != STATUS_SUCCESS )
 			{
@@ -2900,7 +2893,7 @@ LRESULT enum_symbolic_links( WCHAR *sym_name, WCHAR *dev_name, ULONG buf_len )
 				goto _return;
 			}
 
-			// ²éÑ¯·ûºÅÁ´½Ó¶ÔÏó
+			// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 			ntStatus = ZwQuerySymbolicLinkObject(hSymbolicLink, &targetName, NULL); 
 			if ( ntStatus != STATUS_SUCCESS )
 			{
@@ -2913,11 +2906,11 @@ LRESULT enum_symbolic_links( WCHAR *sym_name, WCHAR *dev_name, ULONG buf_len )
 			RtlCopyUnicodeString( &dev_name_out, &targetName ); 
 			dev_name_out.Buffer[ dev_name_out.MaximumLength / sizeof( WCHAR ) - 1 ] = L'\0'; 
 
-			// TODO: Ìí¼ÓÕë¶Ô·ûºÅÁ´½ÓµÄ´¦Àí´úÂë
+			// TODO: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-			// Çå¿ÕtargetName
+			// ï¿½ï¿½ï¿½targetName
 			//memset((LPVOID)targetName.Buffer, 0, targetName.Length*sizeof(WCHAR));
-			// ¹Ø±Õ·ûºÅÁ´½Ó¾ä±ú
+			// ï¿½Ø±Õ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¾ï¿½ï¿½
 			ZwClose( hSymbolicLink );
 			break; 
 		}
@@ -3758,7 +3751,7 @@ BOOL is_win64()
 BOOL is_downloaded_file( LPCTSTR lpPath )
 {
 /*
-// Èç¹û´æÔÚÏÂÃæµÄ¼üÖµ£¬IE ÏÂÔØµÄÎÄ¼þ½«Ã»ÓÐ°²È«Ëø¶¨
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Öµï¿½ï¿½IE ï¿½ï¿½ï¿½Øµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ã»ï¿½Ð°ï¿½È«ï¿½ï¿½ï¿½ï¿½
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
 "SaveZoneInformation"=dword:00000001
 	*/
@@ -4576,7 +4569,7 @@ int traverse_all_driver(void)
 	ZwQueryDirectoryObject = (ZWQUERYDIRECTORYOBJECT)GetProcAddress( hNtdll, "ZwQueryDirectoryObject"); 
 	ZwClose = (ZWCLOSE)GetProcAddress( hNtdll, "ZwClose"); 
 
-	//´ò¿ªÄ¿Â¼¶ÔÏó 
+	//ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ 
 	RtlInitUnicodeString(&usDirPath, L"\\Driver"); 
 	InitializeObjectAttributes(&oa,&usDirPath,OBJ_CASE_INSENSITIVE,NULL,NULL); 
 	printf("ZwOpenDirectoryObject ..."); 
@@ -4588,7 +4581,7 @@ int traverse_all_driver(void)
 	} 
 	printf("OK! "); 
 	printf("ZwQueryDirectoryObject..."); 
-	//²éÑ¯Ä¿Â¼¶ÔÏó 
+	//ï¿½ï¿½Ñ¯Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ 
 	do 
 	{ 
 		if (pBuffer) free(pBuffer); 
@@ -4605,7 +4598,7 @@ int traverse_all_driver(void)
 	if (ntStatus==STATUS_SUCCESS) 
 	{ 
 		printf("OK! "); 
-		//±éÀú 
+		//ï¿½ï¿½ï¿½ï¿½ 
 		pBuffer2=pBuffer; 
 		while (pBuffer2->ObjectName.Length!=0&&pBuffer2->ObjectTypeName.Length!=0) 
 		{ 
@@ -5987,22 +5980,22 @@ INT32 CALLBACK folder_browser_callback(HWND hwnd, UINT uMsg, LPARAM lParam, LPAR
 
 	//switch(uMsg)  
 	//{  
-	//case BFFM_INITIALIZED:  //Ñ¡ÔñÎÄ¼þ¼Ð¶Ô»°¿ò³õÊ¼»¯ 
+	//case BFFM_INITIALIZED:  //Ñ¡ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð¶Ô»ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ 
 
 	//	::SendMessage(hwnd, BFFM_SETSELECTION, TRUE, lpData);  
 	//	
-	//	//ÔÚSTATUSTEXTÇøÓòÏÔÊ¾µ±Ç°Â·¾¶   
+	//	//ï¿½ï¿½STATUSTEXTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ç°Â·ï¿½ï¿½   
 	//	::SendMessage(hwnd, BFFM_SETSTATUSTEXT, 0, lpData);  
 	//	
-	//	//ÉèÖÃÑ¡ÔñÎÄ¼þ¼Ð¶Ô»°¿òµÄ±êÌâ   
-	//	::SetWindowText(hwnd, TEXT("ÇëÏÈÉèÖÃ¸ö¹¤×÷Ä¿Â¼"));   
+	//	//ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð¶Ô»ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½   
+	//	::SetWindowText(hwnd, TEXT("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼"));   
 	//	break;  
-	//case BFFM_SELCHANGED:   //Ñ¡ÔñÎÄ¼þ¼Ð±ä¸üÊ±   
+	//case BFFM_SELCHANGED:   //Ñ¡ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð±ï¿½ï¿½Ê±   
 	//	{  
 	//		TCHAR pszPath[MAX_PATH];  
-	//		//»ñÈ¡µ±Ç°Ñ¡ÔñÂ·¾¶   
+	//		//ï¿½ï¿½È¡ï¿½ï¿½Ç°Ñ¡ï¿½ï¿½Â·ï¿½ï¿½   
 	//		SHGetPathFromIDList((LPCITEMIDLIST)lParam, pszPath);  
-	//		//ÔÚSTATUSTEXTÇøÓòÏÔÊ¾µ±Ç°Â·¾¶   
+	//		//ï¿½ï¿½STATUSTEXTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ç°Â·ï¿½ï¿½   
 	//		::SendMessage(hwnd, BFFM_SETSTATUSTEXT, TRUE, (LPARAM)pszPath);  
 	//	}  
 	//	break;  
@@ -6029,10 +6022,10 @@ LRESULT WINAPI open_folder_dlg( LPWSTR folder_path, ULONG cc_buf_len )
 		bi.hwndOwner      = NULL;
 		bi.pidlRoot       = NULL;
 		bi.pszDisplayName = NULL; 
-		bi.lpszTitle      = NULL; //TEXT( "ÇëÑ¡ÔñÎÄ¼þ¼Ð" ); 
+		bi.lpszTitle      = NULL; //TEXT( "ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½" ); 
 		bi.ulFlags        = BIF_RETURNONLYFSDIRS | BIF_STATUSTEXT | BIF_USENEWUI; 
-		bi.lpfn           = NULL; //folder_browser_callback; //»Øµ÷º¯Êý
-		bi.lParam         = NULL; //(LPARAM)TEXT("D:\\"); //´«¸ø»Øµ÷º¯ÊýµÄ²ÎÊý,ÉèÖÃÄ¬ÈÏÂ·¾¶
+		bi.lpfn           = NULL; //folder_browser_callback; //ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+		bi.lParam         = NULL; //(LPARAM)TEXT("D:\\"); //ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Â·ï¿½ï¿½
 		bi.iImage         = 0; 
 
 		pidl = SHBrowseForFolder(&bi);

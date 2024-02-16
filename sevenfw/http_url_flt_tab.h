@@ -1,27 +1,18 @@
 /*
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
- * This file is part of NetMonitor.
+ * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * NetMonitor is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * NetMonitor is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with NetMonitor.  If not, see <http://www.gnu.org/licenses/>.
- *
- *
- *  2007.6.10	Ji Jie Shi modified it for this ui lib. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-
  
- #pragma once
+#pragma once
 
 #include "http_flt_tab.h"
 
@@ -313,14 +304,14 @@ _return:
 			0, 
 			this ); 
 
-		//sprintf( text, "É¾³ý %s %s %s \n", 
+		//sprintf( text, "É¾ï¿½ï¿½ %s %s %s \n", 
 		//	get_text_type_desc( filter_text->type ), 
 		//	filter_text->text, 
-		//	ret ? "³É¹¦" : "Ê§°Ü" ); 
+		//	ret ? "ï¿½É¹ï¿½" : "Ê§ï¿½ï¿½" ); 
 
-		sprintf( text, "É¾³ý %s %s \n", 
+		sprintf( text, "É¾ï¿½ï¿½ %s %s \n", 
 			filter_text->url, 
-			ret == 0 ? "³É¹¦" : "Ê§°Ü" ); 
+			ret == 0 ? "ï¿½É¹ï¿½" : "Ê§ï¿½ï¿½" ); 
 		::MessageBox( NULL, text, NULL, 0 );
 
 		if( ret == TRUE )
@@ -409,7 +400,7 @@ _return:
 		{
 			if( ret == FORMAT_ERROR )
 			{
-				::MessageBox( NULL, "ÅäÖÃÎÄ¼þ¸ñÊ½²»ÕýÈ·!", NULL, MB_OK ); 
+				::MessageBox( NULL, "ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½È·!", NULL, MB_OK ); 
 			}
 			return 0; 
 		}
@@ -521,7 +512,7 @@ _return:
 
 	LRESULT on_ok_bn(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHandled)
 	{
-		// TODO: ÔÚ´ËÌí¼Ó¿Ø¼þÍ¨Öª´¦Àí³ÌÐò´úÂë
+		// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ó¿Ø¼ï¿½Í¨Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		mng_flt_txt( TRUE ); 
 		return 0; 

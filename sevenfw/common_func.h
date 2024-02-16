@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifndef __COMMON_FUNC_H__
@@ -366,20 +359,20 @@ INLINE INT32 get_proc_bits()
 	return sizeof( INT32* ) * 8; 
 }
 
-/** ÊÍ·Å¶¯Ì¬»º´æÇø
-* @param buf »º´æÇøÖ¸Õë
-* @param len »º´æÇø³¤¶È
-* @return ÎÞ
+/** ï¿½Í·Å¶ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param buf ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+* @param len ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @return ï¿½ï¿½
 */
 VOID uninit_op_temp_buf( IN OUT PBYTE *buf, IN OUT PULONG len ); 
 #define REALLOC_INC_LEN 4096
 
-/** @brief ¼ÆËã»º´æÇøµÄ³¤¶ÈÊÇ·ñºÏºõÒªÇó£¬Èç²»Ð¡ÓÚÒªÇó³¤¶È£¬ÖØÐÂ·ÖÅä
-* @param buf µ±Ç°µÄ»º´æÇøÖ¸Õë/Êä³öµÄÐÂÉú³ÉµÄ»º´æÇøÖ¸Õë
-* @param len µ±Ç°»º´æÇøÒÑ¾­Ê¹ÓÃ³¤¶È
-* @param max_len µ±Ç°»º´æÇøµÄ·ÖÅä³¤¶È
-* @param need_len ÐèÒªÊ¹ÓÃµÄ³¤¶È
-* @return Èç¹û³É¹¦ ·µ»ØSTATUS_SUCCESS£¬·ñÔò·µ»Ø´íÎóÂë¡£
+/** @brief ï¿½ï¿½ï¿½ã»ºï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ïºï¿½Òªï¿½ï¿½ï¿½ç²»Ð¡ï¿½ï¿½Òªï¿½ó³¤¶È£ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½
+* @param buf ï¿½ï¿½Ç°ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+* @param len ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½Ê¹ï¿½Ã³ï¿½ï¿½ï¿½
+* @param max_len ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ä³¤ï¿½ï¿½
+* @param need_len ï¿½ï¿½ÒªÊ¹ï¿½ÃµÄ³ï¿½ï¿½ï¿½
+* @return ï¿½ï¿½ï¿½ï¿½É¹ï¿½ ï¿½ï¿½ï¿½ï¿½STATUS_SUCCESSï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»Ø´ï¿½ï¿½ï¿½ï¿½ë¡£
 */
 LRESULT realloc_if_need( PBYTE *buf, ULONG len, PULONG max_len, ULONG need_len ); 
 
@@ -579,10 +572,10 @@ extern "C"
 	BOOL is_xp_last(); 
 	BOOL is_win64(); 
 	BOOL is_downloaded_file( LPCTSTR lpPath ); 
-	/** @brief ¸ù¾Ý±êÖ¾£¬½øÐÐ´òÓ¡Êä³ö
-	* @param deg_print_lvl ´ËÏûÏ¢µÄÀÌÇ®¼¶±ð
-	* @param dbg_msg  ´òÓ¡ÏûÏ¢µÄ¸ñÊ½×Ö·û´®
-	* @param ... ÆäËü²ÎÊý¹©´òÓ¡
+	/** @brief ï¿½ï¿½ï¿½Ý±ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ó¡ï¿½ï¿½ï¿½
+	* @param deg_print_lvl ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½
+	* @param dbg_msg  ï¿½ï¿½Ó¡ï¿½ï¿½Ï¢ï¿½Ä¸ï¿½Ê½ï¿½Ö·ï¿½ï¿½ï¿½
+	* @param ... ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡
 	*/
 	LRESULT dbg_print(
 		ULONG lvl_and_mode,
@@ -625,10 +618,10 @@ extern "C"
 	{
 #endif //__cplusplus
 
-		/** @brief ¸ù¾Ý±êÖ¾,½øÐÐ´òÓ¡Êä³ö
-		* @param deg_print_lvl ´ËÏûÏ¢µÄÀÌÇ®¼¶±ð
-		* @param dbg_msg  ´òÓ¡ÏûÏ¢µÄ¸ñÊ½×Ö·û´®
-		* @param ... ÆäËü²ÎÊý¹©´òÓ¡
+		/** @brief ï¿½ï¿½ï¿½Ý±ï¿½Ö¾,ï¿½ï¿½ï¿½Ð´ï¿½Ó¡ï¿½ï¿½ï¿½
+		* @param deg_print_lvl ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½Ç®ï¿½ï¿½ï¿½ï¿½
+		* @param dbg_msg  ï¿½ï¿½Ó¡ï¿½ï¿½Ï¢ï¿½Ä¸ï¿½Ê½ï¿½Ö·ï¿½ï¿½ï¿½
+		* @param ... ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡
 		*/
 
 #define log_trace(x) dbg_print x
@@ -956,7 +949,7 @@ _return:
 
 
 
-	// ¶¨ÒåÄ¿Ç°´æÔÚµÄ²Ù×÷ÏµÍ³´Î°æ±¾ºÅ
+	// ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½ÚµÄ²ï¿½ï¿½ï¿½ÏµÍ³ï¿½Î°æ±¾ï¿½ï¿½
 
 	enum WinVerminor
 

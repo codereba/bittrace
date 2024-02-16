@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
- #pragma once
 
+#pragma once
 #include "ui_config.h"
 
 class about_dlg : public CWindowWnd, public INotifyUI, public IListCallbackUI
@@ -48,17 +41,17 @@ public:
 
 		do 
 		{
-#define BITTRACE_NAME_TEXT L"BITTRACE V0.9 by CoderebaSoft" //L"¿ÆµÏÈñ²©Èí¼þ ±ÈÌØ¸ú×Ù(Ô­¶à¹¦ÄÜÓ¦ÓÃ·À»ðÇ½)V0.9" 
+#define BITTRACE_NAME_TEXT L"BITTRACE V0.9 by CoderebaSoft" //L"ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½(Ô­ï¿½à¹¦ï¿½ï¿½Ó¦ï¿½Ã·ï¿½ï¿½ï¿½Ç½)V0.9" 
 			set_ctrl_text_from_name( &m_pm, _T( "about_soft_name_txt" ), BITTRACE_NAME_TEXT ); 
 #define CODEREBASOFT_CORP_TEXT L"(C) 2009-2015 CoderebaSoft" 
 
 			set_ctrl_text_from_name( &m_pm, _T( "about_corp_name_label" ), CODEREBASOFT_CORP_TEXT ); 
-#define BITTRACE_COPYRIGHT_TEXT L"All right reserved" //L"±£ÁôËùÓÐÈ¨Àû" 
+#define BITTRACE_COPYRIGHT_TEXT L"All right reserved" //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½" 
 
 			set_ctrl_text_from_name( &m_pm, _T( "right_reserved_label" ), BITTRACE_COPYRIGHT_TEXT ); 
 			
 #define BITTRACE_LICENSE_TEXT L"This software is protected by international copyright and intellectual property laws, if reverse engine,crack, modify or use it for some commercial purpose without permit by CodereabeSoft, will get the maximum penalties by law." 
-			//L"±¾¼ÆËã»ú³ÌÐòÊÜÖø×÷È¨·¨ºÍÖªÊ¶²úÈ¨ÌõÔ¼±£»¤,Ò»ÇÐÎ´¾­ÔÊÐí¶Ô±¾³ÌÐòµÄÆÆ½â»òÀûÓÃ,½«ÊÜµ½ÑÏÀ÷µÄÃñÊÂºÍÐÌÊÂÖÆ²Ã,²¢ÔÚ·¨ÂÉÐí¿ÉµÄ×î´ó·¶Î§ÄÚÊÜµ½ÆðËß.                                                                                                                               (×¢:¿ÆµÏÈñ²©¶ÀÁ¢ÓµÓÐ´Ë¼ÆËã»ú³ÌÐòµÄÖø×÷È¨,ËùÓÐÎ´¾­¹ý¿ÆµÏÈñ²©Ðí¿ÉµÄ¶Ô³ÌÐòµÄÄæÏòºÍ¸÷ÖÖ·½Ê½µÄÀûÓÃ,½«ÊÜµ½·¨ÂÉµÄÑÏ³Í.)"
+			//L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½ÖªÊ¶ï¿½ï¿½È¨ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½,Ò»ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ²ï¿½,ï¿½ï¿½ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½ï¿½.                                                                                                                               (×¢:ï¿½Æµï¿½ï¿½ñ²©¶ï¿½ï¿½ï¿½Óµï¿½Ð´Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨,ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ¶Ô³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½Ö·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½Ï³ï¿½.)"
 			set_ctrl_text_from_name( &m_pm, _T( "license_txt" ), BITTRACE_LICENSE_TEXT ); 
 		} while ( FALSE ); 
 
@@ -92,7 +85,7 @@ public:
         //HANDLE hThread = CreateThread(NULL,0,&about_dlg::Search, (LPVOID)NULL,  0,&dwThreadID);
     }
     /*
-    * ¹Ø¼üµÄ»Øµ÷º¯Êý£¬IListCallbackUI ÖÐµÄÒ»¸öÐéº¯Êý£¬äÖÈ¾Ê±ºò»áµ÷ÓÃ,ÔÚ[1]ÖÐÉèÖÃÁË»Øµ÷¶ÔÏó
+    * ï¿½Ø¼ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IListCallbackUI ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½[1]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     */
     LPCTSTR GetItemText(CControlUI* pControl, int iIndex, int iSubItem)
     {
@@ -283,7 +276,7 @@ public:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

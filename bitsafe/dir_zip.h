@@ -1,23 +1,17 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
+
 #ifndef __DIR_ZIP_H__
 #define __DIR_ZIP_H__
 
@@ -28,33 +22,33 @@ public:
     ~CZipImplement(void);
 
 private: 
-    HZIP hz;          //ZipÎÄ¼þ¾ä±ú 
-    ZRESULT zr;    //²Ù×÷·µ»ØÖµ 
-    ZIPENTRY ze;  //ZipÎÄ¼þÈë¿Ú
+    HZIP hz;          //Zipï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ 
+    ZRESULT zr;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ 
+    ZIPENTRY ze;  //Zipï¿½Ä¼ï¿½ï¿½ï¿½ï¿½
 
-    CStdString m_FolderPath;     //folderÂ·¾¶ 
-    CStdString m_FolderName;  //folder½«Òª±»Ñ¹ËõµÄÎÄ¼þ¼ÐÃû
+    CStdString m_FolderPath;     //folderÂ·ï¿½ï¿½ 
+    CStdString m_FolderName;  //folderï¿½ï¿½Òªï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 
 private: 
-    //ÊµÏÖ±éÀúÎÄ¼þ¼Ð 
+    //Êµï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
     void BrowseFile(CStdString &strFile);
 
-    //»ñÈ¡Ïà¶ÔÂ·¾¶ 
+    //ï¿½ï¿½È¡ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
     void GetRelativePath(CStdString& pFullPath, CStdString& pSubString);
 
-    //´´½¨Â·¾¶ 
+    //ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
     BOOL CreatedMultipleDirectory( LPCTSTR direct); 
 
 
 public: 
-    //Ñ¹ËõÎÄ¼þ¼Ð½Ó¿Ú 
+    //Ñ¹ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð½Ó¿ï¿½ 
     BOOL Zip_PackFiles(CStdString& pFilePath, CStdString& mZipFileFullPath);
 
-    //½âÑ¹ËõÎÄ¼þ¼Ð½Ó¿Ú 
+    //ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð½Ó¿ï¿½ 
     BOOL Zip_UnPackFiles(CStdString &mZipFileFullPath, CStdString& mUnPackPath);
 
 public: 
-    //¾²Ì¬·½·¨Ìá¹©ÎÄ¼þ¼ÐÂ·¾¶¼ì²é 
+    //ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½á¹©ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ 
     static BOOL FolderExist(CStdString& strPath); 
 }; 
 

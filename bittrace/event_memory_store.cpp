@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -242,11 +235,11 @@ LRESULT WINAPI get_filtered_action_log_count( ULONG *log_count )
 }
 
 /**************************************************************************************
-Ê¹ÓÃÎÄ¼þ´¦ÀíÈÕÖ¾µÄÇé¿ö·ÖÎö:
-1.¶ÔÈÕÖ¾×ö±£´æ·ÖÎö
-2.ÔÚÓÃ»§ÐèÒªÊ¹ÓÃÎÄ¼þÊµÊ±»º´æÈÕÖ¾Ê±¡£(µ±Ç°µÄÊµÏÖ·½·¨ÐÔÄÜ´ï²»µ½ÊµÊ±×´Ì¬.)ÐèÒªÓÅ»¯½á¹¹£¬
-µ«ÎÄ¼þÏµÍ³ÉÏÏÞÊÇ·ñ¿ÉÒÔÂú×ãÒªÇó?·ûºÅ´¦ÀíÒ²ÊÇÎÊÌâ¡£
-µ«ÕâÑù¿ÉÒÔÐ¡ÄÚ´æ»úÆ÷ÖÐµÍ¾«È·¶ÈµÄ¹¤×÷¡£(µÍ¾«È·ÐÔ¼ÛÖµÓÐÏÞ£¬ºÜÄÑÊ¹ÓÃ)
+Ê¹ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
+1.ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+2.ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ÒªÊ¹ï¿½ï¿½ï¿½Ä¼ï¿½ÊµÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾Ê±ï¿½ï¿½(ï¿½ï¿½Ç°ï¿½ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü´ï²»ï¿½ï¿½ÊµÊ±×´Ì¬.)ï¿½ï¿½Òªï¿½Å»ï¿½ï¿½á¹¹ï¿½ï¿½
+ï¿½ï¿½ï¿½Ä¼ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½?ï¿½ï¿½ï¿½Å´ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½â¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÍ¾ï¿½È·ï¿½ÈµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½Í¾ï¿½È·ï¿½Ô¼ï¿½Öµï¿½ï¿½ï¿½Þ£ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½)
 **************************************************************************************/
 LRESULT WINAPI save_log_to_db( LPCWSTR file_name, ULONG flags )
 {
@@ -455,9 +448,9 @@ LRESULT WINAPI load_log_from_db( LPCWSTR file_name )
 			}
 
 			/***************************************************************************************
-			¹ýÂË¿ÉÒÔÍ¨¹ýÖ±½ÓÊ¹ÓÃÊý¾Ý¿â²éÑ¯ÓïÑÔÀ´ÊµÏÖ£¬µ«ÕâÑùÈç¹ûÔÙ¼ÓÉÏË÷Òý(ID)¶¨Î»µÄÊ±¼ä£¬»á±È½ÏÂý£¬
-			ÆäÖÐ×Ö·û´®±È½ÏË÷ÒýÊÇÊý¾Ý¿â²éÑ¯ËÙ¶ÈµÄÄÑµã¡£(EVERYTHINGÊÇÈçºÎÊµÏÖ¸ßËÙ²éÑ¯Ë÷ÒýµÄ?)
-			ËùÒÔÊ¹ÓÃÁËselect * + ´úÂë¹ýÂËµÄ·½·¨¡£
+			ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ö±ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ID)ï¿½ï¿½Î»ï¿½ï¿½Ê±ï¿½ä£¬ï¿½ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½
+			ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ñ¯ï¿½Ù¶Èµï¿½ï¿½Ñµã¡£(EVERYTHINGï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö¸ï¿½ï¿½Ù²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?)
+			ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½select * + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ËµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½
 			***************************************************************************************/
 
 			resset_event_id_count(); 

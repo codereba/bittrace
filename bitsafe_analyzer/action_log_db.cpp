@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -86,13 +79,13 @@ LRESULT WINAPI filter_action_log( sys_action_record *action,
 								 ULONG data_size ); 
 
 /******************************************************************************
-¶ÔÊÂ¼þÍ¨ÐÅÄ£ÐÍ½øÐÐÖØÐÂ¼Ü¹¹:
-1.ÊÂ¼þ±¾ÉíÖ»°üÀ¨ÊÂ¼þÔ´µÄ±êÖ¾ÊôÐÔ,½ø³ÌID,Ïß³ÌID(»òÕßÔÙ¼ÓÈëÎ¨Ò»ÊôÐÔ:Éú³ÉÊ±¼äµÈ,ÓÃÀ´±íÊ¾Î¨Ò»ÐÔ)
-2.µ¥¶À½¨Á¢ÊÂ¼þÔ´·ÖÎö¼¯,ÓëÊÂ¼þ¼¯¶ÀÁ¢,ÔÚ·ÖÎöÊÂ¼þÊ±,Í¨¹ýÊÂ¼þµÄÔ´µÄIDÀ´¶¨Î»ÊÂ¼þÔ´¡£
+ï¿½ï¿½ï¿½Â¼ï¿½Í¨ï¿½ï¿½Ä£ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼Ü¹ï¿½:
+1.ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ô´ï¿½Ä±ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ID,ï¿½ß³ï¿½ID(ï¿½ï¿½ï¿½ï¿½ï¿½Ù¼ï¿½ï¿½ï¿½Î¨Ò»ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Î¨Ò»ï¿½ï¿½)
+2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ú·ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ê±,Í¨ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ô´ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½Î»ï¿½Â¼ï¿½Ô´ï¿½ï¿½
 
-NATIVEÂ·¾¶Óë·ûºÅÂ·¾¶ÖÐµÄÅÌ·ûÂ·¾¶µÄ¹ØÁª·½Ê½,ÓÉÄÚºËÀ´ÊµÏÖ:
-ÓÉÎÄ¼þÏµÍ³¹ýÂËÇý¶¯½«ËùÓÐµÄ¶ÔÓ¦¹ØÏµ±¨¸æÖÁTRACELOG,TRACELOG
-ÖÐ½¨Á¢·ûºÅÂ·¾¶Ó³Éä±í,ÔÚÊä³öÊÂ¼þÈÕÖ¾Ê±,½øÐÐÂ·¾¶×ª»».
+NATIVEÂ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ì·ï¿½Â·ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½Ê½,ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½Êµï¿½ï¿½:
+ï¿½ï¿½ï¿½Ä¼ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¶ï¿½Ó¦ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TRACELOG,TRACELOG
+ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Ó³ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ö¾Ê±,ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½×ªï¿½ï¿½.
 
 ******************************************************************************/
 sqlite3 *common_log_db = NULL;  
@@ -255,7 +248,7 @@ NTSTATUS WINAPI open_action_log_db( LPCWSTR file_path, PVOID *handle )
 		}
 
 		/*********************************************************************************************
-			IDÊÇÁª½áµ½ÁËROWID£¬¶øROWID±¾ÉíÊÇ×Ô´øÓÐË÷ÒýµÄ£¬ËùÒÔÕâÀï¿ÉÄÜ²¢²»ÐèÒª½¨Á¢Ë÷Òý¡£
+			IDï¿½ï¿½ï¿½ï¿½ï¿½áµ½ï¿½ï¿½ROWIDï¿½ï¿½ï¿½ï¿½ROWIDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		*********************************************************************************************/
 		_ret = sql_exec( db, L"create index " COMMON_ACTION_TABLE_ID_INDEX_NAME L" on " COMMON_ACTION_TABLE_NAME L"(id)", NULL ); 
 		if( _ret != SQLITE_OK )
@@ -2035,14 +2028,14 @@ NTSTATUS WINAPI collect_file_touch_param( sqlite3_stmt *stmt, file_touch *action
 		}
 #endif //_DEBUG
 
-		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		action->alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ÎÄ¼þ³õÊ¼³¤¶È 
-		action->attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÎÄ¼þÊôÐÔ 
-		action->share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		action->disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); //¶¯×÷Íê³É½á¹ûNTSTATUS
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ÎÄ¼þÈ«Â·¾¶ 
+		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		action->alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		action->attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½NTSTATUS
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 	}while( FALSE );
 
@@ -2073,13 +2066,13 @@ NTSTATUS WINAPI _collect_file_touch_param( sqlite3_stmt *stmt, sys_action_record
 		}
 #endif //_DEBUG
 
-		action->do_file_touch.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		action->do_file_touch.alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ÎÄ¼þ³õÊ¼³¤¶È 
-		action->do_file_touch.attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÎÄ¼þÊôÐÔ 
-		action->do_file_touch.share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		action->do_file_touch.disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->do_file_touch.options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->do_file_touch.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); //¶¯×÷Íê³É½á¹ûNTSTATUS
+		action->do_file_touch.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		action->do_file_touch.alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		action->do_file_touch.attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->do_file_touch.share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->do_file_touch.disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->do_file_touch.options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->do_file_touch.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½NTSTATUS
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( file_touch ) + ( ( action->do_file_touch.path_len + 1 ) << 1 ); 
 
@@ -2089,7 +2082,7 @@ NTSTATUS WINAPI _collect_file_touch_param( sqlite3_stmt *stmt, sys_action_record
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ÎÄ¼þÈ«Â·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		memcpy( action->do_file_touch.path_name, 
 			text, 
@@ -2124,14 +2117,14 @@ NTSTATUS WINAPI collect_file_open_param( sqlite3_stmt *stmt, file_open *action )
 #endif //_DEBUG
 
 
-		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		action->alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ÎÄ¼þ³õÊ¼³¤¶È 
-		action->attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÎÄ¼þÊôÐÔ 
-		action->share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		action->disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî  
+		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		action->alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		action->attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½  
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); 
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ÎÄ¼þÈ«Â·¾¶ 
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 	}while( FALSE );
 
@@ -2163,12 +2156,12 @@ NTSTATUS WINAPI _collect_file_open_param( sqlite3_stmt *stmt, sys_action_record 
 #endif //_DEBUG
 
 
-		action->do_file_open.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ÎÄ¼þ·ÃÎÊÈ¨ÏÞ 
-		action->do_file_open.alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ÎÄ¼þ³õÊ¼³¤¶È 
-		action->do_file_open.attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÎÄ¼þÊôÐÔ 
-		action->do_file_open.share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ÎÄ¼þ¹²ÏíÊôÐÔ 
-		action->do_file_open.disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
-		action->do_file_open.options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ÎÄ¼þ´ò¿ª/´´½¨Ñ¡Ïî 
+		action->do_file_open.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		action->do_file_open.alloc_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ 
+		action->do_file_open.attrib = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->do_file_open.share = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+		action->do_file_open.disposition = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
+		action->do_file_open.options = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ï¿½Ä¼ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ 
 		action->do_file_open.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( file_open ) + ( ( action->do_file_open.path_len + 1 ) << 1 ); 
@@ -2179,7 +2172,7 @@ NTSTATUS WINAPI _collect_file_open_param( sqlite3_stmt *stmt, sys_action_record 
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ÎÄ¼þÈ«Â·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		
 		memcpy( action->do_file_open.path_name, 
 			text, 
@@ -2697,10 +2690,10 @@ NTSTATUS WINAPI collect_file_modified_param( sqlite3_stmt *stmt, file_modified *
 		}
 #endif //_DEBUG
 
-		//ULONG pid; //¶¯×÷·¢ÆðÕß½ø³ÌID 
-		//ULONG tid; //¶¯×÷·¢ÆðÕßÏß³ÌID 
+		//ULONG pid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ID 
+		//ULONG tid; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ID 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); 
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX ); //ÎÄ¼þÈ«Â·¾¶ 
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -2736,7 +2729,7 @@ NTSTATUS WINAPI _collect_file_modified_param( sqlite3_stmt *stmt, sys_action_rec
 
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( file_modified ) + ( ( action->do_file_modified.path_len + 1 ) << 1 ); 
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX ); //ÎÄ¼þÈ«Â·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		memcpy( action->do_file_modified.path_name, 
 				text, 
@@ -2771,7 +2764,7 @@ NTSTATUS WINAPI collect_file_remove_param( sqlite3_stmt *stmt, file_remove *acti
 #endif //_DEBUG
 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); 
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ÎÄ¼þÈ«Â·¾¶ 
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -2807,7 +2800,7 @@ NTSTATUS WINAPI _collect_file_remove_param( sqlite3_stmt *stmt, sys_action_recor
 
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( file_modified ) + ( ( action->do_file_remove.path_len + 1 ) << 1 ); 
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX ); //ÎÄ¼þÈ«Â·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		memcpy( action->do_file_remove.path_name, 
 			text, 
@@ -2840,7 +2833,7 @@ NTSTATUS WINAPI collect_file_rename_param( sqlite3_stmt *stmt, file_rename *acti
 			break; 
 		}
 #endif //_DEBUG
-		action->replace_existing = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ÊÇ·ñ¸²¸ÇÒÑ´æÔÚÎÄ¼þ 
+		action->replace_existing = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ç·ñ¸²¸ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		action->new_name_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
@@ -2876,7 +2869,7 @@ NTSTATUS WINAPI _collect_file_rename_param( sqlite3_stmt *stmt, sys_action_recor
 		}
 #endif //_DEBUG
 
-		action->do_file_rename.replace_existing = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ÊÇ·ñ¸²¸ÇÒÑ´æÔÚÎÄ¼þ 
+		action->do_file_rename.replace_existing = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½Ç·ñ¸²¸ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
 		action->do_file_rename.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		action->do_file_rename.new_name_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		
@@ -2929,9 +2922,9 @@ NTSTATUS WINAPI collect_reg_open_key_param( sqlite3_stmt *stmt, reg_openkey *act
 		}
 #endif //_DEBUG
 
-		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±í´ò¿ª/´´½¨È¨ÏÞ 
+		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢²á±í¼üÂ·¾¶ 
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -2963,12 +2956,12 @@ NTSTATUS WINAPI _collect_reg_open_key_param( sqlite3_stmt *stmt, sys_action_reco
 		}
 #endif //_DEBUG
 
-		action->do_reg_openkey.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±í´ò¿ª/´´½¨È¨ÏÞ 
+		action->do_reg_openkey.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
 		action->do_reg_openkey.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( reg_openkey ) + ( ( action->do_reg_openkey.path_len + 1 ) << 1 ); 
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢²á±í¼üÂ·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		memcpy( action->do_reg_openkey.path_name, 
 			text, 
@@ -3002,9 +2995,9 @@ NTSTATUS WINAPI collect_reg_mk_key_param( sqlite3_stmt *stmt, reg_mkkey *action 
 		}
 #endif //_DEBUG
 
-		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±í´ò¿ª/´´½¨È¨ÏÞ 
+		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢²á±í¼üÂ·¾¶ 
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -3036,7 +3029,7 @@ NTSTATUS WINAPI _collect_reg_mk_key_param( sqlite3_stmt *stmt, sys_action_record
 		}
 #endif //_DEBUG
 
-		action->do_reg_mkkey.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±í´ò¿ª/´´½¨È¨ÏÞ 
+		action->do_reg_mkkey.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
 		action->do_reg_mkkey.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( reg_mkkey ) + ( ( action->do_reg_mkkey.path_len + 1 ) << 1 ); 
@@ -3047,7 +3040,7 @@ NTSTATUS WINAPI _collect_reg_mk_key_param( sqlite3_stmt *stmt, sys_action_record
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢²á±í¼üÂ·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		memcpy( action->do_reg_mkkey.path_name, 
 			text, 
@@ -3081,7 +3074,7 @@ NTSTATUS WINAPI collect_reg_rm_key_param( sqlite3_stmt *stmt, reg_rmkey *action 
 		}
 #endif //_DEBUG
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); 
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢²á±í¼üÂ·¾¶ 
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -3121,7 +3114,7 @@ NTSTATUS WINAPI _collect_reg_rm_key_param( sqlite3_stmt *stmt, sys_action_record
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢²á±í¼üÂ·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		memcpy( action->do_reg_rmkey.path_name, 
 			text, 
@@ -3238,7 +3231,7 @@ NTSTATUS WINAPI collect_reg_rm_val_param( sqlite3_stmt *stmt, reg_rmval *action 
 		}
 #endif //_DEBUG
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); 
-		action->key_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢²á±í¼üÂ·¾¶ 
+		action->key_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -3281,7 +3274,7 @@ NTSTATUS WINAPI _collect_reg_rm_val_param( sqlite3_stmt *stmt, sys_action_record
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢²á±í¼üÂ·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		memcpy( action->do_reg_rmval.path_name, 
 			text, 
@@ -3315,9 +3308,9 @@ NTSTATUS WINAPI collect_proc_exec_param( sqlite3_stmt *stmt, proc_exec *action )
 		}
 #endif //_DEBUG
 
-		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Êý¾Ý³¤¶È 
+		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
-		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢²á±íÖµÂ·¾¶ 
+		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -3349,7 +3342,7 @@ NTSTATUS WINAPI _collect_proc_exec_param( sqlite3_stmt *stmt, sys_action_record 
 		}
 #endif //_DEBUG
 
-		action->do_proc_exec.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Êý¾Ý³¤¶È 
+		action->do_proc_exec.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 
 		action->do_proc_exec.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		
@@ -3361,7 +3354,7 @@ NTSTATUS WINAPI _collect_proc_exec_param( sqlite3_stmt *stmt, sys_action_record 
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢²á±íÖµÂ·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		memcpy( action->do_proc_exec.path_name, text, ( action->do_proc_exec.path_len + 1 ) << 1 ); 
 
@@ -3393,12 +3386,12 @@ NTSTATUS WINAPI collect_reg_set_val_param( sqlite3_stmt *stmt, reg_setval *actio
 		}
 #endif //_DEBUG
 
-		action->type = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±íÖµÀàÐÍ 
-		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Êý¾Ý³¤¶È 
+		action->type = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 		action->val_name_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
-		action->key_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢²á±íÖµÂ·¾¶ 
-		action->value_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢²á±í¼üÂ·¾¶Ãû 
+		action->key_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+		action->value_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -3430,8 +3423,8 @@ NTSTATUS WINAPI _collect_reg_set_val_param( sqlite3_stmt *stmt, sys_action_recor
 		}
 #endif //_DEBUG
 
-		action->do_reg_setval.type = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±íÖµÀàÐÍ 
-		action->do_reg_setval.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Êý¾Ý³¤¶È 
+		action->do_reg_setval.type = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		action->do_reg_setval.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 		action->do_reg_setval.val_name_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		action->do_reg_setval.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 
@@ -3444,12 +3437,12 @@ NTSTATUS WINAPI _collect_reg_set_val_param( sqlite3_stmt *stmt, sys_action_recor
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢²á±íÖµÂ·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 		memcpy( action->do_reg_setval.path_name, 
 			text, 
 			( action->do_reg_setval.path_len + 1 ) << 1 ); 
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢²á±í¼üÂ·¾¶Ãû 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		memcpy( action->do_reg_setval.path_name + action->do_reg_setval.path_len + 1, 
 			text, 
@@ -3485,8 +3478,8 @@ NTSTATUS WINAPI _collect_reg_get_val_param( sqlite3_stmt *stmt, sys_action_recor
 		}
 #endif //_DEBUG
 
-		action->type = ( sys_action_type )( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±íÖµÀàÐÍ 
-		action->do_reg_getval.info_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Êý¾Ý³¤¶È 
+		action->type = ( sys_action_type )( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		action->do_reg_getval.info_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 		action->do_reg_getval.val_name_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		action->do_reg_getval.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 		
@@ -3498,12 +3491,12 @@ NTSTATUS WINAPI _collect_reg_get_val_param( sqlite3_stmt *stmt, sys_action_recor
 			break; 
 		}
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢²á±íÖµÂ·¾¶ 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 		memcpy( action->do_reg_getval.path_name, 
 			text, 
 			( ( action->do_reg_getval.path_len + 1 ) << 1 ) ); 
 
-		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢²á±í¼üÂ·¾¶Ãû 
+		text = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		memcpy( action->do_reg_getval.path_name + action->do_reg_getval.path_len + 1, 
 			text, 
 			( ( action->do_reg_getval.val_name_len + 1 ) << 1 ) ); 
@@ -3538,12 +3531,12 @@ NTSTATUS WINAPI collect_reg_get_val_param( sqlite3_stmt *stmt,
 		}
 #endif //_DEBUG
 
-		action->type = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢²á±íÖµÀàÐÍ 
-		action->info_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Êý¾Ý³¤¶È 
+		action->type = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //×¢ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ 
+		action->info_size = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 		action->val_name_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
-		action->key_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢²á±íÖµÂ·¾¶ 
-		action->value_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢²á±í¼üÂ·¾¶Ãû 
+		action->key_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
+		action->value_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 	}while( FALSE ); 
 
@@ -3575,10 +3568,10 @@ NTSTATUS WINAPI collect_proc_write_vm( sqlite3_stmt *stmt, proc_writevm *action 
 		}
 #endif //_DEBUG
 
-		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ÈëÄÚ´æ»ùÖ· 
-		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÊÔÍ¼Ð´Èë³¤¶È 
-		action->bytes_written = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //³É¹¦Ð´Èë³¤¶È 
+		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ï¿½Í¼Ð´ï¿½ë³¤ï¿½ï¿½ 
+		action->bytes_written = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½É¹ï¿½Ð´ï¿½ë³¤ï¿½ï¿½ 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); 
 		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); 
 
@@ -3612,10 +3605,10 @@ NTSTATUS WINAPI _collect_proc_write_vm( sqlite3_stmt *stmt, sys_action_record *a
 		}
 #endif //_DEBUG
 
-		action->do_proc_writevm.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->do_proc_writevm.base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ÈëÄÚ´æ»ùÖ· 
-		action->do_proc_writevm.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÊÔÍ¼Ð´Èë³¤¶È 
-		action->do_proc_writevm.bytes_written = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //³É¹¦Ð´Èë³¤¶È 
+		action->do_proc_writevm.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->do_proc_writevm.base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		action->do_proc_writevm.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ï¿½Í¼Ð´ï¿½ë³¤ï¿½ï¿½ 
+		action->do_proc_writevm.bytes_written = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½É¹ï¿½Ð´ï¿½ë³¤ï¿½ï¿½ 
 		action->do_proc_writevm.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( proc_writevm ) + ( ( action->do_proc_writevm.path_len + 1 ) << 1 ); 
@@ -3654,11 +3647,11 @@ NTSTATUS WINAPI collect_proc_read_vm( sqlite3_stmt *stmt, proc_readvm *action )
 		}
 #endif //_DEBUG
 
-		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ÈëÄÚ´æ»ùÖ· 
-		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÊÔÍ¼Ð´Èë³¤¶È 
-		action->bytes_read = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //³É¹¦Ð´Èë³¤¶È 
-		action->result = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ï¿½Í¼Ð´ï¿½ë³¤ï¿½ï¿½ 
+		action->bytes_read = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½É¹ï¿½Ð´ï¿½ë³¤ï¿½ï¿½ 
+		action->result = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); 
 		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); 
 
@@ -3692,10 +3685,10 @@ NTSTATUS WINAPI _collect_proc_read_vm( sqlite3_stmt *stmt, sys_action_record *ac
 		}
 #endif //_DEBUG
 
-		action->do_proc_readvm.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->do_proc_readvm.base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ÈëÄÚ´æ»ùÖ· 
-		action->do_proc_readvm.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ÊÔÍ¼Ð´Èë³¤¶È 
-		action->do_proc_readvm.bytes_read = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //³É¹¦Ð´Èë³¤¶È 
+		action->do_proc_readvm.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->do_proc_readvm.base = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ð´ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ö· 
+		action->do_proc_readvm.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ï¿½Í¼Ð´ï¿½ë³¤ï¿½ï¿½ 
+		action->do_proc_readvm.bytes_read = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½É¹ï¿½Ð´ï¿½ë³¤ï¿½ï¿½ 
 		action->do_proc_readvm.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( proc_readvm ) + ( ( action->do_proc_readvm.path_len + 1 ) << 1 ); 
@@ -3734,12 +3727,12 @@ NTSTATUS WINAPI collect_thrd_remote( sqlite3_stmt *stmt, thrd_remote *action )
 		}
 #endif //_DEBUG
 
-		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿±êÏß³ÌID 
-		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //Ïß³Ì´´½¨È¨ÏÞ 
-		action->suspended = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ÊÇ·ñ¹ÒÆð·½Ê½´´½¨ 
-		action->start_vaddr = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //Ïß³ÌÆðÊ¼µØÖ· 
-		action->thread_param = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //Ïß³Ì²ÎÊý 
+		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		action->access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ß³Ì´ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		action->suspended = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ 
+		action->start_vaddr = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ï¿½ß³ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 
+		action->thread_param = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ï¿½ß³Ì²ï¿½ï¿½ï¿½ 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); 
 		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 7 ); 
 
@@ -3773,12 +3766,12 @@ NTSTATUS WINAPI _collect_thrd_remote( sqlite3_stmt *stmt, sys_action_record *act
 		}
 #endif //_DEBUG
 
-		action->do_thrd_remote.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->do_thrd_remote.target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿±êÏß³ÌID 
-		action->do_thrd_remote.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //Ïß³Ì´´½¨È¨ÏÞ 
-		action->do_thrd_remote.suspended = ( BOOLEAN )( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ÊÇ·ñ¹ÒÆð·½Ê½´´½¨ 
-		action->do_thrd_remote.start_vaddr = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //Ïß³ÌÆðÊ¼µØÖ· 
-		action->do_thrd_remote.thread_param = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //Ïß³Ì²ÎÊý 
+		action->do_thrd_remote.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->do_thrd_remote.target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
+		action->do_thrd_remote.access = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ß³Ì´ï¿½ï¿½ï¿½È¨ï¿½ï¿½ 
+		action->do_thrd_remote.suspended = ( BOOLEAN )( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ 
+		action->do_thrd_remote.start_vaddr = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //ï¿½ß³ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö· 
+		action->do_thrd_remote.thread_param = ( POINTER_TYPE )( ULONG_PTR )sqlite3_column_int64( stmt, ACTION_PARAM_FIELD_INDEX + 5 ); //ï¿½ß³Ì²ï¿½ï¿½ï¿½ 
 		action->do_thrd_remote.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 6 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( thrd_remote ) + ( ( action->do_thrd_remote.path_len + 1 ) << 1 ); 
@@ -3822,8 +3815,8 @@ NTSTATUS WINAPI collect_thrd_set_ctxt( sqlite3_stmt *stmt, thrd_setctxt *action 
 		}
 #endif //_DEBUG
 
-		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿±êÏß³ÌID 
+		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 
@@ -3857,8 +3850,8 @@ NTSTATUS WINAPI _collect_thrd_set_ctxt( sqlite3_stmt *stmt, sys_action_record *a
 		}
 #endif //_DEBUG
 
-		action->do_thrd_setctxt.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->do_thrd_setctxt.target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿±êÏß³ÌID 
+		action->do_thrd_setctxt.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->do_thrd_setctxt.target_tid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿ï¿½ï¿½ï¿½ß³ï¿½ID 
 		action->do_thrd_setctxt.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( thrd_setctxt ) + ( ( action->do_thrd_setctxt.path_len + 1 ) << 1 ); 
@@ -3897,8 +3890,8 @@ NTSTATUS WINAPI collect_w32_lib_inject( sqlite3_stmt *stmt, w32_lib_inject *acti
 		}
 #endif //_DEBUG
 
-		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->result = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		action->target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->result = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		action->path_name_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 		action->lib_path_ptr = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); 
@@ -3933,8 +3926,8 @@ NTSTATUS WINAPI _collect_w32_lib_inject( sqlite3_stmt *stmt, sys_action_record *
 		}
 #endif //_DEBUG
 
-		action->do_w32_lib_inject.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->do_w32_lib_inject.result = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		action->do_w32_lib_inject.target_pid = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->do_w32_lib_inject.result = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		action->do_w32_lib_inject.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 		
 		action->size = ACTION_RECORD_SIZE_BY_TYPE( w32_lib_inject ) + ( ( action->do_w32_lib_inject.path_len + 1 ) << 1 ); 
@@ -3975,14 +3968,14 @@ NTSTATUS WINAPI collect_net_create_param( sqlite3_stmt *stmt, net_create *action
 
 		//IP_ADDR_T local_ip_addr; 
 		//PORT_T local_port; 
-		//ULONG protocol; //Ð­Òé 
-		////NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG protocol; //Ð­ï¿½ï¿½ 
+		////NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//IP_ADDR_T ip_addr; 
 		//PORT_T port; 
 
-		action->local_ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->local_port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿±ê½ø³ÌID 
-		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //Ä¿±ê½ø³ÌID 
+		action->local_ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->local_port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 		action->ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 		action->port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); 
 
@@ -4017,14 +4010,14 @@ NTSTATUS WINAPI _collect_net_create_param( sqlite3_stmt *stmt, sys_action_record
 
 		//IP_ADDR_T local_ip_addr; 
 		//PORT_T local_port; 
-		//ULONG protocol; //Ð­Òé 
-		////NTSTATUS result; //¶¯×÷Íê³É½á¹û(NTSTATUS) 
+		//ULONG protocol; //Ð­ï¿½ï¿½ 
+		////NTSTATUS result; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½(NTSTATUS) 
 		//IP_ADDR_T ip_addr; 
 		//PORT_T port; 
 
-		action->do_net_create.local_ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
-		action->do_net_create.local_port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿±ê½ø³ÌID 
-		action->do_net_create.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //Ä¿±ê½ø³ÌID 
+		action->do_net_create.local_ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->do_net_create.local_port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
+		action->do_net_create.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 		action->do_net_create.ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 		action->do_net_create.port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); 
 
@@ -4057,7 +4050,7 @@ NTSTATUS WINAPI collect_net_connect_param( sqlite3_stmt *stmt, net_connect *acti
 #endif //_DEBUG
 
 
-		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
+		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 		action->ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		action->port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 
@@ -4091,7 +4084,7 @@ NTSTATUS WINAPI _collect_net_connect_param( sqlite3_stmt *stmt, sys_action_recor
 #endif //_DEBUG
 
 
-		action->do_net_connect.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
+		action->do_net_connect.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 		action->do_net_connect.ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		action->do_net_connect.port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 
@@ -4124,7 +4117,7 @@ NTSTATUS WINAPI collect_net_listen_param( sqlite3_stmt *stmt, net_listen *action
 #endif //_DEBUG
 
 
-		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
+		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 		action->ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		action->port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 
@@ -4158,7 +4151,7 @@ NTSTATUS WINAPI _collect_net_listen_param( sqlite3_stmt *stmt, sys_action_record
 #endif //_DEBUG
 
 
-		action->do_net_listen.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿±ê½ø³ÌID 
+		action->do_net_listen.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ID 
 		action->do_net_listen.ip_addr = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); 
 		action->do_net_listen.port = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); 
 
@@ -4262,9 +4255,9 @@ NTSTATUS WINAPI collect_net_http_param( sqlite3_stmt *stmt, net_http *action )
 		}
 #endif //_DEBUG
 
-		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ð­Òé 
-		action->cmd = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //HTTPÃüÁî 
-		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //·¢ËÍÊý¾Ý³¤¶È 
+		action->protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ð­ï¿½ï¿½ 
+		action->cmd = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //HTTPï¿½ï¿½ï¿½ï¿½ 
+		action->data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 		action->path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 		action->path_name_ptr  = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //URL 
 	}while( FALSE );
@@ -4296,9 +4289,9 @@ NTSTATUS WINAPI _collect_net_http_param( sqlite3_stmt *stmt, sys_action_record *
 		}
 #endif //_DEBUG
 
-		action->do_net_http.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ð­Òé 
-		action->do_net_http.cmd = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //HTTPÃüÁî 
-		action->do_net_http.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //·¢ËÍÊý¾Ý³¤¶È 
+		action->do_net_http.protocol = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX ); //Ð­ï¿½ï¿½ 
+		action->do_net_http.cmd = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 1 ); //HTTPï¿½ï¿½ï¿½ï¿½ 
+		action->do_net_http.data_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 2 ); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ 
 		action->do_net_http.path_len = ( ULONG )sqlite3_column_int( stmt, ACTION_PARAM_FIELD_INDEX + 3 ); 
 		action->do_net_http.path_name_ptr  = ( WCHAR* )sqlite3_column_text16( stmt, ACTION_PARAM_FIELD_INDEX + 4 ); //URL 
 	}while( FALSE );
@@ -4649,148 +4642,148 @@ NTSTATUS CALLBACK read_action_from_db_row( sqlite3_stmt *stmt, sys_action_record
 
 		case EXEC_create:
 			ntstatus = collect_exec_create_param( stmt, &action->do_exec_create ); 
-			break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 		case EXEC_destroy:
 			ntstatus = collect_exec_destroy_param( stmt, &action->do_exec_destroy ); 
-			break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case EXEC_module_load:
 			ntstatus = collect_exec_module_load_param( stmt, &action->do_exec_module_load ); 
-			break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+			break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_filemon, 
 		case FILE_touch:
 			ntstatus = collect_file_touch_param( stmt, &action->do_file_open ); 
-			break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 		case FILE_open:
 			ntstatus = collect_file_open_param( stmt, &action->do_file_open ); 
-			break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_read:
 			ntstatus = collect_file_read_param( stmt, &action->do_file_read ); 
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_write:
 			ntstatus = collect_file_write_param( stmt, &action->do_file_write ); 
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_modified:
 			ntstatus = collect_file_modified_param( stmt, &action->do_file_modified ); 
-			break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_readdir:
 
-			break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 		case FILE_remove:
 			ntstatus = collect_file_remove_param( stmt, &action->do_file_remove ); 
-			break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_rename:
 			ntstatus = collect_file_rename_param( stmt, &action->do_file_rename ); 
-			break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_truncate:
 			//ntstatus = collect_file_truncate_param( )
-			break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_mklink:
-			break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_chmod:
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_getinfo:
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_setinfo:
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_setsec:
 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 			//MT_regmon, 
 		case REG_openkey:
 			ntstatus = collect_reg_open_key_param( stmt, &action->do_reg_openkey ); 
-			break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+			break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 
 		case REG_mkkey:
 			ntstatus = collect_reg_mk_key_param( stmt, &action->do_reg_mkkey ); 
-			break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//case MODIFY_KEY
 			//	break; 
 		case REG_rmkey:
 			ntstatus = collect_reg_rm_key_param( stmt, &action->do_reg_rmkey ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_mvkey:
 			ntstatus = collect_reg_mv_key_param( stmt, &action->do_reg_mvkey ); 
-			break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rmval:
 			ntstatus = collect_reg_rm_val_param( stmt, &action->do_reg_rmval ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getval:
 			ntstatus = collect_reg_get_val_param( stmt, &action->do_reg_getval ); 
-			break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_setval:
 			ntstatus = collect_reg_set_val_param( stmt, &action->do_reg_setval ); 
-			break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_loadkey:
 			
-			break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_replkey:
 
-			break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rstrkey:
-			break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
-			//break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+			//break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//MT_procmon, 
 		case PROC_exec:
 			ntstatus = collect_proc_exec_param( stmt, &action->do_proc_exec ); 
 
-			break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 
 		case PROC_open:
 			//ntstatus = collect_proc_open
-			break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_debug:
-			break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_suspend:
-			break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_resume:
-			break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_exit:
-			break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case PROC_job:
-			break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_pgprot:
-			break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_freevm:
-			break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_writevm:
 			ntstatus = collect_proc_write_vm( stmt, &action->do_proc_writevm ); 
-			break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_readvm:
 			ntstatus = collect_proc_read_vm( stmt, &action->do_proc_readvm ); 
-			break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_remote:
 			ntstatus = collect_thrd_remote( stmt, &action->do_thrd_remote ); 
-			break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_setctxt:
-			break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_suspend:
-			break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_resume:
-			break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_exit:
-			break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_queue_apc:
-			break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_common
 			//case COM_access:
@@ -4798,50 +4791,50 @@ NTSTATUS CALLBACK read_action_from_db_row( sqlite3_stmt *stmt, sys_action_record
 			//MT_sysmon
 		case SYS_settime:
 
-			break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_link_knowndll:
-			break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+			break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 		case SYS_open_physmm:
 
-			break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 
 		case SYS_read_physmm:
 
-			break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_write_physmm:
 			//ntstatus = collect_sys_write
-			break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+			break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_load_kmod:
 
-			break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 			//case INSTALL_DRV:
 			//	break; 
 		case SYS_enumproc:
-			break; //Ã¶¾Ù½ø³Ì ÎÞ 
+			break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_regsrv:
 
-			break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		case SYS_opendev:
 
-			break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+			break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 			//MT_w32mon
 		case W32_postmsg:
 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_sendmsg:
 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_findwnd:
 
-			break; //²éÕÒ´°¿Ú ÎÞ 
+			break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case W32_msghook:
 
-			break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 
 		case W32_lib_inject:
 
-			break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+			break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_netmon
 		case NET_create:
@@ -4850,17 +4843,17 @@ NTSTATUS CALLBACK read_action_from_db_row( sqlite3_stmt *stmt, sys_action_record
 
 		case NET_connect:
 			ntstatus = collect_net_connect_param( stmt, &action->do_net_connect ); 
-			break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 			//case SOCKET_CONNECT:
 			//	break; 
 		case NET_listen:
 			ntstatus = collect_net_listen_param( stmt, &action->do_net_listen ); 
-			break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_LISTEN:
 			//	break; 
 		case NET_send:
 			ntstatus = collect_net_send_param( stmt, &action->do_net_send ); 
-			break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_SEND:
 			//	break; 
 		case NET_recv:
@@ -4876,10 +4869,10 @@ NTSTATUS CALLBACK read_action_from_db_row( sqlite3_stmt *stmt, sys_action_record
 
 		//case NET_dns: 
 		//	ntstatus = collect_net_dns_param( stmt, &action->do_net_dns ); 
-		//	break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£©
+		//	break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½
 		case NET_http: 
 			ntstatus = collect_net_http_param( stmt, &action->do_net_http ); 
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 
 		case NET_icmp_send:
 			break; 
@@ -4887,31 +4880,31 @@ NTSTATUS CALLBACK read_action_from_db_row( sqlite3_stmt *stmt, sys_action_record
 			break; 
 			//MT_behavior, 
 		case BA_extract_hidden:
-			break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+			break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 		case BA_extract_pe:
 			ntstatus = collect_ba_extract_pe_param( stmt, &action->do_ba_overwrite_pe ); 
-			break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_copy:
 
-			break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_delete:
 
-			break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_ulterior_exec:
 
-			break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_invade_process:
 			
-			break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_infect_pe:
 			ntstatus = collect_ba_infect_pe_param( stmt, &action->do_ba_infect_pe ); 
 
-			break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_overwrite_pe:
-			break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_register_autorun:
 			ntstatus = collect_ba_register_autorun_param( stmt, &action->do_ba_register_autorun ); 
-			break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//case BA_other:
 			//desc = L"BA_other"; 
@@ -4945,148 +4938,148 @@ NTSTATUS CALLBACK __read_action_from_db_row( sqlite3_stmt *stmt, sys_action_reco
 		{
 		case EXEC_create:
 			ntstatus = _collect_exec_create_param( stmt, action, buf_size ); 
-			break; //½ø³ÌÆô¶¯ ½ø³ÌÂ·¾¶Ãû £¨Ö´ÐÐ¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½Ð¼ï¿½Ø£ï¿½ 
 
 		case EXEC_destroy:
 			ntstatus = _collect_exec_destroy_param( stmt, action, buf_size ); 
-			break; //½ø³ÌÍË³ö ½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case EXEC_module_load:
 			ntstatus = _collect_exec_module_load_param( stmt, action, buf_size ); 
-			break; //Ä£¿é¼ÓÔØ Ä£¿éÂ·¾¶Ãû 
+			break; //Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_filemon, 
 		case FILE_touch:
 			ntstatus = _collect_file_touch_param( stmt, action, buf_size ); 
-			break; //´´½¨ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ £¨ÎÄ¼þ¼à¿Ø£© 	
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ø£ï¿½ 	
 		case FILE_open:
 			ntstatus = _collect_file_open_param( stmt, action, buf_size ); 
-			break; //¶ÁÈ¡ÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½È¡ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_read:
 			ntstatus = _collect_file_read_param( stmt, action, buf_size ); 
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_write:
 			ntstatus = _collect_file_write_param( stmt, action, buf_size ); 
-			break; //Ð´ÈëÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_modified:
 			ntstatus = _collect_file_modified_param( stmt, action, buf_size ); 
-			break; //ÎÄ¼þ±»ÐÞ¸Ä ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_readdir:
 
-			break; //±éÀúÄ¿Â¼ Ä¿Â¼È«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ Ä¿Â¼È«Â·ï¿½ï¿½ 
 		case FILE_remove:
 			ntstatus = _collect_file_remove_param( stmt, action, buf_size ); 
-			break; //É¾³ýÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //É¾ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_rename:
 			ntstatus = _collect_file_rename_param( stmt, action, buf_size ); 
-			break; //ÖØÃüÃûÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_truncate:
 			//ntstatus = _collect_file_truncate_param( )
-			break; //½Ø¶ÏÎÄ¼þ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½Ø¶ï¿½ï¿½Ä¼ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 		case FILE_mklink:
-			break; //½¨Á¢ÎÄ¼þÓ²Á´½Ó ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_chmod:
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_getinfo:
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_setinfo:
-			break; //ÉèÖÃÎÄ¼þÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 
 		case FILE_setsec:
 
-			break; //ÉèÖÃÎÄ¼þ°²È«ÊôÐÔ ÎÄ¼þÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¼ï¿½È«Â·ï¿½ï¿½ 
 			//MT_regmon, 
 		case REG_openkey:
 			ntstatus = _collect_reg_open_key_param( stmt, action, buf_size ); 
-			break; //´ò¿ª×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶  £¨×¢²á±í¼à¿Ø£© 
+			break; //ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½  ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 
 		case REG_mkkey:
 			ntstatus = _collect_reg_mk_key_param( stmt, action, buf_size ); 
-			break; //´´½¨×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//case MODIFY_KEY
 			//	break; 
 		case REG_rmkey:
 			ntstatus = _collect_reg_rm_key_param( stmt, action, buf_size ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_mvkey:
 			ntstatus = _collect_reg_mv_key_param( stmt, action, buf_size ); 
-			break; //ÖØÃüÃû×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rmval:
 			ntstatus = _collect_reg_rm_val_param( stmt, action, buf_size ); 
-			break; //É¾³ý×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //É¾ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_getval:
 			ntstatus = _collect_reg_get_val_param( stmt, action, buf_size ); 
-			break; //»ñÈ¡×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_setval:
 			ntstatus = _collect_reg_set_val_param( stmt, action, buf_size ); 
-			break; //ÉèÖÃ×¢²á±íÖµ ×¢²á±íÖµÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Öµ ×¢ï¿½ï¿½ï¿½ÖµÂ·ï¿½ï¿½ 
 
 		case REG_loadkey:
 
-			break; //¹ÒÔØ×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_replkey:
 
-			break; //Ìæ»»×¢²á±í¼ü ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½æ»»×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
 		case REG_rstrkey:
-			break; //µ¼Èë×¢²á±íHiveÎÄ¼þ ×¢²á±í¼üÂ·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Hiveï¿½Ä¼ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 
-			//break; //ÉèÖÃ×¢²á±í¼ü°²È«ÊôÐÔ ×¢²á±í¼üÂ·¾¶ 
+			//break; //ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ ×¢ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ 
 			//MT_procmon, 
 		case PROC_exec:
 			ntstatus = _collect_proc_exec_param( stmt, action, buf_size ); 
 
-			break; //´´½¨½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû  £¨½ø³Ì¼à¿Ø£©
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½Ø£ï¿½
 
 		case PROC_open:
 			//ntstatus = _collect_proc_open
-			break; //´ò¿ª½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ò¿ª½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_debug:
-			break; //µ÷ÊÔ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_suspend:
-			break; //¹ÒÆð½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_resume:
-			break; //»Ö¸´½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_exit:
-			break; //½áÊø½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 		case PROC_job:
-			break; //½«½ø³Ì¼ÓÈë¹¤×÷¼¯ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ë¹¤ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_pgprot:
-			break; //¿ç½ø³ÌÐÞ¸ÄÄÚ´æÊôÐÔ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_freevm:
-			break; //¿ç½ø³ÌÊÍ·ÅÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_writevm:
 			ntstatus = _collect_proc_write_vm( stmt, action, buf_size ); 
-			break; //¿ç½ø³ÌÐ´ÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case PROC_readvm:
 			ntstatus = _collect_proc_read_vm( stmt, action, buf_size ); 
-			break; //¿ç½ø³Ì¶ÁÄÚ´æ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½Ú´ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_remote:
 			ntstatus = _collect_thrd_remote( stmt, action, buf_size ); 
-			break; //´´½¨Ô¶³ÌÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_setctxt:
-			break; //¿ç½ø³ÌÉèÖÃÏß³ÌÉÏÏÂÎÄ Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_suspend:
-			break; //¿ç½ø³Ì¹ÒÆðÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_resume:
-			break; //¿ç½ø³Ì»Ö¸´Ïß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì»Ö¸ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_exit:
-			break; //¿ç½ø³Ì½áÊøÏß³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case THRD_queue_apc:
-			break; //¿ç½ø³ÌÅÅ¶ÓAPC Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½APC Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_common
 			//case COM_access:
@@ -5094,50 +5087,50 @@ NTSTATUS CALLBACK __read_action_from_db_row( sqlite3_stmt *stmt, sys_action_reco
 			//MT_sysmon
 		case SYS_settime:
 
-			break; //ÉèÖÃÏµÍ³Ê±¼ä ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê±ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_link_knowndll:
-			break; //½¨Á¢KnownDllsÁ´½Ó Á´½ÓÎÄ¼þÃû 
+			break; //ï¿½ï¿½ï¿½ï¿½KnownDllsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
 		case SYS_open_physmm:
 
-			break; //´ò¿ªÎïÀíÄÚ´æÉè±¸ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½è±¸ ï¿½ï¿½ 
 
 		case SYS_read_physmm:
 
-			break; //¶ÁÎïÀíÄÚ´æ ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_write_physmm:
 			//ntstatus = _collect_sys_write
-			break; //Ð´ÎïÀíÄÚ´æ ÎÞ 
+			break; //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ 
 		case SYS_load_kmod:
 
-			break; //¼ÓÔØÄÚºËÄ£¿é ÄÚºËÄ£¿éÈ«Â·¾¶ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½Ä£ï¿½ï¿½ ï¿½Úºï¿½Ä£ï¿½ï¿½È«Â·ï¿½ï¿½ 
 			//case INSTALL_DRV:
 			//	break; 
 		case SYS_enumproc:
-			break; //Ã¶¾Ù½ø³Ì ÎÞ 
+			break; //Ã¶ï¿½Ù½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case SYS_regsrv:
 
-			break; //×¢²á·þÎñ ·þÎñ½ø³ÌÈ«Â·¾¶ 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ 
 		case SYS_opendev:
 
-			break; //´ò¿ªÉè±¸ Éè±¸Ãû 
+			break; //ï¿½ï¿½ï¿½è±¸ ï¿½è±¸ï¿½ï¿½ 
 
 			//MT_w32mon
 		case W32_postmsg:
 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Post£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Postï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_sendmsg:
 
-			break; //·¢ËÍ´°¿ÚÏûÏ¢£¨Send£© Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Sendï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case W32_findwnd:
 
-			break; //²éÕÒ´°¿Ú ÎÞ 
+			break; //ï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 		case W32_msghook:
 
-			break; //ÉèÖÃÏûÏ¢¹³×Ó ÎÞ 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 
 
 		case W32_lib_inject:
 
-			break; //DLL×¢Èë ×¢ÈëDLLÂ·¾¶Ãû 
+			break; //DLL×¢ï¿½ï¿½ ×¢ï¿½ï¿½DLLÂ·ï¿½ï¿½ï¿½ï¿½ 
 
 			//MT_netmon
 		case NET_create:
@@ -5146,17 +5139,17 @@ NTSTATUS CALLBACK __read_action_from_db_row( sqlite3_stmt *stmt, sys_action_reco
 
 		case NET_connect:
 			ntstatus = _collect_net_connect_param( stmt, action, buf_size ); 
-			break; //ÍøÂçÁ¬½Ó Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© £¨ÍøÂç¼à¿Ø£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ 
 			//case SOCKET_CONNECT:
 			//	break; 
 		case NET_listen:
 			ntstatus = _collect_net_listen_param( stmt, action, buf_size ); 
-			break; //¼àÌý¶Ë¿Ú ±¾»úµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_LISTEN:
 			//	break; 
 		case NET_send:
 			ntstatus = _collect_net_send_param( stmt, action, buf_size ); 
-			break; //·¢ËÍÊý¾Ý°ü Ô¶³ÌµØÖ·£¨¸ñÊ½£ºIP£º¶Ë¿ÚºÅ£© 
+			break; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý°ï¿½ Ô¶ï¿½Ìµï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½IPï¿½ï¿½ï¿½Ë¿ÚºÅ£ï¿½ 
 			//case SOCKET_SEND:
 			//	break; 
 		case NET_recv:
@@ -5172,11 +5165,11 @@ NTSTATUS CALLBACK __read_action_from_db_row( sqlite3_stmt *stmt, sys_action_reco
 
 		//case NET_dns: 
 		//	//ntstatus = _collect_net_dns_param( stmt, action, buf_size ); 
-		//	break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+		//	break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 
 		case NET_http: 
 			ntstatus = _collect_net_http_param( stmt, action, buf_size ); 
-			break; //HTTPÇëÇó HTTPÇëÇóÂ·¾¶£¨¸ñÊ½£ºÓòÃû/URL£© 
+			break; //HTTPï¿½ï¿½ï¿½ï¿½ HTTPï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/URLï¿½ï¿½ 
 
 		case NET_icmp_send:
 			break; 
@@ -5184,31 +5177,31 @@ NTSTATUS CALLBACK __read_action_from_db_row( sqlite3_stmt *stmt, sys_action_reco
 			break; 
 			//MT_behavior, 
 		case BA_extract_hidden:
-			break; //ÊÍ·ÅÒþ²ØÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû £¨ÐÐÎª¼à¿Ø£© 
+			break; //ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ø£ï¿½ 
 		case BA_extract_pe:
 			ntstatus = _collect_ba_extract_pe_param( stmt, action, buf_size ); 
-			break; //ÊÍ·ÅPEÎÄ¼þ ÊÍ·ÅÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½Í·ï¿½PEï¿½Ä¼ï¿½ ï¿½Í·ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_copy:
 
-			break; //×ÔÎÒ¸´ÖÆ ¸´ÖÆÄ¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_self_delete:
 
-			break; //×ÔÎÒÉ¾³ý É¾³ýÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ É¾ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_ulterior_exec:
 
-			break; //ÒþÃØÖ´ÐÐ ±»Ö´ÐÐÓ³ÏñÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½Ó³ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_invade_process:
 
-			break; //ÈëÇÖ½ø³Ì Ä¿±ê½ø³ÌÂ·¾¶Ãû 
+			break; //ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_infect_pe:
 			ntstatus = _collect_ba_infect_pe_param( stmt, action, buf_size ); 
 
-			break; //¸ÐÈ¾PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½È¾PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_overwrite_pe:
-			break; //¸²Ð´PEÎÄ¼þ Ä¿±êÎÄ¼þÂ·¾¶Ãû 
+			break; //ï¿½ï¿½Ð´PEï¿½Ä¼ï¿½ Ä¿ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 		case BA_register_autorun:
 			ntstatus = _collect_ba_register_autorun_param( stmt, action, buf_size ); 
-			break; //×¢²á×ÔÆô¶¯Ïî ×ÔÆô¶¯ÎÄ¼þÂ·¾¶Ãû 
+			break; //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½ 
 
 			//case BA_other:
 			//desc = L"BA_other"; 
@@ -5798,8 +5791,8 @@ NTSTATUS WINAPI output_action_log_from_db_ex( PVOID db_handle,
 }
 
 /****************************************************************************************
-ÓÉÓÚÐèÒª¼ÆËã³öÄ¿±êÎ»ÖÃµÄÈÕÖ¾µÄÕæÊµ±àºÅ£¬ËùÒÔÔÚ¸ßÆµÂÊµÄ½øÐÐ¶¨Î»Ê±£¬»áÕ¼ÓÃºÜ¶àµÄÐÔÄÜ¡£
-ÐèÒª¿¼ÂÇ¼Ó¾¡¿ÉÄÜ¶àµÄ¼ÓÔØ½Ï¶àµÄÈÕÖ¾ÖÁ»º´æÖÐ£¬ÕâÑù»áÓÐ¸üºÃµÄÐÔÄÜÐ§¹û¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Æµï¿½ÊµÄ½ï¿½ï¿½Ð¶ï¿½Î»Ê±ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ÃºÜ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
+ï¿½ï¿½Òªï¿½ï¿½ï¿½Ç¼Ó¾ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½Ä¼ï¿½ï¿½Ø½Ï¶ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½
 ****************************************************************************************/
 
 NTSTATUS CALLBACK _filter_event_log( ULONG log_id, 

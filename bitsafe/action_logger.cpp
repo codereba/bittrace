@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -35,11 +28,11 @@ LPCWSTR get_port_desc( USHORT port_num )
 {
 	LPCWSTR desc = L""; 
 
-#define POP3_PORT_DESC L"[POP3ÓÊ¼þ·þÎñ]"
-#define HTTP_PORT_DESC L"[WEB·þÎñ]"
-#define FTP_PORT_DESC L"[ÎÄ¼þ´«Êä·þÎñ]"
-#define SAMBA_PORT_DESC L"[WINDOWS¹²Ïí·þÎñ]"
-#define HTTP_AGANT_PORT_DESC L"[WEB´úÀí·þÎñ]"
+#define POP3_PORT_DESC L"[POP3ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½]"
+#define HTTP_PORT_DESC L"[WEBï¿½ï¿½ï¿½ï¿½]"
+#define FTP_PORT_DESC L"[ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]"
+#define SAMBA_PORT_DESC L"[WINDOWSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]"
+#define HTTP_AGANT_PORT_DESC L"[WEBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]"
 	switch( port_num )
 	{
 	case 110:
@@ -232,7 +225,7 @@ LRESULT get_event_msg( sys_action_desc *action, LPWSTR msg, ULONG buf_ccb_len, U
 		app_name[ _app_name_len ] = L'\0'; 
 	}
 
-#define EVENT_REQUEST_TIP _T( " ÊÇ·ñÔÊÐí?" )
+#define EVENT_REQUEST_TIP _T( " ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½?" )
 
 	tmp_text = _get_string_by_id( TEXT_SYS_ACTION_ALLOW_TIP, 
 		EVENT_REQUEST_TIP ); 
@@ -247,7 +240,7 @@ LRESULT get_event_msg( sys_action_desc *action, LPWSTR msg, ULONG buf_ccb_len, U
 		}
 #endif //_DEBUG_MEM_LEAKS
 
-		_sntprintf( action_desc, MAX_ACTION_DESC_SIZE, _T( " %s" ), action->resp == ACTION_BLOCK ? _T( "×èÖ¹" ) : _T( "ÔÊÐí" ) ); 
+		_sntprintf( action_desc, MAX_ACTION_DESC_SIZE, _T( " %s" ), action->resp == ACTION_BLOCK ? _T( "ï¿½ï¿½Ö¹" ) : _T( "ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 	}
 	else
@@ -325,7 +318,7 @@ LRESULT get_action_notify_tip( sys_action_record *action, action_context *ctx, a
 	*tip = L'\0'; 
 	tip[ ccb_buf_len - 1 ] = L'\0';
 
-#define EVENT_REQUEST_TIP _T( " ÊÇ·ñÔÊÐí?" )
+#define EVENT_REQUEST_TIP _T( " ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½?" )
 
 	tmp_text = _get_string_by_id( TEXT_SYS_ACTION_ALLOW_TIP, 
 		EVENT_REQUEST_TIP ); 
@@ -340,7 +333,7 @@ LRESULT get_action_notify_tip( sys_action_record *action, action_context *ctx, a
 		}
 #endif //_DEBUG_MEM_LEAKS
 
-		_sntprintf( action_desc, MAX_ACTION_DESC_SIZE, _T( " %s" ), resp == ACTION_BLOCK ? _T( "×èÖ¹" ) : _T( "ÔÊÐí" ) ); 
+		_sntprintf( action_desc, MAX_ACTION_DESC_SIZE, _T( " %s" ), resp == ACTION_BLOCK ? _T( "ï¿½ï¿½Ö¹" ) : _T( "ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 	}
 

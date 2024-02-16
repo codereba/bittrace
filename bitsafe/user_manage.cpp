@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #include "StdAfx.h"
+#include "StdAfx.h"
 #include "common_func.h"
 #include "bitsafe_common.h"
 #include "user_manage.h"
@@ -373,7 +366,7 @@ LRESULT change_original_pwd( HWND parent_wnd )
 			}
 
 			tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_CONF_DATA_CURRUPT_TIP, 
-				_T( "ÏµÍ³¹Ø¼üÊý¾Ý±»ÆÆ»µ,ÓÃ»§ÐÅÏ¢ÐèÒªÖØÐÂÉèÖÃ!" ) ); 
+				_T( "ÏµÍ³ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½Æ»ï¿½,ï¿½Ã»ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!" ) ); 
 
 			show_msg( parent_wnd, tmp_text, NULL, _T( "" ), 0 ); 
 
@@ -389,7 +382,7 @@ LRESULT change_original_pwd( HWND parent_wnd )
 		}
 
 		tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_HAVE_NOT_SETTING_PWD_TIP, 
-			_T( "ÏÖÔÚ»¹Ã»ÓÐÉèÖÃÃÜÂë,Èç¹ûÐèÒª¹ÜÀíÑ§ÉúÉÏÍø,ÇëÉèÖÃÒ»¸ö¹ÜÀíÃÜÂë,±£Ö¤Ö»ÓÐÄã¿ÉÒÔ¸ü¸ÄÉèÖÃ,·ñÔò½«²»Ê¹ÓÃÃÜÂë." ) ); 
+			_T( "ï¿½ï¿½ï¿½Ú»ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ö¤Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ò½«²ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½." ) ); 
 
 		_ret = show_msg( parent_wnd, tmp_text, &ret_state, 0 ); 
 		if( _ret != ERROR_SUCCESS )
@@ -401,7 +394,7 @@ LRESULT change_original_pwd( HWND parent_wnd )
 		if( ret_state == OK_STATE )
 		{
 			tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_SET_PWD_TITLE, 
-				_T("Á¢¼´ÉèÖÃÃÜÂë") ); 
+				_T("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½") ); 
 
 			dlg.Create( parent_wnd, tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 			dlg.SetIcon( IDI_MAIN_ICON ); 
@@ -514,7 +507,7 @@ LRESULT check_user_access( user_group check_group, HWND parent_wnd, dlg_ret_stat
 	if( get_cur_user_group() < check_group )
 	{
 		tmp_text = _get_string_by_id( TEXT_COMMON_DONT_HAVE_PRIVILEGE, 
-			tmp_text = _T( "µ±Ç°ÓÃ»§È¨ÏÞ²»¿ÉÖ´ÐÐ´Ë²Ù×÷,ÇëµÇÂ½ºóÖØÊÔ." ) ); 
+			tmp_text = _T( "ï¿½ï¿½Ç°ï¿½Ã»ï¿½È¨ï¿½Þ²ï¿½ï¿½ï¿½Ö´ï¿½Ð´Ë²ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½." ) ); 
 
 		show_msg( parent_wnd, tmp_text, &_ret_state, NULL, 0 ); 
 		
@@ -529,7 +522,7 @@ LRESULT check_user_access( user_group check_group, HWND parent_wnd, dlg_ret_stat
 			goto _return; 
 		}
 
-		tmp_text = _get_string_by_id( TEXT_ACCOUNT_MANAGEMENT_TITLE, _T("¼Ò³¤¹ÜÀí") ); 
+		tmp_text = _get_string_by_id( TEXT_ACCOUNT_MANAGEMENT_TITLE, _T("ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½") ); 
 		
 		login.Create( parent_wnd, tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738);
 		login.SetIcon( IDI_MAIN_ICON ); 

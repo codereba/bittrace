@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -549,7 +542,7 @@ LRESULT config_bitsafe()
 	LPCTSTR tmp_text; 
 	dlg_ret_state ret_state; 
 
-	tmp_text = _get_string_by_id( TEXT_BITSAFE_SETTING_AUTORUN, _T( "±ÈÌØ°²È«ÊÇ·ñÔÚÏµÍ³Æô¶¯Ê±×Ô¶¯¼ÓÔØ?" ) ); 
+	tmp_text = _get_string_by_id( TEXT_BITSAFE_SETTING_AUTORUN, _T( "ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½Ç·ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½?" ) ); 
 	ret = show_msg( NULL, tmp_text, &ret_state ); 
 	if( ret != ERROR_SUCCESS )
 	{
@@ -747,12 +740,12 @@ ULONG CALLBACK init_ui_context_thread( PVOID param )
 			ret = check_bitsafe_setup_pack(); 
 			if( ret == ERROR_SUCCESS )
 			{
-				tmp_text = _get_string_by_id( TEXT_INSTALL_NEED_RESTART, _T( "ÏµÍ³»òÆäËü°²È«Èí¼þ»·¾³Óë±ÈÌØ°²È«²»¼æÈÝ,»ò±ÈÌØ°²È«ÎÄ¼þ±»ÆÆ»µ,ÇëÖØÆôºóÔÙ´ÎÔËÐÐ.ÈÔÓÐÎÊÌâ,ÇëÊ¹ÓÃÔ­Ê¼°²×°°üÖØÐÂ°²×°.Èç¹ûÈÔÎÞ·¨¼ÓÔØ,Çë½«ÐÅÏ¢·¢ËÍÖÁ( email:" ) BITSAFE_EMAIL __t( " bbs:codereba.com/bbs ),»òÕßÌá³ö½¨Òé,Ð»Ð»." ) ); 
+				tmp_text = _get_string_by_id( TEXT_INSTALL_NEED_RESTART, _T( "ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Æ»ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½ï¿½ï¿½.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ê¹ï¿½ï¿½Ô­Ê¼ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ë½«ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½( email:" ) BITSAFE_EMAIL __t( " bbs:codereba.com/bbs ),ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ð»Ð»." ) ); 
 			}
 			else
 			{
 
-				tmp_text = _get_string_by_id( TEXT_INSTALL_NEED_RESTART, _T( "±ÈÌØ°²È«ÎÄ¼þ±»ÆÆ»µ,ÇëÊ¹ÓÃÔ­Ê¼°²×°°üÖØÐÂ°²×°.Èç¹ûÈÔÎÞ·¨¼ÓÔØ,Çë½«ÐÅÏ¢·¢ËÍÖÁ( email:" ) BITSAFE_EMAIL __t( " bbs:codereba.com/bbs ),»òÕßÌá³ö½¨Òé,Ð»Ð»." ) ); 
+				tmp_text = _get_string_by_id( TEXT_INSTALL_NEED_RESTART, _T( "ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Æ»ï¿½,ï¿½ï¿½Ê¹ï¿½ï¿½Ô­Ê¼ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ë½«ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½( email:" ) BITSAFE_EMAIL __t( " bbs:codereba.com/bbs ),ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ð»Ð»." ) ); 
 			}
 
 			ret = show_msg( NULL, tmp_text, &ret_state ); 

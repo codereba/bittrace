@@ -1,38 +1,30 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #pragma once
 
-//#include "menu_ui.h"
 #include "bitsafe_common.h"
 #include "conf_file.h"
 #include "bitsafe_rule_conf.h"
 #include "msg_box.h"
 
-#define URL_RULE_TITLE _T( "urlÂ·¾¶»òÓòÃû¹æÔò¶¨Òå" )
-#define URL_NAME_TXT _T( "urlÂ·¾¶»òÓòÃû")
-#define FILE_RULE_TITLE _T( "ÎÄ¼þ¹æÔò¶¨Òå" )
-#define FILE_NAME_TXT _T( "ÎÄ¼þÂ·¾¶" )
-#define REG_RULE_TITLE _T( "×¢²á±í¹æÔò¶¨Òå" )
-#define REG_NAME_TXT _T("×¢²á±íÂ·¾¶")
+#define URL_RULE_TITLE _T( "urlÂ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" )
+#define URL_NAME_TXT _T( "urlÂ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
+#define FILE_RULE_TITLE _T( "ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" )
+#define FILE_NAME_TXT _T( "ï¿½Ä¼ï¿½Â·ï¿½ï¿½" )
+#define REG_RULE_TITLE _T( "×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" )
+#define REG_NAME_TXT _T("×¢ï¿½ï¿½ï¿½Â·ï¿½ï¿½")
 
 class name_rule_edit_dlg : public CWindowWnd, public INotifyUI 
 {
@@ -206,25 +198,25 @@ public:
 
 		if( name_edit->GetText().GetLength() == 0 )
 		{
-			show_msg( GetHWND(), _T( "Â·¾¶ÊÇ±ØÐëÊäÈëµÄ¹Ø¼ü²ÎÊý" ), NULL, _T( "ÊäÈë´íÎó" ) ); 
+			show_msg( GetHWND(), _T( "Â·ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½" ), NULL, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 			goto _return; ; 
 		}
 
 		if( name_edit->GetText().GetLength() > _MAX_URL_LEN )
 		{
-			show_msg( GetHWND(), _T( "Â·¾¶³¤¶È²»µÃ´óÓÚ1024" ), NULL, _T( "ÊäÈë´íÎó" ) ); 
+			show_msg( GetHWND(), _T( "Â·ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½1024" ), NULL, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 			goto _return; ; 
 		}
 
 		if( desc_edit->GetText().GetLength() > _MAX_DESC_LEN )
 		{
-			show_msg( GetHWND(), _T( "ÃèÊö³¤¶È²»µÃ´óÓÚ512" ), NULL, _T( "ÊäÈë´íÎó" ) ); 
+			show_msg( GetHWND(), _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½512" ), NULL, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 			goto _return; 
 		}
 
 		if( app_name_edit->GetText().GetLength() > _MAX_FILE_NAME_LEN )
 		{
-			show_msg( GetHWND(), _T( "ÃèÊö³¤¶È²»µÃ´óÓÚ260" ), NULL, _T( "ÊäÈë´íÎó" ) ); 
+			show_msg( GetHWND(), _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½Ã´ï¿½ï¿½ï¿½260" ), NULL, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 			goto _return; 
 		}
 
@@ -420,7 +412,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             bHandled = TRUE;
             return 0;

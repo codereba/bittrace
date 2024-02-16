@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #pragma once
@@ -268,22 +261,22 @@ _return:
 		set_ctrl_text( &m_pm, 
 			_T( "open_lbl" ), 
 			TEXT_ICON_MENU_OPEN, 
-			_T( "´ò¿ª" ) ); 
+			_T( "ï¿½ï¿½" ) ); 
 
 		set_ctrl_text( &m_pm, 
 			_T( "login_lbl" ), 
 			TEXT_ICON_MENU_LOGIN, 
-			_T( "µÇÂ½" ) ); 
+			_T( "ï¿½ï¿½Â½" ) ); 
 
 		set_ctrl_text( &m_pm, 
 			_T( "work_mode_lbl" ), 
 			TEXT_ICON_MENU_WORK_MODE, 
-			_T( "ÉèÖÃ¹¤×÷Ä£Ê½" ) ); 
+			_T( "ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½Ä£Ê½" ) ); 
 
 		set_ctrl_text( &m_pm, 
 			_T( "exit_lbl" ), 
 			TEXT_ICON_MENU_EXIT, 
-			_T( "ÍË³ö" ) ); 
+			_T( "ï¿½Ë³ï¿½" ) ); 
 
 		//can_close = TRUE; 
 

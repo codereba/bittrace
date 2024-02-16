@@ -1,26 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
- #pragma once
-//#include "menu_ui.h"
+#pragma once
 #include "md5.h"
 #include "msg_box.h"
 #include "user_manage.h"
@@ -146,7 +138,7 @@ public:
 			set_text_by_name( &m_pm, _T( "confirm_pwd_edit" ), _T( "" ) ); 
 
 			tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_NEW_NOT_SAME_ERROR, 
-				_T( "Á½´ÎÊäÈëµÄÃÜÂë²»Ò»ÖÂ" ) ); 
+				_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»Ò»ï¿½ï¿½" ) ); 
 
 			show_msg( GetHWND(), tmp_text, NULL, NULL, 0 ); 
 			goto _return; 
@@ -175,7 +167,7 @@ public:
 			{
 				set_text_by_name( &m_pm, _T( "org_pwd_edit" ), _T( "" ) ); 
 				
-				tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_OLD_INCORRECT_ERROR, _T( "¾ÉÃÜÂë²»ÕýÈ·" ) ); 
+				tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_OLD_INCORRECT_ERROR, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·" ) ); 
 				
 				show_msg( GetHWND(), tmp_text, NULL, 0 ); 
 				goto _return; 
@@ -188,7 +180,7 @@ public:
 			if( memcmp( pwd_md5, old_pwd_md5, MD5_DIGEST_LENGTH ) != 0 )
 			{
 				ret = ERROR_ERRORS_ENCOUNTERED; 
-				tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_OLD_INCORRECT_ERROR, _T( "¾ÉÃÜÂë²»ÕýÈ·" ) ); 
+				tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_OLD_INCORRECT_ERROR, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·" ) ); 
 
 				set_text_by_name( &m_pm, _T( "org_pwd_edit" ), _T( "" ) ); 
 				show_msg( GetHWND(), tmp_text, NULL, 0 );
@@ -201,7 +193,7 @@ public:
 			dlg_ret_state ret_state; 
 			//ret = ERROR_ERRORS_ENCOUNTERED; 
 
-			tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_NEW_LENGTH_ERROR, _T( "ÃÜÂë½«±»ÉèÖÃÎª¿Õ,ÇëÈ·ÈÏ?" ) ); 
+			tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_NEW_LENGTH_ERROR, _T( "ï¿½ï¿½ï¿½ë½«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½,ï¿½ï¿½È·ï¿½ï¿½?" ) ); 
 
 			ret = show_msg( GetHWND(), tmp_text, &ret_state, 0 ); 
 			if( ret != ERROR_SUCCESS )
@@ -233,7 +225,7 @@ public:
 _return:
 		if( ret == ERROR_SUCCESS )
 		{
-			tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_SUCCESSFUL_TIP, _T( "ÐÞ¸ÄÃÜÂë³É¹¦" ) ); 
+			tmp_text = _get_string_by_id( TEXT_CHANGE_PASSWORD_SUCCESSFUL_TIP, _T( "ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½" ) ); 
 			
 			show_msg( GetHWND(), tmp_text, NULL, 0 ); 
 			Close(); 
@@ -409,7 +401,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

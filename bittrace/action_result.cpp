@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #ifdef _DEBUG_MEM_LEAKS
@@ -143,34 +136,34 @@ LRESULT WINAPI notify_action_result( action_result *result )
 }
 
 /*************************************************************************
-Í¨ÖªÊÂ¼þ½á¹ûµÄ·½·¨£º
-1.Ë«ÐÅÏ¢Æ¥Åä½ÓÊÕ
-1.ÄÚºËÖÐ½«ÊÂ¼þÓëÊÂ¼þµÄ½á¹û·Ö±ð±¨¸æ¡£
-2.Ó¦ÓÃ²ã½«ÊÂ¼þÓëÊÂ¼þµÄ½á¹û·Ö±ð½øÐÐ½ÓÊÕ£¬²¢Í¨¹ý¶ÓÁÐ½øÐÐ¼ÇÂ¼£¬»º´æ£¬½á¹ûÆ¥Åä£¬
-µ±Ò»ÌõÊÂ¼þÓÐ½á¹ûÆ¥ÅäÖ®ºó£¬½«ÕâÁ½¸öÐÅÏ¢½áºÏÆðÀ´£¬¼ÇÂ¼ÔÚÊý¾Ý¿â¡£
-(3).²»Ê¹ÓÃ»º´æ£¬Ö±½Ó½øÐÐÊý¾Ý±íµÄ¸üÐÂ£¬»òÕß·Ö±ð·ÅÔÚÁ½¸ö²»Í¬µÄ±íÖ®ÖÐ¡£
+Í¨Öªï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½
+1.Ë«ï¿½ï¿½Ï¢Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½
+1.ï¿½Úºï¿½ï¿½Ð½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Ö±ð±¨¸æ¡£
+2.Ó¦ï¿½Ã²ã½«ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ä½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ð½ï¿½ï¿½Õ£ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½Ð¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½Æ¥ï¿½ä£¬
+ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ð½ï¿½ï¿½Æ¥ï¿½ï¿½Ö®ï¿½ó£¬½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿â¡£
+(3).ï¿½ï¿½Ê¹ï¿½Ã»ï¿½ï¿½æ£¬Ö±ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½Ä¸ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ß·Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½Ä±ï¿½Ö®ï¿½Ð¡ï¿½
 
-2.Ç°ºó±¨¸æÖÐ¶¼°üÀ¨¹ØÓÚÊÂ¼þµÄËùÓÐÐÅÏ¢¡£ÕâÑù¾Í²»ÐèÒª¶ÔÊÂ¼þÄÚÈÝ½øÐÐ»º´æºÍÆ¥Åä´¦Àí¡£
+2.Ç°ï¿½ó±¨¸ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ä´¦ï¿½ï¿½ï¿½ï¿½
 
-3.Ö»½øÐÐºó±¨¸æ£¬Ã»ÓÐÇ°±¨¸æ£¬Ç°±¨¸æµÄ²ßÂÔÆ¥ÅäÔÚÄÚºËÖÐµÄ²ßÂÔ¼¯ÖÐÅÐ¶Ï¡£¶øÄÚºËÖÐµÄ²ßÂÔ
-ÊÇÍ¨¹ýºó±¨¸æµÄÄÚÈÝÖÆ×ö£¬ÉÏ´«µ½ÄÚºËÖÐµÄ¡£
+3.Ö»ï¿½ï¿½ï¿½Ðºó±¨¸æ£¬Ã»ï¿½ï¿½Ç°ï¿½ï¿½ï¿½æ£¬Ç°ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ÐµÄ²ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Ð¶Ï¡ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½
+ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ó±¨¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Úºï¿½ï¿½ÐµÄ¡ï¿½
 
-ÊÂ¼þID±íÊ¾·½·¨:
-1.ÐÐÎªÔ´¼ÇÂ¼¼¯·ÖÎö·¨£¬¶ÔÃ¿¸ö»ù±¾ÐÐÎªµ¥Ôª£¬Ïß³Ì£¬½øÐÐÒ»·Ý¼ÇÂ¼£¬¼ÇÂ¼±£´æµ±Ç°ÐÐÎª£¬
-µÄ×Ü´ÎÊý£¬µ±×öÐÐÎªIDºÅ¡£
-ÐÐÎªÔ´¼ÇÂ¼·¨ÊÇ¸ü¼Ó¿ÆÑ§µÄ·½·¨£¬µ«ÊµÏÖ¸´ÔÓ¶È¸ß£¬ÐèÒªÔÚÏÂÒ»½×¶ÎÊµÏÖ¡£
+ï¿½Â¼ï¿½IDï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½:
+1.ï¿½ï¿½ÎªÔ´ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ôªï¿½ï¿½ï¿½ß³Ì£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ý¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½æµ±Ç°ï¿½ï¿½Îªï¿½ï¿½
+ï¿½ï¿½ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªIDï¿½Å¡ï¿½
+ï¿½ï¿½ÎªÔ´ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½Ó¿ï¿½Ñ§ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö¸ï¿½ï¿½Ó¶È¸ß£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½×¶ï¿½Êµï¿½Ö¡ï¿½
 
-2.ÕûÌåÐÐÎªID±íÊ¾·¨£¬¶ÔÃ¿¸öÐÐÎªÓÐÒ»¸öÈ«¾ÖµÄÐÐÎªIDºÅ¡£64Î»ÕûÐÍ¡£
+2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªIDï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ò»ï¿½ï¿½È«ï¿½Öµï¿½ï¿½ï¿½ÎªIDï¿½Å¡ï¿½64Î»ï¿½ï¿½ï¿½Í¡ï¿½
 
-ÊÂ¼þÄÚÈÝ·ÖÀà£º
-3·ÖÀà·¨£º
-1.ÊÂ¼þÄÚÈÝ
-2.ÊÂ¼þ½á¹û
-3.Ä£¿éÊÂ¼þ
+ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½à£º
+3ï¿½ï¿½ï¿½à·¨ï¿½ï¿½
+1.ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+2.ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
+3.Ä£ï¿½ï¿½ï¿½Â¼ï¿½
 
-2·ÖÀà·¨:
-1.ÊÂ¼þÄÚÈÝ
-2.ÊÂ¼þ½á¹û ( µ±Ç°Ê¹ÓÃ2·ÖÀà·¨)
+2ï¿½ï¿½ï¿½à·¨:
+1.ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+2.ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½Ç°Ê¹ï¿½ï¿½2ï¿½ï¿½ï¿½à·¨)
 
 *************************************************************************/
 
@@ -192,8 +185,8 @@ BOOLEAN sql_transaction_begin = FALSE;
 LRESULT WINAPI notify_action_event_to_ui( ULONG filtered_event_count, ULONG event_count ); 
 
 /*********************************************************************************
-Èç¹û½âÎöµÄ·´»ØÖµ´ó¶à£¬»á¼ÓÖØ½âÎöµÄÐÔÄÜ£¬ËùÒÔ°´ÕÕÃüÖÐ¶È½øÐÐÓÅÏÈÅÅÐò¡£Í¬Ê±£¬¿¼ÂÇ½øÐÐ²¿·Ö
-½âÎö¡£
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½Öµï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *********************************************************************************/
 LPCWSTR WINAPI get_result_desc( NTSTATUS ntstatus )
 {
@@ -204,31 +197,31 @@ LPCWSTR WINAPI get_result_desc( NTSTATUS ntstatus )
 		switch( ntstatus )
 		{
 		case STATUS_SUCCESS:
-			desc = L"STATUS_SUCCESS"; //L"³É¹¦"; 
+			desc = L"STATUS_SUCCESS"; //L"ï¿½É¹ï¿½"; 
 			break; 
 		case STATUS_UNSUCCESSFUL:
-			desc = L"STATUS_UNSUCCESSFUL"; //L"ÆäËü´íÎó"; 
+			desc = L"STATUS_UNSUCCESSFUL"; //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"; 
 			break; 
 		case STATUS_INVALID_PARAMETER:
-			desc = L"STATUS_INVALID_PARAMETER"; //L"ÎÞÐ§²ÎÊý"; 
+			desc = L"STATUS_INVALID_PARAMETER"; //L"ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½"; 
 			break; 
 		case STATUS_NOT_FOUND:
-			desc = L"STATUS_NOT_FOUND"; //L"¶ÔÏóÃ»ÓÐÕÒµ½"; 
+			desc = L"STATUS_NOT_FOUND"; //L"ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Òµï¿½"; 
 			break; 
 		case STATUS_NO_MORE_ENTRIES:
-			desc = L"STATUS_NO_MORE_ENTRIES"; //L"Ã»ÓÐ¸ü¶à"; 
+			desc = L"STATUS_NO_MORE_ENTRIES"; //L"Ã»ï¿½Ð¸ï¿½ï¿½ï¿½"; 
 			break; 
 		case STATUS_BUFFER_OVERFLOW:
-			desc = L"STATUS_BUFFER_OVERFLOW"; //L"»º´æ²»ÄÜÍêÈ«×°ÏÂÊý¾Ý"; 
+			desc = L"STATUS_BUFFER_OVERFLOW"; //L"ï¿½ï¿½ï¿½æ²»ï¿½ï¿½ï¿½ï¿½È«×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"; 
 			break; 
 		case STATUS_BUFFER_TOO_SMALL:
-			desc = L"STATUS_BUFFER_TOO_SMALL"; //L"»º´æ³¤¶È¹ýÐ¡"; 
+			desc = L"STATUS_BUFFER_TOO_SMALL"; //L"ï¿½ï¿½ï¿½æ³¤ï¿½È¹ï¿½Ð¡"; 
 			break; 
 		case STATUS_OBJECT_NAME_NOT_FOUND:
-			desc = L"STATUS_OBJECT_NAME_NOT_FOUND"; //L"¶ÔÏóÃ»ÓÐÕÒµ½"; 
+			desc = L"STATUS_OBJECT_NAME_NOT_FOUND"; //L"ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Òµï¿½"; 
 			break; 
 		case STATUS_DATA_NOT_ACCEPTED:
-			desc = L"STATUS_DATA_NOT_ACCEPTED"; //L"²»½ÓÊÜÊý¾Ý"; 
+			desc = L"STATUS_DATA_NOT_ACCEPTED"; //L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"; 
 			break; 
 		case STATUS_UNKNOWN:
 			desc = L""; 
@@ -428,7 +421,7 @@ LRESULT WINAPI process_event( r3_action_notify *action )
 				}
 			}
 
-			//²âÊÔÍ¨ÖªµÄEVENT COUNTºÍ»º´æÖÐ¼ÇÂ¼µÄCOUNTÊÇ·ñÒ»ÖÂ
+			//ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½ï¿½EVENT COUNTï¿½Í»ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Â¼ï¿½ï¿½COUNTï¿½Ç·ï¿½Ò»ï¿½ï¿½
 			if( state == EVENT_IS_FILTERED )
 			{
 				filtered_action_count ++; 

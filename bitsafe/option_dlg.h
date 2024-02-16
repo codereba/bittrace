@@ -1,25 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
- 
- #pragma once 
+
+#pragma once 
 
 #include "tab_builder.h"
 #include "msg_box.h"
@@ -201,7 +194,7 @@ public:
 					( ( COptionUI* )ctrl )->Selected( true ); 
 				}
 
-				_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_CLOSED_BTN, _T( "ÒÑ¹Ø±Õ" ) ); 
+				_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_CLOSED_BTN, _T( "ï¿½Ñ¹Ø±ï¿½" ) ); 
 
 				( ( CButtonUI* )ctrl )->SetTextPadding( rc_closed ); 
 			}
@@ -219,7 +212,7 @@ public:
 					( ( COptionUI* )ctrl )->Selected( false ); 
 				}
 	
-				_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_OPENED_BTN, _T( "ÒÑ¿ªÆô" ) ); 
+				_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_OPENED_BTN, _T( "ï¿½Ñ¿ï¿½ï¿½ï¿½" ) ); 
 
 				( ( CButtonUI* )ctrl )->SetTextPadding( rc_opened ); 
 			}
@@ -283,11 +276,11 @@ _return:
 
 		ctrl = static_cast<CButtonUI*>(m_pm.FindControl( _T( "ui_btn" ) ) ); 
 		ASSERT( ctrl != NULL ); 
-		ret = _set_ctrl_text( ctrl, TEXT_OPTION_DIALOG_UI_TAB, L"½çÃæ" ); 
+		ret = _set_ctrl_text( ctrl, TEXT_OPTION_DIALOG_UI_TAB, L"ï¿½ï¿½ï¿½ï¿½" ); 
 		ASSERT( ret == ERROR_SUCCESS ); 
 
 		ctrl = static_cast<CButtonUI*>(m_pm.FindControl( _T( "protect_btn" ) ) ); 
-		ret = _set_ctrl_text( ctrl, TEXT_OPTION_DIALOG_SECURITY_TAB, L"±£»¤¹¦ÄÜ" ); 
+		ret = _set_ctrl_text( ctrl, TEXT_OPTION_DIALOG_SECURITY_TAB, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ); 
 		ASSERT( ret == ERROR_SUCCESS ); 
 
 		return ERROR_SUCCESS; 
@@ -424,7 +417,7 @@ _return:
 			log_trace( ( MSG_ERROR, "set the driver work mode error 0x%0.8x\n", _ret ) ); 
 			
 			//show this tip to user by a tip window.
-			//show_msg( NULL, _T( "±£»¤Ä£¿éµ±Ç°Ã»ÓÐÕý³£¹¤×÷,Á¢¼´½øÐÐÐÞ¸´?" ) ); 
+			//show_msg( NULL, _T( "ï¿½ï¿½ï¿½ï¿½Ä£ï¿½éµ±Ç°Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½?" ) ); 
 			ASSERT( FALSE ); 
 			//goto _return; 
 		}
@@ -456,10 +449,10 @@ _return:
 		CComboUI *combo; 
 		//CControlUI *ctrl; 
 
-		set_ctrl_text( &m_pm, _T( "title_label" ), 	TEXT_LANG_TITLE, _T( "Ñ¡ÔñÓïÑÔ" ) ); 
-		set_ctrl_text( &m_pm, _T( "ui_ok_btn" ), TEXT_COMMON_BUTTON_CONFIRM, _T( "ÉèÖÃ" ) ); 
-		//set_ctrl_text( &m_pm, _T( "cancel_btn" ), TEXT_COMMON_BUTTON_CANCEL, _T( "È¡Ïû" ) ); 
-		set_ctrl_text( &m_pm, _T( "lang_tip_label" ), TEXT_LANG_TIP_LABEL, _T( "ÓïÑÔ" ) ); 
+		set_ctrl_text( &m_pm, _T( "title_label" ), 	TEXT_LANG_TITLE, _T( "Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
+		set_ctrl_text( &m_pm, _T( "ui_ok_btn" ), TEXT_COMMON_BUTTON_CONFIRM, _T( "ï¿½ï¿½ï¿½ï¿½" ) ); 
+		//set_ctrl_text( &m_pm, _T( "cancel_btn" ), TEXT_COMMON_BUTTON_CANCEL, _T( "È¡ï¿½ï¿½" ) ); 
+		set_ctrl_text( &m_pm, _T( "lang_tip_label" ), TEXT_LANG_TIP_LABEL, _T( "ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 		combo = ( CComboUI* )m_pm.FindControl( _T( "lang_combo" ) ); 
 		ASSERT( combo != NULL ); 
@@ -529,72 +522,72 @@ _return:
 			ASSERT( ctrl != NULL ); 
 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_URL_FIREWALL, _T( "URL·À»ðÇ½" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_URL_FIREWALL, _T( "URLï¿½ï¿½ï¿½ï¿½Ç½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_arp" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_ARP_FIREWALL, _T( "ARP·À»ðÇ½" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_ARP_FIREWALL, _T( "ARPï¿½ï¿½ï¿½ï¿½Ç½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_netbase" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_BASE_FIREWALL, _T( "ÍøÂç·À»ðÇ½»ù´¡" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_BASE_FIREWALL, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_fw" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_TRFFIC_FIREWALL, _T( "ÍøÂç·À»ðÇ½" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_TRFFIC_FIREWALL, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_defense" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_DEFENSE_FIREWALL, _T( "Ö÷¶¯·ÀÓù" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_DEFENSE_FIREWALL, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_reg" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_REG_SHIELD, _T( "×¢²á±í·À»ðÇ½" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_REG_SHIELD, _T( "×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_fs" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_FILE_SHIELD, _T( "ÎÄ¼þÏµÍ³·À»ðÇ½" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_FILE_SHIELD, _T( "ï¿½Ä¼ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½Ç½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_desc_url" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_URL_FIREWALL_DESC, _T( "±£»¤ÍøÕ¾ä¯ÀÀÂÌÉ«°²È«" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_URL_FIREWALL_DESC, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½È«" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_desc_arp" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_ARP_FIREWALL_DESC, _T( "±£»¤ÍøÂçÁ÷³©,Çå³ýARPÆÛÆ­¹¥»÷" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_ARP_FIREWALL_DESC, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ARPï¿½ï¿½Æ­ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_desc_netbase" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_BASE_FIREWALL_DESC, _T( "±£»¤ÍøÂçÍ¨ÐÅµÄ»ù´¡" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_BASE_FIREWALL_DESC, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ÅµÄ»ï¿½ï¿½ï¿½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_desc_fw" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_TRFFIC_FIREWALL_DESC, _T( "±£»¤ÍøÂçÍ¨ÐÅÍ¸Ã÷¿ÉÐÅ" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_TRFFIC_FIREWALL_DESC, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_desc_defense" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_DEFENSE_FIREWALL_DESC, _T( "±£»¤ÏµÍ³ÐÐÎªÕýÈ·°²È«" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_DEFENSE_FIREWALL_DESC, _T( "ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½Îªï¿½ï¿½È·ï¿½ï¿½È«" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_desc_fs" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_FILE_SHIELD_DESC, _T( "±£»¤Êý¾Ý,ÎÄ¼þ°²È«ÀÎ¹Ì" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_FILE_SHIELD_DESC, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ä¼ï¿½ï¿½ï¿½È«ï¿½Î¹ï¿½" ) ); 
 
 			ctrl = m_pm.FindControl( _T( "txt_desc_reg" ) ); 
 			ASSERT( ctrl != NULL ); 
 			( ( CLabelUI* )ctrl )->SetFont( 0 ); 
-			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_REG_SHIELD_DESC, _T( "±£»¤×¢²á±íÅäÖÃ°²È«" ) ); 
+			_set_ctrl_text( ctrl, TEXT_SECURITY_TAB_REG_SHIELD_DESC, _T( "ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½È«" ) ); 
 
 		}while( FALSE );
 		return ret; 
@@ -827,7 +820,7 @@ _return:
 
 					if( symbol_path.GetLength() == 0 )
 					{
-						tmp_text = _T( "ÇëÊäÈëÕýÈ·µÄ·ûºÅ±£´æÄ¿Â¼Â·¾¶" ); 
+						tmp_text = _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½Ä·ï¿½ï¿½Å±ï¿½ï¿½ï¿½Ä¿Â¼Â·ï¿½ï¿½" ); 
 
 						show_msg( GetHWND(), tmp_text ); 
 						log_trace( ( MSG_ERROR, "!!!set current work mode failed \n" ) ); 
@@ -855,14 +848,14 @@ _return:
 
 					if( ret != ERROR_SUCCESS )
 					{
-						tmp_text = _T( "±£´æ¸¨ÖúÉèÖÃÊ§°Ü" ); 
+						tmp_text = _T( "ï¿½ï¿½ï¿½æ¸¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" ); 
 
 						show_msg( GetHWND(), tmp_text ); 
 						log_trace( ( MSG_ERROR, "!!!set current work mode failed \n" ) ); 
 					}
 					else
 					{
-						tmp_text = _T( "±£´æ¸¨ÖúÉèÖÃ³É¹¦" ); 
+						tmp_text = _T( "ï¿½ï¿½ï¿½æ¸¨ï¿½ï¿½ï¿½ï¿½ï¿½Ã³É¹ï¿½" ); 
 
 						show_msg( GetHWND(), tmp_text );  
 					}
@@ -938,14 +931,14 @@ _return:
 
 				if( ret != ERROR_SUCCESS )
 				{
-					tmp_text = _get_string_by_id( TEXT_LANG_SET_FAILED, _T( "ÉèÖÃÓïÑÔÊ§°Ü" ) ); 
+					tmp_text = _get_string_by_id( TEXT_LANG_SET_FAILED, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" ) ); 
 
 					show_msg( GetHWND(), tmp_text ); 
 					log_trace( ( MSG_ERROR, "!!!set current work mode failed \n" ) ); 
 				}
 				else
 				{
-					tmp_text = _get_string_by_id( TEXT_LANG_SET_SUCCESSFULLY, _T( "ÉèÖÃÓïÑÔ³É¹¦" ) ); 
+					tmp_text = _get_string_by_id( TEXT_LANG_SET_SUCCESSFULLY, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô³É¹ï¿½" ) ); 
 
 					show_msg( GetHWND(), tmp_text );  
 				}
@@ -1139,7 +1132,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

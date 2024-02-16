@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  ////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +18,7 @@
 //      
 //      File      : sharememlock.h
 //      Version   : 1.0
-//      Comment   : Ìá¹©Ò»¸ö·ÃÎÊ¹²ÏíÄÚ´æµÄËø
+//      Comment   : ï¿½á¹©Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½
 //      
 //      Create at : 2010-2-3
 //      Create by : liupeng
@@ -36,10 +29,10 @@
 #pragma once 
 
 //////////////////////////////////////////////////////////////////////////
-// ±¾ËøµÄÌØÐÔ£º
-// ¶à¸öÏß³Ì¿ÉÒÔÍ¬Ê±¶ÁÈ¡
-// µ±ÓÐÐ´µÄÒªÇóÊ±£¬ÐÂµÄ¶ÁÈ¡ÇëÇó±»¹ÒÆð£¬Ö±µ½±¾´ÎÐ´Íê£¬¼´Ð´ÈëÓÅÏÈ
-// Ö»ÄÜÓÐÒ»¸öÏß³ÌÔÚÐ´
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½
+// ï¿½ï¿½ï¿½ï¿½ß³Ì¿ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½È¡
+// ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½Òªï¿½ï¿½Ê±ï¿½ï¿½ï¿½ÂµÄ¶ï¿½È¡ï¿½ï¿½ï¿½ó±»¹ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ê£¬ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½Ð´
 
 typedef struct _tagShareMemLock
 {
@@ -83,16 +76,16 @@ typedef struct _tagShareMemLock
 	//////////////////////////////////////////////////////////////////////////
 	BOOL	TryLockRead()
 	{
-		// Èç¹ûÓÐÐÞ¸ÄÇëÇó£¬ÄÇÃ´ÓÅÏÈ¿¼ÂÇÐÞ¸Ä
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½
 		if (m_nWrite)
 			return FALSE;
 
-		// Èç¹ûÒÑ¾­ÔÚÐÞ¸ÄÁË£¬ÄÇÃ´ÏÈµÈµÈ£¬ËøÖ®ÍâµÄÅÐ¶Ï²»
-		// ×¼È·£¬µ«ÊÇ¿ÉÒÔÆðµ½¼ÓËÙµÄ×÷ÓÃ
+		// ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Ã´ï¿½ÈµÈµÈ£ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½Ð¶Ï²ï¿½
+		// ×¼È·ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ðµ½¼ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½
 		if (m_nReadCnt < 0)
 			return FALSE;
 
-		// ¿ªÊ¼½øÐÐ
+		// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 		if (TryLockReadCntLock())
 		{
 			if (m_nReadCnt >= 0)
@@ -128,14 +121,14 @@ typedef struct _tagShareMemLock
 	//////////////////////////////////////////////////////////////////////////
 	BOOL	TryLockWrite()
 	{
-		// Èç¹ûÓÐÈËÔÚ¶Á£¬ÄÇÃ´ÔÙµÈµÈ£¬ËøÖ®ÍâµÄÅÐ¶Ï²»×¼È·
-		// µ«ÊÇ¿ÉÒÔÆðµ½¼ÓËÙ×÷ÓÃ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ÙµÈµÈ£ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½Ð¶Ï²ï¿½×¼È·
+		// ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ðµ½¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (m_nReadCnt > 0)
 			return FALSE;
 
 		if (TryLockReadCntLock())
 		{
-			// È·±£Ã»ÓÐÈË¶Á£¬Ò²Ã»ÓÐÈËÐ´
+			// È·ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½Ò²Ã»ï¿½ï¿½ï¿½ï¿½Ð´
 			if (m_nReadCnt == 0)
 			{
 				m_nReadCnt = -10000;
@@ -153,11 +146,11 @@ typedef struct _tagShareMemLock
 
 	BOOL	LockWrite()
 	{
-		// ±£Ö¤Ã»ÓÐÆäËûÈËÔÚÐ´
+		// ï¿½ï¿½Ö¤Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´
 		while (!TryLockWriteLock())
 			::Sleep(1);
 
-		// ±£Ö¤ÆäËûÈËÃ»ÓÐÔÚ¶Á£¬Ò²Ã»ÓÐÔÚÐ´
+		// ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½Ò²Ã»ï¿½ï¿½ï¿½ï¿½Ð´
 		while (!TryLockWrite())
 			::Sleep(1);
 		return TRUE;

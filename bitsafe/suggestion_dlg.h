@@ -1,26 +1,18 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
  
  #pragma once
-//#include "menu_ui.h"
 #include "ui_config.h"
 #include "wnd_state.h"
 #include "msg_box.h"
@@ -28,7 +20,6 @@
 #include "resource.h"
 
 #define BALANCESOFT_HTTP_SUGGESTION_PAGE _T( "http://codereba.com/suggest.php" )
-//#define BALANCESOFT_HTTP_SUGGESTION_PAGE _T( "http://192.168.152.128:8081/suggest.php" )
 
 INLINE LRESULT send_suggest_txt( LPCTSTR text, ULONG length )
 {
@@ -146,7 +137,7 @@ public:
 						{
 							tmp_text = L"Suggestion sent successfully"; 
 							//_get_string_by_id( TEXT_SUGGESTION_SEND_SUCCESSFULLY, 
-							//	_T( "·¢ËÍ³É¹¦" ) ); 
+							//	_T( "ï¿½ï¿½ï¿½Í³É¹ï¿½" ) ); 
 
 							show_msg( GetHWND(), tmp_text ); 
 							Close(); 
@@ -293,7 +284,7 @@ public:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
         if( wParam == SC_CLOSE ) {
             ::PostQuitMessage(0L);
             bHandled = TRUE;

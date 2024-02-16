@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "stdafx.h"
@@ -76,12 +69,12 @@
 #define NO_SUPPORT_32BIT_PROCCESS 1
 
 #ifndef LANG_EN
-#define GIVE_SUGESTION_TITLE_TEXT L"Ìá³ö½¨Òé"
-#define OPTION_DLG_TITLE_TEXT L"Ñ¡Ïî" 
-#define UPDATE_DLG_TITLE_TEXT L"¸üÐÂ±ÈÌØ°²È«"
-#define MAIN_BITTRACE_TITLE_TEXT L"±ÈÌØ¸ú×Ù"
-#define UI_CUSTOM_DLG_TITLE_TEXT L"UI½çÃæÉèÖÃ"
-#define INSTALL_CODEREBA_CERTIFICATE_TIP_TEXT L"WINDOWS7 64Î»ÏµÍ³ÐèÒª¶Ô¼ÓÔØµÄÇý¶¯Ç©ÃûÑéÖ¤,ÐèÒª°²×°CODEREBAË½ÓÐÖ¤ÊéÖÁ¸ùºÍ¿ÉÐÅ·¢²¼»ú¹¹(BITTRACEÊÇÍêÈ«Ãâ·ÑµÄÈí¼þ,Èç¹ûÄãÊ¹ÓÃÆðÀ´ÂúÒâ,ÇëÖ§³Ö1Ôª¹ºÂòÒ»¸öÖ¤Êé(http://www.simpai.net/support.php)),Ê¹BITTRACEÕýÈ·¹¤×÷,CODEREBA±£Ö¤BITTRACE½öÖ»ÓÐ¸ú×ÙºÍÈÕÖ¾·ÖÎö¹¦ÄÜ,ÇÒ³ý¸üÐÂºÍÓÃ»§¿ØÖÆÖ®ÍâÃ»ÓÐBITµÄÈÎºÎÍ¨ÐÅ,ËùÓÐÏµÍ³¹¦ÄÜÐÐÎª¶¼»áÍêÈ«Êä³ö,¼ÌÐø?"
+#define GIVE_SUGESTION_TITLE_TEXT L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define OPTION_DLG_TITLE_TEXT L"Ñ¡ï¿½ï¿½" 
+#define UPDATE_DLG_TITLE_TEXT L"ï¿½ï¿½ï¿½Â±ï¿½ï¿½Ø°ï¿½È«"
+#define MAIN_BITTRACE_TITLE_TEXT L"ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½"
+#define UI_CUSTOM_DLG_TITLE_TEXT L"UIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+#define INSTALL_CODEREBA_CERTIFICATE_TIP_TEXT L"WINDOWS7 64Î»ÏµÍ³ï¿½ï¿½Òªï¿½Ô¼ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½Ö¤,ï¿½ï¿½Òªï¿½ï¿½×°CODEREBAË½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(BITTRACEï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ö§ï¿½ï¿½1Ôªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö¤ï¿½ï¿½(http://www.simpai.net/support.php)),Ê¹BITTRACEï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½,CODEREBAï¿½ï¿½Ö¤BITTRACEï¿½ï¿½Ö»ï¿½Ð¸ï¿½ï¿½Ùºï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Âºï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ã»ï¿½ï¿½BITï¿½ï¿½ï¿½Îºï¿½Í¨ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½?"
 #else
 #define GIVE_SUGESTION_TITLE_TEXT L"Suggestion"
 #define OPTION_DLG_TITLE_TEXT L"Options" 
@@ -560,7 +553,7 @@ LRESULT WINAPI check_base_files()
 
 	do 
 	{
-		//Ó¦¸ÃÒ»¿ªÊ¼¼ì²éDBGHELPµÈÎÄ¼þÊÇ·ñÕýÈ·´æÔÚ£¬²»ÕýÈ·´æÔÚÊ±£¬ÌáÊ¾ÏàÓ¦µÄÐÅÏ¢¡£
+		//Ó¦ï¿½ï¿½Ò»ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½DBGHELPï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
 		ret = add_app_path_to_file_name( file_name, 
 			ARRAY_SIZE( file_name), 
 #ifdef _WIN64
@@ -581,9 +574,9 @@ LRESULT WINAPI check_base_files()
 		{
 			show_msg( NULL, 
 #ifdef _WIN64
-				L"dbghelp64.dll" L"ÎÄ¼þ¶ªÊ§,BITTRACE²»ÄÜÕý³£¹¤×÷,¿ÉÒÔÖØÐÂ°²×°,»Ö¸´ÎÄ¼þ."
+				L"dbghelp64.dll" L"ï¿½Ä¼ï¿½ï¿½ï¿½Ê§,BITTRACEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°,ï¿½Ö¸ï¿½ï¿½Ä¼ï¿½."
 #else
-				L"dbghelp32.dll" L"ÎÄ¼þ¶ªÊ§,BITTRACE²»ÄÜÕý³£¹¤×÷,¿ÉÒÔÖØÐÂ°²×°,»Ö¸´ÎÄ¼þ."
+				L"dbghelp32.dll" L"ï¿½Ä¼ï¿½ï¿½ï¿½Ê§,BITTRACEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°,ï¿½Ö¸ï¿½ï¿½Ä¼ï¿½."
 #endif //_WIN64	
 				); 
 
@@ -605,7 +598,7 @@ LRESULT WINAPI check_base_files()
 		ret = check_file_exist( file_name ); 
 		if( ret != ERROR_SUCCESS )
 		{
-			show_msg( NULL, L"%sÎÄ¼þ¶ªÊ§,BITTRACE²»ÄÜÈÏÖ¤Ç©Ãû,¿ÉÒÔÖØÐÂ°²×°,»Ö¸´ÎÄ¼þ.", 
+			show_msg( NULL, L"%sï¿½Ä¼ï¿½ï¿½ï¿½Ê§,BITTRACEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤Ç©ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°,ï¿½Ö¸ï¿½ï¿½Ä¼ï¿½.", 
 				L"codereba_cert.cer" ); 
 
 			break; 
@@ -624,7 +617,7 @@ LRESULT WINAPI check_base_files()
 		ret = check_file_exist( file_name ); 
 		if( ret != ERROR_SUCCESS )
 		{
-			show_msg( NULL, L"%sÎÄ¼þ¶ªÊ§,BITTRACE²»ÄÜÈÏÖ¤Ç©Ãû,¿ÉÒÔÖØÐÂ°²×°,»Ö¸´ÎÄ¼þ.", 
+			show_msg( NULL, L"%sï¿½Ä¼ï¿½ï¿½ï¿½Ê§,BITTRACEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤Ç©ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½×°,ï¿½Ö¸ï¿½ï¿½Ä¼ï¿½.", 
 				L"codereba_sign.bat" ); 
 
 			break; 
@@ -937,7 +930,7 @@ public:
 			goto _return; 
 		}
 
-		tmp_text = _get_string_by_id( TEXT_SYS_ACTION_TIP_SPECIOUS_ACTION, _T( "±»»³ÒÉµÄÏµÍ³ÐÐÎª" ) ); 
+		tmp_text = _get_string_by_id( TEXT_SYS_ACTION_TIP_SPECIOUS_ACTION, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ÏµÍ³ï¿½ï¿½Îª" ) ); 
 
 		ret = show_event_tip( GetHWND()/*GetDesktopWindow()*/, 
 			action_msg, 
@@ -1008,7 +1001,7 @@ _return:
 			goto _return; 
 		}
 
-		tmp_text = _get_string_by_id( TEXT_SYS_ACTION_TIP_SPECIOUS_ACTION, _T( "±»»³ÒÉµÄÏµÍ³ÐÐÎª" ) ); 
+		tmp_text = _get_string_by_id( TEXT_SYS_ACTION_TIP_SPECIOUS_ACTION, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ÏµÍ³ï¿½ï¿½Îª" ) ); 
 
 		ret = __show_event_tip( GetHWND()/*GetDesktopWindow()*/, 
 			action_msg, 
@@ -2095,7 +2088,7 @@ _return:
 	}
 
 	/*******************************************************************
-	ÏòÉÏËÑË÷²»ÕýÈ·£¬Ê¹ÓÃ²»±ã£ºÃ»ÓÐ×Ô¶¯FOCUS£¬°´ENTER¼üÎÞÐ§
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê¹ï¿½Ã²ï¿½ï¿½ã£ºÃ»ï¿½ï¿½ï¿½Ô¶ï¿½FOCUSï¿½ï¿½ï¿½ï¿½ENTERï¿½ï¿½ï¿½ï¿½Ð§
 	*******************************************************************/
 	LRESULT search_events()
 	{
@@ -2207,7 +2200,7 @@ _return:
 				{
 					if( !::IsWindow( about_box.GetHWND() ) )
 					{
-						about_box.Create(NULL, _T("¹ØÓÚ..."), UI_WNDSTYLE_FRAME, 0L, 0, 0, 490,280);
+						about_box.Create(NULL, _T("ï¿½ï¿½ï¿½ï¿½..."), UI_WNDSTYLE_FRAME, 0L, 0, 0, 490,280);
 						about_box.CenterWindow();
 						about_box.SetIcon( IDI_MAIN_ICON );
 					}
@@ -2275,7 +2268,7 @@ _return:
 				{
 
 					/**********************************************************************************
-					ÓÃ»§Ï£ÍûÒÔÊ²Ã´·½Ê½À´Ö§³ÖÎÒÃÇ:
+					ï¿½Ã»ï¿½Ï£ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½Ê½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 					1.donate money
 					2.change they home page of ie.( is not good for wealth people.
 					and users of BITTRACE are little wealth. 
@@ -2302,7 +2295,7 @@ _return:
 					chg_lang_dlg dlg( this ); 
 					LPCTSTR tmp_text; 
 
-					tmp_text = _get_string_by_id( TEXT_LANG_TITLE, _T( "Ñ¡ÔñÓïÑÔ" ) ); 
+					tmp_text = _get_string_by_id( TEXT_LANG_TITLE, _T( "Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 					dlg.Create( GetHWND(), tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 					dlg.SetIcon( IDI_MAIN_ICON ); 
@@ -2324,7 +2317,7 @@ _return:
 						goto _return; 
 					}
 
-					tmp_text = _get_string_by_id( TEXT_GET_DEFENSE_POWER_FROM_OTHER, _T( "½Ó¹ÜÖ÷¶¯·ÀÓù¹¦ÄÜ" ) ); 
+					tmp_text = _get_string_by_id( TEXT_GET_DEFENSE_POWER_FROM_OTHER, _T( "ï¿½Ó¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 
 					dlg.Create( GetHWND(), tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 					dlg.SetIcon( IDI_MAIN_ICON ); 
@@ -2343,7 +2336,7 @@ _return:
 						goto _return; 
 					}
 
-					tmp_text = _get_string_by_id( TEXT_RELEARN_TIP_MSG, L"ÉèÖÃÖØÐÂÑ§Ï°¹æÔò³É¹¦" ); 
+					tmp_text = _get_string_by_id( TEXT_RELEARN_TIP_MSG, L"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½É¹ï¿½" ); 
 					
 					show_msg( GetHWND(), tmp_text ); 
 				}
@@ -2354,7 +2347,7 @@ _return:
 					dlg( &m_pm );  
 					LPCTSTR tmp_text; 
 
-					tmp_text = UI_CUSTOM_DLG_TITLE_TEXT; //_get_string_by_id( TEXT_UI_CUSTOM_TITLE, L"UI½çÃæÉèÖÃ" ); 
+					tmp_text = UI_CUSTOM_DLG_TITLE_TEXT; //_get_string_by_id( TEXT_UI_CUSTOM_TITLE, L"UIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ); 
 					dlg.Create( GetHWND(), tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 					dlg.SetIcon( IDI_MAIN_ICON ); 
 					dlg.CenterWindow();
@@ -2366,7 +2359,7 @@ _return:
 					dlg( &m_pm );  
 					LPCTSTR tmp_text; 
 
-					tmp_text = _get_string_by_id( TEXT_UI_CUSTOM_TITLE, _T( "UI½çÃæÉèÖÃ" ) ); 
+					tmp_text = _get_string_by_id( TEXT_UI_CUSTOM_TITLE, _T( "UIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 					dlg.Create( GetHWND(), tmp_text, UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 					dlg.SetIcon( IDI_MAIN_ICON ); 
 					dlg.CenterWindow();
@@ -2376,7 +2369,7 @@ _return:
 				{
 					select_trace_tab(); 
 
-					//BUT:Í£Ö¹Ê±¼ä³¤£¬¸ú×ÙÎÞ·¨¼ÌÐø
+					//BUT:Í£Ö¹Ê±ï¿½ä³¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½
 					if( ( ( COptionUI* )msg.pSender )->IsSelected() )
 					{
 						process_log_sw = TRUE; 
@@ -2555,10 +2548,10 @@ _return:
 				else if( name == _T( "save_btn" ) )
 				{
 					/***************************************************************************
-					¿ÉÔÚ¸ú×ÙÊý¾ÝµÄÁ½ÖÖ·½Ê½£º
-					°´ÏÂ°´Å¥½øÐÐ±£´æ
+					ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Ö·ï¿½Ê½ï¿½ï¿½
+					ï¿½ï¿½ï¿½Â°ï¿½Å¥ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 
-					¸ú×ÙÊ±¶¯Ì¬±£´æ(Ó°ÏìÐÔÄÜÎÊÌâ)
+					ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½(Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 					***************************************************************************/
 					LRESULT _ret; 
 					save_log_dlg dlg; 
@@ -2946,7 +2939,7 @@ _return:
 			{
 				periperal_list_dlg dlg; 
 
-				dlg.Create( GetHWND(), _T("ÍâÉèÁÐ±í"), UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
+				dlg.Create( GetHWND(), _T("ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½"), UI_WNDSTYLE_DIALOG, 0L, 0, 0, 1024, 738 );
 				dlg.SetIcon( IDI_MAIN_ICON ); 
 				dlg.CenterWindow();
 				dlg.ShowModal(); 
@@ -3316,7 +3309,7 @@ _return:
 		
 		rcWork.Offset(-oMonitor.rcMonitor.left, -oMonitor.rcMonitor.top);
 
-		// ¼ÆËã×î´ó»¯Ê±£¬ÕýÈ·µÄÔ­µã×ø±ê
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		lpMMI->ptMaxPosition.x	= rcWork.left;
 		lpMMI->ptMaxPosition.y	= rcWork.top;
 
@@ -3434,7 +3427,7 @@ _return:
 
 	LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 	{
-		// ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+		// ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
 		if( wParam == SC_CLOSE )
 		{
 			short_window_effective(); 
@@ -3476,7 +3469,7 @@ _return:
 	LRESULT OnCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 	{
 		LRESULT ret = 0; 
-		// ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+		// ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
 		bHandled = false; 
 		return ret;
 	}
@@ -3533,7 +3526,7 @@ _return:
 			goto _return; 
 		}
 
-		tmp_text = _get_string_by_id( TEXT_SYS_ACTION_TIP_SPECIOUS_ACTION, _T( "±»»³ÒÉµÄÏµÍ³ÐÐÎª" ) ); 
+		tmp_text = _get_string_by_id( TEXT_SYS_ACTION_TIP_SPECIOUS_ACTION, _T( "ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ÏµÍ³ï¿½ï¿½Îª" ) ); 
 
 #ifdef _DEBUG
 		{
@@ -4131,7 +4124,7 @@ _return:
 			case WM_ACTION_EVENT_FILTERING: 	
 				{
 					/****************************************************
-					ÏÔÊ¾ÐÔÄÜÆ¿¾±µã
+					ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ï¿½
 					****************************************************/
 					if( _trace_frame )
 					{
@@ -4908,7 +4901,7 @@ _normal_start:
 		if( ret == ERROR_SUCCESS )
 		{
 			DBG_BP(); 
-			show_msg( NULL, _get_string_by_id( TEXT_COMMON_MUST_RESTART, _T( "ÔÚÏµÍ³Î´ÖØÆôÇ°,±ÈÌØ°²È«µÄ¹¦ÄÜÎÞ·¨Õý³£¼ÓÔØ." ) ) ); 
+			show_msg( NULL, _get_string_by_id( TEXT_COMMON_MUST_RESTART, _T( "ï¿½ï¿½ÏµÍ³Î´ï¿½ï¿½ï¿½ï¿½Ç°,ï¿½ï¿½ï¿½Ø°ï¿½È«ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½." ) ) ); 
 
 			goto _return; 
 		}
@@ -5017,8 +5010,8 @@ _normal_start:
 		::ShowWindow( *main_frame, SW_SHOW );
 
 		/********************************************************
-		×¢Òâ£º
-		ÏûÏ¢Ñ­»·ÖÐ£¬Èç¹û½ÓÊÕµ½WM_QUITÏûÏ¢£¬ÔòÐèÒª·µ»ØWPARAM²ÎÊý¡£
+		×¢ï¿½â£º
+		ï¿½ï¿½Ï¢Ñ­ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_QUITï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½WPARAMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		********************************************************/
 	}
 

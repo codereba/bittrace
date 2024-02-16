@@ -1,4 +1,3 @@
-/* crypto/md5/md5.h */
 /* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
  * All rights reserved.
  *
@@ -59,7 +58,6 @@
 #ifndef HEADER_MD5_H
 #define HEADER_MD5_H
 
-//#include <openssl/e_os2.h>
 #include <stddef.h>
 
 #ifdef  __cplusplus

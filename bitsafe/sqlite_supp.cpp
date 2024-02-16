@@ -1,22 +1,15 @@
 /*
- *
- * Copyright 2010 JiJie Shi(weixin:AIChangeLife)
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 #include "common_func.h"
@@ -280,14 +273,14 @@ INT32 WINAPI set_sqlite3_basic_mode( sqlite3 *db )
 }
 
 /********************************************************************************************
-1.Ö§³Ö64Î»ÎÊÌâ£º
-	1.ÐÔÄÜ·½Ãæ±È½ÏºÃµÄÑ¡ÔñÊÇÖ±½Ó±àÒëÎª64Î»°æ±¾¡£µ«ÐèÒª½«ËùÓÐµÄ¹ØÁªÏîÄ¿¶¼±àÒëÎª64Î»°æ±¾£¬ÐèÒª
-	Í¶Èë´óÁ¿µÄ´¦ÀíÆ½Ì¨Ö§³Ö¼æÈÝÐÔÎÊÌâµÄ±àÒëÊ±¼ä¡£
+1.Ö§ï¿½ï¿½64Î»ï¿½ï¿½ï¿½â£º
+	1.ï¿½ï¿½ï¿½Ü·ï¿½ï¿½ï¿½È½ÏºÃµï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó±ï¿½ï¿½ï¿½Îª64Î»ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª64Î»ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½Òª
+	Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½Æ½Ì¨Ö§ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ê±ï¿½ä¡£
 
-	2.±È½Ï¼òµ¥µÄ´¦Àí·½·¨ÊÇÊ¹ÓÃ¹Ø±Õ64Î»WOWÖØ¶¨ÏòµÄ·½·¨£¬ÓÅµãÊÇ¸ü¸Ä¼òµ¥£¬È±µãÊÇ²»ÄÜ·¢»Ó64Î»ÏµÍ³
-	µÄÐÔÄÜÓÅÊÆ£¬ÓÐÐ©Ï¸½Ú¹¦ÄÜÐèÒª×ö³ö´óµÄµ÷Õû¡£(±ÈÈçInstallHinfSectionÈç¹ûÔÚ32Î»³ÌÐòÏÂÔËÐÐÊÇ»á
-	Ö±½ÓÖØ¶¨ÏòÖÁWOWÄ¿Â¼ÏÂµÄ)¡£
-2.µ÷ÊÔ°æ±¾Ê¹ÓÃ¹Ø±ÕWOW64ÖØ¶¨ÏòµÄ·½·¨²»´¦Àí¡£
+	2.ï¿½È½Ï¼òµ¥µÄ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¹Ø±ï¿½64Î»WOWï¿½Ø¶ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åµï¿½ï¿½Ç¸ï¿½ï¿½Ä¼òµ¥£ï¿½È±ï¿½ï¿½ï¿½Ç²ï¿½ï¿½Ü·ï¿½ï¿½ï¿½64Î»ÏµÍ³
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½Ð©Ï¸ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½InstallHinfSectionï¿½ï¿½ï¿½ï¿½ï¿½32Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç»ï¿½
+	Ö±ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½WOWÄ¿Â¼ï¿½Âµï¿½)ï¿½ï¿½
+2.ï¿½ï¿½ï¿½Ô°æ±¾Ê¹ï¿½Ã¹Ø±ï¿½WOW64ï¿½Ø¶ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 ********************************************************************************************/
 #ifndef _WIN64

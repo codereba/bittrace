@@ -1,31 +1,20 @@
 /*
- *
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
  * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * bittrace is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * bittrace is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with bittrace.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
- 
+
  #pragma once 
-//#include <objbase.h>
 #include <zmouse.h>
-//#include <exdisp.h>
 #include <vector>
-//#include <sstream>
-//#include "menu_ui.h"
 
 #include "tdifw_api.h"
 #include "trace_log_api.h"
@@ -121,7 +110,7 @@ public:
 
 		all_traffic = ( PULARGE_INTEGER )output_buf; 
 
-#define CHINESE_NET_DONW_UP_TIP_FMT "¹²ÉÏÔØ: %d%d, ¹²ÏÂÔØ: %d%d\n"
+#define CHINESE_NET_DONW_UP_TIP_FMT "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %d%d, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %d%d\n"
 #define ENGLISH_NET_DOWN_UP_TIP_FMT "Uploaded: %d%d, Downloaded: %d%d\n"
 		
 		sprintf( output, CHINESE_NET_DONW_UP_TIP_FMT, 
@@ -426,9 +415,9 @@ _return:
 		{
 			ret = ERROR_NOT_READY; 
 			tmp_text = _get_string_by_id( TEXT_NETWORK_CONN_SELECT_TARGET_TIP, 
-				_T( "ÇëÑ¡ÖÐÐèÒª¿ØÖÆÁ÷Á¿µÄ½ø³Ì" ) ); 
+				_T( "ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½" ) ); 
 
-			show_msg( GetHWND(), tmp_text, NULL, _T( "×¢Òâ" ), 0 ); 
+			show_msg( GetHWND(), tmp_text, NULL, _T( "×¢ï¿½ï¿½" ), 0 ); 
 			goto _return; 
 		}
 
@@ -682,7 +671,7 @@ _return:
 	LRESULT on_ctrl_proc_net( proc_net_ctrl_mode mode )
 	{
 		LRESULT ret; 
-		// TODO: ÔÚ´ËÌí¼Ó¿Ø¼þÍ¨Öª´¦Àí³ÌÐò´úÂë
+		// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ó¿Ø¼ï¿½Í¨Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		for( ; ; )
 		{
 			DWORD wait_ret; 
@@ -791,7 +780,7 @@ _return:
     }
  
     /*
-    * ¹Ø¼üµÄ»Øµ÷º¯Êý£¬IListCallbackUI ÖÐµÄÒ»¸öÐéº¯Êý£¬äÖÈ¾Ê±ºò»áµ÷ÓÃ,ÔÚ[1]ÖÐÉèÖÃÁË»Øµ÷¶ÔÏó
+    * ï¿½Ø¼ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IListCallbackUI ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½[1]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     */
     LPCTSTR GetItemText(CControlUI* pControl, int iIndex, int iSubItem)
     {
@@ -825,26 +814,26 @@ _return:
 				{
 					//_T( "BlkUp/" )
 					tmp_text = _get_string_by_id( TEXT_NETWORK_CONN_BLOCK_UP, 
-						_T( "×èÖ¹ÉÏ´«/" ) ); 
+						_T( "ï¿½ï¿½Ö¹ï¿½Ï´ï¿½/" ) ); 
 					_tcsncat( szBuf, tmp_text, MAX_DESC_INFO_LEN - _tcslen( szBuf ) ); 
 				}
 				else
 				{
 					tmp_text = _get_string_by_id( TEXT_NETWORK_CONN_ALLOW_UP, 
-						_T( "ÔÊÐíÉÏ´«/" ) ); 
+						_T( "ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½/" ) ); 
 					_tcsncat( szBuf, tmp_text, MAX_DESC_INFO_LEN - _tcslen( szBuf ) ); 
 				}
 
 				if( info->down_blk_state == PROC_NET_BLOCK )
 				{
 					tmp_text = _get_string_by_id( TEXT_NETWORK_CONN_BLOCK_DOWN, 
-						_T( "×èÖ¹ÏÂÔØ" ) ); 
+						_T( "ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½" ) ); 
 					_tcsncat( szBuf, tmp_text, MAX_DESC_INFO_LEN - _tcslen( szBuf ) ); 
 				}
 				else
 				{
 					tmp_text = _get_string_by_id( TEXT_NETWORK_CONN_ALLOW_DOWN, 
-						_T( "ÔÊÐíÏÂÔØ" ) ); 
+						_T( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" ) ); 
 					_tcsncat( szBuf, tmp_text, MAX_DESC_INFO_LEN - _tcslen( szBuf ) ); 
 				}
 
@@ -1118,7 +1107,7 @@ _return:
 
     LRESULT OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
     {
-        // ÓÐÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+        // ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½WM_NCDESTROYï¿½ï¿½ï¿½Õµï¿½wParamÎªSC_CLOSEï¿½ï¿½WM_SYSCOMMAND
 
 		hide_sys_menu( GetHWND() ); 
 

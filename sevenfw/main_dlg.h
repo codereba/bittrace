@@ -1,27 +1,18 @@
 /*
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
- * This file is part of NetMonitor.
+ * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * NetMonitor is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * NetMonitor is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with NetMonitor.  If not, see <http://www.gnu.org/licenses/>.
- *
- *
- *  2007.6.10	Ji Jie Shi modified it for this ui lib. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
- 
- #ifndef __MAIN_DLG_H__
+#ifndef __MAIN_DLG_H__
 #define __MAIN_DLG_H__
 
 #include "sys_mng_api.h"
@@ -131,7 +122,7 @@ public:
 	{
 	}
 
-// ¶Ô»°¿òÊý¾Ý
+// ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	enum { IDD = IDD_MAIN_DLG };
 
 	BEGIN_MSG_MAP(main_dlg)
@@ -179,11 +170,11 @@ public:
 		bHandled = FALSE;
 		if (IsIconic())
 		{
-			CPaintDC dc(m_hWnd); // ÓÃÓÚ»æÖÆµÄÉè±¸ÉÏÏÂÎÄ
+			CPaintDC dc(m_hWnd); // ï¿½ï¿½ï¿½Ú»ï¿½ï¿½Æµï¿½ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 			SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.m_hDC), 0);
 
-			// Ê¹Í¼±êÔÚ¹¤×÷¾ØÐÎÖÐ¾ÓÖÐ
+			// Ê¹Í¼ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½
 			int cxIcon = GetSystemMetrics(SM_CXICON);
 			int cyIcon = GetSystemMetrics(SM_CYICON);
 			CRect rect;
@@ -191,7 +182,7 @@ public:
 			int x = (rect.Width() - cxIcon + 1) / 2;
 			int y = (rect.Height() - cyIcon + 1) / 2;
 
-			// »æÖÆÍ¼±ê
+			// ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 			dc.DrawIcon(x, y, m_hIcon);
 			bHandled = TRUE;
 		}
@@ -227,8 +218,8 @@ public:
 			if (!strAboutMenu.IsEmpty())
 			{
 				pSysMenu.AppendMenu( MF_SEPARATOR, ( UINT_PTR )0, ( LPCTSTR ) NULL );
-				pSysMenu.AppendMenu( MF_STRING, ( UINT_PTR )IDM_INSTALL, ( LPCTSTR )"°²×°7²ã·À»ðÇ½(&I)" );
-				pSysMenu.AppendMenu( MF_STRING, ( UINT_PTR )IDM_UNINSTALL, ( LPCTSTR )"Ð¶ÔØ7²ã·À»ðÇ½(&U)" );
+				pSysMenu.AppendMenu( MF_STRING, ( UINT_PTR )IDM_INSTALL, ( LPCTSTR )"ï¿½ï¿½×°7ï¿½ï¿½ï¿½ï¿½ï¿½Ç½(&I)" );
+				pSysMenu.AppendMenu( MF_STRING, ( UINT_PTR )IDM_UNINSTALL, ( LPCTSTR )"Ð¶ï¿½ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½Ç½(&U)" );
 
 				pSysMenu.AppendMenu( MF_SEPARATOR, ( UINT_PTR )0, ( LPCTSTR )NULL );
 				pSysMenu.AppendMenu( MF_STRING, ( UINT_PTR )IDM_ABOUTBOX, "About..." );

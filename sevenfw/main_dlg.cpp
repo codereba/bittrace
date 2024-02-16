@@ -1,26 +1,18 @@
 /*
- * Copyright 2010 JiJie Shi
+ * Copyright 2010-2024 JiJie.Shi.
  *
- * This file is part of NetMonitor.
+ * This file is part of bittrace.
+ * Licensed under the Gangoo License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
  *
- * NetMonitor is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * NetMonitor is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with NetMonitor.  If not, see <http://www.gnu.org/licenses/>.
- *
- *
- *  2007.6.10	Ji Jie Shi modified it for this ui lib. 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
- #define X_STL_NET 1 
+#define X_STL_NET 1 
 
 #include "resource.h"
 
@@ -111,7 +103,7 @@ HANDLE hInstMutex = NULL;
 //
 //}
 //
-////ÔÚ ÉÏÃæµÄ´úÂë¶ÎÖÐ£¬Èç¹ûpbÖ¸ÏòÒ»¸öDÀàÐÍµÄ¶ÔÏó£¬pd1ºÍpd2ÊÇÒ»ÑùµÄ£¬²¢ÇÒ¶ÔÕâÁ½¸öÖ¸ÕëÖ´ÐÐDÀàÐÍµÄÈÎºÎ²Ù×÷¶¼ÊÇ°²È«µÄ£»µ«ÊÇ£¬Èç¹ûpbÖ¸ÏòµÄÊÇÒ»¸ö BÀàÐÍµÄ¶ÔÏó£¬ÄÇÃ´pd1½«ÊÇÒ»¸öÖ¸Ïò¸Ã¶ÔÏóµÄÖ¸Õë£¬¶ÔËü½øÐÐDÀàÐÍµÄ²Ù×÷½«ÊÇ²»°²È«µÄ£¨Èç·ÃÎÊm_szName£©£¬¶øpd2½«ÊÇÒ»¸ö¿ÕÖ¸Õë¡£ÁíÍâÒª×¢ Òâ£ºBÒªÓÐÐéº¯Êý£¬·ñÔò»á±àÒë³ö´í£»static_castÔòÃ»ÓÐÕâ¸öÏÞÖÆ¡£ÕâÊÇÓÉÓÚÔËÐÐÊ±ÀàÐÍ¼ì²éÐèÒªÔËÐÐÊ±ÀàÐÍÐÅÏ¢£¬¶øÕâ¸öÐÅÏ¢´æ´¢ÔÚÀàµÄÐéº¯Êý±í £¨¹ØÓÚÐéº¯Êý±íµÄ¸ÅÄî£¬ÏêÏ¸¿É¼û<Inside c++ object model>£©ÖÐ£¬Ö»ÓÐ¶¨ÒåÁËÐéº¯ÊýµÄÀà²ÅÓÐÐéº¯Êý±í£¬Ã»ÓÐ¶¨ÒåÐéº¯ÊýµÄÀàÊÇÃ»ÓÐÐéº¯Êý±íµÄ¡£
+////ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½pbÖ¸ï¿½ï¿½Ò»ï¿½ï¿½Dï¿½ï¿½ï¿½ÍµÄ¶ï¿½ï¿½ï¿½pd1ï¿½ï¿½pd2ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ö´ï¿½ï¿½Dï¿½ï¿½ï¿½Íµï¿½ï¿½ÎºÎ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½È«ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½pbÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ Bï¿½ï¿½ï¿½ÍµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ã´pd1ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö¸ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ÍµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½ï¿½È«ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½m_szNameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pd2ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë¡£ï¿½ï¿½ï¿½ï¿½Òª×¢ ï¿½â£ºBÒªï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½static_castï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½î£¬ï¿½ï¿½Ï¸ï¿½É¼ï¿½<Inside c++ object model>ï¿½ï¿½ï¿½Ð£ï¿½Ö»ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½éº¯ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½
 //
 //class A{
 //
@@ -165,7 +157,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	hInstMutex = CreateMutex( NULL, FALSE, INST_MUTEX_NAME ); 
 	if( hInstMutex == NULL || ( hInstMutex != NULL && GetLastError() == ERROR_ALREADY_EXISTS ) )
 	{
-		MessageBox( NULL, "7²ã·À»ðÇ½Ö»¿ÉÒÔÓÐÒ»¸öÊµÀýÔËÐÐ\n", NULL, MB_OK ); 
+		MessageBox( NULL, "7ï¿½ï¿½ï¿½ï¿½ï¿½Ç½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n", NULL, MB_OK ); 
 		ExitProcess( 0 ); 
 		return TRUE; 
 	}
